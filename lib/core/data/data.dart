@@ -207,6 +207,7 @@ class Data {
   ];
 
   static List<Model> projects = [
+    //TODO: complete this
     Model(
       id: '1',
       name: 'Spotter',
@@ -219,9 +220,9 @@ class Data {
       ],
       link: '',
       skills: [
-        'Android',
-        'XML',
-        'Room',
+        'Flutter',
+        'Firebase',
+        'Google Cloud',
       ],
       linkName: 'Certificate',
     ),
@@ -266,7 +267,9 @@ class Data {
     ),
   ];
 
-  static List<Model> certifications = [];
+  static List<Model> certifications = [
+    //TODO: Complete this
+  ];
 
   static Model culAchievements = Model(
     id: '1',
@@ -279,7 +282,7 @@ class Data {
       '2nd Prize in Nirma Duet Singing Competition 2019.',
       '1st Prize in Parul University e-cultural fest 2020.',
       '3rd Prize in Nirma University Western Singing Competition 2023.',
-      'Performed on stage multiple times in front of huge crowd.',
+      'Performed on stage multiple times in front of a huge crowd.',
     ],
     link: '',
     skills: [],

@@ -15,6 +15,9 @@ Beyond my technical skills, I have a deep passion for music. As a hobby, I am pr
 I am eager to apply my technical expertise, leadership experience, and passion for music to contribute effectively to software development projects. I look forward to exploring opportunities where I can utilize my skills and make a meaningful impact.
   ''';
 
+  static const String mobileText =
+  '''Hello, sorry for the inconvenience.\n\nPlease either open this site in landscape mode as a desktop site and reload or open it on a PC.\n\nThank You.''';
+
   static const String photo = 'assets/images/photo.jpg';
 
   static const String avatar = 'assets/images/avatar.png';
@@ -34,4 +37,6 @@ I am eager to apply my technical expertise, leadership experience, and passion f
   static const String instaLink = 'https://www.instagram.com/yashas_hm';
 
   static const String githubLink = 'https://github.com/yashas-hm';
+
+  static const String resumeLink = 'https://drive.google.com/drive/folders/1JMF3MOh4C_flDZ7ELM1UmaoN-glF4ljh?usp=sharing';
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/core/constants/app_theme.dart';
 import 'package:portfolio/screens/about_screen.dart';
@@ -6,6 +7,7 @@ import 'package:portfolio/screens/certifications_screen.dart';
 import 'package:portfolio/screens/education_screen.dart';
 import 'package:portfolio/screens/experience_screen.dart';
 import 'package:portfolio/screens/home_screen.dart';
+import 'package:portfolio/screens/mobile_screen.dart';
 import 'package:portfolio/screens/project_screen.dart';
 import 'package:resize/resize.dart';
 
@@ -27,6 +29,26 @@ class MyApp extends StatelessWidget {
           )
         : const Size(390, 844);
 
+    // SystemChrome.setPreferredOrientations([
+    //   DeviceOrientation.landscapeLeft,
+    //   DeviceOrientation.landscapeRight,
+    // ]);
+
+    if (screenSize.height > screenSize.width) {
+      return Resize(
+        builder: () => GetMaterialApp(
+          defaultTransition: Transition.upToDown,
+          transitionDuration: const Duration(milliseconds: 500),
+          theme: AppTheme.getTheme(false, context),
+          debugShowCheckedModeBanner: false,
+          title: 'Yashas Majmudar',
+          home: const MobileScreen(),
+        ),
+        allowtextScaling: false,
+        size: resize,
+      );
+    }
+
     return Resize(
       builder: () => GetMaterialApp(
         defaultTransition: Transition.upToDown,
@@ -35,7 +57,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Yashas Majmudar',
         routes: {
-          '/':(ctx) => const HomeScreen(),
+          '/': (ctx) => const HomeScreen(),
           '/HomeScreen': (ctx) => const HomeScreen(),
           '/AboutScreen': (ctx) => const AboutScreen(),
           '/ExperienceScreen': (ctx) => const ExperienceScreen(),
