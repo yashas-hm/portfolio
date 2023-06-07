@@ -124,9 +124,11 @@ class _ModelItemState extends State<ModelItem> {
                 SizedBox(
                   width: screenSize.width,
                   child: Text(
-                    checkPresent()
-                        ? '${DateFormat('MMMM yyyy').format(widget.item.from)} - Present'
-                        : '${DateFormat('MMMM yyyy').format(widget.item.from)} - ${DateFormat('MMMM yyyy').format(widget.item.to)}',
+                    widget.item.from == DateTime(3000)
+                        ? DateFormat('MMMM yyyy').format(widget.item.to)
+                        : checkPresent()
+                            ? '${DateFormat('MMMM yyyy').format(widget.item.from)} - Present'
+                            : '${DateFormat('MMMM yyyy').format(widget.item.from)} - ${DateFormat('MMMM yyyy').format(widget.item.to)}',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 30.sp,
@@ -147,38 +149,40 @@ class _ModelItemState extends State<ModelItem> {
                       left: 50.sp,
                       right: 20.sp,
                     ),
-                    child: ListView.builder(
-                      itemCount: widget.item.description.length,
-                      itemBuilder: (ctx, index) => Row(
-                        children: [
-                          Text(
-                            '●',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontSize: 20.sp,
-                              color: AppColor.bgDark,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20.sp,
-                          ),
-                          Expanded(
-                            child: SizedBox(
-                              child: Text(
-                                widget.item.description[index],
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontSize: 30.sp,
-                                  color: AppColor.bgDark,
-                                  fontWeight: FontWeight.normal,
+                    child: widget.item.description.isNotEmpty
+                        ? ListView.builder(
+                            itemCount: widget.item.description.length,
+                            itemBuilder: (ctx, index) => Row(
+                              children: [
+                                Text(
+                                  '●',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    color: AppColor.bgDark,
+                                    fontWeight: FontWeight.w300,
+                                  ),
                                 ),
-                              ),
+                                SizedBox(
+                                  width: 20.sp,
+                                ),
+                                Expanded(
+                                  child: SizedBox(
+                                    child: Text(
+                                      widget.item.description[index],
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 30.sp,
+                                        color: AppColor.bgDark,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
+                          )
+                        : null,
                   ),
                 ),
                 SizedBox(
@@ -233,9 +237,8 @@ class _ModelItemState extends State<ModelItem> {
                           '${widget.item.linkName} →',
                           style: TextStyle(
                             fontSize: 40.sp,
-                            color: hover
-                                ? AppColor.primaryDark
-                                : AppColor.bgDark,
+                            color:
+                                hover ? AppColor.primaryDark : AppColor.bgDark,
                             fontWeight: FontWeight.bold,
                           ),
                         ),

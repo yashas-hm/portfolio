@@ -4,7 +4,6 @@ import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/widgets/rain.dart';
 import 'package:portfolio/widgets/redirect_text.dart';
 import 'package:resize/resize.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class MobileScreen extends StatelessWidget {

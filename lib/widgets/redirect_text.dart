@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:resize/resize.dart';
-
 class RedirectText extends StatefulWidget {
   const RedirectText({
     super.key,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/core/constants/app_theme.dart';
 import 'package:portfolio/screens/about_screen.dart';
