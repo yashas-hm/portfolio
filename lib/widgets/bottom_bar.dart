@@ -31,7 +31,7 @@ class BottomBar extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: MainAxisSize.max,
                 children: [
                   Row(
                     mainAxisSize: MainAxisSize.min,
@@ -55,9 +55,6 @@ class BottomBar extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    width: 50.sp,
-                  ),
                   GestureDetector(
                     onTap: () async =>
                         launchUrl(Uri.parse('mailto:yashashm.dev@gmail.com')),
@@ -76,6 +73,31 @@ class BottomBar extends StatelessWidget {
                         ),
                         SelectableText(
                           'yashashm.dev@gmail.com',
+                          style: TextStyle(
+                            color: AppColor.bgLight,
+                            fontSize: 20.sp,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () async => launchUrlString(AppConstants.resumeLink),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.file_present,
+                          color: AppColor.bgLight,
+                          size: 30.sp,
+                        ),
+                        SizedBox(
+                          width: 20.sp,
+                        ),
+                        Text(
+                          'Resume',
                           style: TextStyle(
                             color: AppColor.bgLight,
                             fontSize: 20.sp,
