@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = WidgetsBinding.instance.window.physicalSize;
+    print('test');
 
     final resize = screenSize.width > screenSize.height
         ? Size(
