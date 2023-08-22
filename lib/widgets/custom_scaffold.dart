@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/data/data.dart';
 import 'package:portfolio/screens/about_screen.dart';
-import 'package:portfolio/screens/certifications_screen.dart';
 import 'package:portfolio/screens/experience_screen.dart';
 import 'package:portfolio/screens/home_screen.dart';
 import 'package:portfolio/screens/project_screen.dart';
