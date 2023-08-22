@@ -1,239 +1,383 @@
-'use strict';
-const MANIFEST = 'flutter-app-manifest';
-const TEMP = 'flutter-temp-cache';
-const CACHE_NAME = 'flutter-app-cache';
+// Copyright 2014 The Flutter Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
 
-const RESOURCES = {"version.json": "009c9e65172e010890f7f65fde438006",
-"favicon.ico": "cf67d049a06d088a8e5fc2216ae1d7e2",
-"index.html": "1901e23d8c56325a089d13d0194d1ee3",
-"/": "1901e23d8c56325a089d13d0194d1ee3",
-"main.dart.js": "bc3a02f46e52c772005c767880bd84bc",
-"photo.png": "0bfc75c639481fabcd06098a95ba996f",
-"manifest.json": "9952cdad8eb1db1c0fa7fea96cec4fa0",
-"assets/AssetManifest.json": "8555c6c8d7a19633a67467dabfd2b240",
-"assets/NOTICES": "4723e72b1d1f3949815d606bbbeb6ddf",
-"assets/FontManifest.json": "9b2d07d5fa15c5c183a6ef3035b95e34",
-"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "89ed8f4e49bcdfc0b5bfc9b24591e347",
-"assets/shaders/ink_sparkle.frag": "f8b80e740d33eb157090be4e995febdf",
-"assets/AssetManifest.bin": "5dc24f6b8171223c98cb5d62eedaa0da",
-"assets/fonts/MaterialIcons-Regular.otf": "e123ef4ec55b36b6abd24fc783638694",
-"assets/assets/anim/down.json": "aed022b6b6ad2e0372396de6560847c8",
-"assets/assets/anim/bg.json": "1d699f21c6e9eeeeeddd2bc604cd9363",
-"assets/assets/anim/insta.json": "0f0f51965141fae27f7fb11143bba898",
-"assets/assets/anim/github.json": "6672508feb21dac73f00ca9c5de1dd81",
-"assets/assets/anim/linkedin.json": "e0ab69182296f63d4460a8741be7aba1",
-"assets/assets/images/photo.png": "0bfc75c639481fabcd06098a95ba996f",
-"assets/assets/images/avatar.png": "14478fdaf8fbaa3dfce723e7a5bda54c",
-"assets/assets/logo/spring.svg": "66a8a2b55ca8f99af651e3c1fdbe7e5e",
-"assets/assets/logo/psql.svg": "e48f7a312772d3cfe2d787a2f018707c",
-"assets/assets/logo/android.svg": "cba7205d80ef4306d4cc8bc0856a307d",
-"assets/assets/logo/js.svg": "63f114e48bb1dcc492b10226d00e922b",
-"assets/assets/logo/aws.svg": "6bf197dcb60596e696d0fca26f0d82c2",
-"assets/assets/logo/firebase.svg": "2e454c9e47028a84fa7088a59be42244",
-"assets/assets/logo/java.svg": "506a6370bbb46bb9bc6704985a50c5ab",
-"assets/assets/logo/gcp.svg": "e3701a9bc8da0e4020f0b6abd6b64a0b",
-"assets/assets/logo/bash.svg": "869c61ee850b4874a0f6b244f1b38872",
-"assets/assets/logo/agile.png": "83bf6255664709618759c17cbd6353e9",
-"assets/assets/logo/link.png": "d7dc495d1c6920e7e5c05c3e5f33df49",
-"assets/assets/logo/leader.png": "9c7b4692f06dc9371d041f7bd65a1361",
-"assets/assets/logo/cul.png": "a4f4c71169789d41ab6b12901f897466",
-"assets/assets/logo/flutter.svg": "2985d7b9f25064926f468e826c352600",
-"assets/assets/logo/opencv.svg": "edb14ef06acbf91fdafebb4dd1ee3736",
-"assets/assets/logo/python.svg": "1b73d86b9332d05471f0a00e45203c34",
-"assets/assets/logo/heroku.svg": "ac7fc520dba9697b884545b0dff04f27",
-"assets/assets/logo/docker.svg": "d7f56d8e57d04ffd9880e5fc2f4bd740",
-"assets/assets/logo/git.svg": "528e618106729f7dac43821c0d56e425",
-"assets/assets/logo/coord.png": "86d67111482767d4ab8120f48eefc93e",
-"assets/assets/logo/as.svg": "458860a5dde8755fe7cb972b64fe06cd",
-"assets/assets/logo/tf.svg": "a5fef83c01fe35af815769a31a41aecd",
-"assets/assets/logo/jira.svg": "ce0d5d0e3af87df3c97c0f4808496d95",
-"assets/assets/logo/management.png": "129fc664ea65491f9507671d3db14c56",
-"assets/assets/logo/kotlin.svg": "8104a59ba77c34977e8f3502a8bfcaf7",
-"assets/assets/logo/np.svg": "bff0a2e78916a09e0ade701cb07acf0f",
-"assets/assets/logo/thinking.png": "d71ea1fb30b845572f9d5dfbf7138189",
-"assets/assets/logo/dart.svg": "74b5a20e303e4bcd30d2f4e850659d6e",
-"assets/assets/logo/bloc.png": "39ead341ba08f3289a1be8c39d872ed0",
-"assets/assets/logo/dsa.png": "d0d04c6edec340e9db703702237d51f9",
-"assets/assets/logo/css.svg": "f417c2d5c0138e052bbe2225ec602705",
-"assets/assets/logo/communication.png": "727ce2033d4564cacf279bb1e088aa97",
-"assets/assets/logo/c.svg": "9f820c0c994c41fd146dcefa9e5f447d",
-"assets/assets/logo/mvc.png": "a4551da02128cd439f42fd772fe666ba",
-"assets/assets/logo/ml.png": "d6972eac2c0ef18ce327325067f9d28a",
-"assets/assets/logo/react.svg": "8d2dcd5b33ba3978ee63297a3aaa4a98",
-"assets/assets/logo/html.svg": "33eb850f7292a31025b9b7e0eadb9475",
-"assets/assets/logo/intellij.svg": "701f67dc57313c24a9763b9229c471cc",
-"assets/assets/logo/iot.svg": "97338025fde85af8ae07a8b6385c01ed",
-"assets/assets/logo/mdp.png": "0b44ece491c0674e906dde6d1bfde4ac",
-"assets/assets/logo/pd.svg": "cdb7fde7149825cf43e88eff46a4bae1",
-"assets/assets/logo/node.svg": "66450a7dc677d7bbbd8369e25c6a824a",
-"assets/assets/logo/tech.png": "3f1f2dba85c4a165db37181c17cdbcba",
-"assets/assets/fonts/roboto.ttf": "8a36205bd9b83e03af0591a004bc97f4"};
-// The application shell files that are downloaded before a service worker can
-// start.
-const CORE = ["main.dart.js",
-"index.html",
-"assets/AssetManifest.json",
-"assets/FontManifest.json"];
-
-// During install, the TEMP cache is populated with the application shell files.
-self.addEventListener("install", (event) => {
-  self.skipWaiting();
-  return event.waitUntil(
-    caches.open(TEMP).then((cache) => {
-      return cache.addAll(
-        CORE.map((value) => new Request(value, {'cache': 'reload'})));
-    })
-  );
-});
-// During activate, the cache is populated with the temp files downloaded in
-// install. If this service worker is upgrading from one with a saved
-// MANIFEST, then use this to retain unchanged resource files.
-self.addEventListener("activate", function(event) {
-  return event.waitUntil(async function() {
-    try {
-      var contentCache = await caches.open(CACHE_NAME);
-      var tempCache = await caches.open(TEMP);
-      var manifestCache = await caches.open(MANIFEST);
-      var manifest = await manifestCache.match('manifest');
-      // When there is no prior manifest, clear the entire cache.
-      if (!manifest) {
-        await caches.delete(CACHE_NAME);
-        contentCache = await caches.open(CACHE_NAME);
-        for (var request of await tempCache.keys()) {
-          var response = await tempCache.match(request);
-          await contentCache.put(request, response);
-        }
-        await caches.delete(TEMP);
-        // Save the manifest to make future upgrades efficient.
-        await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
-        // Claim client to enable caching on first launch
-        self.clients.claim();
-        return;
-      }
-      var oldManifest = await manifest.json();
-      var origin = self.location.origin;
-      for (var request of await contentCache.keys()) {
-        var key = request.url.substring(origin.length + 1);
-        if (key == "") {
-          key = "/";
-        }
-        // If a resource from the old manifest is not in the new cache, or if
-        // the MD5 sum has changed, delete it. Otherwise the resource is left
-        // in the cache and can be reused by the new service worker.
-        if (!RESOURCES[key] || RESOURCES[key] != oldManifest[key]) {
-          await contentCache.delete(request);
-        }
-      }
-      // Populate the cache with the app shell TEMP files, potentially overwriting
-      // cache files preserved above.
-      for (var request of await tempCache.keys()) {
-        var response = await tempCache.match(request);
-        await contentCache.put(request, response);
-      }
-      await caches.delete(TEMP);
-      // Save the manifest to make future upgrades efficient.
-      await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
-      // Claim client to enable caching on first launch
-      self.clients.claim();
-      return;
-    } catch (err) {
-      // On an unhandled exception the state of the cache cannot be guaranteed.
-      console.error('Failed to upgrade service worker: ' + err);
-      await caches.delete(CACHE_NAME);
-      await caches.delete(TEMP);
-      await caches.delete(MANIFEST);
-    }
-  }());
-});
-// The fetch handler redirects requests for RESOURCE files to the service
-// worker cache.
-self.addEventListener("fetch", (event) => {
-  if (event.request.method !== 'GET') {
-    return;
-  }
-  var origin = self.location.origin;
-  var key = event.request.url.substring(origin.length + 1);
-  // Redirect URLs to the index.html
-  if (key.indexOf('?v=') != -1) {
-    key = key.split('?v=')[0];
-  }
-  if (event.request.url == origin || event.request.url.startsWith(origin + '/#') || key == '') {
-    key = '/';
-  }
-  // If the URL is not the RESOURCE list then return to signal that the
-  // browser should take over.
-  if (!RESOURCES[key]) {
-    return;
-  }
-  // If the URL is the index.html, perform an online-first request.
-  if (key == '/') {
-    return onlineFirst(event);
-  }
-  event.respondWith(caches.open(CACHE_NAME)
-    .then((cache) =>  {
-      return cache.match(event.request).then((response) => {
-        // Either respond with the cached resource, or perform a fetch and
-        // lazily populate the cache only if the resource was successfully fetched.
-        return response || fetch(event.request).then((response) => {
-          if (response && Boolean(response.ok)) {
-            cache.put(event.request, response.clone());
-          }
-          return response;
-        });
-      })
-    })
-  );
-});
-self.addEventListener('message', (event) => {
-  // SkipWaiting can be used to immediately activate a waiting service worker.
-  // This will also require a page refresh triggered by the main worker.
-  if (event.data === 'skipWaiting') {
-    self.skipWaiting();
-    return;
-  }
-  if (event.data === 'downloadOffline') {
-    downloadOffline();
-    return;
-  }
-});
-// Download offline will check the RESOURCES for all files not in the cache
-// and populate them.
-async function downloadOffline() {
-  var resources = [];
-  var contentCache = await caches.open(CACHE_NAME);
-  var currentContent = {};
-  for (var request of await contentCache.keys()) {
-    var key = request.url.substring(origin.length + 1);
-    if (key == "") {
-      key = "/";
-    }
-    currentContent[key] = true;
-  }
-  for (var resourceKey of Object.keys(RESOURCES)) {
-    if (!currentContent[resourceKey]) {
-      resources.push(resourceKey);
-    }
-  }
-  return contentCache.addAll(resources);
+if (!_flutter) {
+  var _flutter = {};
 }
-// Attempt to download the resource online before falling back to
-// the offline cache.
-function onlineFirst(event) {
-  return event.respondWith(
-    fetch(event.request).then((response) => {
-      return caches.open(CACHE_NAME).then((cache) => {
-        cache.put(event.request, response.clone());
-        return response;
-      });
-    }).catch((error) => {
-      return caches.open(CACHE_NAME).then((cache) => {
-        return cache.match(event.request).then((response) => {
-          if (response != null) {
-            return response;
+_flutter.loader = null;
+
+(function () {
+  "use strict";
+
+  const baseUri = ensureTrailingSlash(getBaseURI());
+
+  function getBaseURI() {
+    const base = document.querySelector("base");
+    return (base && base.getAttribute("href")) || "";
+  }
+
+  function ensureTrailingSlash(uri) {
+    if (uri == "") {
+      return uri;
+    }
+    return uri.endsWith("/") ? uri : `${uri}/`;
+  }
+
+  /**
+   * Wraps `promise` in a timeout of the given `duration` in ms.
+   *
+   * Resolves/rejects with whatever the original `promises` does, or rejects
+   * if `promise` takes longer to complete than `duration`. In that case,
+   * `debugName` is used to compose a legible error message.
+   *
+   * If `duration` is < 0, the original `promise` is returned unchanged.
+   * @param {Promise} promise
+   * @param {number} duration
+   * @param {string} debugName
+   * @returns {Promise} a wrapped promise.
+   */
+  async function timeout(promise, duration, debugName) {
+    if (duration < 0) {
+      return promise;
+    }
+    let timeoutId;
+    const _clock = new Promise((_, reject) => {
+      timeoutId = setTimeout(() => {
+        reject(
+          new Error(
+            `${debugName} took more than ${duration}ms to resolve. Moving on.`,
+            {
+              cause: timeout,
+            }
+          )
+        );
+      }, duration);
+    });
+
+    return Promise.race([promise, _clock]).finally(() => {
+      clearTimeout(timeoutId);
+    });
+  }
+
+  /**
+   * Handles the creation of a TrustedTypes `policy` that validates URLs based
+   * on an (optional) incoming array of RegExes.
+   */
+  class FlutterTrustedTypesPolicy {
+    /**
+     * Constructs the policy.
+     * @param {[RegExp]} validPatterns the patterns to test URLs
+     * @param {String} policyName the policy name (optional)
+     */
+    constructor(validPatterns, policyName = "flutter-js") {
+      const patterns = validPatterns || [
+        /\.js$/,
+      ];
+      if (window.trustedTypes) {
+        this.policy = trustedTypes.createPolicy(policyName, {
+          createScriptURL: function(url) {
+            const parsed = new URL(url, window.location);
+            const file = parsed.pathname.split("/").pop();
+            const matches = patterns.some((pattern) => pattern.test(file));
+            if (matches) {
+              return parsed.toString();
+            }
+            console.error(
+              "URL rejected by TrustedTypes policy",
+              policyName, ":", url, "(download prevented)");
           }
-          throw error;
+        });
+      }
+    }
+  }
+
+  /**
+   * Handles loading/reloading Flutter's service worker, if configured.
+   *
+   * @see: https://developers.google.com/web/fundamentals/primers/service-workers
+   */
+  class FlutterServiceWorkerLoader {
+    /**
+     * Injects a TrustedTypesPolicy (or undefined if the feature is not supported).
+     * @param {TrustedTypesPolicy | undefined} policy
+     */
+    setTrustedTypesPolicy(policy) {
+      this._ttPolicy = policy;
+    }
+
+    /**
+     * Returns a Promise that resolves when the latest Flutter service worker,
+     * configured by `settings` has been loaded and activated.
+     *
+     * Otherwise, the promise is rejected with an error message.
+     * @param {*} settings Service worker settings
+     * @returns {Promise} that resolves when the latest serviceWorker is ready.
+     */
+    loadServiceWorker(settings) {
+      if (settings == null) {
+        // In the future, settings = null -> uninstall service worker?
+        console.debug("Null serviceWorker configuration. Skipping.");
+        return Promise.resolve();
+      }
+      if (!("serviceWorker" in navigator)) {
+        let errorMessage = "Service Worker API unavailable.";
+        if (!window.isSecureContext) {
+          errorMessage += "\nThe current context is NOT secure."
+          errorMessage += "\nRead more: https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts";
+        }
+        return Promise.reject(
+          new Error(errorMessage)
+        );
+      }
+      const {
+        serviceWorkerVersion,
+        serviceWorkerUrl = `${baseUri}flutter_service_worker.js?v=${serviceWorkerVersion}`,
+        timeoutMillis = 4000,
+      } = settings;
+
+      // Apply the TrustedTypes policy, if present.
+      let url = serviceWorkerUrl;
+      if (this._ttPolicy != null) {
+        url = this._ttPolicy.createScriptURL(url);
+      }
+
+      const serviceWorkerActivation = navigator.serviceWorker
+        .register(url)
+        .then(this._getNewServiceWorker)
+        .then(this._waitForServiceWorkerActivation);
+
+      // Timeout race promise
+      return timeout(
+        serviceWorkerActivation,
+        timeoutMillis,
+        "prepareServiceWorker"
+      );
+    }
+
+    /**
+     * Returns the latest service worker for the given `serviceWorkerRegistrationPromise`.
+     *
+     * This might return the current service worker, if there's no new service worker
+     * awaiting to be installed/updated.
+     *
+     * @param {Promise<ServiceWorkerRegistration>} serviceWorkerRegistrationPromise
+     * @returns {Promise<ServiceWorker>}
+     */
+    async _getNewServiceWorker(serviceWorkerRegistrationPromise) {
+      const reg = await serviceWorkerRegistrationPromise;
+
+      if (!reg.active && (reg.installing || reg.waiting)) {
+        // No active web worker and we have installed or are installing
+        // one for the first time. Simply wait for it to activate.
+        console.debug("Installing/Activating first service worker.");
+        return reg.installing || reg.waiting;
+      } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
+        // When the app updates the serviceWorkerVersion changes, so we
+        // need to ask the service worker to update.
+        return reg.update().then((newReg) => {
+          console.debug("Updating service worker.");
+          return newReg.installing || newReg.waiting || newReg.active;
+        });
+      } else {
+        console.debug("Loading from existing service worker.");
+        return reg.active;
+      }
+    }
+
+    /**
+     * Returns a Promise that resolves when the `latestServiceWorker` changes its
+     * state to "activated".
+     *
+     * @param {Promise<ServiceWorker>} latestServiceWorkerPromise
+     * @returns {Promise<void>}
+     */
+    async _waitForServiceWorkerActivation(latestServiceWorkerPromise) {
+      const serviceWorker = await latestServiceWorkerPromise;
+
+      if (!serviceWorker || serviceWorker.state == "activated") {
+        if (!serviceWorker) {
+          return Promise.reject(
+            new Error("Cannot activate a null service worker!")
+          );
+        } else {
+          console.debug("Service worker already active.");
+          return Promise.resolve();
+        }
+      }
+      return new Promise((resolve, _) => {
+        serviceWorker.addEventListener("statechange", () => {
+          if (serviceWorker.state == "activated") {
+            console.debug("Activated new service worker.");
+            resolve();
+          }
         });
       });
-    })
-  );
-}
+    }
+  }
+
+  /**
+   * Handles injecting the main Flutter web entrypoint (main.dart.js), and notifying
+   * the user when Flutter is ready, through `didCreateEngineInitializer`.
+   *
+   * @see https://docs.flutter.dev/development/platform-integration/web/initialization
+   */
+  class FlutterEntrypointLoader {
+    /**
+     * Creates a FlutterEntrypointLoader.
+     */
+    constructor() {
+      // Watchdog to prevent injecting the main entrypoint multiple times.
+      this._scriptLoaded = false;
+    }
+
+    /**
+     * Injects a TrustedTypesPolicy (or undefined if the feature is not supported).
+     * @param {TrustedTypesPolicy | undefined} policy
+     */
+    setTrustedTypesPolicy(policy) {
+      this._ttPolicy = policy;
+    }
+
+    /**
+     * Loads flutter main entrypoint, specified by `entrypointUrl`, and calls a
+     * user-specified `onEntrypointLoaded` callback with an EngineInitializer
+     * object when it's done.
+     *
+     * @param {*} options
+     * @returns {Promise | undefined} that will eventually resolve with an
+     * EngineInitializer, or will be rejected with the error caused by the loader.
+     * Returns undefined when an `onEntrypointLoaded` callback is supplied in `options`.
+     */
+    async loadEntrypoint(options) {
+      const { entrypointUrl = `${baseUri}main.dart.js`, onEntrypointLoaded } =
+        options || {};
+
+      return this._loadEntrypoint(entrypointUrl, onEntrypointLoaded);
+    }
+
+    /**
+     * Resolves the promise created by loadEntrypoint, and calls the `onEntrypointLoaded`
+     * function supplied by the user (if needed).
+     *
+     * Called by Flutter through `_flutter.loader.didCreateEngineInitializer` method,
+     * which is bound to the correct instance of the FlutterEntrypointLoader by
+     * the FlutterLoader object.
+     *
+     * @param {Function} engineInitializer @see https://github.com/flutter/engine/blob/main/lib/web_ui/lib/src/engine/js_interop/js_loader.dart#L42
+     */
+    didCreateEngineInitializer(engineInitializer) {
+      if (typeof this._didCreateEngineInitializerResolve === "function") {
+        this._didCreateEngineInitializerResolve(engineInitializer);
+        // Remove the resolver after the first time, so Flutter Web can hot restart.
+        this._didCreateEngineInitializerResolve = null;
+        // Make the engine revert to "auto" initialization on hot restart.
+        delete _flutter.loader.didCreateEngineInitializer;
+      }
+      if (typeof this._onEntrypointLoaded === "function") {
+        this._onEntrypointLoaded(engineInitializer);
+      }
+    }
+
+    /**
+     * Injects a script tag into the DOM, and configures this loader to be able to
+     * handle the "entrypoint loaded" notifications received from Flutter web.
+     *
+     * @param {string} entrypointUrl the URL of the script that will initialize
+     *                 Flutter.
+     * @param {Function} onEntrypointLoaded a callback that will be called when
+     *                   Flutter web notifies this object that the entrypoint is
+     *                   loaded.
+     * @returns {Promise | undefined} a Promise that resolves when the entrypoint
+     *                                is loaded, or undefined if `onEntrypointLoaded`
+     *                                is a function.
+     */
+    _loadEntrypoint(entrypointUrl, onEntrypointLoaded) {
+      const useCallback = typeof onEntrypointLoaded === "function";
+
+      if (!this._scriptLoaded) {
+        this._scriptLoaded = true;
+        const scriptTag = this._createScriptTag(entrypointUrl);
+        if (useCallback) {
+          // Just inject the script tag, and return nothing; Flutter will call
+          // `didCreateEngineInitializer` when it's done.
+          console.debug("Injecting <script> tag. Using callback.");
+          this._onEntrypointLoaded = onEntrypointLoaded;
+          document.body.append(scriptTag);
+        } else {
+          // Inject the script tag and return a promise that will get resolved
+          // with the EngineInitializer object from Flutter when it calls
+          // `didCreateEngineInitializer` later.
+          return new Promise((resolve, reject) => {
+            console.debug(
+              "Injecting <script> tag. Using Promises. Use the callback approach instead!"
+            );
+            this._didCreateEngineInitializerResolve = resolve;
+            scriptTag.addEventListener("error", reject);
+            document.body.append(scriptTag);
+          });
+        }
+      }
+    }
+
+    /**
+     * Creates a script tag for the given URL.
+     * @param {string} url
+     * @returns {HTMLScriptElement}
+     */
+    _createScriptTag(url) {
+      const scriptTag = document.createElement("script");
+      scriptTag.type = "application/javascript";
+      // Apply TrustedTypes validation, if available.
+      let trustedUrl = url;
+      if (this._ttPolicy != null) {
+        trustedUrl = this._ttPolicy.createScriptURL(url);
+      }
+      scriptTag.src = trustedUrl;
+      return scriptTag;
+    }
+  }
+
+  /**
+   * The public interface of _flutter.loader. Exposes two methods:
+   * * loadEntrypoint (which coordinates the default Flutter web loading procedure)
+   * * didCreateEngineInitializer (which is called by Flutter to notify that its
+   *                              Engine is ready to be initialized)
+   */
+  class FlutterLoader {
+    /**
+     * Initializes the Flutter web app.
+     * @param {*} options
+     * @returns {Promise?} a (Deprecated) Promise that will eventually resolve
+     *                     with an EngineInitializer, or will be rejected with
+     *                     any error caused by the loader. Or Null, if the user
+     *                     supplies an `onEntrypointLoaded` Function as an option.
+     */
+    async loadEntrypoint(options) {
+      const { serviceWorker, ...entrypoint } = options || {};
+
+      // A Trusted Types policy that is going to be used by the loader.
+      const flutterTT = new FlutterTrustedTypesPolicy();
+
+      // The FlutterServiceWorkerLoader instance could be injected as a dependency
+      // (and dynamically imported from a module if not present).
+      const serviceWorkerLoader = new FlutterServiceWorkerLoader();
+      serviceWorkerLoader.setTrustedTypesPolicy(flutterTT.policy);
+      await serviceWorkerLoader.loadServiceWorker(serviceWorker).catch(e => {
+        // Regardless of what happens with the injection of the SW, the show must go on
+        console.warn("Exception while loading service worker:", e);
+      });
+
+      // The FlutterEntrypointLoader instance could be injected as a dependency
+      // (and dynamically imported from a module if not present).
+      const entrypointLoader = new FlutterEntrypointLoader();
+      entrypointLoader.setTrustedTypesPolicy(flutterTT.policy);
+      // Install the `didCreateEngineInitializer` listener where Flutter web expects it to be.
+      this.didCreateEngineInitializer =
+        entrypointLoader.didCreateEngineInitializer.bind(entrypointLoader);
+      return entrypointLoader.loadEntrypoint(entrypoint);
+    }
+  }
+
+  _flutter.loader = new FlutterLoader();
+})();
