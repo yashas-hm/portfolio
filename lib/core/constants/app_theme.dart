@@ -3,67 +3,36 @@ import 'package:flutter/services.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 
 class AppTheme{
-  static ThemeData _darkMode(BuildContext context) => ThemeData(
-    primaryColor: AppColor.primaryDark,
-    scaffoldBackgroundColor: AppColor.bgDark,
+  static ThemeData _theme(BuildContext context) => ThemeData(
+    primaryColor: AppColor.primary,
+    scaffoldBackgroundColor: AppColor.background,
     textTheme: Theme.of(context).textTheme.apply(
-      fontFamily: 'noto',
-      bodyColor: AppColor.bgLight,
-      displayColor: AppColor.bgLight,
+      fontFamily: 'roboto',
+      bodyColor: AppColor.textColor,
+      displayColor: AppColor.textColor,
     ),
     appBarTheme: const AppBarTheme(
       centerTitle: true,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarBrightness: Brightness.light,
-        statusBarColor: AppColor.primaryDark,
+        statusBarColor: AppColor.primary,
         statusBarIconBrightness: Brightness.dark,
       ),
       elevation: 0,
       iconTheme: IconThemeData(
-        color: AppColor.bgLight,
+        color: AppColor.textColor,
       ),
-      backgroundColor: AppColor.primaryDark,
+      backgroundColor: AppColor.primary,
     ),
     colorScheme: ColorScheme.fromSeed(
-      seedColor: AppColor.primaryDark,
-      primary: AppColor.primaryDark,
-      background: AppColor.bgDark,
+      seedColor: AppColor.primary,
+      primary: AppColor.primary,
+      background: AppColor.background,
     ),
-    textSelectionTheme: const TextSelectionThemeData(
-      selectionHandleColor: Colors.transparent,
+    textSelectionTheme: TextSelectionThemeData(
+      selectionHandleColor: AppColor.primary.withOpacity(0.3),
     ),
   );
 
-  static ThemeData _lightMode(BuildContext context) => ThemeData(
-    primaryColor: AppColor.primaryLight,
-    scaffoldBackgroundColor: AppColor.bgLight,
-    textTheme: Theme.of(context).textTheme.apply(
-      fontFamily: 'noto',
-      bodyColor: Colors.white,
-      displayColor: Colors.white,
-    ),
-    appBarTheme: const AppBarTheme(
-      centerTitle: true,
-      systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarBrightness: Brightness.light,
-        statusBarColor: AppColor.primaryLight,
-        statusBarIconBrightness: Brightness.dark,
-      ),
-      elevation: 0,
-      iconTheme: IconThemeData(
-        color: Colors.white,
-      ),
-      backgroundColor: AppColor.primaryLight,
-    ),
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: AppColor.primaryLight,
-      primary: AppColor.primaryLight,
-      background: AppColor.bgLight,
-    ),
-    textSelectionTheme: const TextSelectionThemeData(
-      selectionHandleColor: Colors.transparent,
-    ),
-  );
-
-  static ThemeData getTheme(bool darkMode, BuildContext ctx) => darkMode?_darkMode(ctx):_lightMode(ctx);
+  static ThemeData getTheme(BuildContext ctx) => _theme(ctx);
 }

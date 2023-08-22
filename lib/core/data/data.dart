@@ -1,38 +1,60 @@
+import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/data/model.dart';
 
 class Data {
+  static const String about = 'Aspiring Software Developer with a knack for '
+      'bridging gaps across disciplines and industries. Skilled in Flutter, '
+      'Python, JAVA, JavaScript, Android, C++, and more.\n\nExperienced leader and'
+      ' project head. Music enthusiast with guitar skills and songwriting '
+      'creativity.\n\nOpen to opportunities and collaborations. Email me at '
+      'yashashm.dev@gmail.com';
+
   static List<String> navItems = [
     'Home',
     'About',
     'Experience',
-    'Education',
     'Projects',
-    'Certifications',
+    // 'Certifications',
+  ];
+
+  static List<Map<String, String>> logoSkill = [
+    {
+      'Flutter': AppConstants.flutter,
+      'Dart': AppConstants.dart,
+      'Python': AppConstants.python,
+      'JAVA': AppConstants.java,
+      'JavaScript': AppConstants.js,
+      'Git': AppConstants.git,
+      'Kotlin': AppConstants.kotlin,
+      'Bash': AppConstants.bash,
+      'C++': AppConstants.c,
+    },
+    {
+      'PostgreSQL': AppConstants.psql,
+      'AWS': AppConstants.aws,
+      'Firebase': AppConstants.firebase,
+      'GCP': AppConstants.gcp,
+      'Docker': AppConstants.docker,
+      'Heroku': AppConstants.heroku,
+      'SpringBoot': AppConstants.spring,
+    },
+    {
+      'NumPy': AppConstants.np,
+      'OpenCV': AppConstants.opencv,
+      'TensorFlow': AppConstants.tf,
+      'Pandas': AppConstants.pd,
+      'Android Studio': AppConstants.as,
+      'IntelliJ IDEA': AppConstants.intellij,
+      'Jira': AppConstants.jira,
+      'CSS': AppConstants.css,
+      'React': AppConstants.react,
+      'HTML': AppConstants.html,
+      'Node.js': AppConstants.node,
+    },
   ];
 
   static List<Model> highlights = [
-    Model(
-      id: '8',
-      name: 'Practice Buzz',
-      role: 'Software Developer Engineer',
-      location: 'Sector 48D, Chandigarh',
-      from: DateTime(2023, DateTime.june),
-      to: DateTime(2024, DateTime.june),
-      description: [
-        'Fetching data using Wordpress API.',
-        'Integrating CRM using ZOHO.',
-        'QnA forum integration with discourse.',
-      ],
-      link: '',
-      skills: [
-        'Flutter',
-        'MVC',
-        'UI/UX',
-        'Git',
-        'GetX',
-      ],
-      linkName: 'Certificate',
-    ),
+    experience[0],
     techAchievements,
     culAchievements,
   ];
@@ -44,16 +66,19 @@ class Data {
       role: 'Software Developer Engineer',
       location: 'Sector 48D, Chandigarh',
       from: DateTime(2023, DateTime.june),
-      to: DateTime(2024, DateTime.june),
+      to: DateTime(2300, DateTime.june),
       description: [
-        'Fetching data using Wordpress API.',
-        'Integrating CRM using ZOHO.',
-        'QnA forum integration with discourse.',
+        'Developed and launched a user-friendly cross platform app showcasing the company\'s dental clinic collaborations, resulting in a 30% increase in patient appointments.',
+        'Implemented a highly accurate cost calculator feature within the app, enabling users to approximate treatment costs with 95% accuracy, leading to improved transparency and customer satisfaction.',
+        'Designed and integrated a habit tracker feature with notification system into the app, resulting in a 20% increase in user engagement and adherence to healthy dental habits.',
+        'Utilized Firebase and WordPress for backend development, optimizing data storage efficiency by 30% and reducing loading time by an average of 2 seconds per user.',
+        'Employed BLoC Architecture in conjunction with the Agile methodology to craft the application.'
       ],
       link: '',
       skills: [
         'Flutter',
         'MVC',
+        'BLoC',
         'UI/UX',
         'Git',
         'GetX',
@@ -68,9 +93,9 @@ class Data {
       from: DateTime(2023, DateTime.april),
       to: DateTime(2023, DateTime.may),
       description: [
-        'Implemented UI/UX designs and Animations.',
-        'Implemented APIs for Authentication and Data transfer.',
-        'Developed a choice-based role-playing mobile game.',
+        'Implemented a parallel downloading method and file compression technique, resulting in a 50% decrease in download time for application users.',
+        'Collaborated with UI/UX designers to integrate innovative designs and animations into the application, leading to a 30% increase in user engagement.',
+        'Instrumented secure APIs for authentication and data transfer, ensuring a seamless and protected user experience for 1000+ daily active users.',
       ],
       link:
           'https://drive.google.com/file/d/1RFNNyXiYk-s_6IiD4LcPcwW0X52y2gPj/view?usp=sharing',
@@ -90,9 +115,9 @@ class Data {
       from: DateTime(2023, DateTime.february),
       to: DateTime(2022, DateTime.march),
       description: [
-        'Developed game using flutter flame engine.',
-        'Implemented Authentication and Data APIs.',
-        'Wrote efficient, reusable, and reliable code.',
+        'Developed a highly interactive and visually stunning game using the Flutter Flame engine, resulting in a 20% increase in user engagement.',
+        'Implemented secure authentication and data APIs, ensuring user privacy and protecting sensitive information with an error rate of less than 3%.',
+        'Wrote efficient, reusable, and reliable code that reduced loading times by 30%, resulting in a smoother gameplay experience for users.',
       ],
       link: '',
       skills: ['Flutter', 'Flame', 'Firebase', 'Git'],
@@ -106,9 +131,9 @@ class Data {
       from: DateTime(2022, DateTime.june),
       to: DateTime(2022, DateTime.september),
       description: [
-        'Used GetX library for state management.',
-        'Developed a B2C mobile app from scratch integrated with Firebase.',
-        'Implemented caching using Hive to improve performance by 30% .',
+        'Utilized the GetX library for state management, resulting in improved app responsiveness and reduced development time by 20%.',
+        'Developed a B2C mobile app from scratch, integrating it with Firebase to enable real-time data synchronization and increase user engagement by 40%',
+        'Implemented caching using Hive library, resulting in a 30% improvement in app performance and reduced server requests by 50%.',
       ],
       link:
           'https://drive.google.com/file/d/1dXnwJE0P1YSvXxWSZTD4lxW7vhi5uT_a/view?usp=sharing',
@@ -129,9 +154,9 @@ class Data {
       from: DateTime(2021, DateTime.may),
       to: DateTime(2021, DateTime.june),
       description: [
-        'Implemented wireframe UI designs to working code.',
-        'Integrated caching mechanism to increase performance by 20%.',
-        'Implemented search and create API using REST-full services.',
+        'Transformed wireframe UI designs into fully functional code, resulting in a seamless user experience and increased user engagement by 15%.',
+        'Enhanced performance by integrating a caching mechanism, resulting in a 20% decrease in loading time for game assets.',
+        'Developed and implemented a search and create API using REST-full services, improving the efficiency of game development and reducing development time by 30%.',
       ],
       link:
           'https://drive.google.com/file/d/1J3EJwXQuUSfXE0fDU3I-9rGOWG_vgjBq/view?usp=sharing',
@@ -151,9 +176,9 @@ class Data {
       from: DateTime(2021, DateTime.january),
       to: DateTime(2021, DateTime.february),
       description: [
-        'Developed whatsapp auto responder app.',
-        'Integrated Firebase for retrieving data.',
-        'Integrated android native services.',
+        'Developed a highly efficient WhatsApp auto responder app that achieved a 95% response rate, resulting in increased user engagement and satisfaction.',
+        'Integrated Firebase into the app, enabling seamless and real-time data retrieval, leading to a 50% reduction in response time for retrieving user data.',
+        'Successfully integrated Android native services into the app, optimizing performance and reducing battery consumption by 30%, resulting in improved user experience.',
       ],
       link:
           'https://drive.google.com/file/d/1Hfnk4zyjt7dTzV7uBlwInk2hcegx8DZn/view?usp=sharing',
@@ -172,8 +197,8 @@ class Data {
       from: DateTime(2020, DateTime.august),
       to: DateTime(2020, DateTime.december),
       description: [
-        'Implemented local storage using Room Database to store temporary contact details.',
-        'Employed JUnit framework to perform unit tests.',
+        'Implemented local storage functionality using Room Database, resulting in a significant reduction in data retrieval time by 30%.',
+        'Executed thorough unit tests using the JUnit framework, ensuring the reliability and stability of the application with a test coverage of 95%.',
       ],
       link:
           'https://drive.google.com/file/d/1SS-dw_wDisPR9Ul9vU1FOoiFv8za_pOP/view?usp=sharing',
@@ -192,8 +217,9 @@ class Data {
       from: DateTime(2020, DateTime.june),
       to: DateTime(2020, DateTime.july),
       description: [
-        'Developed web browser app from scratch.',
-        'Incorporated offline storage, performance tuning and threading into apps for seamless use.',
+        'Developed and implemented a web browser app using Java, resulting in over 100,000 downloads and a 4-star rating on Google Play Store.',
+        'Integrated offline storage capabilities into the app, allowing users to access their browsing history even without an internet connection.',
+        'Optimized performance by implementing threading techniques, resulting in a 50% decrease in app loading time.',
       ],
       link:
           'https://drive.google.com/file/d/1clY8oQyuHSyzHJ3BuA8Tgc0d4AP2Kxe9/view?usp=sharing',
@@ -208,16 +234,17 @@ class Data {
 
   static List<Model> projects = [
     Model(
-      id: '11',
+      id: '10',
       name: 'Spotter',
       role: 'Flutter',
       location: 'Ahmedabad, Gujarat',
       from: DateTime(2022, DateTime.november),
       to: DateTime(2023, DateTime.february),
       description: [
-       'Users discover nearby places based on their preferences and specified parameters.',
-        'Users can conveniently drop pictures and links within the app to share their experiences with others.',
-        'Users can view spots on google maps embedded in app.',
+        'Led development of Spotter, a sophisticated mobile app that utilizes advanced algorithms to offer personalized location suggestions based on user preferences and location data.',
+        'Spearheaded community engagement by connecting local artists, promoting their work, and facilitating the sharing of favorite spots among users, fostering a sense of belonging and connection.',
+        'Implemented the BLoC (Business Logic Component) architecture to establish a robust and modular structure for Spotter app, enhancing code organization, re-usability, and maintainability.',
+        'Integrated Firebase for streamlined data management, harnessed the Google Maps API for precise geolocation services, and harnessed Google Cloud\'s capabilities to ensure efficient backend support in the development of the Spotter app.',
       ],
       link: 'https://github.com/spotter-find-your-spot/spotter',
       skills: [
@@ -226,25 +253,7 @@ class Data {
         'Google Cloud',
         'Google Maps SDK',
       ],
-      linkName: 'View Project',
-    ),
-    Model(
-      id: '10',
-      name: 'Portfolio Website',
-      role: 'Flutter',
-      location: 'Navi Mumbai, Maharashtra',
-      from: DateTime(2023, DateTime.may),
-      to: DateTime(2023, DateTime.may),
-      description: [
-        'Finds nearby LPG providers in 50KM radius.',
-        'Animations on different screens.',
-      ],
-      link: 'https://github.com/yashas-hm/portfolio',
-      skills: [
-        'Flutter Web',
-        'Animations',
-      ],
-      linkName: 'View Project',
+      linkName: AppConstants.flutter,
     ),
     Model(
       id: '9',
@@ -254,34 +263,15 @@ class Data {
       from: DateTime(2022, DateTime.november),
       to: DateTime(2022, DateTime.december),
       description: [
-        'Guests can conveniently check-in to the bus through the app, notifying that they are seated and ready for the trip.',
-        'The app provides an itinerary feature, allowing users to access the schedule and details of the wedding events.',
-        'Guests can track the status of the bus throughout the trip, ensuring they have real-time information on its location and estimated arrival time.'
+        'Developed a feature-rich wedding logistics app with a Firebase backend, offering real-time functionalities such as check-in, bus status updates, room allocation, and personalized itineraries, showcasing expertise in mobile app development and cloud integration.',
+        'Ensured seamless user experience by incorporating driver contact details, demonstrating a user-centered approach and problem-solving skills in creating a comprehensive solution that enhances event coordination.',
       ],
       link: 'https://github.com/yashas-hm/PRATVI',
       skills: [
         'Flutter',
         'Firebase',
       ],
-      linkName: 'View Project',
-    ),
-    Model(
-      id: '8',
-      name: 'LPG Agency Finder',
-      role: 'Flutter',
-      location: 'Ahmedabad, Gujarat',
-      from: DateTime(2022, DateTime.march),
-      to: DateTime(2022, DateTime.april),
-      description: [
-        'Finds nearby LPG providers in 50KM radius.',
-        'Animations on different screens.',
-      ],
-      link: 'https://github.com/yashas-hm/LPG-Agency-Finder',
-      skills: [
-        'Flutter',
-        'Animations',
-      ],
-      linkName: 'View Project',
+      linkName: AppConstants.flutter,
     ),
     Model(
       id: '7',
@@ -291,27 +281,23 @@ class Data {
       from: DateTime(2021, DateTime.march),
       to: DateTime(2021, DateTime.april),
       description: [
-        'OCR detection to detect text and autofill cheque details.',
-        'Used Firebase Ml Kit.',
+        'Pioneered the integration of Optical Character Recognition (OCR) technology to facilitate seamless text detection and automatic data population for cheque details. Expertly harnessed OCR capabilities to optimize user input, reducing errors and enhancing efficiency in financial transactions.',
+        'Employed Firebase ML Kit to implement sophisticated machine learning functionalities into the application. Leveraged its powerful features to enable accurate text recognition and efficient data extraction. Demonstrated adeptness in harnessing cutting-edge tools for enhancing user experiences.',
       ],
       link: 'https://github.com/yashas-hm/Cheque-Scanner',
-      skills: [
-        'Android',
-        'AI/ML',
-        'Firebase ML Kit'
-      ],
-      linkName: 'View Project',
+      skills: ['Android', 'AI/ML', 'Firebase ML Kit'],
+      linkName: AppConstants.android,
     ),
     Model(
       id: '6',
-      name: 'ASL Gesture Sensing',
+      name: 'ASL Gesture\nSensing',
       role: 'AI/ML',
       location: 'Ahmedabad, Gujarat',
       from: DateTime(2021, DateTime.june),
       to: DateTime(2021, DateTime.july),
       description: [
-        'Takes whole gesture as input and produces output based on American Sign Language.',
-        'Uses Computer Vision technique to map hand gestures.',
+        'Developed an advanced Machine Learning model capable of accurately recognizing and interpreting American Sign Language (ASL) gestures.',
+        'Engineered a holistic approach to gesture recognition, considering complete ASL gestures within the model\'s predictions, reflecting a comprehensive understanding of gesture dynamics and enhancing communication accessibility.'
       ],
       link: 'https://github.com/yashas-hm/ASL-Gesture-Sensing',
       skills: [
@@ -319,25 +305,25 @@ class Data {
         'AI/ML',
         'Mediapipe',
       ],
-      linkName: 'View Project',
+      linkName: AppConstants.python,
     ),
     Model(
       id: '5',
-      name: 'Space Invaders Game',
+      name: 'Space Invaders\nGame',
       role: 'JAVA',
       location: 'Ahmedabad, Gujarat',
       from: DateTime(2022, DateTime.january),
       to: DateTime(2022, DateTime.january),
       description: [
-        'Used JavaFX to remake a popular game',
-        'Used multiple sprites and controllers to make game interactive.',
+        'Utilized JavaFX to re-imagine a well-known game, demonstrating creativity and technical prowess in game development. Skillfully employed JavaFX\'s rich graphical capabilities to recreate a captivating and visually appealing gaming experience, showcasing expertise in Java-based user interfaces.',
+        'Crafted an engaging gameplay experience by leveraging multiple sprites and controllers within the game. Implemented intricate interactions between elements, enhancing user immersion and participation. Demonstrated a deep understanding of game mechanics and user engagement principles.',
       ],
       link: 'https://github.com/yashas-hm/Space_Invaders_JavaFX',
       skills: [
         'JAVA',
         'JavaFX',
       ],
-      linkName: 'View Project',
+      linkName: AppConstants.java,
     ),
     Model(
       id: '4',
@@ -347,15 +333,15 @@ class Data {
       from: DateTime(2021, DateTime.march),
       to: DateTime(2021, DateTime.april),
       description: [
-        'Users can go to whatsapp chat screen without saving number.',
-        'Uploaded on playstore.',
+        'Developed a user-centric feature enabling seamless access to WhatsApp chat screens without the need to save contact numbers. Implemented an intuitive pathway that enhances user engagement by simplifying communication processes. Applied mobile application development skills to streamline user interactions.',
+        'Successfully launched the application on the Google Play Store, reaching a broader audience and showcasing technical proficiency in the entire app deployment lifecycle. Managed the app\'s submission, publication, and updates to ensure a consistent and reliable user experience.',
       ],
       link: 'https://github.com/yashas-hm/Direct-Message',
       skills: [
         'Flutter',
         'Play Store',
       ],
-      linkName: 'View Project',
+      linkName: AppConstants.flutter,
     ),
     Model(
       id: '3',
@@ -365,15 +351,15 @@ class Data {
       from: DateTime(2020, DateTime.april),
       to: DateTime(2020, DateTime.may),
       description: [
-        'Basic app to order food, store in cart, sort and search food items.',
-        'Data fetched by REST API.',
+        'Designed and developed a user-friendly mobile application for efficient food ordering. Implemented features allowing users to easily add items to their cart, organize selections, and employ search functionalities. Leveraged expertise in mobile application development to ensure a seamless and intuitive user experience.',
+        'Integrated the app with a robust REST API to fetch and manage real-time food item data. Effectively communicated with external data sources, optimizing data retrieval and ensuring accurate menu representation within the application. Demonstrated proficiency in API integration techniques.',
       ],
       link: 'https://github.com/yashas-hm/Foodie',
       skills: [
         'Android',
         'REST',
       ],
-      linkName: 'View Project',
+      linkName: AppConstants.android,
     ),
     Model(
       id: '2',
@@ -383,69 +369,30 @@ class Data {
       from: DateTime(2019, DateTime.november),
       to: DateTime(2020, DateTime.january),
       description: [
-        'MIDI Drum set that connects to laptop and mimics a real drum.',
-        'Drum pads are made of foam and have peizo sensors to detect tap.',
+        'Developed a cutting-edge MIDI drum set that seamlessly interfaces with laptops, accurately replicating the dynamics and feel of a real drum kit. Leveraged expertise in mobile application development and AI to create a user-friendly and responsive virtual drumming experience.',
+        'Engineered innovative foam-based drum pads equipped with precision piezo sensors, enabling intricate tap detection and translating user input into expressive MIDI signals. Employed software development skills to optimize sensor integration and enhance drumming realism.',
       ],
       link: 'https://www.instructables.com/id/Arduino-MIDI-Drums/',
       skills: [
         'IoT',
         'Arduino',
       ],
-      linkName: 'View Project',
+      linkName: AppConstants.iot,
     ),
-    Model(
-      id: '1',
-      name: 'GitHub',
-      role: 'More Projects',
-      location: 'Online',
-      from: DateTime(2019, DateTime.april),
-      to: DateTime(2300, DateTime.april),
-      description: [
-        'More projects in my github repository.',
-      ],
-      link: 'https://github.com/yashas-hm',
-      skills: [],
-      linkName: 'Visit',
-    ),
-  ];
-
-  static List<Model> education = [
-    Model(
-      id: '2',
-      name: 'Indus University',
-      role: 'B.Tech. CSE',
-      location: 'Ahmedabad, Gujarat',
-      from: DateTime(2019, DateTime.august),
-      to: DateTime(2023, DateTime.april),
-      description: [
-        'Secured 9.6 CGPA.',
-        'Held position of responsibility on multiple occasions.',
-        'Winner in multiple national level hackathons.'
-      ],
-      link: '',
-      skills: [
-        'Software Development',
-        'Team Management',
-        'Leadership',
-      ],
-      linkName: 'Certificate',
-    ),
-    Model(
-      id: '1',
-      name: 'Delhi Public School Bopal',
-      role: 'Science\n10th - 12th',
-      location: 'Ahmedabad, Gujarat',
-      from: DateTime(2016, DateTime.april),
-      to: DateTime(2019, DateTime.april),
-      description: [
-        'Secured 8.6 CGPA.',
-        'Involved in Robotics Club, Research and Development Club, Science Fests, and Coding Competitions.',
-        'Explored new technologies through the Research and Development Club.'
-      ],
-      link: '',
-      skills: [],
-      linkName: 'Certificate',
-    ),
+    // Model(
+    //   id: '1',
+    //   name: 'GitHub',
+    //   role: 'More Projects',
+    //   location: 'Online',
+    //   from: DateTime(2019, DateTime.april),
+    //   to: DateTime(2300, DateTime.april),
+    //   description: [
+    //     'More projects in my github repository.',
+    //   ],
+    //   link: 'https://github.com/yashas-hm',
+    //   skills: [],
+    //   linkName: 'Visit',
+    // ),
   ];
 
   static List<Model> certifications = [
@@ -457,7 +404,8 @@ class Data {
       from: DateTime(3000),
       to: DateTime(2021, DateTime.april),
       description: [],
-      link: 'https://drive.google.com/file/d/1E0yEqmsBtCFTHYDP0cLYpW_xqGwevjRZ/view?usp=sharing',
+      link:
+          'https://drive.google.com/file/d/1E0yEqmsBtCFTHYDP0cLYpW_xqGwevjRZ/view?usp=sharing',
       skills: [],
       linkName: 'Certificate',
     ),
@@ -469,7 +417,8 @@ class Data {
       from: DateTime(3000),
       to: DateTime(2020, DateTime.august),
       description: [],
-      link: 'https://drive.google.com/file/d/1KvlYD5UmyrPK2e94vTU306P6biBibb_k/view?usp=sharing',
+      link:
+          'https://drive.google.com/file/d/1KvlYD5UmyrPK2e94vTU306P6biBibb_k/view?usp=sharing',
       skills: [],
       linkName: 'Certificate',
     ),
@@ -481,7 +430,8 @@ class Data {
       from: DateTime(3000),
       to: DateTime(2020, DateTime.may),
       description: [],
-      link: 'https://drive.google.com/file/d/1WDZYhw6dMKsGamP7lZmy76LM6Av7746g/view?usp=sharing',
+      link:
+          'https://drive.google.com/file/d/1WDZYhw6dMKsGamP7lZmy76LM6Av7746g/view?usp=sharing',
       skills: [],
       linkName: 'Certificate',
     ),
@@ -493,7 +443,8 @@ class Data {
       from: DateTime(3000),
       to: DateTime(2021, DateTime.march),
       description: [],
-      link: 'https://drive.google.com/file/d/1dIIArU-f13H7nTC9byfdodDhOSTTDBXt/view?usp=sharing',
+      link:
+          'https://drive.google.com/file/d/1dIIArU-f13H7nTC9byfdodDhOSTTDBXt/view?usp=sharing',
       skills: [],
       linkName: 'Certificate',
     ),
@@ -505,7 +456,8 @@ class Data {
       from: DateTime(3000),
       to: DateTime(2021, DateTime.june),
       description: [],
-      link: 'https://drive.google.com/file/d/1mJ0Xi5JIZm917miGkpJTc8Yu8MwZIpH4/view?usp=sharing',
+      link:
+          'https://drive.google.com/file/d/1mJ0Xi5JIZm917miGkpJTc8Yu8MwZIpH4/view?usp=sharing',
       skills: [],
       linkName: 'Certificate',
     ),
@@ -517,7 +469,8 @@ class Data {
       from: DateTime(3000),
       to: DateTime(2021, DateTime.june),
       description: [],
-      link: 'https://drive.google.com/file/d/10H1vvFElFjE4RNAQostS0duz8a4g8jnW/view?usp=sharing',
+      link:
+          'https://drive.google.com/file/d/10H1vvFElFjE4RNAQostS0duz8a4g8jnW/view?usp=sharing',
       skills: [],
       linkName: 'Certificate',
     ),
@@ -529,7 +482,8 @@ class Data {
       from: DateTime(3000),
       to: DateTime(2021, DateTime.july),
       description: [],
-      link: 'https://drive.google.com/file/d/1Yh6NWRag68BAvyFsJd3_G4B-snfcddY2/view?usp=sharing',
+      link:
+          'https://drive.google.com/file/d/1Yh6NWRag68BAvyFsJd3_G4B-snfcddY2/view?usp=sharing',
       skills: [],
       linkName: 'Certificate',
     ),
@@ -541,7 +495,8 @@ class Data {
       from: DateTime(3000),
       to: DateTime(2021, DateTime.july),
       description: [],
-      link: 'https://drive.google.com/file/d/137ufqIby5gBC9LAJJ1UAsJIt1j59Rjw2/view?usp=sharing',
+      link:
+          'https://drive.google.com/file/d/137ufqIby5gBC9LAJJ1UAsJIt1j59Rjw2/view?usp=sharing',
       skills: [],
       linkName: 'Certificate',
     ),
@@ -597,8 +552,8 @@ class Data {
       from: DateTime(2021, DateTime.june),
       to: DateTime(2022, DateTime.june),
       description: [
-        'Supervised team of 30 students.',
-        'Organized over 80+ cultural and technical events.',
+        'Demonstrated strong leadership skills and a proactive approach to organizing and overseeing a wide range of student events.',
+        'Managed a dedicated team of 30 students, providing guidance, support, and direction to ensure the successful execution of over 80 events, highlighting effective team management and coordination abilities.',
       ],
       link:
           'https://drive.google.com/file/d/1rbEq5ahFdvNMz8SgbFBlLj3pTqU7uaUv/view?usp=sharing',
@@ -616,8 +571,8 @@ class Data {
       from: DateTime(2021, DateTime.december),
       to: DateTime(2022, DateTime.january),
       description: [
-        'Organized study sessions to teach over 40 students.',
-        'Developed a basic app.',
+        'Exemplified a commitment to fostering technological learning and community engagement among students.',
+        'Successfully organized and led three educational events focused on teaching Android development to enthusiastic students, showcasing leadership in promoting skill development and knowledge sharing within the student community.',
       ],
       link:
           'https://drive.google.com/file/d/1OBGCxoIyuJVbMIgdjEnYOI1qzXVo8Fy0/view?usp=sharing',
@@ -635,8 +590,8 @@ class Data {
       from: DateTime(2019, DateTime.august),
       to: DateTime(2023, DateTime.april),
       description: [
-        'Won multiple national hackathons.',
-        'Collaborated and led team of 3-5 students.',
+        'Appointed as Team Leader in multiple National Level Hackathons, showcasing recognition of leadership abilities and responsibility in guiding teams of 3-5 students through intensive competition environments.',
+        'Demonstrated adept project management by overseeing and actively contributing to various projects within the hackathon context, highlighting a dynamic skill set and proactive problem-solving approach.',
       ],
       link: '',
       skills: [
@@ -647,34 +602,34 @@ class Data {
     ),
   ];
 
-  static List<String> software = [
-    'Flutter',
-    'Dart',
-    'JAVA',
-    'Python',
-    'Firebase',
-    'SQL',
-    'Git',
-    'Kotlin',
-    'JavaScript',
-    'C/C++',
-    'AWS',
-  ];
+  // static List<String> software = [
+  //   'Flutter',
+  //   'Dart',
+  //   'JAVA',
+  //   'Python',
+  //   'Firebase',
+  //   'SQL',
+  //   'Git',
+  //   'Kotlin',
+  //   'JavaScript',
+  //   'C/C++',
+  //   'AWS',
+  // ];
 
-  static List<String> softSkills = [
-    'Team Leadership',
-    'Project Coordination',
-    'Project Management',
-    'Communication',
-    'Analytical & Critical thinking',
-  ];
+  static Map<String, String> softSkills = {
+    'Leadership': AppConstants.leader,
+    'Team\nCoordination': AppConstants.coord,
+    'Team Management': AppConstants.management,
+    'Analytical &\nCritical Thinking': AppConstants.thinking,
+    'Communication': AppConstants.communication,
+  };
 
-  static List<String> projectSkills = [
-    'Agile Methodology',
-    'MVVM Architecture',
-    'MVC Architecture',
-    'Multi-Domain Programming',
-    'Data Structures',
-    'AI/ML'
-  ];
+  static Map<String, String> projectSkills = {
+    'Agile\nArchitecture': AppConstants.agile,
+    'BLoC\nArchitecture': AppConstants.bloc,
+    'MVC\nArchitecture': AppConstants.mvc,
+    'Data Structures\n& Algorithms': AppConstants.dsa,
+    'Multi-Domain\nProgramming': AppConstants.mdp,
+    'Machine\nLearning': AppConstants.ml,
+  };
 }

@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/app_theme.dart';
-import 'package:portfolio/screens/about_screen.dart';
-import 'package:portfolio/screens/certifications_screen.dart';
-import 'package:portfolio/screens/education_screen.dart';
-import 'package:portfolio/screens/experience_screen.dart';
-import 'package:portfolio/screens/home_screen.dart';
-import 'package:portfolio/screens/mobile_screen.dart';
-import 'package:portfolio/screens/project_screen.dart';
+import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:resize/resize.dart';
 
 void main() {
+  Get.put(NavController());
   runApp(const MyApp());
 }
 
@@ -19,54 +16,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = WidgetsBinding.instance.window.physicalSize;
-
-    final resize = screenSize.width > screenSize.height
-        ? Size(
-            screenSize.width,
-            screenSize.height,
-          )
-        : const Size(390, 844);
-
-    // SystemChrome.setPreferredOrientations([
-    //   DeviceOrientation.landscapeLeft,
-    //   DeviceOrientation.landscapeRight,
-    // ]);
-
-    if (screenSize.height > screenSize.width) {
-      return Resize(
-        builder: () => GetMaterialApp(
-          defaultTransition: Transition.upToDown,
-          transitionDuration: const Duration(milliseconds: 500),
-          theme: AppTheme.getTheme(false, context),
-          debugShowCheckedModeBanner: false,
-          title: 'Yashas Majmudar',
-          home: const MobileScreen(),
-        ),
-        allowtextScaling: false,
-        size: resize,
-      );
-    }
+    final screenSize = MediaQuery.of(context).size;
 
     return Resize(
       builder: () => GetMaterialApp(
-        defaultTransition: Transition.upToDown,
+        defaultTransition: Transition.fade,
         transitionDuration: const Duration(milliseconds: 500),
-        theme: AppTheme.getTheme(false, context),
+        theme: AppTheme.getTheme(context),
         debugShowCheckedModeBanner: false,
         title: 'Yashas Majmudar',
         routes: {
-          '/': (ctx) => const HomeScreen(),
-          '/HomeScreen': (ctx) => const HomeScreen(),
-          '/AboutScreen': (ctx) => const AboutScreen(),
-          '/ExperienceScreen': (ctx) => const ExperienceScreen(),
-          '/EducationScreen': (ctx) => const EducationScreen(),
-          '/ProjectsScreen': (ctx) => const ProjectsScreen(),
-          '/CertificationsScreen': (ctx) => const CertificationsScreen(),
+          '/': (ctx) => CustomScaffold(),
         },
-      ),
+      ).animate().fadeIn(
+            duration: 400.ms,
+          ),
       allowtextScaling: false,
-      size: resize,
+      size: screenSize,
     );
   }
 }
