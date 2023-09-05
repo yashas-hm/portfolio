@@ -11,7 +11,7 @@ class ParallaxRain extends StatefulWidget {
     this.numberOfLayers = 4,
     this.dropHeight = 30,
     this.dropWidth = 1,
-    this.dropColors = const [AppColor.primaryLight],
+    this.dropColors = const [AppColor.primary],
     this.trailStartFraction = 0.3,
     this.distanceBetweenLayers = 0.8,
     this.child,
