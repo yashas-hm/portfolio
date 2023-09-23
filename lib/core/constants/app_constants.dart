@@ -35,7 +35,7 @@ For opportunities or collaborations, reach me at yashashm.dev@gmail.com.''';
   static const String githubLink = 'https://github.com/yashas-hm';
 
   static const String resumeLink =
-      'https://drive.google.com/drive/folders/1JMF3MOh4C_flDZ7ELM1UmaoN-glF4ljh?usp=sharing';
+      'https://drive.google.com/drive/folders/1EuzYuIQkWz00_tP3e_Y7iVLhX6gvYRLx?usp=drive_link';
 
   static const String spring = 'assets/logo/spring.svg';
 
