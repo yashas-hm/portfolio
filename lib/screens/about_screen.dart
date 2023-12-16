@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:marqueer/marqueer.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
@@ -44,12 +45,12 @@ class AboutScreen extends StatelessWidget {
             ),
             alignment: Alignment.center,
             child: SelectableText(
-              AppConstants.about,
+              Data.about,
               style: TextStyle(
                 color: AppColor.textColor,
                 fontSize: 18.sp,
               ),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.justify,
             ),
           ),
           SizedBox(
@@ -218,191 +219,219 @@ class AboutScreen extends StatelessWidget {
         ],
       );
 
-  Widget porItem(Model model, Size screenSize) => Container(
-        width: screenSize.height > screenSize.width
-            ? screenSize.width / 1.2
-            : screenSize.width / 2.4,
-        padding: EdgeInsets.all(10.sp),
-        decoration: BoxDecoration(
-          color: AppColor.box,
-          borderRadius: BorderRadius.circular(10.sp),
-        ),
-        alignment: Alignment.center,
-        child: Stack(
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  model.role,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: AppColor.textColor,
-                    fontSize: 25.sp,
-                  ),
-                ),
-                SizedBox(
-                  height: 5.sp,
-                ),
-                Text(
-                  model.name,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    color: AppColor.textColor.withOpacity(0.8),
-                    fontSize: 20.sp,
-                  ),
-                ),
-                SizedBox(
-                  height: 5.sp,
-                ),
-                Text(
-                  model.location,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    color: AppColor.textColor.withOpacity(0.6),
-                    fontSize: 18.sp,
-                  ),
-                ),
-                SizedBox(
-                  height: 5.sp,
-                ),
-                Text(
-                  '${DateFormat('MMMM yyyy').format(model.from)} - ${DateFormat('MMMM yyyy').format(model.to)}',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    color: AppColor.textColor.withOpacity(0.6),
-                    fontSize: 15.sp,
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-                SizedBox(
-                  height: 5.sp,
-                ),
-                Text(
-                  model.description.join('\n\n'),
-                  softWrap: true,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    color: AppColor.textColor,
-                    fontSize: 18.sp,
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: Alignment.topRight,
-              child: MouseRegion(
-                cursor: SystemMouseCursors.click,
-                child: GestureDetector(
-                  onTap: () async => await launchUrlString(model.link),
-                  child: Container(
-                    height: 40.sp,
-                    width: 40.sp,
-                    padding: EdgeInsets.all(10.sp),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
+  Widget porItem(Model model, Size screenSize) {
+    bool hover = false;
+    return StatefulBuilder(
+      builder: (_, setState) {
+        return MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: InkWell(
+            onHover: (hovering) => setState(() => hover = hovering),
+            splashColor: Colors.transparent,
+            onTap: () async =>
+                model.link == "" ? null : await launchUrlString(model.link),
+            child: AnimatedContainer(
+              duration: 100.milliseconds,
+              width: screenSize.height > screenSize.width
+                  ? screenSize.width / 1.2
+                  : screenSize.width / 2.4,
+              padding: EdgeInsets.all(10.sp),
+              decoration: BoxDecoration(
+                color: AppColor.box,
+                borderRadius: BorderRadius.circular(10.sp),
+                boxShadow: [
+                  if (hover)
+                    BoxShadow(
                       color: AppColor.primary,
+                      spreadRadius: 1.sp,
+                      blurRadius: 30.sp,
                     ),
-                    child: Image.asset(
-                      AppConstants.link,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
+                ],
               ),
-            ),
-          ],
-        ),
-      );
-
-  Widget achievementItem(Model model, Size screenSize, String logo) =>
-      Container(
-        width: screenSize.height > screenSize.width
-            ? screenSize.width / 1.2
-            : screenSize.width / 2.4,
-        padding: EdgeInsets.all(10.sp),
-        decoration: BoxDecoration(
-          color: AppColor.box,
-          borderRadius: BorderRadius.circular(10.sp),
-        ),
-        alignment: Alignment.center,
-        child: Stack(
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  model.role,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: AppColor.textColor,
-                    fontSize: 25.sp,
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    model.role,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: AppColor.textColor,
+                      fontSize: 25.sp,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 5.sp,
-                ),
-                Text(
-                  model.location,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    color: AppColor.textColor.withOpacity(0.6),
-                    fontSize: 18.sp,
+                  SizedBox(
+                    height: 5.sp,
                   ),
-                ),
-                SizedBox(
-                  height: 5.sp,
-                ),
-                Text(
-                  '${DateFormat('MMMM yyyy').format(model.from)} - Present',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    color: AppColor.textColor.withOpacity(0.6),
-                    fontSize: 15.sp,
-                    fontStyle: FontStyle.italic,
+                  Text(
+                    model.name,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: AppColor.textColor.withOpacity(0.8),
+                      fontSize: 20.sp,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 5.sp,
-                ),
-                SizedBox(
-                  width: screenSize.width,
-                  child: Text(
+                  SizedBox(
+                    height: 5.sp,
+                  ),
+                  Text(
+                    model.location,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: AppColor.textColor.withOpacity(0.6),
+                      fontSize: 18.sp,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.sp,
+                  ),
+                  Text(
+                    '${DateFormat('MMMM yyyy').format(model.from)} - ${DateFormat('MMMM yyyy').format(model.to)}',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: AppColor.textColor.withOpacity(0.6),
+                      fontSize: 15.sp,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.sp,
+                  ),
+                  Text(
                     model.description.join('\n\n'),
                     softWrap: true,
-                    textAlign: TextAlign.left,
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       color: AppColor.textColor,
                       fontSize: 18.sp,
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-            Align(
-              alignment: Alignment.topLeft,
+          ),
+        );
+      },
+    );
+  }
+
+  Widget achievementItem(Model model, Size screenSize, String logo) {
+    bool hover = false;
+    return StatefulBuilder(
+      builder: (_, setState) {
+        return MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: InkWell(
+            onTap: () {},
+            splashColor: Colors.transparent,
+            onHover: (hovering) => setState(() => hover = hovering),
+            child: AnimatedContainer(
+              duration: 100.milliseconds,
               child: Container(
-                height: screenSize.height > screenSize.width ? 50.sp : 60.sp,
-                width: screenSize.height > screenSize.width ? 50.sp : 60.sp,
+                width: screenSize.height > screenSize.width
+                    ? screenSize.width / 1.2
+                    : screenSize.width / 2.4,
                 padding: EdgeInsets.all(10.sp),
-                decoration: const BoxDecoration(
-                  color: Colors.transparent,
+                decoration: BoxDecoration(
+                  color: AppColor.box,
+                  borderRadius: BorderRadius.circular(10.sp),
+                  boxShadow: [
+                    if (hover)
+                      BoxShadow(
+                        color: AppColor.primary,
+                        spreadRadius: 2.sp,
+                        blurRadius: 30.sp,
+                      ),
+                  ],
                 ),
-                child: Image.asset(
-                  logo,
-                  fit: BoxFit.cover,
+                alignment: Alignment.center,
+                child: Stack(
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          model.role,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: AppColor.textColor,
+                            fontSize: 25.sp,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.sp,
+                        ),
+                        Text(
+                          model.location,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.textColor.withOpacity(0.6),
+                            fontSize: 18.sp,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.sp,
+                        ),
+                        Text(
+                          '${DateFormat('MMMM yyyy').format(model.from)} - Present',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.textColor.withOpacity(0.6),
+                            fontSize: 15.sp,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.sp,
+                        ),
+                        SizedBox(
+                          width: screenSize.width,
+                          child: Text(
+                            model.description.join('\n\n'),
+                            softWrap: true,
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.textColor,
+                              fontSize: 18.sp,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        height: screenSize.height > screenSize.width
+                            ? 50.sp
+                            : 60.sp,
+                        width: screenSize.height > screenSize.width
+                            ? 50.sp
+                            : 60.sp,
+                        padding: EdgeInsets.all(10.sp),
+                        decoration: const BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: Image.asset(
+                          logo,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
-          ],
-        ),
-      );
+          ),
+        );
+      },
+    );
+  }
 
   Widget porItemMobile(Model model, Size screenSize) => Container(
         width: screenSize.height > screenSize.width

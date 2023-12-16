@@ -2,16 +2,28 @@ import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/data/model.dart';
 
 class Data {
-  static const String about = 'Aspiring Software Developer with a knack for '
-      'bridging gaps across disciplines and industries. Skilled in Flutter, '
-      'Python, JAVA, JavaScript, Android, C++, and more.\n\nExperienced leader and'
-      ' project head. Music enthusiast with guitar skills and songwriting '
-      'creativity.\n\nOpen to opportunities and collaborations. Email me at '
-      'yashashm.dev@gmail.com';
+  static const String about =
+      '''🚀 Meet the Maestro of Code at Practice Buzz! 🌐 As a Software Sorcerer, I craft enchanting cross-platform apps that dance seamlessly between devices using Flutter and Dart. I don't just build apps; I craft experiences that users won't forget.
+
+🎨 Frontend arts are not lost on me. HTML, CSS, and React are my brushes, turning screens into canvases that tell compelling tales.
+
+💻 In the backend battlegrounds, I wield the mighty Node and Express, sculpting APIs that are more robust than a fortress, backed by the formidable powers of PostgreSQL or the nimble MongoDB. With the wisdom of cloud giants, I effortlessly navigate the realms of AWS, Firebase, and Google Cloud, crafting digital ecosystems that transcend ordinary boundaries.
+
+🐳 Docker is my magic potion, encapsulating my innovations into digital time capsules. When chaos reigns, I summon the Kubernetes forces, orchestrating containers like a symphony conductor.
+
+🏗️ DevOps is my realm; CICD is my anthem. Git workflows, Jenkins, and the rhythmic beats of version control with Git and the automated enchantments of Ansible as my trusty steeds, ensuring each line of code dances flawlessly from creation to deployment.
+
+🌐 Stepping into the collaborative cosmos, I am fluent in the languages of collaboration platforms—Jira, Trello, and Slack. I orchestrate seamless teamwork, ensuring that communication flows like a well-rehearsed melody.
+
+🎓 Armed with a Bachelor's in Computer Science Engineering from Indus University Ahmedabad, I don't just study code; I sculpt it into winning solutions, conquering hackathons and competitions with flair.
+
+💻 From the elegance of Java to the versatility of Python, the dynamism of JavaScript to the power of C++, every coding language, including the rhythmic Bash, is a note in my symphony. GitHub and GitLab are my arenas, where repositories thrive like digital ecosystems.
+
+💡 I don't just write code; I build innovative solutions that push the boundaries of what's possible. Join me on this journey, where every line of code is a stroke of genius! ⚡️''';
 
   static List<String> navItems = [
     'Home',
-    'About',
+    'About Me',
     'Experience',
     'Projects',
     // 'Certifications',
@@ -601,20 +613,6 @@ class Data {
       linkName: 'Certificate',
     ),
   ];
-
-  // static List<String> software = [
-  //   'Flutter',
-  //   'Dart',
-  //   'JAVA',
-  //   'Python',
-  //   'Firebase',
-  //   'SQL',
-  //   'Git',
-  //   'Kotlin',
-  //   'JavaScript',
-  //   'C/C++',
-  //   'AWS',
-  // ];
 
   static Map<String, String> softSkills = {
     'Leadership': AppConstants.leader,

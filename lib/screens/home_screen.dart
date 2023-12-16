@@ -22,6 +22,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget mobileWelcome(Size screenSize) => Container(
         width: screenSize.width,
+        height: screenSize.height,
         margin: EdgeInsets.only(top: 80.sp),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -239,6 +240,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget welcome(Size screenSize) => Container(
         width: screenSize.width,
+        height: screenSize.height,
         margin: EdgeInsets.only(top: 80.sp),
         child: Column(
           mainAxisSize: MainAxisSize.min,

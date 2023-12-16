@@ -1,18 +1,4 @@
 class AppConstants {
-  static const String darkMode = 'darkMode';
-
-  static const String about =
-      '''I'm an aspiring Software Developer with a passion for bridging gaps across disciplines, teams, and industries. My strong technical background in computer engineering fuels my interest in Android and Flutter Development, while I'm open to exploring other software roles. Proficient in languages like Flutter, Dart, Python, JAVA, JavaScript, C++, PostgreSQL, Android, and Git, I tackle diverse challenges effectively. I also have familiarity with React, HTML, CSS, and PHP.
-
-Throughout my studies, I've held leadership roles, including President of the college committee, refining my organizational and communication skills. As a Project Head during internships, I honed project management while leading teams. I've led teams and contributed to innovative solutions in national hackathons.
-
-Beyond tech, I'm deeply passionate about music, playing guitar, singing, and composing over 33 songs. I'm excited to leverage my technical expertise, leadership experience, and musical creativity to contribute effectively to software projects. 
-
-For opportunities or collaborations, reach me at yashashm.dev@gmail.com.''';
-
-  static const String mobileText =
-      '''Hello, sorry for the inconvenience.\n\nPlease either open this site in landscape mode as a desktop site and reload or open it on a PC.\n\nThank You.''';
-
   static const String photo = 'assets/images/photo.png';
 
   static const String avatar = 'assets/images/avatar.png';
