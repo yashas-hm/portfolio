@@ -9,7 +9,7 @@
 ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━╯<br>
 
 ## Here's the link to my website
-[Secret! shushhhhh.........🤫🤫🤫](https://yashashm.dev)
+[Visit Website](https://yashashm.dev)
 
 ## Preview Time
 
