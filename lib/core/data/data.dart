@@ -3,23 +3,15 @@ import 'package:portfolio/core/data/model.dart';
 
 class Data {
   static const String about =
-      '''🚀 Meet the Maestro of Code at Practice Buzz! 🌐 As a Software Sorcerer, I craft enchanting cross-platform apps that dance seamlessly between devices using Flutter and Dart. I don't just build apps; I craft experiences that users won't forget.
-
-🎨 Frontend arts are not lost on me. HTML, CSS, and React are my brushes, turning screens into canvases that tell compelling tales.
-
-💻 In the backend battlegrounds, I wield the mighty Node and Express, sculpting APIs that are more robust than a fortress, backed by the formidable powers of PostgreSQL or the nimble MongoDB. With the wisdom of cloud giants, I effortlessly navigate the realms of AWS, Firebase, and Google Cloud, crafting digital ecosystems that transcend ordinary boundaries.
-
-🐳 Docker is my magic potion, encapsulating my innovations into digital time capsules. When chaos reigns, I summon the Kubernetes forces, orchestrating containers like a symphony conductor.
-
-🏗️ DevOps is my realm; CICD is my anthem. Git workflows, Jenkins, and the rhythmic beats of version control with Git and the automated enchantments of Ansible as my trusty steeds, ensuring each line of code dances flawlessly from creation to deployment.
-
-🌐 Stepping into the collaborative cosmos, I am fluent in the languages of collaboration platforms—Jira, Trello, and Slack. I orchestrate seamless teamwork, ensuring that communication flows like a well-rehearsed melody.
-
-🎓 Armed with a Bachelor's in Computer Science Engineering from Indus University Ahmedabad, I don't just study code; I sculpt it into winning solutions, conquering hackathons and competitions with flair.
-
-💻 From the elegance of Java to the versatility of Python, the dynamism of JavaScript to the power of C++, every coding language, including the rhythmic Bash, is a note in my symphony. GitHub and GitLab are my arenas, where repositories thrive like digital ecosystems.
-
-💡 I don't just write code; I build innovative solutions that push the boundaries of what's possible. Join me on this journey, where every line of code is a stroke of genius! ⚡️''';
+      "🚀 I'm the Maestro of Code at <b>Practice Buzz!</b><br><br>"
+      "🌐 As a Software Sorcerer, I craft enchanting cross-platform apps that dance seamlessly between devices using <b>Flutter</b> and <b>Dart</b>. I don't just build apps; I craft experiences that users won't forget.<br><br>🎨 Frontend arts are not lost on me. <b>HTML</b>, <b>CSS</b>, <b>Javascript</b>, <b>React</b> are my brushes, turning screens into canvases that tell compelling tales.<br><br>"
+      "💻 In the backend battlegrounds, I wield the mighty <b>Node</b> and <b>Express</b>, sculpting APIs that are more robust than a fortress, backed by the formidable powers of <b>PostgreSQL</b> or the nimble <b>MongoDB</b>. With the wisdom of cloud giants, I effortlessly navigate the realms of <b>AWS</b>, <b>Firebase</b>, and <b>Google Cloud</b>, crafting digital ecosystems that transcend ordinary boundaries.<br><br>"
+      "🐳 <b>Docker</b> is my magic potion, encapsulating my innovations into digital time capsules. When chaos reigns, I summon the <b>Kubernetes</b> forces, orchestrating containers like a symphony conductor.<br><br>"
+      "🏗️ DevOps is my realm; CI/CD is my anthem. <b>Git workflows</b>, <b>Jenkins</b>, and the rhythmic beats of version control with <b>Git</b> and the automated enchantments of <b>Ansible</b> as my trusty steeds, ensuring each line of code dances flawlessly from creation to deployment.<br><br>"
+      "🌐 Stepping into the collaborative cosmos, I am fluent in the languages of collaboration platforms — <b>Jira</b>, <b>Trello</b>, and <b>Slack</b>. I orchestrate seamless teamwork, ensuring that communication flows like a well-rehearsed melody.<br><br>"
+      "🎓 Armed with a <b>Bachelor's in Computer Science Engineering</b> from Indus University Ahmedabad, I don't just study code; I sculpt it into winning solutions, conquering hackathons and competitions with flair.<br><br>"
+      "💻 From the elegance of Java to the versatility of <b>Python</b>, the dynamism of <b>Java</b> to the power of <b>C++</b>, every coding language, including the rhythmic <b>Bash</b>, is a note in my symphony. <b>GitHub</b> and <b>GitLab</b> are my arenas, where repositories thrive like digital ecosystems.<br><br>"
+      "💡 I don't just write code; I build innovative solutions that push the boundaries of what's possible. Join me on this journey, where every line of code is a stroke of genius! ⚡️";
 
   static List<String> navItems = [
     'Home',
@@ -42,26 +34,27 @@ class Data {
       'C++': AppConstants.c,
     },
     {
+      'Node Js': AppConstants.node,
       'PostgreSQL': AppConstants.psql,
-      'AWS': AppConstants.aws,
       'Firebase': AppConstants.firebase,
       'GCP': AppConstants.gcp,
+      'AWS': AppConstants.aws,
       'Docker': AppConstants.docker,
-      'Heroku': AppConstants.heroku,
-      'SpringBoot': AppConstants.spring,
+      'Kubernetes': AppConstants.kubernetes,
+      'Jenkins': AppConstants.jenkins,
     },
     {
+      'HTML': AppConstants.html,
+      'CSS': AppConstants.css,
+      'React': AppConstants.react,
       'NumPy': AppConstants.np,
       'OpenCV': AppConstants.opencv,
       'TensorFlow': AppConstants.tf,
       'Pandas': AppConstants.pd,
+      'Jira': AppConstants.jira,
+      'Slack': AppConstants.slack,
       'Android Studio': AppConstants.as,
       'IntelliJ IDEA': AppConstants.intellij,
-      'Jira': AppConstants.jira,
-      'CSS': AppConstants.css,
-      'React': AppConstants.react,
-      'HTML': AppConstants.html,
-      'Node.js': AppConstants.node,
     },
   ];
 
@@ -80,20 +73,21 @@ class Data {
       from: DateTime(2023, DateTime.june),
       to: DateTime(2300, DateTime.june),
       description: [
-        'Developed and launched a user-friendly cross platform app showcasing the company\'s dental clinic collaborations, resulting in a 30% increase in patient appointments.',
-        'Implemented a highly accurate cost calculator feature within the app, enabling users to approximate treatment costs with 95% accuracy, leading to improved transparency and customer satisfaction.',
-        'Designed and integrated a habit tracker feature with notification system into the app, resulting in a 20% increase in user engagement and adherence to healthy dental habits.',
-        'Utilized Firebase and WordPress for backend development, optimizing data storage efficiency by 30% and reducing loading time by an average of 2 seconds per user.',
-        'Employed BLoC Architecture in conjunction with the Agile methodology to craft the application.'
+        '<b>Cross-Platform Clinic Collaboration Apps</b>: Developed and launched multiple user-friendly cross-platform apps showcasing clinic collaborations, driving a significant 30% increase in patient appointments 📱💡.',
+        '<b>Secure Multi-Platform Authentication</b>: Engineered a secure authentication system with email, Google, Apple, and Facebook login options, contributing to a substantial 20% boost in user sign-ups while ensuring data integrity and user privacy 🔐👤.',
+        '<b>Effective Notification System</b>: Designed and integrated a notification system, resulting in a noteworthy 20% increase in user engagement, enhancing the app\'s interaction and retention capabilities 📬📈.',
+        '<b>Seamless Payments Interface</b>: Developed a seamless payments interface for the website, yielding a 15% increase in online sales within the first month of implementation. Streamlined the user experience and contributed to improved conversion rates 💳💻.',
+        '<b>Custom API and Database Management</b>: Developed and maintained a custom API and Database using Node.js and Express.js, leading to a remarkable 40% improvement in data processing efficiency and a 50ms reduction in server response time ⚙️💽.',
+        '<b>Efficient Content Management System</b>: Engineered and deployed a content management system facilitating seamless modification of app content via Excel, leading to a 50% reduction in the time required for updates, enhancing efficiency and agility 🖥️🔄.',
+        '<b>BLoC Architecture and Agile Methodology</b>: Employed BLoC Architecture in conjunction with the Agile methodology to craft the application, ensuring a modular and efficient development process 🏗️🔄.',
       ],
       link: '',
       skills: [
         'Flutter',
-        'MVC',
-        'BLoC',
-        'UI/UX',
+        'Node.js',
+        'JavaScript',
         'Git',
-        'GetX',
+        'Python',
       ],
       linkName: 'Certificate',
     ),
@@ -105,15 +99,15 @@ class Data {
       from: DateTime(2023, DateTime.april),
       to: DateTime(2023, DateTime.may),
       description: [
-        'Implemented a parallel downloading method and file compression technique, resulting in a 50% decrease in download time for application users.',
-        'Collaborated with UI/UX designers to integrate innovative designs and animations into the application, leading to a 30% increase in user engagement.',
-        'Instrumented secure APIs for authentication and data transfer, ensuring a seamless and protected user experience for 1000+ daily active users.',
+        '<b>Optimized Download Process</b>: Implemented a parallel downloading method and file compression technique, culminating in a substantial 50% reduction in download time for application users. Enhanced user experience through efficient data acquisition 🚀⏬.',
+        '<b>Innovative UI/UX Integration</b>: Collaborated with UI/UX designers to seamlessly integrate innovative designs and animations into the application. The result: a noteworthy 30% increase in user engagement, enhancing the visual appeal and interactivity of the app 🎨📈.',
+        '<b>Secure API Implementation</b>: Instrumented secure APIs for authentication and data transfer, ensuring a seamless and protected user experience for a substantial user base of 1000+ daily active users. Prioritized data security and user privacy 🔐🌐.',
       ],
       link:
           'https://drive.google.com/file/d/1RFNNyXiYk-s_6IiD4LcPcwW0X52y2gPj/view?usp=sharing',
       skills: [
         'Flutter',
-        'API',
+        'Node.js',
         'UI/UX',
         'Git',
       ],
@@ -123,29 +117,34 @@ class Data {
       id: '6',
       name: 'Grahnumb',
       role: 'Flutter Developer Intern',
-      location: 'Banglore, Karnataka',
+      location: 'Bengaluru, Karnataka',
       from: DateTime(2023, DateTime.february),
       to: DateTime(2022, DateTime.march),
       description: [
-        'Developed a highly interactive and visually stunning game using the Flutter Flame engine, resulting in a 20% increase in user engagement.',
-        'Implemented secure authentication and data APIs, ensuring user privacy and protecting sensitive information with an error rate of less than 3%.',
-        'Wrote efficient, reusable, and reliable code that reduced loading times by 30%, resulting in a smoother gameplay experience for users.',
+        '<b>Flutter Flame Game Development</b>: Developed a highly interactive and visually stunning game utilizing the Flutter Flame engine, contributing to a substantial 20% increase in user engagement. Elevated the gaming experience through immersive visuals and interactivity 🎮🚀.',
+        '<b>Secure Authentication and Data APIs</b>: Implemented secure authentication and data APIs, prioritizing user privacy and safeguarding sensitive information. Achieved an impressive error rate of less than 3%, ensuring a protected and trustworthy user experience 🔐🌐.',
+        '<b>Efficient Code Optimization</b>: Wrote efficient, reusable, and reliable code that reduced loading times by 30%, resulting in a smoother gameplay experience for users. Prioritized code optimization for enhanced performance and user satisfaction ⚙️🕹️.',
       ],
       link: '',
-      skills: ['Flutter', 'Flame', 'Firebase', 'Git'],
+      skills: [
+        'Flutter',
+        'Flame Game Engine',
+        'Firebase',
+        'Git',
+      ],
       linkName: 'Certificate',
     ),
     Model(
       id: '5',
       name: 'EcoConsumers Solutions Pvt. Ltd.',
       role: 'Flutter Developer Intern',
-      location: 'Banglore, Karnataka',
+      location: 'Bengaluru, Karnataka',
       from: DateTime(2022, DateTime.june),
       to: DateTime(2022, DateTime.september),
       description: [
-        'Utilized the GetX library for state management, resulting in improved app responsiveness and reduced development time by 20%.',
-        'Developed a B2C mobile app from scratch, integrating it with Firebase to enable real-time data synchronization and increase user engagement by 40%',
-        'Implemented caching using Hive library, resulting in a 30% improvement in app performance and reduced server requests by 50%.',
+        '<b>GetX Library for State Management</b>: Utilized the GetX library for state management, leading to enhanced app responsiveness and a significant 20% reduction in development time. Streamlined the development process for improved efficiency ⚙️🔄.',
+        '<b>B2C Mobile App Development</b>: Developed a B2C mobile app from scratch, seamlessly integrating it with Firebase for real-time data synchronization. Achieved an impressive 40% increase in user engagement by providing up-to-date and dynamic content 📱🔗.',
+        '<b>Caching with Hive Library</b>: Implemented caching using the Hive library, resulting in a substantial 30% improvement in app performance. Additionally, reduced server requests by 50%, optimizing data retrieval and enhancing overall user experience 🚀📊.',
       ],
       link:
           'https://drive.google.com/file/d/1dXnwJE0P1YSvXxWSZTD4lxW7vhi5uT_a/view?usp=sharing',
@@ -162,19 +161,19 @@ class Data {
       id: '4',
       name: 'Raahi Mobi Pvt. Ltd.',
       role: 'Android Developer Intern',
-      location: 'Banglore, Karnataka',
+      location: 'Bengaluru, Karnataka',
       from: DateTime(2021, DateTime.may),
       to: DateTime(2021, DateTime.june),
       description: [
-        'Transformed wireframe UI designs into fully functional code, resulting in a seamless user experience and increased user engagement by 15%.',
-        'Enhanced performance by integrating a caching mechanism, resulting in a 20% decrease in loading time for game assets.',
-        'Developed and implemented a search and create API using REST-full services, improving the efficiency of game development and reducing development time by 30%.',
+        '<b>Wireframe to Functional Code</b>: Transformed wireframe UI designs into fully functional code, creating a seamless user experience. Achieved a notable 15% increase in user engagement through the implementation of intuitive and responsive interfaces 🎨💻.',
+        '<b>Performance Enhancement with Caching</b>: Integrated a caching mechanism to enhance performance, resulting in a significant 20% decrease in loading time for game assets. Optimized asset retrieval for a smoother gaming experience 🕹️⚙️.',
+        '<b>Search and Create API Implementation</b>: Developed and implemented a search and create API using RESTful services, streamlining game development and reducing development time by an impressive 30%. Improved efficiency in managing game-related data and processes 🚀🔍.',
       ],
       link:
           'https://drive.google.com/file/d/1J3EJwXQuUSfXE0fDU3I-9rGOWG_vgjBq/view?usp=sharing',
       skills: [
         'Android',
-        'REST',
+        'REST API',
         'Firebase',
         'MVVM',
       ],
@@ -188,15 +187,15 @@ class Data {
       from: DateTime(2021, DateTime.january),
       to: DateTime(2021, DateTime.february),
       description: [
-        'Developed a highly efficient WhatsApp auto responder app that achieved a 95% response rate, resulting in increased user engagement and satisfaction.',
-        'Integrated Firebase into the app, enabling seamless and real-time data retrieval, leading to a 50% reduction in response time for retrieving user data.',
-        'Successfully integrated Android native services into the app, optimizing performance and reducing battery consumption by 30%, resulting in improved user experience.',
+        '<b>Efficient WhatsApp Auto Responder</b>: Developed a highly efficient WhatsApp auto-responder app achieving an impressive 95% response rate. Elevated user engagement and satisfaction through timely and automated responses 📱💬.',
+        '<b>Firebase Integration for Real-time Data</b>: Integrated Firebase into the app, enabling seamless and real-time data retrieval. Achieved a significant 50% reduction in response time for retrieving user data, enhancing overall app efficiency 🚀🔗.',
+        '<b>Android Native Services Integration</b>: Successfully integrated Android native services, optimizing performance and reducing battery consumption by 30%. Resulted in a substantial improvement in user experience through efficient resource utilization ⚙️🔋.'
       ],
       link:
           'https://drive.google.com/file/d/1Hfnk4zyjt7dTzV7uBlwInk2hcegx8DZn/view?usp=sharing',
       skills: [
         'Android',
-        'REST',
+        'REST API',
         'Firebase',
       ],
       linkName: 'Certificate',
@@ -209,14 +208,13 @@ class Data {
       from: DateTime(2020, DateTime.august),
       to: DateTime(2020, DateTime.december),
       description: [
-        'Implemented local storage functionality using Room Database, resulting in a significant reduction in data retrieval time by 30%.',
-        'Executed thorough unit tests using the JUnit framework, ensuring the reliability and stability of the application with a test coverage of 95%.',
+        '<b>Local Storage with Room Database</b>: Implemented local storage functionality using Room Database, achieving a notable 30% reduction in data retrieval time. Enhanced the app\'s efficiency in handling and accessing stored data 🗄️📉.',
+        '<b>Thorough Unit Testing with JUnit</b>: Executed thorough unit tests using the JUnit framework, ensuring the reliability and stability of the application. Achieved an extensive test coverage of 95%, validating the robustness of the implemented features and functionalities 🧪🔍.',
       ],
       link:
           'https://drive.google.com/file/d/1SS-dw_wDisPR9Ul9vU1FOoiFv8za_pOP/view?usp=sharing',
       skills: [
         'Android',
-        'XML',
         'Room',
       ],
       linkName: 'Certificate',
@@ -229,16 +227,16 @@ class Data {
       from: DateTime(2020, DateTime.june),
       to: DateTime(2020, DateTime.july),
       description: [
-        'Developed and implemented a web browser app using Java, resulting in over 100,000 downloads and a 4-star rating on Google Play Store.',
-        'Integrated offline storage capabilities into the app, allowing users to access their browsing history even without an internet connection.',
-        'Optimized performance by implementing threading techniques, resulting in a 50% decrease in app loading time.',
+        '<b>Web Browser App</b>: Spearheaded development of a web browser app using Java, achieving over 100,000 downloads and a commendable 4-star rating on the Google Play Store. Demonstrated both popularity and user satisfaction 🌐📲⭐.',
+        '<b>Offline Storage Integration</b>: Integrated offline storage capabilities into the app, enabling users to access their browsing history without an internet connection. Enhanced user convenience and accessibility 🗃️📶.',
+        '<b>Performance Optimization with Threading</b>: Optimized performance by implementing threading techniques, resulting in an impressive 50% decrease in app loading time. Elevated the app\'s responsiveness and overall user experience 🚀⏱️.',
       ],
       link:
           'https://drive.google.com/file/d/1clY8oQyuHSyzHJ3BuA8Tgc0d4AP2Kxe9/view?usp=sharing',
       skills: [
         'Android',
-        'XML',
         'Room',
+        'Python',
       ],
       linkName: 'Certificate',
     ),
@@ -246,70 +244,105 @@ class Data {
 
   static List<Model> projects = [
     Model(
-      id: '10',
-      name: 'Spotter',
-      role: 'Flutter',
-      location: 'Ahmedabad, Gujarat',
-      from: DateTime(2022, DateTime.november),
-      to: DateTime(2023, DateTime.february),
+      id: '11',
+      role: 'DentaVacation',
+      name: 'Med Tourism Co.',
+      location: 'Navi Mumbai, Maharashtra',
+      from: DateTime(2023, DateTime.june),
+      to: DateTime(2024, DateTime.january),
       description: [
-        'Led development of Spotter, a sophisticated mobile app that utilizes advanced algorithms to offer personalized location suggestions based on user preferences and location data.',
-        'Spearheaded community engagement by connecting local artists, promoting their work, and facilitating the sharing of favorite spots among users, fostering a sense of belonging and connection.',
-        'Implemented the BLoC (Business Logic Component) architecture to establish a robust and modular structure for Spotter app, enhancing code organization, re-usability, and maintainability.',
-        'Integrated Firebase for streamlined data management, harnessed the Google Maps API for precise geolocation services, and harnessed Google Cloud\'s capabilities to ensure efficient backend support in the development of the Spotter app.',
+        '<b>DentaVacation Flutter App</b>: Crafted a dynamic app using Flutter, named DentaVacation, seamlessly offering clinics, discounts, and engaging blogs based on user location 🦷🌍.',
+        '<b>Interactive Learning Quizzes and Videos</b>: Integrated fun quizzes and instructional videos to enlighten users about proper dental habits, combining education with user engagement 📚🎥.',
+        '<b>Zoho Chat Integration</b>: Facilitated real-time communication by integrating Zoho Chat, enabling users to connect with sales agents directly from the app for personalized assistance 💬🤝.',
+        '<b>Habit Tracker and Notification System</b>: Implemented a habit tracker to promote dental care, notifying users about frequent habits. A proactive approach to oral health through timely reminders ⏰🦷.',
+        '<b>Cost Calculator Feature</b>: Incorporated a cost calculator providing users with approximate costs for dental procedures, ensuring transparency and aiding informed decision-making 💰🧮.',
+        '<b>Community Forum for Interaction</b>: Established a community forum allowing users to post questions and receive answers from both peers and experts, fostering a collaborative environment for shared insights and support 🤔💬.',
+        '<b>Secure Custom APIs and Database</b>: Developed secure custom APIs using Node.js and Express, backed by a robust database to ensure data integrity and privacy 🔒💽.',
+        '<b>Dynamic Text Updates</b>: Engineered a system for real-time text updates within the app, allowing for seamless content updates without the need for frequent app updates, ensuring a continuously fresh user experience 🔄📲.',
       ],
       link: 'https://github.com/spotter-find-your-spot/spotter',
       skills: [
         'Flutter',
-        'Firebase',
-        'Google Cloud',
+        'Node.js',
+        'SQL',
+        'Python',
+        'CMS',
+      ],
+      linkName: AppConstants.flutter,
+    ),
+    Model(
+      id: '10',
+      role: 'Spotter',
+      name: 'Spotter Inc.',
+      location: 'Ahmedabad, Gujarat',
+      from: DateTime(2022, DateTime.november),
+      to: DateTime(2023, DateTime.february),
+      description: [
+        '<b>Led development of Spotter</b>: Spearheaded the creation of Spotter, a social media app leveraging advanced algorithms for personalized location suggestions 🌐.',
+        '<b>Community Engagement and Artistic Connection</b>: Fostered a sense of belonging by connecting local artists through Spotter, promoting their work and encouraging users to share favorite spots 🎨.',
+        '<b>BLoC Architecture Implementation</b>: Implemented the BLoC architecture in Spotter, fortifying the app with a modular structure for enhanced code organization, re-usability, and maintainability 🏗️.',
+        '<b>Integration of Cutting-Edge Technologies</b>: Integrated Firebase for streamlined data management, harnessed Google Maps API for precise geolocation, and leveraged Google Cloud for robust backend support in Spotter\'s development ⚙️.',
+        '<b>Strategic Image Compression</b>: Implemented image compression techniques to intelligently reduce database storage, optimizing resource utilization and enhancing overall database efficiency. 🖼️📉',
+        '<b>Efficient Storage Management</b>: Through image compression, successfully minimized storage requirements, ensuring a streamlined and cost-effective approach to database management. Improved data retrieval speed and reduced bandwidth usage. 🚀💽',
+      ],
+      link: 'https://github.com/spotter-find-your-spot/spotter',
+      skills: [
+        'Flutter',
+        'Node.js',
+        'GCP',
+        'Python',
         'Google Maps SDK',
       ],
       linkName: AppConstants.flutter,
     ),
     Model(
       id: '9',
-      name: 'PraTvi',
-      role: 'Flutter',
+      role: 'PraTvi',
+      name: 'Flutter',
       location: 'Ahmedabad, Gujarat',
       from: DateTime(2022, DateTime.november),
       to: DateTime(2022, DateTime.december),
       description: [
-        'Developed a feature-rich wedding logistics app with a Firebase backend, offering real-time functionalities such as check-in, bus status updates, room allocation, and personalized itineraries, showcasing expertise in mobile app development and cloud integration.',
-        'Ensured seamless user experience by incorporating driver contact details, demonstrating a user-centered approach and problem-solving skills in creating a comprehensive solution that enhances event coordination.',
+        '<b>Feature-Rich Wedding Logistics App</b>: Engineered a comprehensive wedding logistics app with a Firebase backend, providing real-time functionalities including check-in, bus status updates, room allocation, and personalized itineraries. Showcased expertise in mobile app development and seamless cloud integration. 📱💼',
+        '<b>User-Centric Event Coordination</b>: Ensured a seamless user experience by incorporating driver contact details, demonstrating a user-centered approach. Applied problem-solving skills to create a comprehensive solution that enhances event coordination, contributing to a flawless wedding experience. 🤝🎉',
       ],
       link: 'https://github.com/yashas-hm/PRATVI',
       skills: [
         'Flutter',
         'Firebase',
+        'CI/CD',
       ],
       linkName: AppConstants.flutter,
     ),
     Model(
       id: '7',
-      name: 'Cheque Scanner',
-      role: 'Android',
+      role: 'Cheque Scanner',
+      name: 'Android',
       location: 'Ahmedabad, Gujarat',
       from: DateTime(2021, DateTime.march),
       to: DateTime(2021, DateTime.april),
       description: [
-        'Pioneered the integration of Optical Character Recognition (OCR) technology to facilitate seamless text detection and automatic data population for cheque details. Expertly harnessed OCR capabilities to optimize user input, reducing errors and enhancing efficiency in financial transactions.',
-        'Employed Firebase ML Kit to implement sophisticated machine learning functionalities into the application. Leveraged its powerful features to enable accurate text recognition and efficient data extraction. Demonstrated adeptness in harnessing cutting-edge tools for enhancing user experiences.',
+        '<b>OCR Integration for Cheque Details</b>: Pioneered the integration of Optical Character Recognition (OCR) technology to seamlessly detect and automatically populate cheque details. Expertly utilized OCR capabilities to optimize user input, reducing errors and enhancing efficiency in financial transactions. 📊💳',
+        '<b>Firebase ML Kit for Machine Learning</b>: Employed Firebase ML Kit to implement sophisticated machine learning functionalities, enabling accurate text recognition and efficient data extraction within the application. Demonstrated adeptness in harnessing cutting-edge tools to enhance user experiences through advanced machine learning features. 🧠🚀',
       ],
       link: 'https://github.com/yashas-hm/Cheque-Scanner',
-      skills: ['Android', 'AI/ML', 'Firebase ML Kit'],
+      skills: [
+        'Android',
+        'AI/ML',
+        'Firebase ML Kit',
+      ],
       linkName: AppConstants.android,
     ),
     Model(
       id: '6',
-      name: 'ASL Gesture\nSensing',
-      role: 'AI/ML',
+      role: 'ASL Gesture\nSensing',
+      name: 'AI/ML',
       location: 'Ahmedabad, Gujarat',
       from: DateTime(2021, DateTime.june),
       to: DateTime(2021, DateTime.july),
       description: [
-        'Developed an advanced Machine Learning model capable of accurately recognizing and interpreting American Sign Language (ASL) gestures.',
-        'Engineered a holistic approach to gesture recognition, considering complete ASL gestures within the model\'s predictions, reflecting a comprehensive understanding of gesture dynamics and enhancing communication accessibility.'
+        '<b>Advanced ASL Gesture Recognition Model</b>: Developed an advanced Machine Learning model proficient in accurately recognizing and interpreting American Sign Language (ASL) gestures, showcasing expertise in computer vision and language understanding. 🤖👐',
+        '<b>Holistic Gesture Recognition Approach</b>: Engineered a holistic approach to gesture recognition, considering complete ASL gestures within the model\'s predictions. Demonstrated a comprehensive understanding of gesture dynamics, significantly enhancing communication accessibility for users. 🌐✨',
       ],
       link: 'https://github.com/yashas-hm/ASL-Gesture-Sensing',
       skills: [
@@ -321,14 +354,14 @@ class Data {
     ),
     Model(
       id: '5',
-      name: 'Space Invaders\nGame',
-      role: 'JAVA',
+      role: 'Space Invaders\nGame',
+      name: 'JAVA',
       location: 'Ahmedabad, Gujarat',
       from: DateTime(2022, DateTime.january),
       to: DateTime(2022, DateTime.january),
       description: [
-        'Utilized JavaFX to re-imagine a well-known game, demonstrating creativity and technical prowess in game development. Skillfully employed JavaFX\'s rich graphical capabilities to recreate a captivating and visually appealing gaming experience, showcasing expertise in Java-based user interfaces.',
-        'Crafted an engaging gameplay experience by leveraging multiple sprites and controllers within the game. Implemented intricate interactions between elements, enhancing user immersion and participation. Demonstrated a deep understanding of game mechanics and user engagement principles.',
+        '<b>JavaFX Game</b>: Utilized JavaFX to reimagine a well-known game, showcasing creativity and technical prowess in game development. Skillfully employed JavaFX\'s rich graphical capabilities to recreate a captivating and visually appealing gaming experience, highlighting expertise in Java-based user interfaces. 🎮🖥️',
+        '<b>Engaging Gameplay Design</b>: Crafted an engaging gameplay experience by leveraging multiple sprites and controllers within the game. Implemented intricate interactions between elements, enhancing user immersion and participation. Demonstrated a deep understanding of game mechanics and user engagement principles. 🕹️🎨',
       ],
       link: 'https://github.com/yashas-hm/Space_Invaders_JavaFX',
       skills: [
@@ -339,50 +372,49 @@ class Data {
     ),
     Model(
       id: '4',
-      name: 'Direct Message',
-      role: 'Flutter',
+      role: 'Direct Message',
+      name: 'Flutter',
       location: 'Ahmedabad, Gujarat',
       from: DateTime(2021, DateTime.march),
       to: DateTime(2021, DateTime.april),
       description: [
-        'Developed a user-centric feature enabling seamless access to WhatsApp chat screens without the need to save contact numbers. Implemented an intuitive pathway that enhances user engagement by simplifying communication processes. Applied mobile application development skills to streamline user interactions.',
-        'Successfully launched the application on the Google Play Store, reaching a broader audience and showcasing technical proficiency in the entire app deployment lifecycle. Managed the app\'s submission, publication, and updates to ensure a consistent and reliable user experience.',
+        '<b>User-Centric WhatsApp Access Feature</b>: Developed a user-centric feature enabling seamless access to WhatsApp chat screens without saving contact numbers. Implemented an intuitive pathway to simplify communication processes, showcasing mobile application development skills and enhancing user engagement. 📱💬',
+        '<b>Google Play Store Deployment</b>: Successfully launched the application on the Google Play Store, demonstrating technical proficiency in the entire app deployment lifecycle. Managed the app\'s submission, publication, and updates, ensuring a consistent and reliable user experience for a broader audience. 🚀📊',
       ],
       link: 'https://github.com/yashas-hm/Direct-Message',
       skills: [
         'Flutter',
-        'Play Store',
       ],
       linkName: AppConstants.flutter,
     ),
     Model(
       id: '3',
-      name: 'Foodie',
-      role: 'Android',
+      role: 'Foodie',
+      name: 'Android',
       location: 'Ahmedabad, Gujarat',
       from: DateTime(2020, DateTime.april),
       to: DateTime(2020, DateTime.may),
       description: [
-        'Designed and developed a user-friendly mobile application for efficient food ordering. Implemented features allowing users to easily add items to their cart, organize selections, and employ search functionalities. Leveraged expertise in mobile application development to ensure a seamless and intuitive user experience.',
-        'Integrated the app with a robust REST API to fetch and manage real-time food item data. Effectively communicated with external data sources, optimizing data retrieval and ensuring accurate menu representation within the application. Demonstrated proficiency in API integration techniques.',
+        '<b>Efficient Food Ordering App</b>: Designed and developed a user-friendly mobile application for efficient food ordering, implementing features for easy cart management, organization of selections, and user-friendly search functionalities. Leveraged mobile application development expertise to ensure a seamless and intuitive user experience. 📱🍔',
+        '<b>REST API Integration</b>: Integrated the app with a robust REST API for real-time food item data management. Effectively communicated with external data sources, optimizing data retrieval, and ensuring accurate menu representation within the application. Demonstrated proficiency in API integration techniques. 🔄🌐',
       ],
       link: 'https://github.com/yashas-hm/Foodie',
       skills: [
         'Android',
-        'REST',
+        'REST API',
       ],
       linkName: AppConstants.android,
     ),
     Model(
       id: '2',
-      name: 'MIDI Drum Set',
-      role: 'IoT',
+      role: 'MIDI Drum Set',
+      name: 'IoT',
       location: 'Ahmedabad, Gujarat',
       from: DateTime(2019, DateTime.november),
       to: DateTime(2020, DateTime.january),
       description: [
-        'Developed a cutting-edge MIDI drum set that seamlessly interfaces with laptops, accurately replicating the dynamics and feel of a real drum kit. Leveraged expertise in mobile application development and AI to create a user-friendly and responsive virtual drumming experience.',
-        'Engineered innovative foam-based drum pads equipped with precision piezo sensors, enabling intricate tap detection and translating user input into expressive MIDI signals. Employed software development skills to optimize sensor integration and enhance drumming realism.',
+        '<b>Cutting-Edge MIDI Drum Set</b>: Developed a cutting-edge MIDI drum set, seamlessly interfacing with laptops to accurately replicate the dynamics and feel of a real drum kit. Leveraged expertise in mobile application development and AI to create a user-friendly and responsive virtual drumming experience. 🥁🔌',
+        '<b>Innovative Foam-Based Drum Pads</b>: Engineered innovative foam-based drum pads with precision piezo sensors for intricate tap detection, translating user input into expressive MIDI signals. Employed software development skills to optimize sensor integration, enhancing the realism of the drumming experience. 🎵🛠️',
       ],
       link: 'https://www.instructables.com/id/Arduino-MIDI-Drums/',
       skills: [
@@ -391,20 +423,6 @@ class Data {
       ],
       linkName: AppConstants.iot,
     ),
-    // Model(
-    //   id: '1',
-    //   name: 'GitHub',
-    //   role: 'More Projects',
-    //   location: 'Online',
-    //   from: DateTime(2019, DateTime.april),
-    //   to: DateTime(2300, DateTime.april),
-    //   description: [
-    //     'More projects in my github repository.',
-    //   ],
-    //   link: 'https://github.com/yashas-hm',
-    //   skills: [],
-    //   linkName: 'Visit',
-    // ),
   ];
 
   static List<Model> certifications = [
@@ -522,10 +540,10 @@ class Data {
     from: DateTime(2019, DateTime.august),
     to: DateTime(2023, DateTime.april),
     description: [
-      '2nd Prize in Nirma Duet Singing Competition 2019.',
-      '1st Prize in Parul University e-cultural fest 2020.',
-      '3rd Prize in Nirma University Western Singing Competition 2023.',
-      'Performed on stage multiple times in front of a huge crowd.',
+      '<b>2nd Prize, Nirma Duet Singing Competition 2019</b>: Harmonized melodies to secure 2nd place, showcasing vocal finesse and musical prowess in a competitive setting 🎤🥈.',
+      '<b>1st Prize, Parul University E-Cultural Fest 2020</b>: Clinched 1st prize, delivering a captivating musical performance, adding vibrancy to the cultural celebration 🎶🏆.',
+      '<b>3rd Prize, Nirma University Western Singing Competition 2023</b>: Achieved 3rd place, demonstrating continued musical excellence and versatility in the Western Singing domain 🎵🥉.',
+      '<b>Stage Performances</b>: Enthralling audiences with multiple on-stage appearances, showcased a dynamic and engaging musical presence in front of large crowds 🌟🎤.',
     ],
     link: '',
     skills: [],
@@ -540,12 +558,12 @@ class Data {
     from: DateTime(2019, DateTime.august),
     to: DateTime(2023, DateTime.april),
     description: [
-      'Smart India Hackathon Finalist 2022, developed Fake News Detection AI Website & API.',
-      '1st Prize in National Level Hackathon by Nirma University 2021, developed a Cheque Scanner OCR Mobile App.',
-      '1st Prize in National Level Hackathon by Nirma University 2022, developed American Sign Language gesture detector using open Computer Vision.',
-      '2nd Prize in Student Startup and Innovation Program 2019, award by CM of Gujarat.',
-      '1st Prize in National Level Hackathon by Parul University 2020.',
-      '1st Prize in National Level Hackathon by Indus University 2019, developed an IoT MR smart-glass.',
+      '<b>Smart India Hackathon Finalist 2022</b>: Recognized as a Finalist, developed a Fake News Detection AI Website & API, showcasing expertise in combating misinformation and advancing technology for societal benefit 🏅🤖.',
+      '<b>1st Prize in Nirma University Hackathon 2022</b>: Achieved 1st Prize, developed an American Sign Language gesture detector using open Computer Vision, showcasing commitment to accessibility and inclusive technology 🏆👐.',
+      '<b>1st Prize in Nirma University Hackathon 2021</b>: Secured 1st Prize, developed a Cheque Scanner OCR Mobile App, demonstrating innovative mobile technology solutions and excellence in application development 🥇📱.',
+      '<b>1st Prize in Parul University Hackathon 2020</b>: Secured 1st Prize in a National Level Hackathon, demonstrating consistent excellence in problem-solving and technological innovation 🏆🚀.',
+      '<b>1st Prize in Indus University Hackathon 2019</b>: Attained 1st Prize, developed an IoT MR smart-glass, showcasing proficiency in merging IoT and Mixed Reality for cutting-edge solutions 🥇🔍.',
+      '<b>2nd Prize in Student Startup and Innovation Program 2019</b>: Recognized with the 2nd Prize, awarded by the CM of Gujarat, for entrepreneurial endeavors and innovative contributions to the startup ecosystem 🌐💡.',
     ],
     link: '',
     skills: [
@@ -564,14 +582,17 @@ class Data {
       from: DateTime(2021, DateTime.june),
       to: DateTime(2022, DateTime.june),
       description: [
-        'Demonstrated strong leadership skills and a proactive approach to organizing and overseeing a wide range of student events.',
-        'Managed a dedicated team of 30 students, providing guidance, support, and direction to ensure the successful execution of over 80 events, highlighting effective team management and coordination abilities.',
+        '<b>Proactive Leadership</b>: Exhibited strong leadership skills and a proactive approach in organizing and overseeing diverse student events, emphasizing efficiency and thorough planning 🌟🚀.',
+        '<b>Team Management Excellence</b>: Successfully managed a dedicated team of 30 students, providing guidance and support to ensure the seamless execution of over 80 events. Demonstrated effective team management and coordination skills for successful event delivery 🤝📅.',
       ],
       link:
           'https://drive.google.com/file/d/1rbEq5ahFdvNMz8SgbFBlLj3pTqU7uaUv/view?usp=sharing',
       skills: [
         'Team Management',
-        'Leadership',
+        'Event Management',
+        'Event Organizing',
+        'Team Co-Ordination',
+        'Communication',
       ],
       linkName: 'Certificate',
     ),
@@ -583,14 +604,15 @@ class Data {
       from: DateTime(2021, DateTime.december),
       to: DateTime(2022, DateTime.january),
       description: [
-        'Exemplified a commitment to fostering technological learning and community engagement among students.',
-        'Successfully organized and led three educational events focused on teaching Android development to enthusiastic students, showcasing leadership in promoting skill development and knowledge sharing within the student community.',
+        '<b>Commitment to Technological Learning</b>: Demonstrated a steadfast commitment to advancing technological education and community engagement among students 🚀📚.',
+        '<b>Educational Event Leadership</b>: Orchestrated and led three impactful educational events, specifically focusing on teaching Android development to enthusiastic students. Showcased effective leadership in promoting skill development and fostering a collaborative knowledge-sharing environment within the student community 🌐👩‍💻.',
       ],
       link:
           'https://drive.google.com/file/d/1OBGCxoIyuJVbMIgdjEnYOI1qzXVo8Fy0/view?usp=sharing',
       skills: [
         'Teaching',
-        'Leadership',
+        'Communication',
+        'Public Speaking',
       ],
       linkName: 'Certificate',
     ),
@@ -602,13 +624,15 @@ class Data {
       from: DateTime(2019, DateTime.august),
       to: DateTime(2023, DateTime.april),
       description: [
-        'Appointed as Team Leader in multiple National Level Hackathons, showcasing recognition of leadership abilities and responsibility in guiding teams of 3-5 students through intensive competition environments.',
-        'Demonstrated adept project management by overseeing and actively contributing to various projects within the hackathon context, highlighting a dynamic skill set and proactive problem-solving approach.',
+        '<b>Hackathon Leadership</b>: Appointed as Team Leader in multiple National Level Hackathons, demonstrating recognized leadership abilities and responsibility in guiding teams of 3-5 students through intensive competition environments 🏆👩‍💻.',
+        '<b>Adept Project Management</b>: Showcased adept project management skills by overseeing and actively contributing to various projects within the hackathon context. Highlighted a dynamic skill set and a proactive problem-solving approach in high-pressure scenarios 🚀🛠️.',
       ],
       link: '',
       skills: [
         'Team Management',
-        'Co-ordination',
+        'Team Co-ordination',
+        'Presentation',
+        'Communication',
       ],
       linkName: 'Certificate',
     ),

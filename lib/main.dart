@@ -7,6 +7,7 @@ import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:resize/resize.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   Get.put(NavController());
   runApp(const MyApp());
 }
@@ -17,6 +18,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+
+    Size size;
+
+    if(screenSize.height>screenSize.width){
+      size = const Size(410, 910);
+    }else{
+      size = const Size(1728,1000);
+    }
 
     return Resize(
       builder: () => GetMaterialApp(
@@ -32,7 +41,7 @@ class MyApp extends StatelessWidget {
             duration: 400.ms,
           ),
       allowtextScaling: false,
-      size: screenSize,
+      size: size,
     );
   }
 }

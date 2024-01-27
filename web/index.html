@@ -42,7 +42,9 @@
                 serviceWorkerVersion: serviceWorkerVersion,
             },
             onEntrypointLoaded: function (engineInitializer) {
-                engineInitializer.initializeEngine().then(async function (appRunner) {
+                engineInitializer.initializeEngine({
+                    useColorEmoji: true,
+                }).then(async function (appRunner) {
                     loader.style.opacity="0";
                     await delay(0.4);
                     await appRunner.runApp();

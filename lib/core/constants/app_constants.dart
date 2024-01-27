@@ -3,15 +3,7 @@ class AppConstants {
 
   static const String avatar = 'assets/images/avatar.png';
 
-  static const String instaAnim = 'assets/anim/insta.json';
-
-  static const String linkedinAnim = 'assets/anim/linkedin.json';
-
-  static const String githubAnim = 'assets/anim/github.json';
-
-  static const String bgAnim = 'assets/anim/bg.json';
-
-  static const String downAnim = 'assets/anim/down.json';
+  static const String linkAsset = 'assets/images/link.svg';
 
   static const String linkedinLink =
       'https://www.linkedin.com/in/yashashm08052001';
@@ -23,7 +15,19 @@ class AppConstants {
   static const String resumeLink =
       'https://drive.google.com/drive/folders/1EuzYuIQkWz00_tP3e_Y7iVLhX6gvYRLx?usp=drive_link';
 
-  static const String spring = 'assets/logo/spring.svg';
+  static const String jenkins = 'assets/logo/jenkins.svg';
+
+  static const String slack = 'assets/logo/slack.svg';
+
+  static const String kubernetes = 'assets/logo/kubernetes.svg';
+
+  static const String github = 'assets/logo/github.svg';
+
+  static const String githubAvatar = 'assets/logo/github_avatar.svg';
+
+  static const String linkedin = 'assets/logo/linkedin.svg';
+
+  static const String instagram = 'assets/logo/instagram.svg';
 
   static const String psql = 'assets/logo/psql.svg';
 
@@ -44,8 +48,6 @@ class AppConstants {
   static const String opencv = 'assets/logo/opencv.svg';
 
   static const String python = 'assets/logo/python.svg';
-
-  static const String heroku = 'assets/logo/heroku.svg';
 
   static const String docker = 'assets/logo/docker.svg';
 

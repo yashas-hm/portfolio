@@ -14,11 +14,11 @@ dependencies:
   # Widgets
   flutter_advanced_drawer: ^1.3.5
   flutter_svg: ^2.0.1
-  lottie: ^2.3.2
   marqueer: ^1.4.0
   auto_size_text: ^3.0.0
   animated_text_kit: ^4.2.2
   flutter_animate: ^4.2.0+1
+  flutter_html: ^3.0.0-beta.2
 
   # Core
   cached_network_image: ^3.2.0
@@ -28,6 +28,7 @@ dependencies:
   page_transition: ^2.0.5
   resize: ^1.0.0
   intl: ^0.18.1
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -48,5 +49,4 @@ flutter:
     - assets/
     - assets/fonts/
     - assets/images/
-    - assets/anim/
     - assets/logo/

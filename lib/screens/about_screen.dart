@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:gap/gap.dart';
 import 'package:marqueer/marqueer.dart';
-import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/data/data.dart';
-import 'package:portfolio/core/data/model.dart';
+import 'package:portfolio/core/helpers/app_helpers.dart';
 import 'package:resize/resize.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:portfolio/screens/desktop/about_screen.dart' as desktop;
+import 'package:portfolio/screens/mobile/about_screen.dart' as mobile;
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -33,29 +33,19 @@ class AboutScreen extends StatelessWidget {
               fontSize: 30.sp,
             ),
           ),
-          SizedBox(
-            height: 30.sp,
-          ),
+          Gap(30.sp),
           Container(
-            width: screenSize.width / 1.3,
-            padding: EdgeInsets.all(10.sp),
+            width: screenSize.width * 0.8,
             decoration: BoxDecoration(
               color: AppColor.box,
               borderRadius: BorderRadius.circular(10.sp),
             ),
             alignment: Alignment.center,
-            child: SelectableText(
-              Data.about,
-              style: TextStyle(
-                color: AppColor.textColor,
-                fontSize: 18.sp,
-              ),
-              textAlign: TextAlign.justify,
+            child: Html(
+              data: '<p style="font-size:${20.sp};text-align: center">${Data.about}</p>',
             ),
           ),
-          SizedBox(
-            height: 30.sp,
-          ),
+          Gap(30.sp),
           SizedBox(
             height: screenSize.height / 10,
             width: screenSize.width,
@@ -66,7 +56,10 @@ class AboutScreen extends StatelessWidget {
               direction: MarqueerDirection.ltr,
               pps: 50,
               child: Row(
-                children: childrenFromMap(Data.softSkills, screenSize),
+                children: AppHelper.marqueeImgChildrenFromMap(
+                  Data.softSkills,
+                  screenSize,
+                ),
               ),
             ),
           ),
@@ -80,515 +73,19 @@ class AboutScreen extends StatelessWidget {
               direction: MarqueerDirection.rtl,
               pps: 50,
               child: Row(
-                children: childrenFromMap(Data.projectSkills, screenSize),
+                children: AppHelper.marqueeImgChildrenFromMap(
+                  Data.projectSkills,
+                  screenSize,
+                ),
               ),
             ),
           ),
-          SizedBox(
-            height: 30.sp,
-          ),
+          Gap(30.sp),
           screenSize.height > screenSize.width
-              ? mobileBody(screenSize)
-              : body(screenSize),
+              ? const mobile.AboutScreen()
+              : const desktop.AboutScreen(),
         ],
       ),
     );
-  }
-
-  Widget body(Size screenSize) => Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            'Leadership Experience',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: AppColor.textColor,
-              fontSize: 30.sp,
-            ),
-          ),
-          SizedBox(
-            height: 20.sp,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              porItem(Data.por[0], screenSize),
-              porItem(Data.por[1], screenSize),
-            ],
-          ),
-          SizedBox(
-            height: 20.sp,
-          ),
-          porItem(Data.por[2], screenSize),
-          SizedBox(
-            height: 20.sp,
-          ),
-          Text(
-            'Achievements',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: AppColor.textColor,
-              fontSize: 30.sp,
-            ),
-          ),
-          SizedBox(
-            height: 20.sp,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              achievementItem(
-                Data.techAchievements,
-                screenSize,
-                AppConstants.tech,
-              ),
-              achievementItem(
-                Data.culAchievements,
-                screenSize,
-                AppConstants.cul,
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 20.sp,
-          ),
-        ],
-      );
-
-  Widget mobileBody(Size screenSize) => Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            'Leadership Experience',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: AppColor.textColor,
-              fontSize: 30.sp,
-            ),
-          ),
-          SizedBox(
-            height: 20.sp,
-          ),
-          porItemMobile(Data.por[0], screenSize),
-          SizedBox(
-            height: 20.sp,
-          ),
-          porItemMobile(Data.por[1], screenSize),
-          SizedBox(
-            height: 20.sp,
-          ),
-          porItemMobile(Data.por[2], screenSize),
-          SizedBox(
-            height: 20.sp,
-          ),
-          Text(
-            'Achievements',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: AppColor.textColor,
-              fontSize: 30.sp,
-            ),
-          ),
-          SizedBox(
-            height: 20.sp,
-          ),
-          achievementItem(
-            Data.techAchievements,
-            screenSize,
-            AppConstants.tech,
-          ),
-          SizedBox(
-            height: 20.sp,
-          ),
-          achievementItem(
-            Data.culAchievements,
-            screenSize,
-            AppConstants.cul,
-          ),
-          SizedBox(
-            height: 20.sp,
-          ),
-        ],
-      );
-
-  Widget porItem(Model model, Size screenSize) {
-    bool hover = false;
-    return StatefulBuilder(
-      builder: (_, setState) {
-        return MouseRegion(
-          cursor: SystemMouseCursors.click,
-          child: InkWell(
-            onHover: (hovering) => setState(() => hover = hovering),
-            splashColor: Colors.transparent,
-            onTap: () async =>
-                model.link == "" ? null : await launchUrlString(model.link),
-            child: AnimatedContainer(
-              duration: 100.milliseconds,
-              width: screenSize.height > screenSize.width
-                  ? screenSize.width / 1.2
-                  : screenSize.width / 2.4,
-              padding: EdgeInsets.all(10.sp),
-              decoration: BoxDecoration(
-                color: AppColor.box,
-                borderRadius: BorderRadius.circular(10.sp),
-                boxShadow: [
-                  if (hover)
-                    BoxShadow(
-                      color: AppColor.primary,
-                      spreadRadius: 1.sp,
-                      blurRadius: 30.sp,
-                    ),
-                ],
-              ),
-              alignment: Alignment.center,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    model.role,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: AppColor.textColor,
-                      fontSize: 25.sp,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5.sp,
-                  ),
-                  Text(
-                    model.name,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.textColor.withOpacity(0.8),
-                      fontSize: 20.sp,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5.sp,
-                  ),
-                  Text(
-                    model.location,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.textColor.withOpacity(0.6),
-                      fontSize: 18.sp,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5.sp,
-                  ),
-                  Text(
-                    '${DateFormat('MMMM yyyy').format(model.from)} - ${DateFormat('MMMM yyyy').format(model.to)}',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.textColor.withOpacity(0.6),
-                      fontSize: 15.sp,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5.sp,
-                  ),
-                  Text(
-                    model.description.join('\n\n'),
-                    softWrap: true,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.textColor,
-                      fontSize: 18.sp,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  Widget achievementItem(Model model, Size screenSize, String logo) {
-    bool hover = false;
-    return StatefulBuilder(
-      builder: (_, setState) {
-        return MouseRegion(
-          cursor: SystemMouseCursors.click,
-          child: InkWell(
-            onTap: () {},
-            splashColor: Colors.transparent,
-            onHover: (hovering) => setState(() => hover = hovering),
-            child: AnimatedContainer(
-              duration: 100.milliseconds,
-              child: Container(
-                width: screenSize.height > screenSize.width
-                    ? screenSize.width / 1.2
-                    : screenSize.width / 2.4,
-                padding: EdgeInsets.all(10.sp),
-                decoration: BoxDecoration(
-                  color: AppColor.box,
-                  borderRadius: BorderRadius.circular(10.sp),
-                  boxShadow: [
-                    if (hover)
-                      BoxShadow(
-                        color: AppColor.primary,
-                        spreadRadius: 2.sp,
-                        blurRadius: 30.sp,
-                      ),
-                  ],
-                ),
-                alignment: Alignment.center,
-                child: Stack(
-                  children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          model.role,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            color: AppColor.textColor,
-                            fontSize: 25.sp,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5.sp,
-                        ),
-                        Text(
-                          model.location,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            color: AppColor.textColor.withOpacity(0.6),
-                            fontSize: 18.sp,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5.sp,
-                        ),
-                        Text(
-                          '${DateFormat('MMMM yyyy').format(model.from)} - Present',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            color: AppColor.textColor.withOpacity(0.6),
-                            fontSize: 15.sp,
-                            fontStyle: FontStyle.italic,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5.sp,
-                        ),
-                        SizedBox(
-                          width: screenSize.width,
-                          child: Text(
-                            model.description.join('\n\n'),
-                            softWrap: true,
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.textColor,
-                              fontSize: 18.sp,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Container(
-                        height: screenSize.height > screenSize.width
-                            ? 50.sp
-                            : 60.sp,
-                        width: screenSize.height > screenSize.width
-                            ? 50.sp
-                            : 60.sp,
-                        padding: EdgeInsets.all(10.sp),
-                        decoration: const BoxDecoration(
-                          color: Colors.transparent,
-                        ),
-                        child: Image.asset(
-                          logo,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  Widget porItemMobile(Model model, Size screenSize) => Container(
-        width: screenSize.height > screenSize.width
-            ? screenSize.width / 1.2
-            : screenSize.width / 2.4,
-        padding: EdgeInsets.all(10.sp),
-        decoration: BoxDecoration(
-          color: AppColor.box,
-          borderRadius: BorderRadius.circular(10.sp),
-        ),
-        alignment: Alignment.center,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              model.role,
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                color: AppColor.textColor,
-                fontSize: 25.sp,
-              ),
-            ),
-            SizedBox(
-              height: 5.sp,
-            ),
-            Text(
-              model.name,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                color: AppColor.textColor.withOpacity(0.8),
-                fontSize: 20.sp,
-              ),
-            ),
-            SizedBox(
-              height: 5.sp,
-            ),
-            Text(
-              model.location,
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                color: AppColor.textColor.withOpacity(0.6),
-                fontSize: 18.sp,
-              ),
-            ),
-            SizedBox(
-              height: 5.sp,
-            ),
-            Text(
-              '${DateFormat('MMMM yyyy').format(model.from)} - ${DateFormat('MMMM yyyy').format(model.from)}',
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                color: AppColor.textColor.withOpacity(0.6),
-                fontSize: 15.sp,
-                fontStyle: FontStyle.italic,
-              ),
-            ),
-            SizedBox(
-              height: 5.sp,
-            ),
-            Text(
-              model.description.join('\n\n'),
-              softWrap: true,
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                color: AppColor.textColor,
-                fontSize: 18.sp,
-              ),
-            ),
-            SizedBox(
-              height: 5.sp,
-            ),
-            GestureDetector(
-              onTap: () async => await launchUrlString(model.link),
-              child: Container(
-                height: 40.sp,
-                width: 40.sp,
-                padding: EdgeInsets.all(10.sp),
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColor.primary,
-                ),
-                child: Image.asset(
-                  AppConstants.link,
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-
-  List<Widget> childrenFromMap(
-    Map<String, String> data,
-    Size screenSize,
-  ) {
-    final list = <Widget>[];
-
-    for (var item in data.keys) {
-      list.add(
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 10.sp),
-          padding: EdgeInsets.symmetric(
-            vertical: 3.sp,
-            horizontal: 5.sp,
-          ),
-          height: screenSize.height / 15,
-          width: screenSize.height > screenSize.width
-              ? screenSize.width / 3
-              : screenSize.width / 8,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.sp),
-            border: Border.all(
-              color: AppColor.primary,
-              width: 1.sp,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: AppColor.primary,
-                blurRadius: 5.sp,
-              ),
-            ],
-            color: AppColor.background,
-          ),
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset(
-                  data[item]!,
-                  fit: BoxFit.cover,
-                  height: screenSize.height / 18,
-                  width: screenSize.height / 18,
-                ),
-                const SizedBox(
-                  width: 3,
-                ),
-                Text(
-                  item,
-                  style: TextStyle(
-                    fontSize: 18.sp,
-                    color: AppColor.textColor,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      );
-    }
-
-    return list;
   }
 }
