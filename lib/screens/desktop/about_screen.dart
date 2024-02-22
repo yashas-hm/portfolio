@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/data/data.dart';
-import 'package:portfolio/core/data/model.dart';
+import 'package:portfolio/core/model/data.dart';
+import 'package:portfolio/core/model/model.dart';
 import 'package:portfolio/core/helpers/app_helpers.dart';
 import 'package:portfolio/screens/desktop/data_item.dart';
 import 'package:resize/resize.dart';
@@ -40,12 +40,12 @@ class AboutScreen extends StatelessWidget {
             DataItem(
               model: Data.por[0],
               showSkill: true,
-              color: AppColor.secondary,
+              color: AppColor.primary,
             ),
             DataItem(
               model: Data.por[1],
               showSkill: true,
-              color: AppColor.secondary,
+              color: AppColor.primary,
             ),
           ],
         ),
@@ -53,7 +53,7 @@ class AboutScreen extends StatelessWidget {
         DataItem(
           model: Data.por[2],
           showSkill: true,
-          color: AppColor.secondary,
+          color: AppColor.primary,
         ),
         Gap(20.sp),
         Text(
@@ -92,6 +92,7 @@ class AboutScreen extends StatelessWidget {
     return StatefulBuilder(
       builder: (_, setState) {
         return MouseRegion(
+          opaque: false,
           cursor: SystemMouseCursors.click,
           child: InkWell(
             onTap: () {},

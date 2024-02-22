@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/controller/nav_controller.dart';
+import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/widgets/desktop/bottom_bar.dart' as desktop;
 import 'package:portfolio/widgets/mobile/bottom_bar.dart' as mobile;
 
@@ -15,11 +16,12 @@ class BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
 
-    return Obx(() {
-        return screenSize.height > screenSize.width
-            ? mobile.CustomBottomBar(noConnection: ctr.page.value==0)
-            : desktop.CustomBottomBar(noConnection: ctr.page.value==0);
-      }
+    return screenSize.height > screenSize.width
+        ? mobile.CustomBottomBar(
+      noConnection: ctr.pageIndex == AppConstants.homeIndex,
+    )
+        : desktop.CustomBottomBar(
+      noConnection: ctr.pageIndex == AppConstants.homeIndex,
     );
   }
 }

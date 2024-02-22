@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:resize/resize.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:portfolio/screens/desktop/experience_screen.dart' as desktop;
 import 'package:portfolio/screens/mobile/experience_screen.dart' as mobile;
 
@@ -10,10 +12,11 @@ class ExperienceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
 
-    return Container(
-      width: screenSize.width,
-      padding: EdgeInsets.only(top: 70.sp),
-      alignment: Alignment.center,
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+      AppHelper.indexCheck(2);
+    });
+
+    return CustomScaffold(
       child: screenSize.height > screenSize.width
           ? const mobile.ExperienceScreen()
           : const desktop.ExperienceScreen(),

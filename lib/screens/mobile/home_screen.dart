@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:marqueer/marqueer.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/data/data.dart';
+import 'package:portfolio/core/model/data.dart';
 import 'package:portfolio/core/helpers/app_helpers.dart';
 import 'package:portfolio/widgets/connect_button.dart';
 import 'package:resize/resize.dart';
@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                           textStyle: TextStyle(
                             fontSize: 25.sp,
                             fontWeight: FontWeight.w600,
-                            color: AppColor.secondary,
+                            color: AppColor.primary,
                           ),
                         ),
                         TypewriterAnimatedText(
@@ -85,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                           textStyle: TextStyle(
                             fontSize: 25.sp,
                             fontWeight: FontWeight.w600,
-                            color: AppColor.secondary,
+                            color: AppColor.primary,
                           ),
                         ),
                         TypewriterAnimatedText(
@@ -93,7 +93,7 @@ class HomeScreen extends StatelessWidget {
                           textStyle: TextStyle(
                             fontSize: 25.sp,
                             fontWeight: FontWeight.w600,
-                            color: AppColor.secondary,
+                            color: AppColor.primary,
                           ),
                         ),
                         TypewriterAnimatedText(
@@ -101,7 +101,7 @@ class HomeScreen extends StatelessWidget {
                           textStyle: TextStyle(
                             fontSize: 25.sp,
                             fontWeight: FontWeight.w600,
-                            color: AppColor.secondary,
+                            color: AppColor.primary,
                           ),
                         ),
                         TypewriterAnimatedText(
@@ -109,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                           textStyle: TextStyle(
                             fontSize: 25.sp,
                             fontWeight: FontWeight.w600,
-                            color: AppColor.secondary,
+                            color: AppColor.primary,
                           ),
                         ),
                         TypewriterAnimatedText(
@@ -117,7 +117,7 @@ class HomeScreen extends StatelessWidget {
                           textStyle: TextStyle(
                             fontSize: 25.sp,
                             fontWeight: FontWeight.w600,
-                            color: AppColor.secondary,
+                            color: AppColor.primary,
                           ),
                         ),
                       ],

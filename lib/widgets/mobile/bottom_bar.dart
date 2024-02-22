@@ -39,30 +39,30 @@ class CustomBottomBar extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   AppHelper.iconBtn(
-                    asset: Icons.location_pin,
+                    asset: AppConstants.location,
                     text: 'Navi Mumbai',
                     onTap: () {},
                     screenSize: screenSize,
                   ),
                   Gap(15.sp),
                   AppHelper.iconBtn(
-                    asset: Icons.mail_outline_rounded,
+                    asset: AppConstants.mail,
                     text: 'Mail Me',
                     onTap: () =>
-                        launchUrl(Uri.parse('mailto:yashashm.dev@gmail.com')),
+                        launchUrl(Uri.parse('mailto:${AppConstants.emailId}')),
                     screenSize: screenSize,
                   ),
                   Gap(15.sp),
                   AppHelper.iconBtn(
-                    asset: Icons.file_present,
-                    text: 'Read my Resume',
+                    asset: AppConstants.cv,
+                    text: 'My Resume',
                     onTap: () => launchUrlString(AppConstants.resumeLink),
                     screenSize: screenSize,
                   ),
                 ],
               ),
               Expanded(child: Container()),
-              if(!noConnection)
+              if (!noConnection)
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,

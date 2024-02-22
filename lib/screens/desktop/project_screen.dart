@@ -4,8 +4,8 @@ import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/data/data.dart';
-import 'package:portfolio/core/data/model.dart';
+import 'package:portfolio/core/model/data.dart';
+import 'package:portfolio/core/model/model.dart';
 import 'package:portfolio/screens/desktop/data_item.dart';
 import 'package:portfolio/widgets/connect_button.dart';
 import 'package:resize/resize.dart';
@@ -18,117 +18,122 @@ class ProjectScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          'Projects',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: AppColor.textColor,
-            fontSize: 30.sp,
+    return Container(
+      width: screenSize.width,
+      padding: EdgeInsets.only(top: 70.sp),
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            'Projects',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: AppColor.textColor,
+              fontSize: 30.sp,
+            ),
           ),
-        ),
-        Gap(30.sp),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            DataItem(
-              model: Data.projects[0],
-              showSkill: true,
-              color: AppColor.tertiary,
-            ),
-            DataItem(
-              model: Data.projects[1],
-              showSkill: true,
-              color: AppColor.tertiary,
-            ),
-          ],
-        ),
-        Gap(30.sp),
-        Text(
-          'Side Projects',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: AppColor.textColor,
-            fontSize: 30.sp,
+          Gap(30.sp),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              DataItem(
+                model: Data.projects[0],
+                showSkill: true,
+                color: AppColor.primary,
+              ),
+              DataItem(
+                model: Data.projects[1],
+                showSkill: true,
+                color: AppColor.primary,
+              ),
+            ],
           ),
-        ),
-        Gap(30.sp),
-        DataItem(
-          model: Data.projects[2],
-          showSkill: true,
-          color: AppColor.tertiary,
-        ),
-        Gap(30.sp),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            DataItem(
-              model: Data.projects[3],
-              showSkill: true,
-              color: AppColor.tertiary,
+          Gap(30.sp),
+          Text(
+            'Side Projects',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: AppColor.textColor,
+              fontSize: 30.sp,
             ),
-            DataItem(
-              model: Data.projects[4],
-              showSkill: true,
-              color: AppColor.tertiary,
-            ),
-          ],
-        ),
-        Gap(30.sp),
-        DataItem(
-          model: Data.projects[5],
-          showSkill: true,
-          color: AppColor.tertiary,
-        ),
-        Gap(30.sp),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            DataItem(
-              model: Data.projects[6],
-              showSkill: true,
-              color: AppColor.tertiary,
-            ),
-            DataItem(
-              model: Data.projects[7],
-              showSkill: true,
-              color: AppColor.tertiary,
-            ),
-          ],
-        ),
-        Gap(30.sp),
-        DataItem(
-          model: Data.projects[8],
-          showSkill: true,
-          color: AppColor.tertiary,
-        ),
-        Gap(30.sp),
-        Text(
-          'More projects on Github',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: AppColor.textColor,
-            fontSize: 26.sp,
           ),
-        ),
-        Gap(30.sp),
-        ConnectButton(
-          icon: AppConstants.githubAvatar,
-          link: AppConstants.githubLink,
-          size: Size(screenSize.width / 8, screenSize.width / 8),
-        ),
-        Gap(30.sp),
-      ],
+          Gap(30.sp),
+          DataItem(
+            model: Data.projects[2],
+            showSkill: true,
+            color: AppColor.primary,
+          ),
+          Gap(30.sp),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              DataItem(
+                model: Data.projects[3],
+                showSkill: true,
+                color: AppColor.primary,
+              ),
+              DataItem(
+                model: Data.projects[4],
+                showSkill: true,
+                color: AppColor.primary,
+              ),
+            ],
+          ),
+          Gap(30.sp),
+          DataItem(
+            model: Data.projects[5],
+            showSkill: true,
+            color: AppColor.primary,
+          ),
+          Gap(30.sp),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              DataItem(
+                model: Data.projects[6],
+                showSkill: true,
+                color: AppColor.primary,
+              ),
+              DataItem(
+                model: Data.projects[7],
+                showSkill: true,
+                color: AppColor.primary,
+              ),
+            ],
+          ),
+          Gap(30.sp),
+          DataItem(
+            model: Data.projects[8],
+            showSkill: true,
+            color: AppColor.primary,
+          ),
+          Gap(30.sp),
+          Text(
+            'More projects on Github',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: AppColor.textColor,
+              fontSize: 26.sp,
+            ),
+          ),
+          Gap(30.sp),
+          ConnectButton(
+            icon: AppConstants.githubAvatar,
+            link: AppConstants.githubLink,
+            size: Size(screenSize.width / 8, screenSize.width / 8),
+          ),
+          Gap(30.sp),
+        ],
+      ),
     );
   }
 
@@ -136,6 +141,7 @@ class ProjectScreen extends StatelessWidget {
     bool hover = false;
     return StatefulBuilder(builder: (_, setState) {
       return MouseRegion(
+        opaque: false,
         cursor: SystemMouseCursors.click,
         child: InkWell(
           splashColor: Colors.transparent,
@@ -152,7 +158,7 @@ class ProjectScreen extends StatelessWidget {
               boxShadow: hover
                   ? [
                       BoxShadow(
-                        color: AppColor.tertiary,
+                        color: AppColor.primary,
                         spreadRadius: 1.sp,
                         blurRadius: 30.sp,
                       ),

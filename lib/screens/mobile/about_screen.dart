@@ -4,8 +4,8 @@ import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/data/data.dart';
-import 'package:portfolio/core/data/model.dart';
+import 'package:portfolio/core/model/data.dart';
+import 'package:portfolio/core/model/model.dart';
 import 'package:portfolio/screens/mobile/data_item.dart';
 import 'package:resize/resize.dart';
 

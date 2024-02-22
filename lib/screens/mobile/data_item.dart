@@ -3,7 +3,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/data/model.dart';
+import 'package:portfolio/core/model/model.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -111,7 +111,7 @@ class DataItem extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25.sp),
-          color: AppColor.secondary.withOpacity(0.5),
+          color: AppColor.primary.withOpacity(0.5),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

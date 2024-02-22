@@ -7,7 +7,7 @@ class AppTheme{
     primaryColor: AppColor.primary,
     scaffoldBackgroundColor: AppColor.background,
     textTheme: Theme.of(context).textTheme.apply(
-      fontFamily: 'roboto',
+      fontFamily: 'space_grotesk',
       bodyColor: AppColor.textColor,
       displayColor: AppColor.textColor,
     ),

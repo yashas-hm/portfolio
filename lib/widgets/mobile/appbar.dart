@@ -17,8 +17,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final AdvancedDrawerController advancedDrawerController;
 
-  static final ctr = Get.find<NavController>();
-
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -54,14 +52,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         height: 70.sp,
         padding: EdgeInsets.all(10.sp),
         child: MouseRegion(
+          opaque: false,
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
-            onTap: () => ctr.page.value = 0,
-            child: CircleAvatar(
-              radius: 30.sp,
-              backgroundImage: const AssetImage(
-                AppConstants.avatar,
+            onTap: () => Get.find<NavController>().updateIndex(AppConstants.homeIndex),
+            child: Container(
+              height: 60.sp,
+              width: 60.sp,
+              clipBehavior: Clip.hardEdge,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.transparent,
               ),
+              child: Image.asset(AppConstants.avatar),
             ),
           ),
         ),

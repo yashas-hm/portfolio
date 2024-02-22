@@ -23,6 +23,7 @@ class ConnectButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
+      opaque: false,
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: () async => await launchUrlString(link),

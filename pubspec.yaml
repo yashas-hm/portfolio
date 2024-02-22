@@ -19,6 +19,9 @@ dependencies:
   animated_text_kit: ^4.2.2
   flutter_animate: ^4.2.0+1
   flutter_html: ^3.0.0-beta.2
+  flutter_tilt: ^2.2.1
+  syncfusion_flutter_charts: ^24.2.6
+  scrollable_positioned_list: ^0.3.8
 
   # Core
   cached_network_image: ^3.2.0
@@ -41,12 +44,23 @@ flutter:
   uses-material-design: true
 
   fonts:
-    - family: roboto
+    - family: space_grotesk
       fonts:
-        - asset: assets/fonts/roboto.ttf
+        - asset: assets/fonts/sg300.ttf
+          weight: 300
+        - asset: assets/fonts/sg400.ttf
+          weight: 400
+          style: normal
+        - asset: assets/fonts/sg500.ttf
+          weight: 500
+        - asset: assets/fonts/sg600.ttf
+          weight: 600
+        - asset: assets/fonts/sg700.ttf
+          weight: 700
 
   assets:
     - assets/
+    - assets/anim/
     - assets/fonts/
     - assets/images/
     - assets/logo/

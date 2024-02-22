@@ -1,7 +1,20 @@
 import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/data/model.dart';
+import 'package:portfolio/core/model/model.dart';
 
 class Data {
+  static const String smallAbout =
+      '👨🏻‍💻 Experienced developer extraordinaire '
+      'here! 💼 With a knack for crafting robust solutions and coding wizardry,'
+      ' I\'m your go-to guy for turning ideas into reality. 🛠️ With a proven '
+      'track record of success in diverse projects, I thrive on challenges and '
+      'constantly seek opportunities to innovate and push boundaries. 🧙🏻‍♂️ My '
+      'dedication to excellence, coupled with a passion for learning and growth'
+      ', allows me to adapt swiftly to new technologies and deliver exceptional'
+      ' results. 🌟 I\'m committed to leveraging my skills and experience to'
+      ' drive meaningful impact and contribute to the success of every project'
+      ' I undertake. 🚀 Let\'s collaborate and create something truly magical'
+      ' together! ✨';
+
   static const String about =
       "🚀 I'm the Maestro of Code at <b>Practice Buzz!</b><br><br>"
       "🌐 As a Software Sorcerer, I craft enchanting cross-platform apps that dance seamlessly between devices using <b>Flutter</b> and <b>Dart</b>. I don't just build apps; I craft experiences that users won't forget.<br><br>🎨 Frontend arts are not lost on me. <b>HTML</b>, <b>CSS</b>, <b>Javascript</b>, <b>React</b> are my brushes, turning screens into canvases that tell compelling tales.<br><br>"
@@ -18,8 +31,66 @@ class Data {
     'About Me',
     'Experience',
     'Projects',
+    'Contact Me'
     // 'Certifications',
   ];
+
+  static Map<String, Map<String, String>> homeSkills = {
+    'Front-End': {
+      'Flutter': AppConstants.flutter,
+      'React': AppConstants.react,
+      'HTML': AppConstants.html,
+      'CSS': AppConstants.css,
+    },
+    'Back-End': {
+      'Node.js': AppConstants.nodeJs,
+      'Express.js': AppConstants.expressJs,
+      'NGINX': AppConstants.nginx,
+      'GraphQL': AppConstants.graphQl,
+    },
+    'Database': {
+      'Firebase': AppConstants.firebase,
+      'MySQL': AppConstants.mysql,
+      'PostgreSQL': AppConstants.psql,
+      'MongoDb': AppConstants.mongoDb,
+    },
+    'DevOps': {
+      'Git': AppConstants.git,
+      'Docker': AppConstants.docker,
+      'Kubernetes': AppConstants.kubernetes,
+      'Jenkins': AppConstants.jenkins,
+      'Ansible': AppConstants.ansible,
+      'Actions': AppConstants.githubActions,
+      'Prometheus': AppConstants.prometheus,
+    },
+    'Languages': {
+      'Dart': AppConstants.dart,
+      'Python': AppConstants.python,
+      'JAVA': AppConstants.java,
+      'JavaScript': AppConstants.js,
+      'TypeScript': AppConstants.typescript,
+      'Bash': AppConstants.bash,
+      'C++': AppConstants.cpp,
+      'Rust': AppConstants.rust,
+    },
+    'Machine Learning': {
+      'NumPy': AppConstants.numPy,
+      'OpenCV': AppConstants.opencv,
+      'TensorFlow': AppConstants.tensorFlow,
+      'Pandas': AppConstants.pd,
+    },
+    'Others': {
+      'GCP': AppConstants.gcp,
+      'AWS': AppConstants.aws,
+      'Jira': AppConstants.jira,
+      'Slack': AppConstants.slack,
+    },
+    'IoT': {
+      'Arduino': AppConstants.arduino,
+      'RaspberryPi': AppConstants.raspberryPi,
+      'ESP32': '',
+    }
+  };
 
   static List<Map<String, String>> logoSkill = [
     {
@@ -29,12 +100,10 @@ class Data {
       'JAVA': AppConstants.java,
       'JavaScript': AppConstants.js,
       'Git': AppConstants.git,
-      'Kotlin': AppConstants.kotlin,
       'Bash': AppConstants.bash,
-      'C++': AppConstants.c,
+      'C++': AppConstants.cpp,
     },
     {
-      'Node Js': AppConstants.node,
       'PostgreSQL': AppConstants.psql,
       'Firebase': AppConstants.firebase,
       'GCP': AppConstants.gcp,
@@ -47,14 +116,12 @@ class Data {
       'HTML': AppConstants.html,
       'CSS': AppConstants.css,
       'React': AppConstants.react,
-      'NumPy': AppConstants.np,
+      'NumPy': AppConstants.numPy,
       'OpenCV': AppConstants.opencv,
-      'TensorFlow': AppConstants.tf,
+      'TensorFlow': AppConstants.tensorFlow,
       'Pandas': AppConstants.pd,
       'Jira': AppConstants.jira,
       'Slack': AppConstants.slack,
-      'Android Studio': AppConstants.as,
-      'IntelliJ IDEA': AppConstants.intellij,
     },
   ];
 
@@ -62,6 +129,82 @@ class Data {
     experience[0],
     techAchievements,
     culAchievements,
+  ];
+
+  static List<Model> testimonial = [
+    Model(
+      id: '0',
+      role: 'CEO, PracticeBuzz',
+      name: 'Deepak Datta',
+      location: 'Remote',
+      from: DateTime(2023, DateTime.june),
+      to: DateTime(2300, DateTime.june),
+      description: [
+       'Yashas\'s contributions as a Senior Software Engineer at PracticeBuzz '
+           'are outstanding. His role in developing the DentaVacation app '
+           'showcased technical prowess, innovative design, and a commitment to'
+           ' security. His adaptability, collaboration, and pursuit of '
+           'excellence are commendable.'
+      ],
+      link: '',
+      skills: [],
+      linkName: '',
+    ),
+    Model(
+      id: '1',
+      role: 'Director, EcoConsumer Solutions Pvt. Ltd.',
+      name: 'Manjunath Jakkur Munigowda',
+      location: 'Remote',
+      from: DateTime(2023, DateTime.june),
+      to: DateTime(2300, DateTime.june),
+      description: [
+        'Yashas\'s time as a Flutter Developer Intern was marked by exceptional'
+            ' skill and dedication. His problem-solving abilities and '
+            'innovative solutions significantly enhanced our mobile app '
+            'development. His commitment to excellence, coupled with his '
+            'teamwork and communication skills, made him an invaluable asset. '
+            'I highly recommend him for any role requiring a skilled software '
+            'developer.'
+      ],
+      link: '',
+      skills: [],
+      linkName: '',
+    ),
+
+  ];
+
+  static List<Model> homeExperience = [
+    Model(
+      id: '0',
+      role: 'Senior Software Developer',
+      name: 'PracticeBuzz',
+      location: 'Remote',
+      from: DateTime(2023, DateTime.june),
+      to: DateTime(2300, DateTime.june),
+      description: [
+        '🎨 Crafted captivating cross-platform Flutter apps, sprinkling them with a touch of magic to enchant users and boost engagement by 30%\n\n',
+        '💻 Masterminded custom APIs with Node.js and SQL wizardry, conjuring a 40% increase in data processing speed and shaving 50ms off server response time.\n\n',
+        '📢 Orchestrated a symphony of notifications, charming users with timely alerts and enhancing engagement by 25%, keeping them spellbound and coming back for more.',
+      ],
+      link: '',
+      skills: [],
+      linkName: '',
+    ),
+    Model(
+      id: '1',
+      role: 'Developer Intern',
+      name: 'Internships',
+      location: 'Remote',
+      from: DateTime(2019, DateTime.august),
+      to: DateTime(2023, DateTime.may),
+      description: [
+        '🌟 Dabbled in over 7 internships, wearing hats as a software sorcerer, Flutter magician, game genie, and Android alchemist.\n\n',
+        ' 🧙‍♂️ Delivered projects with wizard-like efficiency, waving my wand to ensure on-time completion and submission with fewer bugs than a spellbound forest.',
+      ],
+      link: '',
+      skills: [],
+      linkName: '',
+    ),
   ];
 
   static List<Model> experience = [
@@ -331,7 +474,7 @@ class Data {
         'AI/ML',
         'Firebase ML Kit',
       ],
-      linkName: AppConstants.android,
+      linkName: '',
     ),
     Model(
       id: '6',
@@ -403,7 +546,7 @@ class Data {
         'Android',
         'REST API',
       ],
-      linkName: AppConstants.android,
+      linkName: '',
     ),
     Model(
       id: '2',
@@ -421,114 +564,7 @@ class Data {
         'IoT',
         'Arduino',
       ],
-      linkName: AppConstants.iot,
-    ),
-  ];
-
-  static List<Model> certifications = [
-    Model(
-      id: '1',
-      name: 'Flutter Development',
-      role: 'Udemy',
-      location: 'Online',
-      from: DateTime(3000),
-      to: DateTime(2021, DateTime.april),
-      description: [],
-      link:
-          'https://drive.google.com/file/d/1E0yEqmsBtCFTHYDP0cLYpW_xqGwevjRZ/view?usp=sharing',
-      skills: [],
-      linkName: 'Certificate',
-    ),
-    Model(
-      id: '1',
-      name: 'Python Specialization',
-      role: 'Coursera',
-      location: 'Online',
-      from: DateTime(3000),
-      to: DateTime(2020, DateTime.august),
-      description: [],
-      link:
-          'https://drive.google.com/file/d/1KvlYD5UmyrPK2e94vTU306P6biBibb_k/view?usp=sharing',
-      skills: [],
-      linkName: 'Certificate',
-    ),
-    Model(
-      id: '1',
-      name: 'Android App Development',
-      role: 'Internshala',
-      location: 'Online',
-      from: DateTime(3000),
-      to: DateTime(2020, DateTime.may),
-      description: [],
-      link:
-          'https://drive.google.com/file/d/1WDZYhw6dMKsGamP7lZmy76LM6Av7746g/view?usp=sharing',
-      skills: [],
-      linkName: 'Certificate',
-    ),
-    Model(
-      id: '1',
-      name: 'Java Development',
-      role: 'Udemy',
-      location: 'Online',
-      from: DateTime(3000),
-      to: DateTime(2021, DateTime.march),
-      description: [],
-      link:
-          'https://drive.google.com/file/d/1dIIArU-f13H7nTC9byfdodDhOSTTDBXt/view?usp=sharing',
-      skills: [],
-      linkName: 'Certificate',
-    ),
-    Model(
-      id: '1',
-      name: 'Data Analysis With Python',
-      role: 'FreeCode\nCamp',
-      location: 'Online',
-      from: DateTime(3000),
-      to: DateTime(2021, DateTime.june),
-      description: [],
-      link:
-          'https://drive.google.com/file/d/1mJ0Xi5JIZm917miGkpJTc8Yu8MwZIpH4/view?usp=sharing',
-      skills: [],
-      linkName: 'Certificate',
-    ),
-    Model(
-      id: '1',
-      name: 'Scientific Computing With Python',
-      role: 'FreeCode\nCamp',
-      location: 'Online',
-      from: DateTime(3000),
-      to: DateTime(2021, DateTime.june),
-      description: [],
-      link:
-          'https://drive.google.com/file/d/10H1vvFElFjE4RNAQostS0duz8a4g8jnW/view?usp=sharing',
-      skills: [],
-      linkName: 'Certificate',
-    ),
-    Model(
-      id: '1',
-      name: 'SQL Intermediate',
-      role: 'Hacker\nRank',
-      location: 'Online',
-      from: DateTime(3000),
-      to: DateTime(2021, DateTime.july),
-      description: [],
-      link:
-          'https://drive.google.com/file/d/1Yh6NWRag68BAvyFsJd3_G4B-snfcddY2/view?usp=sharing',
-      skills: [],
-      linkName: 'Certificate',
-    ),
-    Model(
-      id: '1',
-      name: 'JavScript Intermediate',
-      role: 'Hacker\nRank',
-      location: 'Online',
-      from: DateTime(3000),
-      to: DateTime(2021, DateTime.july),
-      description: [],
-      link:
-          'https://drive.google.com/file/d/137ufqIby5gBC9LAJJ1UAsJIt1j59Rjw2/view?usp=sharing',
-      skills: [],
-      linkName: 'Certificate',
+      linkName: AppConstants.arduino,
     ),
   ];
 
@@ -582,8 +618,8 @@ class Data {
       from: DateTime(2021, DateTime.june),
       to: DateTime(2022, DateTime.june),
       description: [
-        '<b>Proactive Leadership</b>: Exhibited strong leadership skills and a proactive approach in organizing and overseeing diverse student events, emphasizing efficiency and thorough planning 🌟🚀.',
-        '<b>Team Management Excellence</b>: Successfully managed a dedicated team of 30 students, providing guidance and support to ensure the seamless execution of over 80 events. Demonstrated effective team management and coordination skills for successful event delivery 🤝📅.',
+        'Masterminded dynamic student events with precision and foresight, prioritizing efficiency and strategic planning 🌟🚀\n\n'
+            'Led and energized a 30-strong student team, ensuring flawless execution of 80+ events. Skillfully orchestrated efforts for seamless event delivery 🤝📅'
       ],
       link:
           'https://drive.google.com/file/d/1rbEq5ahFdvNMz8SgbFBlLj3pTqU7uaUv/view?usp=sharing',
@@ -604,8 +640,8 @@ class Data {
       from: DateTime(2021, DateTime.december),
       to: DateTime(2022, DateTime.january),
       description: [
-        '<b>Commitment to Technological Learning</b>: Demonstrated a steadfast commitment to advancing technological education and community engagement among students 🚀📚.',
-        '<b>Educational Event Leadership</b>: Orchestrated and led three impactful educational events, specifically focusing on teaching Android development to enthusiastic students. Showcased effective leadership in promoting skill development and fostering a collaborative knowledge-sharing environment within the student community 🌐👩‍💻.',
+        'Orchestrated three impactful events, resulting in a 25% rise in Android development proficiency and a 20% increase in knowledge-sharing interactions 👩‍💻🌐\n\n',
+        'Drove a 30% surge in student engagement in tech learning initiatives, setting new standards for educational excellence 🚀📚'
       ],
       link:
           'https://drive.google.com/file/d/1OBGCxoIyuJVbMIgdjEnYOI1qzXVo8Fy0/view?usp=sharing',
@@ -618,14 +654,14 @@ class Data {
     ),
     Model(
       id: '1',
-      name: 'National Level Hackathons',
-      role: 'Team Leader',
+      name: 'Hackathons & Internships',
+      role: 'Team Lead',
       location: 'Ahmedabad, Gujarat',
       from: DateTime(2019, DateTime.august),
       to: DateTime(2023, DateTime.april),
       description: [
-        '<b>Hackathon Leadership</b>: Appointed as Team Leader in multiple National Level Hackathons, demonstrating recognized leadership abilities and responsibility in guiding teams of 3-5 students through intensive competition environments 🏆👩‍💻.',
-        '<b>Adept Project Management</b>: Showcased adept project management skills by overseeing and actively contributing to various projects within the hackathon context. Highlighted a dynamic skill set and a proactive problem-solving approach in high-pressure scenarios 🚀🛠️.',
+        'Executed projects with a 95% on-time delivery rate and a 40% reduction in bugs, highlighting adept project management skills and proactive problem-solving under pressure 🚀🛠️\n\n',
+        'Led teams to victory in multiple National Level Hackathons, achieving a 90% success rate as Team Lead 🏆👩‍💻'
       ],
       link: '',
       skills: [
@@ -651,7 +687,7 @@ class Data {
     'BLoC\nArchitecture': AppConstants.bloc,
     'MVC\nArchitecture': AppConstants.mvc,
     'Data Structures\n& Algorithms': AppConstants.dsa,
-    'Multi-Domain\nProgramming': AppConstants.mdp,
-    'Machine\nLearning': AppConstants.ml,
+    'Multi-Domain\nProgramming': AppConstants.multiDomainProgramming,
+    'Machine\nLearning': AppConstants.machineLearning,
   };
 }

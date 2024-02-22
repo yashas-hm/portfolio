@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
@@ -41,56 +40,56 @@ class CustomBottomBar extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   AppHelper.iconBtn(
-                    asset: Icons.location_pin,
+                    asset: AppConstants.location,
                     text: 'Navi Mumbai',
                     onTap: () {},
                     screenSize: screenSize,
                   ),
                   Gap(15.sp),
                   AppHelper.iconBtn(
-                    asset: Icons.mail_outline_rounded,
+                    asset: AppConstants.mail,
                     text: 'Mail Me',
                     onTap: () =>
-                        launchUrl(Uri.parse('mailto:yashashm.dev@gmail.com')),
+                        launchUrl(Uri.parse('mailto:${AppConstants.emailId}')),
                     screenSize: screenSize,
                   ),
                   Gap(15.sp),
                   AppHelper.iconBtn(
-                    asset: Icons.file_present,
-                    text: 'Read my Resume',
+                    asset: AppConstants.cv,
+                    text: 'My Resume',
                     onTap: () => launchUrlString(AppConstants.resumeLink),
                     screenSize: screenSize,
                   ),
                 ],
               ),
               Expanded(child: Container()),
-              if(!noConnection)
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  AppHelper.connectionBtn(
-                    icon: AppConstants.github,
-                    link: AppConstants.githubLink,
-                    text: 'GitHub',
-                    screenSize: screenSize,
-                  ),
-                  Gap(15.sp),
-                  AppHelper.connectionBtn(
-                    icon: AppConstants.linkedin,
-                    link: AppConstants.linkedinLink,
-                    text: 'LinkedIn',
-                    screenSize: screenSize,
-                  ),
-                  Gap(15.sp),
-                  AppHelper.connectionBtn(
-                    icon: AppConstants.instagram,
-                    link: AppConstants.instaLink,
-                    text: 'Instagram',
-                    screenSize: screenSize,
-                  ),
-                ],
-              ),
+              if (!noConnection)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    AppHelper.connectionBtn(
+                      icon: AppConstants.github,
+                      link: AppConstants.githubLink,
+                      text: 'GitHub',
+                      screenSize: screenSize,
+                    ),
+                    Gap(15.sp),
+                    AppHelper.connectionBtn(
+                      icon: AppConstants.linkedin,
+                      link: AppConstants.linkedinLink,
+                      text: 'LinkedIn',
+                      screenSize: screenSize,
+                    ),
+                    Gap(15.sp),
+                    AppHelper.connectionBtn(
+                      icon: AppConstants.instagram,
+                      link: AppConstants.instaLink,
+                      text: 'Instagram',
+                      screenSize: screenSize,
+                    ),
+                  ],
+                ),
             ],
           ),
           Gap(30.sp),

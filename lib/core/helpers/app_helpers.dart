@@ -6,11 +6,8 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/data/model.dart';
-import 'package:portfolio/screens/about_screen.dart';
-import 'package:portfolio/screens/experience_screen.dart';
-import 'package:portfolio/screens/home_screen.dart';
-import 'package:portfolio/screens/project_screen.dart';
+import 'package:portfolio/core/model/experience_model.dart';
+import 'package:portfolio/core/model/model.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -36,12 +33,12 @@ class AppHelper {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.sp),
             border: Border.all(
-              color: AppColor.tertiary,
+              color: AppColor.primary,
               width: 1.sp,
             ),
             boxShadow: [
               BoxShadow(
-                color: AppColor.tertiary,
+                color: AppColor.primary,
                 blurRadius: 10.sp,
               ),
             ],
@@ -100,12 +97,12 @@ class AppHelper {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.sp),
             border: Border.all(
-              color: AppColor.tertiary,
+              color: AppColor.primary,
               width: 1.sp,
             ),
             boxShadow: [
               BoxShadow(
-                color: AppColor.tertiary,
+                color: AppColor.primary,
                 blurRadius: 10.sp,
               ),
             ],
@@ -143,21 +140,11 @@ class AppHelper {
     return list;
   }
 
-  static Widget getScreen() {
+  static void indexCheck(int index) {
     final ctr = Get.find<NavController>();
-    switch (ctr.page.value) {
-      case 0:
-        return const HomeScreen();
-      case 1:
-        return const AboutScreen();
-      case 2:
-        return const ExperienceScreen();
-      case 3:
-        return const ProjectScreen();
-      // case 4:
-      //   return const CertificationsScreen();
-      default:
-        return const HomeScreen();
+    if (ctr.currentIndex.value != index) {
+      ctr.pageIndex = index;
+      ctr.currentIndex.value = index;
     }
   }
 
@@ -168,6 +155,7 @@ class AppHelper {
     required Size screenSize,
   }) =>
       MouseRegion(
+        opaque: false,
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
           onTap: () => launchUrlString(link),
@@ -199,12 +187,13 @@ class AppHelper {
       );
 
   static Widget iconBtn({
-    required IconData asset,
+    required String asset,
     required String text,
     required Function() onTap,
     required Size screenSize,
   }) =>
       MouseRegion(
+        opaque: false,
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
           onTap: onTap,
@@ -213,10 +202,14 @@ class AppHelper {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
+              SvgPicture.asset(
                 asset,
-                color: AppColor.textColor,
-                size: 25.sp,
+                height: 20.sp,
+                width: 20.sp,
+                colorFilter: const ColorFilter.mode(
+                  AppColor.textColor,
+                  BlendMode.srcIn,
+                ),
               ),
               Gap(10.sp),
               Text(
@@ -237,6 +230,7 @@ class AppHelper {
     return StatefulBuilder(
       builder: (_, setState) {
         return MouseRegion(
+          opaque: false,
           cursor: SystemMouseCursors.click,
           child: InkWell(
             onTap: () {},
@@ -331,6 +325,31 @@ class AppHelper {
           ),
         );
       },
+    );
+  }
+
+  static String getTimeLine(ExperienceModel model) {
+    final from = DateFormat('MMMM yyyy').format(model.from);
+    final to = DateFormat('MMMM yyyy').format(model.to);
+    final present = model.to.isAfter(DateTime.now());
+    return '$from — ${present ? 'Present' : to}';
+  }
+}
+
+extension RemapExtension on num {
+  num remap(num minExtent, num maxExtent, num minRange, num maxRange) {
+    return (this - minExtent) /
+            (maxExtent - minExtent) *
+            (maxRange - minRange) +
+        minRange;
+  }
+}
+
+extension GetByIdentifier<T> on List {
+  T getByIdentifier(String identifier) {
+    return firstWhere(
+      (element) => element.identifier == identifier,
+      orElse: () => throw Exception('Invalid Identifier'),
     );
   }
 }

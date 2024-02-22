@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/data/data.dart';
+import 'package:portfolio/core/model/data.dart';
 import 'package:resize/resize.dart';
 
 class NavItem extends StatefulWidget {
@@ -39,35 +39,36 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Obx(
-          () {
-        if (ctr.page.value == widget.index) {
+      () {
+        if (ctr.currentIndex.value == widget.index) {
           animController.forward();
-        }else{
+        } else {
           animController.reverse();
         }
         return FittedBox(
           fit: BoxFit.scaleDown,
           child: Container(
-            height: 60.sp,
+            height: 50.sp,
             margin: EdgeInsets.symmetric(
               horizontal: 5.sp,
             ),
             alignment: Alignment.center,
             padding: EdgeInsets.symmetric(vertical: 5.sp),
             child: MouseRegion(
+              opaque: false,
               cursor: SystemMouseCursors.click,
               onEnter: (mouse) {
-                if (ctr.page.value != widget.index) {
+                if (ctr.currentIndex.value != widget.index) {
                   animController.forward();
                 }
               },
               onExit: (mouse) {
-                if (ctr.page.value != widget.index) {
+                if (ctr.currentIndex.value != widget.index) {
                   animController.reverse();
                 }
               },
               child: GestureDetector(
-                onTap: ctr.page.value == widget.index ? null : navigateToScreen,
+                onTap: () => ctr.updateIndex(widget.index),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -76,9 +77,9 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
                     Text(
                       Data.navItems[widget.index],
                       style: TextStyle(
-                        fontSize: 20.sp,
+                        fontSize: 18.sp,
                         color: AppColor.textColor,
-                        fontWeight: ctr.page.value == widget.index
+                        fontWeight: ctr.currentIndex.value == widget.index
                             ? FontWeight.w800
                             : FontWeight.normal,
                       ),
@@ -97,12 +98,12 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
                         ),
                       ),
                       child: Container(
-                        width: MediaQuery.of(context).size.width / 15,
+                        width: MediaQuery.of(context).size.width / 18,
                         decoration: BoxDecoration(
-                          color: AppColor.secondary,
+                          color: AppColor.textColor,
                           borderRadius: BorderRadius.circular(10.sp),
                         ),
-                        height: 5.sp,
+                        height: 3.sp,
                       ),
                     ),
                   ],
@@ -113,10 +114,5 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
         );
       },
     );
-  }
-
-  void navigateToScreen() {
-    ctr.page.value = widget.index;
-    ctr.scrollCtr.jumpTo(0);
   }
 }

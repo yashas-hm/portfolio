@@ -4,14 +4,14 @@ import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/data/data.dart';
+import 'package:portfolio/core/model/data.dart';
 import 'package:resize/resize.dart';
 
 class NavItem extends StatefulWidget {
   const NavItem({
     super.key,
     required this.advancedDrawerController,
-    required this.initialIndex,
+    required this.initialIndex
   });
 
   final AdvancedDrawerController advancedDrawerController;
@@ -23,12 +23,15 @@ class NavItem extends StatefulWidget {
 }
 
 class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
-  final ctr = Get.find<NavController>();
+  // final ctr = Get.find<NavController>();
   final Map<GlobalKey, Widget> list = {};
   final List<GlobalKey> keys = [];
+  final ctr = Get.find<NavController>();
+
   late Animation<double> scaleAnim;
   late Animation<double> slideAnim;
   late AnimationController animationController;
+
   int oldIndex = 0;
   double? from;
   double? to;
@@ -113,8 +116,7 @@ class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
         buildChildren();
       });
       oldIndex = index;
-      ctr.scrollCtr.jumpTo(0);
-      ctr.page.value = index;
+      ctr.updateIndex(index);
       animationController.forward();
     }
   }
@@ -122,7 +124,7 @@ class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      if(from==null){
+      if (from == null) {
         setState(() {
           from = getYOffset(oldIndex);
           createSlideAnim(from!, 0);
@@ -148,9 +150,9 @@ class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
                   color: Colors.transparent,
                   boxShadow: [
                     BoxShadow(
-                      color: AppColor.tertiary,
+                      color: AppColor.primary,
                       blurRadius: 150.sp * scaleAnim.value,
-                      spreadRadius: 30.sp* scaleAnim.value,
+                      spreadRadius: 30.sp * scaleAnim.value,
                     ),
                   ],
                 ),
