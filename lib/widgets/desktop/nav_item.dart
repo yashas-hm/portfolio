@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/model/data.dart';
+import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:resize/resize.dart';
 
 class NavItem extends StatefulWidget {
@@ -75,7 +75,7 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      Data.navItems[widget.index],
+                      PortfolioData.navItems[widget.index],
                       style: TextStyle(
                         fontSize: 18.sp,
                         color: AppColor.textColor,

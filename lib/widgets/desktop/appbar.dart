@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/model/data.dart';
+import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/widgets/desktop/nav_item.dart';
 import 'package:resize/resize.dart';
 
@@ -57,7 +57,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemExtent: MediaQuery.of(context).size.width / 18,
-              itemCount: Data.navItems.length,
+              itemCount: PortfolioData.navItems.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (ctx, index) => NavItem(
                 index: index,

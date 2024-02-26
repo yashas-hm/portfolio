@@ -95,7 +95,7 @@ class ProjectScreen extends StatelessWidget {
             ),
           ),
           Gap(30.sp),
-          ConnectButton(
+          SocialButton(
             icon: AppConstants.githubAvatar,
             link: AppConstants.githubLink,
             size: Size(

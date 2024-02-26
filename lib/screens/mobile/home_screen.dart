@@ -150,7 +150,7 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      ConnectButton(
+                      SocialButton(
                         icon: AppConstants.github,
                         link: AppConstants.githubLink,
                         size: Size(50.sp, 50.sp),
@@ -160,13 +160,13 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       Gap(30.sp),
-                       ConnectButton(
+                       SocialButton(
                         icon: AppConstants.linkedin,
                         link: AppConstants.linkedinLink,
                         size: Size(50.sp, 50.sp),
                       ),
                       Gap(30.sp),
-                       ConnectButton(
+                       SocialButton(
                         icon: AppConstants.instagram,
                         link: AppConstants.instaLink,
                         size: Size(50.sp, 50.sp),

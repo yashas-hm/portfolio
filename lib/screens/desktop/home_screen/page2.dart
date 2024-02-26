@@ -5,8 +5,9 @@ import 'package:get/get.dart';
 import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/model/data.dart';
-import 'package:portfolio/core/model/model.dart';
+import 'package:portfolio/core/constants/portfolio_data.dart';
+import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/core/model/testimonial_model.dart';
 import 'package:resize/resize.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -18,14 +19,14 @@ class Page2 extends StatefulWidget {
 }
 
 class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
-  late AnimationController animController;
+  late AnimationController animationController;
   final ctr = Get.find<NavController>();
 
   @override
   void initState() {
-    animController = AnimationController(
+    animationController = AnimationController(
       vsync: this,
-      duration: 1000.milliseconds,
+      duration: 800.milliseconds,
     );
 
     ctr.listener.itemPositions.addListener(() {
@@ -37,12 +38,13 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
         }
       }
 
-      if (item != null) {
-        if (item.itemLeadingEdge <= 0.5) {
-          animController.forward();
-        } else if (item.itemLeadingEdge > 0.5) {
-          animController.reverse();
-        }
+      if (item != null &&
+          item.itemLeadingEdge <= 0.5 &&
+          !animationController.isAnimating) {
+        animationController.forward();
+      }else if(item != null &&
+          item.itemLeadingEdge > 0.7){
+        animationController.reverse();
       }
 
     });
@@ -60,7 +62,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Gap(20.sp),
+        Gap(30.sp),
         Text(
           'About Me',
           style: TextStyle(
@@ -81,7 +83,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
           ),
           alignment: Alignment.center,
           child: AutoSizeText(
-            Data.smallAbout,
+            PortfolioData.aboutBrief,
             textAlign: TextAlign.justify,
             style: TextStyle(
               fontSize: 18.sp,
@@ -129,19 +131,19 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
           children: [
             leaderShipBox(
               screenSize,
-              Data.por[0],
+              PortfolioData.por.getByIdentifier('sac'),
               0,
               0.4,
             ),
             leaderShipBox(
               screenSize,
-              Data.por[1],
+              PortfolioData.por.getByIdentifier('gdsc'),
               0.3,
               0.7,
             ),
             leaderShipBox(
               screenSize,
-              Data.por[2],
+              PortfolioData.por.getByIdentifier('hackathon'),
               0.6,
               1,
             ),
@@ -177,7 +179,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
 
   Widget leaderShipBox(
     Size screenSize,
-    Model model,
+    TestimonialModel model,
     double begin,
     double end,
   ) {
@@ -187,7 +189,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
         end: 1,
       ).animate(
         CurvedAnimation(
-          parent: animController,
+          parent: animationController,
           curve: Interval(
             begin,
             end - 0.2,
@@ -201,7 +203,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
           end: Offset.zero,
         ).animate(
           CurvedAnimation(
-            parent: animController,
+            parent: animationController,
             curve: Interval(
               begin,
               end,
@@ -226,7 +228,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                model.role,
+                model.designation,
                 style: TextStyle(
                   fontSize: 25.sp,
                   fontWeight: FontWeight.w600,
@@ -234,7 +236,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
                 ),
               ),
               Text(
-                model.name,
+                model.referer,
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w400,
@@ -242,7 +244,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
               ),
               Gap(15.sp),
               Text(
-                model.description.join(''),
+                model.description,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontSize: 18.sp,

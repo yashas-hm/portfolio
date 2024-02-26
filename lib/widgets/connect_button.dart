@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class ConnectButton extends StatelessWidget {
-  const ConnectButton({
+class SocialButton extends StatelessWidget {
+  const SocialButton({
     Key? key,
     required this.icon,
     required this.link,

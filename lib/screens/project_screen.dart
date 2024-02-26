@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/helpers/app_helpers.dart';
 import 'package:portfolio/screens/desktop/project_screen.dart' as desktop;
 import 'package:portfolio/screens/mobile//project_screen.dart' as mobile;
@@ -13,7 +14,7 @@ class ProjectScreen extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      AppHelper.indexCheck(3);
+      AppHelper.indexCheck(AppConstants.projectsIndex);
     });
 
     return CustomScaffold(

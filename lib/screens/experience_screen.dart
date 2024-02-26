@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/helpers/app_helpers.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:portfolio/screens/desktop/experience_screen.dart' as desktop;
@@ -13,7 +14,7 @@ class ExperienceScreen extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      AppHelper.indexCheck(2);
+      AppHelper.indexCheck(AppConstants.experienceIndex);
     });
 
     return CustomScaffold(

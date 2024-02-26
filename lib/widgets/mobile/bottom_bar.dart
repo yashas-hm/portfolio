@@ -38,14 +38,14 @@ class CustomBottomBar extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  AppHelper.iconBtn(
+                  AppHelper.bottomBarConnection(
                     asset: AppConstants.location,
                     text: 'Navi Mumbai',
                     onTap: () {},
                     screenSize: screenSize,
                   ),
                   Gap(15.sp),
-                  AppHelper.iconBtn(
+                  AppHelper.bottomBarConnection(
                     asset: AppConstants.mail,
                     text: 'Mail Me',
                     onTap: () =>
@@ -53,7 +53,7 @@ class CustomBottomBar extends StatelessWidget {
                     screenSize: screenSize,
                   ),
                   Gap(15.sp),
-                  AppHelper.iconBtn(
+                  AppHelper.bottomBarConnection(
                     asset: AppConstants.cv,
                     text: 'My Resume',
                     onTap: () => launchUrlString(AppConstants.resumeLink),
@@ -67,21 +67,21 @@ class CustomBottomBar extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    AppHelper.connectionBtn(
+                    AppHelper.bottomBarSocial(
                       icon: AppConstants.github,
                       link: AppConstants.githubLink,
                       text: 'GitHub',
                       screenSize: screenSize,
                     ),
                     Gap(15.sp),
-                    AppHelper.connectionBtn(
+                    AppHelper.bottomBarSocial(
                       icon: AppConstants.linkedin,
                       link: AppConstants.linkedinLink,
                       text: 'LinkedIn',
                       screenSize: screenSize,
                     ),
                     Gap(15.sp),
-                    AppHelper.connectionBtn(
+                    AppHelper.bottomBarSocial(
                       icon: AppConstants.instagram,
                       link: AppConstants.instaLink,
                       text: 'Instagram',

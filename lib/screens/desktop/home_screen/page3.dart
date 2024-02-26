@@ -9,8 +9,7 @@ import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/helpers/app_helpers.dart';
-import 'package:portfolio/core/model/data.dart';
-import 'package:portfolio/core/model/model.dart';
+import 'package:portfolio/core/model/testimonial_model.dart';
 import 'package:portfolio/widgets/desktop/experience_item.dart';
 import 'package:resize/resize.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -34,7 +33,7 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
 
   @override
   void initState() {
-    duration = experiences.length * 800.0;
+    duration = experiences.length * 500.0;
 
     animationController = AnimationController(
       vsync: this,
@@ -50,12 +49,13 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
         }
       }
 
-      if (item != null) {
-        if (item.itemLeadingEdge <= 0.7) {
-          animationController.forward();
-        } else if (item.itemLeadingEdge > 0.7) {
-          animationController.reverse();
-        }
+      if (item != null &&
+          item.itemLeadingEdge <= 0.7 &&
+          !animationController.isAnimating) {
+        animationController.forward();
+      }else if(item != null &&
+          item.itemLeadingEdge > 0.7){
+        animationController.reverse();
       }
     });
 
@@ -76,7 +76,7 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
     final screenSize = MediaQuery.of(context).size;
 
     final list = <Widget>[
-      Gap(20.sp),
+      Gap(30.sp),
       Text(
         'Experience',
         style: TextStyle(
@@ -93,7 +93,7 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
 
     for (var index = 0; index < experiences.length; index++) {
       list.add(ExperienceItem(
-        model: experiences[index],
+        experience: experiences[index],
         begin: sum,
         end: interval,
         reverse: index % 2 != 0,
@@ -144,11 +144,11 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
         children: [
           testimonial(
             screenSize,
-            Data.testimonial[0],
+            PortfolioData.testimonials.getByIdentifier('pb'),
           ),
           testimonial(
             screenSize,
-            Data.testimonial[1],
+            PortfolioData.testimonials.getByIdentifier('pb'),
           ),
         ],
       ),
@@ -157,7 +157,7 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
     return list;
   }
 
-  Widget testimonial(Size screenSize, Model model) {
+  Widget testimonial(Size screenSize, TestimonialModel model) {
     return Container(
       width: screenSize.width / 3,
       height: screenSize.height / 3.5,
@@ -176,7 +176,7 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
         children: [
           Expanded(
             child: AutoSizeText(
-              model.description.join(''),
+              model.description,
               textAlign: TextAlign.justify,
               style: TextStyle(
                 fontSize: 18.sp,
@@ -200,10 +200,10 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
               Gap(10.sp),
               RichText(
                 text: TextSpan(
-                  text: '${model.name}\n',
+                  text: '${model.referer}\n',
                   children: [
                     TextSpan(
-                      text: model.role,
+                      text: model.designation,
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w400,

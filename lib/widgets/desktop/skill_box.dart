@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
+import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/helpers/app_helpers.dart';
-import 'package:portfolio/core/model/data.dart';
 import 'package:resize/resize.dart';
 
 class SkillBox extends StatefulWidget {
@@ -41,7 +41,7 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    data = Data.homeSkills[widget.stack]!;
+    data = PortfolioData.skills[widget.stack]!;
     duration = data.length * 200;
     popupAnimationController = AnimationController(
       vsync: this,

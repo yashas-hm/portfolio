@@ -130,7 +130,7 @@ class _HomeNameState extends State<HomeName> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        ConnectButton(
+                        SocialButton(
                           icon: AppConstants.github,
                           link: AppConstants.githubLink,
                           color: const ColorFilter.mode(
@@ -139,12 +139,12 @@ class _HomeNameState extends State<HomeName> {
                           ),
                           size: Size(40.sp, 40.sp),
                         ),
-                        ConnectButton(
+                        SocialButton(
                           icon: AppConstants.linkedin,
                           link: AppConstants.linkedinLink,
                           size: Size(40.sp, 40.sp),
                         ),
-                        ConnectButton(
+                        SocialButton(
                           icon: AppConstants.instagram,
                           link: AppConstants.instaLink,
                           size: Size(40.sp, 40.sp),

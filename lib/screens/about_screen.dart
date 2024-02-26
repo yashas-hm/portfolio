@@ -3,9 +3,10 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:gap/gap.dart';
 import 'package:marqueer/marqueer.dart';
+import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/model/data.dart';
 import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/core/model/data.dart';
 import 'package:portfolio/screens/desktop/about_screen.dart' as desktop;
 import 'package:portfolio/screens/mobile/about_screen.dart' as mobile;
 import 'package:portfolio/widgets/custom_scaffold.dart';
@@ -19,8 +20,14 @@ class AboutScreen extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      AppHelper.indexCheck(1);
+      AppHelper.indexCheck(AppConstants.aboutIndex);
     });
+
+    return CustomScaffold(
+      child: screenSize.height > screenSize.width
+          ? const mobile.AboutScreen()
+          : const desktop.AboutScreen(),
+    );
 
     return CustomScaffold(
       child: Container(

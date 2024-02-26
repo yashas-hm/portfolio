@@ -8,6 +8,7 @@ import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/core/model/project_model.dart';
 import 'package:portfolio/widgets/desktop/project_item.dart';
 import 'package:resize/resize.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -21,12 +22,21 @@ class Page4 extends StatefulWidget {
 
 class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
   late final AnimationController animationController;
+  late final List<ProjectModel> projects;
   final ctr = Get.find<NavController>();
   bool hovering = false;
-  double duration = PortfolioData.projects.length * 300.0;
+  double duration = 0;
 
   @override
   void initState() {
+    projects = [
+      PortfolioData.projects.getByIdentifier('dentavacation'),
+      PortfolioData.projects.getByIdentifier('spotter'),
+      PortfolioData.projects.getByIdentifier('asl'),
+    ];
+
+    duration = projects.length * 200.0;
+
     animationController = AnimationController(
       vsync: this,
       duration: duration.milliseconds,
@@ -41,12 +51,12 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
         }
       }
 
-      if (item != null) {
-        if (item.itemLeadingEdge <= 0.7) {
-          animationController.forward();
-        } else if (item.itemLeadingEdge > 0.7) {
-          animationController.reverse();
-        }
+      if (item != null &&
+          item.itemLeadingEdge <= 0.7) {
+        animationController.forward();
+      }else if(item != null &&
+          item.itemLeadingEdge > 0.7){
+        animationController.reverse();
       }
     });
 
@@ -68,7 +78,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Gap(20.sp),
+        Gap(30.sp),
         Text(
           'Projects',
           style: TextStyle(
@@ -82,7 +92,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
           child: Wrap(
             runAlignment: WrapAlignment.start,
             alignment: WrapAlignment.spaceEvenly,
-            runSpacing: 40.sp,
+            runSpacing: 30.sp,
             children: buildChildren(),
           ),
         ),
@@ -116,11 +126,6 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
 
   List<Widget> buildChildren() {
     final list = <Widget>[];
-    final projects = [
-      PortfolioData.projects.getByIdentifier('dentavacation'),
-      PortfolioData.projects.getByIdentifier('spotter'),
-      PortfolioData.projects.getByIdentifier('asl'),
-    ];
     final interval = (duration / projects.length).remap(0, duration, 0, 1);
     final releaseBefore = interval / projects.length;
     double sum = 0.0;

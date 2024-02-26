@@ -1,26 +1,25 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/core/helpers/dialog_helper.dart';
 import 'package:portfolio/core/model/experience_model.dart';
 import 'package:resize/resize.dart';
 
 class ExperienceItem extends StatefulWidget {
   const ExperienceItem({
     super.key,
-    required this.model,
+    required this.experience,
     required this.begin,
     required this.end,
     required this.animationController,
     this.reverse = false,
   });
 
-  final ExperienceModel model;
+  final ExperienceModel experience;
 
   final bool reverse;
 
@@ -114,7 +113,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          widget.model.role,
+                          widget.experience.role,
                           style: TextStyle(
                             fontSize: 25.sp,
                             fontWeight: FontWeight.w600,
@@ -122,7 +121,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                           ),
                         ),
                         Text(
-                          widget.model.organization,
+                          widget.experience.organization,
                           style: TextStyle(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w400,
@@ -130,13 +129,33 @@ class _ExperienceItemState extends State<ExperienceItem> {
                         ),
                         Gap(15.sp),
                         Text(
-                          widget.model.shortDescription,
+                          widget.experience.shortDescription,
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
+                        if (widget.experience.skills.isNotEmpty) Gap(15.sp),
+                        if (widget.experience.skills.isNotEmpty)
+                          MouseRegion(
+                            opaque: false,
+                            cursor: SystemMouseCursors.click,
+                            child: GestureDetector(
+                              onTap: () => DialogHelper.showMore(
+                                context: context,
+                                text: widget.experience.longDescription,
+                                skills: widget.experience.skills,
+                              ),
+                              child: Text(
+                                'Read More',
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
                       ],
                     ),
                   ),
@@ -208,7 +227,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                         : Alignment.centerLeft,
                     width: screenSize.width / 2.5,
                     child: Text(
-                      AppHelper.getTimeLine(widget.model),
+                      AppHelper.getTimeLine(widget.experience),
                       style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w600,

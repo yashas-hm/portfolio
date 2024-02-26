@@ -59,9 +59,9 @@ class Data {
       'Docker': AppConstants.docker,
       'Kubernetes': AppConstants.kubernetes,
       'Jenkins': AppConstants.jenkins,
-      'Ansible': AppConstants.ansible,
+      // 'Ansible': AppConstants.ansible,
       'Actions': AppConstants.githubActions,
-      'Prometheus': AppConstants.prometheus,
+      // 'Prometheus': AppConstants.prometheus,
     },
     'Languages': {
       'Dart': AppConstants.dart,
@@ -125,11 +125,6 @@ class Data {
     },
   ];
 
-  static List<Model> highlights = [
-    experience[0],
-    techAchievements,
-    culAchievements,
-  ];
 
   static List<Model> testimonial = [
     Model(
@@ -171,40 +166,6 @@ class Data {
       linkName: '',
     ),
 
-  ];
-
-  static List<Model> homeExperience = [
-    Model(
-      id: '0',
-      role: 'Senior Software Developer',
-      name: 'PracticeBuzz',
-      location: 'Remote',
-      from: DateTime(2023, DateTime.june),
-      to: DateTime(2300, DateTime.june),
-      description: [
-        '🎨 Crafted captivating cross-platform Flutter apps, sprinkling them with a touch of magic to enchant users and boost engagement by 30%\n\n',
-        '💻 Masterminded custom APIs with Node.js and SQL wizardry, conjuring a 40% increase in data processing speed and shaving 50ms off server response time.\n\n',
-        '📢 Orchestrated a symphony of notifications, charming users with timely alerts and enhancing engagement by 25%, keeping them spellbound and coming back for more.',
-      ],
-      link: '',
-      skills: [],
-      linkName: '',
-    ),
-    Model(
-      id: '1',
-      role: 'Developer Intern',
-      name: 'Internships',
-      location: 'Remote',
-      from: DateTime(2019, DateTime.august),
-      to: DateTime(2023, DateTime.may),
-      description: [
-        '🌟 Dabbled in over 7 internships, wearing hats as a software sorcerer, Flutter magician, game genie, and Android alchemist.\n\n',
-        ' 🧙‍♂️ Delivered projects with wizard-like efficiency, waving my wand to ensure on-time completion and submission with fewer bugs than a spellbound forest.',
-      ],
-      link: '',
-      skills: [],
-      linkName: '',
-    ),
   ];
 
   static List<Model> experience = [

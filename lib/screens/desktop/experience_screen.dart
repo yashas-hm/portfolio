@@ -1,84 +1,103 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/model/data.dart';
-import 'package:portfolio/screens/desktop/data_item.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/core/constants/portfolio_data.dart';
+import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/core/model/experience_model.dart';
+import 'package:portfolio/widgets/desktop/experience_item.dart';
 import 'package:resize/resize.dart';
 
-class ExperienceScreen extends StatelessWidget {
+class ExperienceScreen extends StatefulWidget {
   const ExperienceScreen({super.key});
 
   @override
+  State<ExperienceScreen> createState() => _ExperienceScreenState();
+}
+
+class _ExperienceScreenState extends State<ExperienceScreen>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController animationController;
+  late final List<ExperienceModel> experience;
+
+  double duration = 0;
+
+  @override
+  void initState() {
+    experience = PortfolioData.experience
+        .where((element) => element.identifier != 'internships')
+        .toList();
+
+    duration = experience.length * 800;
+
+    animationController = AnimationController(
+      vsync: this,
+      duration: duration.milliseconds,
+    );
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
+
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+      if(!animationController.isCompleted) {
+        animationController.forward();
+      }
+    });
 
     return Container(
-      width: screenSize.width,
       padding: EdgeInsets.only(top: 70.sp),
       alignment: Alignment.center,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            'Work Experience',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: AppColor.textColor,
-              fontSize: 30.sp,
-            ),
-          ),
-          Gap(20.sp),
-          DataItem(model: Data.experience[0]),
-          Gap(20.sp),
-          Text(
-            'Internships',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: AppColor.textColor,
-              fontSize: 30.sp,
-            ),
-          ),
-          Gap(20.sp),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              DataItem(model: Data.experience[1]),
-              DataItem(model: Data.experience[2]),
-            ],
-          ),
-          Gap(20.sp),
-          DataItem(model: Data.experience[3]),
-          Gap(20.sp),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              DataItem(model: Data.experience[4]),
-              DataItem(model: Data.experience[5]),
-            ],
-          ),
-          Gap(20.sp),
-          DataItem(model: Data.experience[6]),
-          Gap(20.sp),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              DataItem(model: Data.experience[7]),
-              SizedBox(
-                width: screenSize.width / 2.4,
-              ),
-            ],
-          ),
-          Gap(20.sp),
-        ],
+        children: buildChildren(),
       ),
     );
+  }
+
+  List<Widget> buildChildren() {
+    final children = <Widget>[
+      Text(
+        'Experience',
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 30.sp,
+        ),
+      ),
+      Gap(30.sp),
+    ];
+    double interval =
+        (duration / experience.length).remap(0, duration, 0, 1).toDouble();
+    double sum = 0;
+
+    for (var index = 0; index <= experience.length-1; index++) {
+      children.add(
+        ExperienceItem(
+          experience: experience[index],
+          begin: sum,
+          end: sum + interval,
+          animationController: animationController,
+          reverse: index % 2 != 0,
+        ),
+      );
+
+      sum+=interval;
+    }
+
+    children.add(
+      Gap(30.sp),
+    );
+
+    return children;
   }
 }

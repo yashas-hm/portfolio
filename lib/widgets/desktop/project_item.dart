@@ -2,11 +2,12 @@ import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
+import 'package:portfolio/core/helpers/dialog_helper.dart';
+import 'package:portfolio/core/helpers/widgets_helper.dart';
 import 'package:portfolio/core/model/project_model.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -94,8 +95,8 @@ class _ProjectItemState extends State<ProjectItem> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CachedNetworkImage(
-                      imageUrl: widget.project.image,
+                    Image.network(
+                      widget.project.image,
                       height: height / 2.1,
                       width: width,
                       fit: BoxFit.fill,
@@ -141,11 +142,8 @@ class _ProjectItemState extends State<ProjectItem> {
                         left: 10.sp,
                         bottom: 15.sp,
                       ),
-                      child: Wrap(
-                        runSpacing: 5.sp,
-                        spacing: 5.sp,
-                        children: buildChildren(),
-                      ),
+                      child:
+                          WidgetHelper.skillChipBuilder(widget.project.skills),
                     ),
                   ],
                 ),
@@ -155,36 +153,39 @@ class _ProjectItemState extends State<ProjectItem> {
                     borderRadius: BorderRadius.circular(13.sp),
                     child: BackdropFilter(
                       filter: ImageFilter.blur(
-                        sigmaX: 20.sp,
-                        sigmaY: 20.sp,
+                        sigmaX: 10.sp,
+                        sigmaY: 10.sp,
                       ),
                       child: AnimatedContainer(
                         duration: 300.milliseconds,
                         width: width,
                         height: hovering ? height : 0,
+                        color: Colors.black12,
                         padding: EdgeInsets.all(10.sp),
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            if (hovering)
-                              Expanded(
-                                child: Center(
-                                  child: GestureDetector(
-                                    onTap: (){},
-                                    child: Text(
-                                      'Read More',
-                                      style: TextStyle(
-                                        fontSize: 22.sp,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
+                            if(widget.project.longDescription.isNotEmpty)
+                            Flexible(
+                              child: GestureDetector(
+                                onTap: () => DialogHelper.showMore(
+                                  context: context,
+                                  text: widget.project.longDescription,
+                                  skills: widget.project.skills,
+                                ),
+                                child: Text(
+                                  'Read More',
+                                  style: TextStyle(
+                                    fontSize: 22.sp,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
                               ),
-                            if (hovering)
-                              GestureDetector(
+                            ),
+                            Flexible(
+                              child: GestureDetector(
                                 onTap: () =>
                                     launchUrlString(widget.project.link),
                                 child: Text(
@@ -196,6 +197,7 @@ class _ProjectItemState extends State<ProjectItem> {
                                   ),
                                 ),
                               ),
+                            ),
                           ],
                         ),
                       ),
@@ -208,31 +210,5 @@ class _ProjectItemState extends State<ProjectItem> {
         ),
       ),
     );
-  }
-
-  List<Widget> buildChildren() {
-    List<Widget> skills = [];
-
-    for (var skill in widget.project.skills) {
-      skills.add(
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 8.sp, vertical: 3.sp),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15.sp),
-            color: AppColor.secondary.withOpacity(0.1),
-          ),
-          child: Text(
-            skill,
-            maxLines: 1,
-            style: TextStyle(
-              fontSize: 14.sp,
-              color: AppColor.secondary,
-            ),
-          ),
-        ),
-      );
-    }
-
-    return skills;
   }
 }

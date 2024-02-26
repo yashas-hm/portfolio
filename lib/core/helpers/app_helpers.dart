@@ -1,13 +1,18 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/model/experience_model.dart';
 import 'package:portfolio/core/model/model.dart';
+import 'package:portfolio/secrets.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -148,7 +153,7 @@ class AppHelper {
     }
   }
 
-  static Widget connectionBtn({
+  static Widget bottomBarSocial({
     required String icon,
     required String link,
     required String text,
@@ -186,7 +191,7 @@ class AppHelper {
         ),
       );
 
-  static Widget iconBtn({
+  static Widget bottomBarConnection({
     required String asset,
     required String text,
     required Function() onTap,
@@ -333,6 +338,74 @@ class AppHelper {
     final to = DateFormat('MMMM yyyy').format(model.to);
     final present = model.to.isAfter(DateTime.now());
     return '$from — ${present ? 'Present' : to}';
+  }
+
+  static Future<(bool, String)> sendMessage(
+      {required String email, required String text}) async {
+    try {
+      final basicAuth =
+          'Basic ${base64.encode(utf8.encode('${Secrets.username}:${Secrets.pass}'))}';
+      final body = {
+        'Globals': {
+          'From': {
+            'Email': 'no-reply@yashashm.dev',
+            'Name': 'Yashas H Majmudar',
+          }
+        },
+        'Messages': [
+          {
+            'To': [
+              {
+                'Email': 'yashashm.dev@gmail.com',
+              }
+            ],
+            'Variables': {
+              'email': email,
+              'text': text,
+            },
+            'Subject': 'New message from website',
+            'TemplateID': 5725234,
+            'TemplateLanguage': true,
+          },
+          {
+            'To': [
+              {
+                'Email': email,
+              }
+            ],
+            'Subject': 'Thank you for reaching out!',
+            'TemplateID': 5724644,
+            'TemplateLanguage': true,
+          }
+        ]
+      };
+
+      final response = await http.post(
+        Uri.parse(Secrets.baseUrl),
+        headers: <String, String>{
+          'authorization': basicAuth,
+        },
+        body: jsonEncode(body),
+      );
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        final messageToMe = data['Messages'][0]['Status'] == 'success';
+        final thankYouMessage = data['Messages'][1]['Status'] == 'success';
+        if (messageToMe && thankYouMessage) {
+          return (true, 'Message sent! I\'m on it, expect a speedy response.');
+        }
+      }
+    } catch (err) {
+      log(err.toString());
+    }
+
+
+
+    return (
+      false,
+      'Communication hiccup! Unexpected error encountered. Retry later, please!'
+    );
   }
 }
 
