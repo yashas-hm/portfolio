@@ -12,7 +12,6 @@ import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/model/experience_model.dart';
 import 'package:portfolio/core/model/model.dart';
-import 'package:portfolio/secrets.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -340,71 +339,34 @@ class AppHelper {
     return '$from — ${present ? 'Present' : to}';
   }
 
-  static Future<(bool, String)> sendMessage(
-      {required String email, required String text}) async {
-    try {
-      final basicAuth =
-          'Basic ${base64.encode(utf8.encode('${Secrets.username}:${Secrets.pass}'))}';
-      final body = {
-        'Globals': {
-          'From': {
-            'Email': 'no-reply@yashashm.dev',
-            'Name': 'Yashas H Majmudar',
-          }
-        },
-        'Messages': [
-          {
-            'To': [
-              {
-                'Email': 'yashashm.dev@gmail.com',
-              }
-            ],
-            'Variables': {
-              'email': email,
-              'text': text,
-            },
-            'Subject': 'New message from website',
-            'TemplateID': 5725234,
-            'TemplateLanguage': true,
-          },
-          {
-            'To': [
-              {
-                'Email': email,
-              }
-            ],
-            'Subject': 'Thank you for reaching out!',
-            'TemplateID': 5724644,
-            'TemplateLanguage': true,
-          }
-        ]
-      };
-
-      final response = await http.post(
-        Uri.parse(Secrets.baseUrl),
-        headers: <String, String>{
-          'authorization': basicAuth,
-        },
-        body: jsonEncode(body),
-      );
-
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        final messageToMe = data['Messages'][0]['Status'] == 'success';
-        final thankYouMessage = data['Messages'][1]['Status'] == 'success';
-        if (messageToMe && thankYouMessage) {
-          return (true, 'Message sent! I\'m on it, expect a speedy response.');
-        }
-      }
-    } catch (err) {
+  static Future<(bool, String)> sendMessage({
+    required String email,
+    required String text,
+  }) async {
+    try {} catch (err) {
       log(err.toString());
     }
 
+    final response = await http.post(
+      Uri.parse(const String.fromEnvironment('BASE_URL')),
+      headers: <String, String>{
+        'Authorization': 'Bearer ${const String.fromEnvironment('JWT')}',
+      },
+      body: jsonEncode({'email': email, 'message': text}),
+    );
 
+    print(response.body);
+
+    final responseBody = jsonDecode(response.body);
+
+    return (
+      responseBody['success'] == 'true',
+      responseBody['message'].toString(),
+    );
 
     return (
       false,
-      'Communication hiccup! Unexpected error encountered. Retry later, please!'
+      'Communication hiccup! Unexpected error encountered. Retry later, please!',
     );
   }
 }

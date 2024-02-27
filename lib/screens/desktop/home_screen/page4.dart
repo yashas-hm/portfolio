@@ -54,9 +54,6 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
       if (item != null &&
           item.itemLeadingEdge <= 0.7) {
         animationController.forward();
-      }else if(item != null &&
-          item.itemLeadingEdge > 0.7){
-        animationController.reverse();
       }
     });
 

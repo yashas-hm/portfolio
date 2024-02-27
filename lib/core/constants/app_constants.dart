@@ -83,6 +83,8 @@ class AppConstants {
 
   static const String firebase = 'assets/logo/firebase.svg';
 
+  static const String supabase = 'assets/logo/supabase.svg';
+
   static const String mysql  = 'assets/logo/mysql.svg';
 
   static const String mongoDb = 'assets/logo/mongodb.svg';

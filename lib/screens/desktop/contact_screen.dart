@@ -154,6 +154,7 @@ class _ContactScreenState extends State<ContactScreen> {
                   loading = true;
                 });
 
+                //TODO: remove
                 emailCtr.text = 'yashashm@gmail.com';
                 textCtr.text =
                 'This is a test message to test the delivery of this mail.';

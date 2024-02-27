@@ -53,6 +53,7 @@ class PortfolioData {
     },
     'Database': {
       'Firebase': AppConstants.firebase,
+      'Supabase': AppConstants.supabase,
       'MySQL': AppConstants.mysql,
       'PostgreSQL': AppConstants.psql,
       'MongoDb': AppConstants.mongoDb,

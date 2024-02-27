@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -167,23 +166,23 @@ class _ProjectItemState extends State<ProjectItem> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            if(widget.project.longDescription.isNotEmpty)
-                            Flexible(
-                              child: GestureDetector(
-                                onTap: () => DialogHelper.showMore(
-                                  context: context,
-                                  text: widget.project.longDescription,
-                                  skills: widget.project.skills,
-                                ),
-                                child: Text(
-                                  'Read More',
-                                  style: TextStyle(
-                                    fontSize: 22.sp,
-                                    fontWeight: FontWeight.w600,
+                            if (widget.project.longDescription.isNotEmpty)
+                              Flexible(
+                                child: GestureDetector(
+                                  onTap: () => DialogHelper.showMore(
+                                    context: context,
+                                    text: widget.project.longDescription,
+                                    skills: widget.project.skills,
+                                  ),
+                                  child: Text(
+                                    'Read More',
+                                    style: TextStyle(
+                                      fontSize: 22.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
                             Flexible(
                               child: GestureDetector(
                                 onTap: () =>
