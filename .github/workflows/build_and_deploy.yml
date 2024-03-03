@@ -22,7 +22,9 @@ jobs:
         with:
           channel: 'stable'
           cache: true
-      - run: flutter config --enable-web
+
+      - name: Enable Web
+        run: flutter config --enable-web
 
       - name: Get Flutter Dependencies
         run: flutter pub get
