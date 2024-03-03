@@ -31,6 +31,7 @@ jobs:
 
       - name: Build Flutter Web
         run: |
+          echo ${{secrets.WEB_ENV_VAR}}
           echo ${{secrets.WEB_ENV_VAR}} > .env/prod.json 
           flutter build web --web-renderer canvaskit --release --dart-define-from-file=.env/prod.json
 
