@@ -33,7 +33,6 @@ jobs:
         env:
           WEB_ENV: ${{ secrets.WEB_ENV_VAR }}
         run: |
-          echo "$WEB_ENV"
           echo "$WEB_ENV" > prod.json 
           flutter build web --web-renderer canvaskit --release --dart-define-from-file=prod.json
 
@@ -72,6 +71,7 @@ jobs:
         run: |
           # Copy Build
           cp -rf build/. .
+          rm -r build/
           # Deploy
           git add .
           git commit -m "Workflow Deploy"
