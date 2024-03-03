@@ -79,4 +79,4 @@ jobs:
           cd yashas-hm.github.io
           git add .
           git commit -m "Workflow Deploy"
-          git push
+          git push --set-upstream origin main
