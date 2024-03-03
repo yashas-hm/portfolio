@@ -59,7 +59,7 @@ jobs:
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
-          git init
+          git init --initial-branch=main
           git config --global user.email yashashm.dev@gmail.com
           git config --global user.name yashas-hm
           # Add Remote Origin
@@ -67,4 +67,4 @@ jobs:
           # Deploy
           git add .
           git commit -m "Workflow Deploy"
-          git push
+          git push --set-upstream origin main
