@@ -69,6 +69,7 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           # Copy Build
+          echo pwd
           cp -rf build/ .
           # Deploy
           git add .
