@@ -57,7 +57,7 @@ jobs:
           git config --global user.email yashashm.dev@gmail.com
           git config --global user.name yashas-hm
           git clone https://github.com/yashas-hm/yashas-hm.github.io.git
-          cd yashas-hm.github.io
+          cp -rf yashas-hm.github.io/ .
           git remote remove origin
           git remote add origin https://$ACCESS_TOKEN@github.com/yashas-hm/yashas-hm.github.io.git
           cd ..
@@ -71,11 +71,8 @@ jobs:
       - name: Push to Server Branch
         run: |
           # Copy Build
-          pwd
-          cp -rf build/ yashas-hm.github.io/
-          ls
+          cp -rf build/ .
           # Deploy
-          cd yashas-hm.github.io
           git add .
           git commit -m "Workflow Deploy"
           git push --set-upstream origin main
