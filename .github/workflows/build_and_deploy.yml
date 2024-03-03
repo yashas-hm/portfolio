@@ -56,6 +56,8 @@ jobs:
         run: |
           git config --global user.email yashashm.dev@gmail.com
           git config --global user.name yashas-hm
+          mkdir upload
+          cd upload
           git clone https://$ACCESS_TOKEN@github.com/yashas-hm/yashas-hm.github.io.git
 
       - name: Get Build Artifact
@@ -70,7 +72,7 @@ jobs:
         run: |
           # Copy Build
           echo pwd
-          cp -rf build/ .
+          cp -rf build/ upload/
           # Deploy
           git add .
           git commit -m "Workflow Deploy"
