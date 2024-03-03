@@ -1,0 +1,63 @@
+name: Build and Deploy Flutter Web
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'lib/**'
+      - '.github/workflows/**'
+      - 'pubspec.yaml'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Flutter Setup
+        uses: subosito/flutter-action@v2.13.0
+        with:
+          channel: 'stable'
+          cache: true
+        run: flutter config --enable-web
+
+      - name: Get Flutter Dependencies
+        run: flutter pub get
+
+      - name: Build Flutter Web
+        run: |
+          echo ${{secrets.WEB_ENV_VAR}} > .env/prod.json 
+          flutter build web --web-renderer canvaskit --release --dart-define-from-file=.env/prod.json
+
+      - name: Create Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-web-build
+          path: build/web/
+          retention-days: 1
+
+  deploy:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: flutter-web-build
+          path: build/
+      - name: Push to Server Branch
+        run: |
+          git init
+          git config --global user.email yashashm.dev@gmail.com
+          git config --global user.name yashas-hm
+          # Add Remote Origin
+          git remote add origin https://github.com/yashas-hm/yashas-hm.github.io.git
+          # Deploy
+          git add .
+          git commit -m "Workflow Deploy"
+          git push --set-upstream origin main
