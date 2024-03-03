@@ -35,6 +35,7 @@ jobs:
         run: |
           echo "$WEB_ENV"
           echo "$WEB_ENV" > .env/prod.json 
+          echo .env/prod.json 
           flutter build web --web-renderer canvaskit --release --dart-define-from-file=.env/prod.json
 
       - name: Create Build Artifact
