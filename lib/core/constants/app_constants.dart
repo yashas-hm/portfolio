@@ -27,10 +27,9 @@ class AppConstants {
   static const String avatar = 'assets/images/avatar.png';
 
   static const String gif = 'assets/images/coding.gif';
-  
+
   // Connection Links
-  static const String linkedinLink =
-      'https://www.linkedin.com/in/yashashm';
+  static const String linkedinLink = 'https://www.linkedin.com/in/yashashm';
 
   static const String emailId = 'yashashm.dev@gmail.com';
 
@@ -45,7 +44,7 @@ class AppConstants {
   static const String dawn = 'assets/anim/dawn.json';
 
   static const String night = 'assets/anim/night.json';
-  
+
   // Skills
   // Front-End
   static const String flutter = 'assets/logo/flutter.svg';
@@ -55,7 +54,7 @@ class AppConstants {
   static const String react = 'assets/logo/react.svg';
 
   static const String html = 'assets/logo/html.svg';
-  
+
   // Back-End
   static const String nodeJs = 'assets/logo/node.svg';
 
@@ -85,10 +84,10 @@ class AppConstants {
 
   static const String supabase = 'assets/logo/supabase.svg';
 
-  static const String mysql  = 'assets/logo/mysql.svg';
+  static const String mysql = 'assets/logo/mysql.svg';
 
   static const String mongoDb = 'assets/logo/mongodb.svg';
-  
+
   // Version Control
   static const String git = 'assets/logo/git.svg';
 
@@ -99,7 +98,7 @@ class AppConstants {
 
   // Languages
   static const String js = 'assets/logo/js.svg';
-  
+
   static const String java = 'assets/logo/java.svg';
 
   static const String bash = 'assets/logo/bash.svg';
@@ -122,17 +121,16 @@ class AppConstants {
   static const String numPy = 'assets/logo/np.svg';
 
   static const String pd = 'assets/logo/pd.svg';
-  
+
   // IoT
   static const String arduino = 'assets/logo/arduino.svg';
 
   static const String raspberryPi = 'assets/logo/raspberry.svg';
-  
+
   // Others
   static const String jira = 'assets/logo/jira.svg';
-  
-  static const String slack = 'assets/logo/slack.svg';
 
+  static const String slack = 'assets/logo/slack.svg';
 
   static const String cv = 'assets/logo/cv.svg';
 
@@ -147,8 +145,6 @@ class AppConstants {
   static const String linkedin = 'assets/logo/linkedin.svg';
 
   static const String instagram = 'assets/logo/instagram.svg';
-
-
 
   static const String agile = 'assets/logo/agile.png';
 

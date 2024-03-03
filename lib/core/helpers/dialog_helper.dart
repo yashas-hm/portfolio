@@ -5,11 +5,24 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/helpers/widgets_helper.dart';
+import 'package:portfolio/widgets/desktop/skill_chips.dart' as desktop;
+import 'package:portfolio/widgets/mobile/skill_chips.dart' as mobile;
 import 'package:resize/resize.dart';
 
 class DialogHelper {
   static void showMore({
+    required BuildContext context,
+    required String text,
+    required List<String> skills,
+  }) {
+    final screenSize = MediaQuery.of(context).size;
+
+    return screenSize.height > screenSize.width
+        ? showMoreMobile(context: context, text: text, skills: skills)
+        : showMoreDesktop(context: context, text: text, skills: skills);
+  }
+
+  static void showMoreDesktop({
     required BuildContext context,
     required String text,
     required List<String> skills,
@@ -58,7 +71,7 @@ class DialogHelper {
                     ),
                   ),
                   Gap(15.sp),
-                  WidgetHelper.skillChipBuilder(skills),
+                  desktop.SkillChips(skills: skills),
                 ],
               ),
             ),
@@ -68,7 +81,71 @@ class DialogHelper {
     );
   }
 
-  static void showToast(String text, Size screenSize){
+  static void showMoreMobile({
+    required BuildContext context,
+    required String text,
+    required List<String> skills,
+  }) {
+    final screenSize = MediaQuery.of(context).size;
+
+    showGeneralDialog(
+      context: context,
+      barrierDismissible: true,
+      barrierLabel: '',
+      pageBuilder: (_, __, ___) => Container(),
+      transitionDuration: 500.milliseconds,
+      transitionBuilder: (_, a, __, ___) => BackdropFilter(
+        filter: ImageFilter.blur(
+          sigmaY: 15.sp * Curves.easeInOut.transform(a.value),
+          sigmaX: 15.sp * Curves.easeInOut.transform(a.value),
+        ),
+        child: Transform.scale(
+          scale: Curves.easeInOut.transform(a.value),
+          child: AlertDialog(
+            contentPadding: EdgeInsets.zero,
+            content: Container(
+              width: screenSize.width / 1.2,
+              height: screenSize.height / 1.5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(13.sp),
+                color: AppColor.box,
+              ),
+              padding: EdgeInsets.all(15.sp),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  if (text.isNotEmpty)
+                    Text(
+                      text,
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                      ),
+                      textAlign: TextAlign.justify,
+                    ),
+                  if (text.isNotEmpty) Gap(15.sp),
+                  Text(
+                    'Tech Stack & Tools',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12.sp,
+                    ),
+                  ),
+                  Gap(15.sp),
+                  mobile.SkillChips(skills: skills),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  static void showToast(BuildContext ctx, String text) {
+    final screenSize = MediaQuery.of(ctx).size;
+
     showToastWidget(
       Stack(
         children: [
@@ -107,7 +184,7 @@ class DialogHelper {
             child: Text(
               text,
               style: TextStyle(
-                fontSize: 18.sp,
+                fontSize: screenSize.height > screenSize.width ? 12.sp : 18.sp,
                 color: AppColor.textColor,
                 fontWeight: FontWeight.w600,
               ),

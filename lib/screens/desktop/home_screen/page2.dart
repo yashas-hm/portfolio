@@ -42,11 +42,9 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
           item.itemLeadingEdge <= 0.5 &&
           !animationController.isAnimating) {
         animationController.forward();
-      }else if(item != null &&
-          item.itemLeadingEdge > 0.7){
+      } else if (item != null && item.itemLeadingEdge > 0.7) {
         animationController.reverse();
       }
-
     });
 
     super.initState();
@@ -101,7 +99,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
                 text: '"Leader Hat"',
                 style: TextStyle(
                   fontSize: 23.sp,
-                  color: AppColor.secondary,
+                  color: AppColor.primary,
                   fontFamily: 'space_grotesk',
                 ),
               ),
@@ -163,10 +161,11 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
                   force: true,
                 ),
                 child: Text(
-                  'Care to indulge me in another round of self-glorification? ${hovering ? '😁' : '🤔'}',
+                  'Care to indulge me in another round of self-glorification? ${hovering ? '😁' : '🤔'}\n(Read More)',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20.sp,
-                    color: hovering ? AppColor.secondary : AppColor.textColor,
+                    color: hovering ? AppColor.primary : AppColor.textColor,
                   ),
                 ),
               ),
@@ -232,7 +231,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
                 style: TextStyle(
                   fontSize: 25.sp,
                   fontWeight: FontWeight.w600,
-                  color: AppColor.secondary,
+                  color: AppColor.primary,
                 ),
               ),
               Text(

@@ -18,10 +18,10 @@ class BottomBar extends StatelessWidget {
 
     return screenSize.height > screenSize.width
         ? mobile.CustomBottomBar(
-      noConnection: ctr.pageIndex == AppConstants.homeIndex,
-    )
+            noConnection: ctr.pageIndex == AppConstants.homeIndex,
+          )
         : desktop.CustomBottomBar(
-      noConnection: ctr.pageIndex == AppConstants.homeIndex,
-    );
+            noConnection: ctr.pageIndex == AppConstants.homeIndex,
+          );
   }
 }

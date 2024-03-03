@@ -31,7 +31,7 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
   late final Map<String, String> data;
   late final AnimationController popupAnimationController;
   int duration = 0;
-  bool hovering  = false;
+  bool hovering = false;
 
   @override
   void dispose() {
@@ -119,7 +119,7 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
                   child: AnimatedContainer(
                     duration: 300.milliseconds,
                     width: screenSize.width / 4,
-                    height: hovering?screenSize.width / 4:0,
+                    height: hovering ? screenSize.width / 4 : 0,
                     alignment: Alignment.center,
                     child: Text(
                       'See Projects',

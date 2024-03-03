@@ -23,7 +23,7 @@ class CustomScaffold extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: CustomAppBar(
-        preferredSize: Size.fromHeight(80.sp),
+        preferredSize: Size.fromHeight(70.sp),
       ),
       body: Stack(
         children: [

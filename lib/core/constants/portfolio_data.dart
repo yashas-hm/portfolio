@@ -321,7 +321,8 @@ class PortfolioData {
           'enhancing overall app performance 🔒💽\n\nDynamic text update '
           'system led to a 25% decrease in app update frequency, resulting in '
           'a smoother user experience 🔄📲',
-      link: 'https://app.dentavacation.com',
+      link:
+          'https://github.com/yashas-hm/just-documentation/blob/main/DentaVacation/DentaVacation.md',
       image: 'https://yashashm.sirv.com/portfolio/dentavacation.png',
       skills: [
         'Flutter',
@@ -502,10 +503,10 @@ class PortfolioData {
       designation: 'President',
       description:
           'Masterminded dynamic student events with precision and foresight, '
-              'prioritizing efficiency and strategic planning 🌟🚀\n\n'
+          'prioritizing efficiency and strategic planning 🌟🚀\n\n'
           'Led and energized a 30-strong student team, ensuring flawless '
-              'execution of 80+ events. Skillfully orchestrated efforts for '
-              'seamless event delivery 🤝📅',
+          'execution of 80+ events. Skillfully orchestrated efforts for '
+          'seamless event delivery 🤝📅',
     ),
     TestimonialModel(
       identifier: 'gdsc',
@@ -513,11 +514,11 @@ class PortfolioData {
       designation: 'Android Facilitator',
       description:
           'Orchestrated three impactful events, resulting in a 25% rise in '
-              'Android development proficiency and a 20% increase in '
-              'knowledge-sharing interactions 👩‍💻🌐\n\n'
+          'Android development proficiency and a 20% increase in '
+          'knowledge-sharing interactions 👩‍💻🌐\n\n'
           'Drove a 30% surge in student engagement in tech learning '
-              'initiatives, setting new standards for educational '
-              'excellence 🚀📚',
+          'initiatives, setting new standards for educational '
+          'excellence 🚀📚',
     ),
     TestimonialModel(
       identifier: 'hackathon',
@@ -525,10 +526,10 @@ class PortfolioData {
       designation: 'Team Lead',
       description:
           'Executed projects with a 95% on-time delivery rate and a 40% '
-              'reduction in bugs, highlighting adept project management '
-              'skills and proactive problem-solving under pressure 🚀🛠️\n\n'
+          'reduction in bugs, highlighting adept project management '
+          'skills and proactive problem-solving under pressure 🚀🛠️\n\n'
           'Led teams to victory in multiple National Level Hackathons, '
-              'achieving a 90% success rate as Team Lead 🏆👩‍💻',
+          'achieving a 90% success rate as Team Lead 🏆👩‍💻',
     ),
   ];
 

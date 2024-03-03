@@ -51,8 +51,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
         }
       }
 
-      if (item != null &&
-          item.itemLeadingEdge <= 0.7) {
+      if (item != null && item.itemLeadingEdge <= 0.7) {
         animationController.forward();
       }
     });
@@ -107,10 +106,11 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                   force: true,
                 ),
                 child: Text(
-                  'Prepped for a follow-up of my creative journey? ${hovering ? '🦾' : '📽️'}',
+                  'Prepped for a follow-up of my creative journey? ${hovering ? '🦾' : '📽️'}\n(Read More)',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20.sp,
-                    color: hovering ? AppColor.secondary : AppColor.textColor,
+                    color: hovering ? AppColor.primary : AppColor.textColor,
                   ),
                 ),
               ),

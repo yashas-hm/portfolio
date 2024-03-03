@@ -4,15 +4,14 @@ import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/model/data.dart';
+import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:resize/resize.dart';
 
 class NavItem extends StatefulWidget {
-  const NavItem({
-    super.key,
-    required this.advancedDrawerController,
-    required this.initialIndex
-  });
+  const NavItem(
+      {super.key,
+      required this.advancedDrawerController,
+      required this.initialIndex});
 
   final AdvancedDrawerController advancedDrawerController;
 
@@ -23,10 +22,10 @@ class NavItem extends StatefulWidget {
 }
 
 class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
-  // final ctr = Get.find<NavController>();
   final Map<GlobalKey, Widget> list = {};
   final List<GlobalKey> keys = [];
   final ctr = Get.find<NavController>();
+  int currIndex = 0;
 
   late Animation<double> scaleAnim;
   late Animation<double> slideAnim;
@@ -35,6 +34,30 @@ class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
   int oldIndex = 0;
   double? from;
   double? to;
+
+  @override
+  void didUpdateWidget(covariant NavItem oldWidget) {
+    if (oldIndex != widget.initialIndex) {
+      if (widget.initialIndex < keys.length) {
+        setState(() {
+          to = getYOffset(widget.initialIndex);
+          createSlideAnim(from!, to!);
+          oldIndex = widget.initialIndex;
+          buildChildren();
+        });
+      } else {
+        setState(() {
+          to = 0;
+          createSlideAnim(from!, to!);
+          oldIndex = -1;
+          buildChildren();
+        });
+      }
+      oldIndex = widget.initialIndex;
+      animationController.forward();
+    }
+    super.didUpdateWidget(oldWidget);
+  }
 
   @override
   void initState() {
@@ -115,8 +138,8 @@ class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
         oldIndex = -1;
         buildChildren();
       });
-      oldIndex = index;
       ctr.updateIndex(index);
+      oldIndex = index;
       animationController.forward();
     }
   }
@@ -178,7 +201,7 @@ class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
   }
 
   void generateKeys() {
-    for (var index = 0; index < Data.navItems.length; index++) {
+    for (var index = 0; index < PortfolioData.navItems.length; index++) {
       final key = GlobalKey();
       keys.add(key);
     }
@@ -186,7 +209,7 @@ class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
 
   void buildChildren() {
     list.clear();
-    for (var index = 0; index < Data.navItems.length; index++) {
+    for (var index = 0; index < PortfolioData.navItems.length; index++) {
       list[keys[index]] = GestureDetector(
         onTap: () => startAnimation(index),
         child: Container(
@@ -195,7 +218,7 @@ class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
           width: 180.sp,
           margin: EdgeInsets.only(
             left: 25.sp,
-            bottom: Data.navItems.length - 1 == index ? 0.sp : 35.sp,
+            bottom: PortfolioData.navItems.length - 1 == index ? 0.sp : 35.sp,
           ),
           decoration: BoxDecoration(
             color: AppColor.box,
@@ -203,7 +226,7 @@ class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
           ),
           alignment: Alignment.center,
           child: Text(
-            Data.navItems[index],
+            PortfolioData.navItems[index],
             style: TextStyle(
               fontSize: 18.sp,
               fontWeight: oldIndex == index ? FontWeight.w600 : FontWeight.w400,

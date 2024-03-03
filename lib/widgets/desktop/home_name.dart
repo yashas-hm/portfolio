@@ -178,7 +178,7 @@ class _HomeNameState extends State<HomeName> {
           textStyle: TextStyle(
             fontSize: 28.sp,
             fontWeight: FontWeight.w600,
-            color: AppColor.secondary,
+            color: AppColor.primary,
           ),
         ),
       );

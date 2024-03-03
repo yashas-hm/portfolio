@@ -49,43 +49,45 @@ class _ContactScreenState extends State<ContactScreen> {
                 fontSize: 16.sp,
               ),
               decoration: InputDecoration(
-                  hintText: 'Ready for a witty email exchange? Let\'s dive in!',
-                  hintStyle: TextStyle(
-                    color: AppColor.textColor.withOpacity(0.5),
+                hintText: 'Ready for a witty email exchange? Let\'s dive in!',
+                hintStyle: TextStyle(
+                  color: AppColor.textColor.withOpacity(0.5),
+                ),
+                counterText: '',
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColor.textColor,
+                    width: 1.sp,
                   ),
-                  counterText: '',
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColor.textColor,
-                      width: 1.sp,
-                    ),
-                    borderRadius: BorderRadius.circular(13.sp),
+                  borderRadius: BorderRadius.circular(13.sp),
+                ),
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                    width: 1.sp,
                   ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.redAccent,
-                      width: 1.sp,
-                    ),
-                    borderRadius: BorderRadius.circular(13.sp),
+                  borderRadius: BorderRadius.circular(13.sp),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColor.textColor,
+                    width: 1.sp,
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColor.textColor,
-                      width: 1.sp,
-                    ),
-                    borderRadius: BorderRadius.circular(13.sp),
+                  borderRadius: BorderRadius.circular(13.sp),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColor.primary,
+                    width: 1.sp,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColor.secondary,
-                      width: 1.sp,
-                    ),
-                    borderRadius: BorderRadius.circular(13.sp),
-                  ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 15.sp),
-                  fillColor: AppColor.box,
-                  filled: true,
-                  errorText: emailError ? 'Invalid email' : null),
+                  borderRadius: BorderRadius.circular(13.sp),
+                ),
+                contentPadding: EdgeInsets.symmetric(horizontal: 15.sp),
+                fillColor: AppColor.box,
+                filled: true,
+                errorText: emailError ? 'Invalid email' : null,
+                errorStyle: const TextStyle(color: Colors.redAccent),
+              ),
               maxLines: 1,
               maxLength: 100,
               keyboardType: TextInputType.emailAddress,
@@ -101,44 +103,46 @@ class _ContactScreenState extends State<ContactScreen> {
                 fontSize: 16.sp,
               ),
               decoration: InputDecoration(
-                  hintText:
-                  'Let\'s give your keyboard a workout. What\'s on your mind?',
-                  hintStyle: TextStyle(
-                    color: AppColor.textColor.withOpacity(0.5),
+                hintText:
+                    'Let\'s give your keyboard a workout. What\'s on your mind?',
+                hintStyle: TextStyle(
+                  color: AppColor.textColor.withOpacity(0.5),
+                ),
+                counterText: '',
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColor.textColor,
+                    width: 1.sp,
                   ),
-                  counterText: '',
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColor.textColor,
-                      width: 1.sp,
-                    ),
-                    borderRadius: BorderRadius.circular(13.sp),
+                  borderRadius: BorderRadius.circular(13.sp),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColor.textColor,
+                    width: 1.sp,
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColor.textColor,
-                      width: 1.sp,
-                    ),
-                    borderRadius: BorderRadius.circular(13.sp),
+                  borderRadius: BorderRadius.circular(13.sp),
+                ),
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.redAccent,
+                    width: 1.sp,
                   ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.redAccent,
-                      width: 1.sp,
-                    ),
-                    borderRadius: BorderRadius.circular(13.sp),
+                  borderRadius: BorderRadius.circular(13.sp),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColor.primary,
+                    width: 1.sp,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColor.secondary,
-                      width: 1.sp,
-                    ),
-                    borderRadius: BorderRadius.circular(13.sp),
-                  ),
-                  contentPadding: EdgeInsets.all(15.sp),
-                  fillColor: AppColor.box,
-                  filled: true,
-                  errorText: textError ? 'Please enter your message' : null),
+                  borderRadius: BorderRadius.circular(13.sp),
+                ),
+                errorStyle: const TextStyle(color: Colors.redAccent),
+                contentPadding: EdgeInsets.all(15.sp),
+                fillColor: AppColor.box,
+                filled: true,
+                errorText: textError ? 'Please enter your message' : null,
+              ),
               maxLines: 10,
               keyboardType: TextInputType.multiline,
               cursorColor: AppColor.textColor,
@@ -153,11 +157,6 @@ class _ContactScreenState extends State<ContactScreen> {
                 setState(() {
                   loading = true;
                 });
-
-                //TODO: remove
-                emailCtr.text = 'yashashm@gmail.com';
-                textCtr.text =
-                'This is a test message to test the delivery of this mail.';
 
                 if (!emailCtr.text.isEmail) {
                   setState(() {
@@ -192,7 +191,8 @@ class _ContactScreenState extends State<ContactScreen> {
                     });
                   }
 
-                  DialogHelper.showToast(response.$2, screenSize);
+                  if (context.mounted)
+                    DialogHelper.showToast(context, response.$2);
                 }
 
                 setState(() {
@@ -204,20 +204,24 @@ class _ContactScreenState extends State<ContactScreen> {
                 width: screenSize.width / 6,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(13.sp),
-                  color: AppColor.secondary,
+                  color: AppColor.primary,
                 ),
                 alignment: Alignment.center,
                 child: loading
-                    ? const CircularProgressIndicator(
-                  color: AppColor.textColor,
-                )
+                    ? SizedBox(
+                        height: 30.sp,
+                        width: 30.sp,
+                        child: const CircularProgressIndicator(
+                          color: AppColor.textColor,
+                        ),
+                      )
                     : Text(
-                  'Tap to Transmit!',
-                  style: TextStyle(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+                        'Tap to Transmit!',
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
               ),
             ),
           ),

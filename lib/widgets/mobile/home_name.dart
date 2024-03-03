@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
@@ -35,7 +36,7 @@ class _HomeNameState extends State<HomeName> {
     });
 
     return Container(
-      width: screenSize.width,
+      width: screenSize.width / 1.2,
       height: boxHeight ?? screenSize.height / 3,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(13.sp),
@@ -65,7 +66,7 @@ class _HomeNameState extends State<HomeName> {
             alignment: Alignment.center,
             child: Container(
               key: key,
-              padding: EdgeInsets.all(25.sp),
+              padding: EdgeInsets.all(15.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,54 +78,43 @@ class _HomeNameState extends State<HomeName> {
                       'Hello 👋🏻, I\'m\nYashas H Majmudar',
                       style: TextStyle(
                         color: AppColor.textColor,
-                        fontSize: 40.sp,
+                        fontSize: 24.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
                   Row(
                     children: [
-                      FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          'I can build ',
-                          style: TextStyle(
-                            fontSize: 28.sp,
-                            fontWeight: FontWeight.w500,
-                            color: AppColor.textColor,
-                          ),
+                      AutoSizeText(
+                        'I can build ',
+                        minFontSize: 11,
+                        stepGranularity: 0.1,
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColor.textColor,
                         ),
                       ),
-                      FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: AnimatedTextKit(
-                          pause: 1.5.seconds,
-                          displayFullTextOnTap: true,
-                          animatedTexts: buildWriterText(),
-                          repeatForever: true,
-                        ),
+                      AnimatedTextKit(
+                        pause: 1.5.seconds,
+                        displayFullTextOnTap: true,
+                        animatedTexts: buildWriterText(),
+                        repeatForever: true,
                       )
                     ],
                   ),
                   Gap(10.sp),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    width: screenSize.width / 5,
-                    child: FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Text(
-                        'Let\'s Connect 🤝🏻',
-                        style: TextStyle(
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.w400,
-                          color: AppColor.textColor,
-                        ),
-                      ),
+                  Text(
+                    'Let\'s Connect 🤝🏻',
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: AppColor.textColor,
                     ),
                   ),
                   Gap(20.sp),
                   SizedBox(
-                    width: screenSize.width / 6,
+                    width: screenSize.width / 3,
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -137,17 +127,17 @@ class _HomeNameState extends State<HomeName> {
                             AppColor.textColor,
                             BlendMode.srcIn,
                           ),
-                          size: Size(40.sp, 40.sp),
+                          size: Size(25.sp, 25.sp),
                         ),
                         SocialButton(
                           icon: AppConstants.linkedin,
                           link: AppConstants.linkedinLink,
-                          size: Size(40.sp, 40.sp),
+                          size: Size(25.sp, 25.sp),
                         ),
                         SocialButton(
                           icon: AppConstants.instagram,
                           link: AppConstants.instaLink,
-                          size: Size(40.sp, 40.sp),
+                          size: Size(25.sp, 25.sp),
                         ),
                       ],
                     ),
@@ -176,9 +166,9 @@ class _HomeNameState extends State<HomeName> {
         TypewriterAnimatedText(
           text,
           textStyle: TextStyle(
-            fontSize: 28.sp,
+            fontSize: 20.sp,
             fontWeight: FontWeight.w600,
-            color: AppColor.secondary,
+            color: AppColor.primary,
           ),
         ),
       );

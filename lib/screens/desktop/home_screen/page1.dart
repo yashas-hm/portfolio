@@ -128,7 +128,7 @@ class _Page1State extends State<Page1> with TickerProviderStateMixin {
           FadeTransition(
             opacity: fade,
             child: Text(
-              'Languages I Know',
+              'My Skills 🚀',
               style: TextStyle(
                 fontSize: 23.sp,
                 fontWeight: FontWeight.w500,

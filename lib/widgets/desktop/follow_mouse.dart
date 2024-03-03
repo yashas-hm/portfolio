@@ -14,9 +14,7 @@ class _FollowMouseState extends State<FollowMouse> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery
-        .of(context)
-        .size;
+    final screenSize = MediaQuery.of(context).size;
 
     return MouseRegion(
       opaque: false,
@@ -30,27 +28,23 @@ class _FollowMouseState extends State<FollowMouse> {
         child: Stack(
           children: [
             Obx(
-                  () =>
-                  AnimatedPositioned(
-                    duration: 100.milliseconds,
-                    top: y.value - (screenSize.width / 4),
-                    left: x.value - (screenSize.width / 4),
-                    child: Container(
-                      height: screenSize.width / 2,
-                      width: screenSize.width / 2,
-                      clipBehavior: Clip.none,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        gradient: RadialGradient(
-                          radius: 0.5,
-                          colors: [
-                            const Color(0xFF00BBFF).withOpacity(0.25),
-                            Colors.transparent
-                          ]
-                        ),
-                      ),
-                    ),
+              () => AnimatedPositioned(
+                duration: 100.milliseconds,
+                top: y.value - (screenSize.width / 4),
+                left: x.value - (screenSize.width / 4),
+                child: Container(
+                  height: screenSize.width / 2,
+                  width: screenSize.width / 2,
+                  clipBehavior: Clip.none,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: RadialGradient(radius: 0.5, colors: [
+                      const Color(0xFF00BBFF).withOpacity(0.25),
+                      Colors.transparent
+                    ]),
                   ),
+                ),
+              ),
             ),
           ],
         ),

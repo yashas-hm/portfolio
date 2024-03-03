@@ -117,7 +117,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                           style: TextStyle(
                             fontSize: 25.sp,
                             fontWeight: FontWeight.w600,
-                            color: AppColor.secondary,
+                            color: AppColor.primary,
                           ),
                         ),
                         Text(
@@ -172,7 +172,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                       child: Container(
                         width: 1.sp,
                         height: height ?? screenSize.height / 5,
-                        color: AppColor.secondary,
+                        color: AppColor.primary,
                       ),
                     ),
                     Align(
@@ -184,7 +184,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                           color: AppColor.textColor,
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: AppColor.secondary,
+                            color: AppColor.primary,
                             width: 3.sp,
                           ),
                         ),
@@ -232,7 +232,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w600,
                         fontStyle: FontStyle.italic,
-                        color: AppColor.secondary,
+                        color: AppColor.primary,
                       ),
                     ),
                   ),

@@ -46,9 +46,8 @@ class _ExperienceScreenState extends State<ExperienceScreen>
 
   @override
   Widget build(BuildContext context) {
-
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      if(!animationController.isCompleted) {
+      if (!animationController.isCompleted) {
         animationController.forward();
       }
     });
@@ -60,27 +59,28 @@ class _ExperienceScreenState extends State<ExperienceScreen>
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: buildChildren(),
+        children: [
+          Text(
+            'Experience',
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 30.sp,
+            ),
+          ),
+          Gap(30.sp),
+          ...buildChildren(),
+        ],
       ),
     );
   }
 
   List<Widget> buildChildren() {
-    final children = <Widget>[
-      Text(
-        'Experience',
-        style: TextStyle(
-          fontWeight: FontWeight.w500,
-          fontSize: 30.sp,
-        ),
-      ),
-      Gap(30.sp),
-    ];
+    final children = <Widget>[];
     double interval =
         (duration / experience.length).remap(0, duration, 0, 1).toDouble();
     double sum = 0;
 
-    for (var index = 0; index <= experience.length-1; index++) {
+    for (var index = 0; index <= experience.length - 1; index++) {
       children.add(
         ExperienceItem(
           experience: experience[index],
@@ -91,12 +91,8 @@ class _ExperienceScreenState extends State<ExperienceScreen>
         ),
       );
 
-      sum+=interval;
+      sum += interval;
     }
-
-    children.add(
-      Gap(30.sp),
-    );
 
     return children;
   }

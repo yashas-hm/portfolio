@@ -4,7 +4,7 @@ class ProjectModel extends BaseModel {
   final String name;
 
   final String shortDescription;
-  
+
   final String longDescription;
 
   final String link;

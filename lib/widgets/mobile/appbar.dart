@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       centerTitle: false,
-      toolbarHeight: 80.sp,
+      toolbarHeight: 70.sp,
       backgroundColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
       leading: ValueListenableBuilder<AdvancedDrawerValue>(
@@ -39,7 +39,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: Icon(
                   key: ValueKey<bool>(value.visible),
                   value.visible ? Icons.clear : Icons.menu,
-                  size: 25.sp,
+                  size: 20.sp,
                 ),
               ),
             ),
@@ -49,16 +49,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Container(
         alignment: Alignment.centerRight,
         width: MediaQuery.of(context).size.width,
-        height: 70.sp,
+        height: 60.sp,
         padding: EdgeInsets.all(10.sp),
         child: MouseRegion(
           opaque: false,
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
-            onTap: () => Get.find<NavController>().updateIndex(AppConstants.homeIndex),
+            onTap: () =>
+                Get.find<NavController>().updateIndex(AppConstants.homeIndex),
             child: Container(
-              height: 60.sp,
-              width: 60.sp,
+              height: 50.sp,
+              width: 50.sp,
               clipBehavior: Clip.hardEdge,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,

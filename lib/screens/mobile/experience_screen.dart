@@ -1,16 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get_utils/src/extensions/export.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/model/data.dart';
-import 'package:portfolio/screens/mobile/data_item.dart';
+import 'package:portfolio/core/constants/portfolio_data.dart';
+import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/core/model/experience_model.dart';
+import 'package:portfolio/widgets/mobile/experience_item.dart';
 import 'package:resize/resize.dart';
 
-class ExperienceScreen extends StatelessWidget {
+class ExperienceScreen extends StatefulWidget {
   const ExperienceScreen({super.key});
+
+  @override
+  State<ExperienceScreen> createState() => _ExperienceScreenState();
+}
+
+class _ExperienceScreenState extends State<ExperienceScreen>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController animationController;
+  late final List<ExperienceModel> experience;
+
+  double duration = 0;
+
+  @override
+  void initState() {
+    experience = PortfolioData.experience
+        .where((element) => element.identifier != 'internships')
+        .toList();
+
+    duration = experience.length * 800;
+
+    animationController = AnimationController(
+      vsync: this,
+      duration: duration.milliseconds,
+    );
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+      if (!animationController.isCompleted) {
+        animationController.forward();
+      }
+    });
 
     return Container(
       width: screenSize.width,
@@ -26,37 +69,37 @@ class ExperienceScreen extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.w600,
               color: AppColor.textColor,
-              fontSize: 30.sp,
+              fontSize: 20.sp,
             ),
           ),
-          Gap(20.sp),
-          DataItem(model: Data.experience[0]),
-          Gap(20.sp),
-          Text(
-            'Internships',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: AppColor.textColor,
-              fontSize: 30.sp,
-            ),
-          ),
-          Gap(20.sp),
-          DataItem(model: Data.experience[1]),
-          Gap(20.sp),
-          DataItem(model: Data.experience[2]),
-          Gap(20.sp),
-          DataItem(model: Data.experience[3]),
-          Gap(20.sp),
-          DataItem(model: Data.experience[4]),
-          Gap(20.sp),
-          DataItem(model: Data.experience[5]),
-          Gap(20.sp),
-          DataItem(model: Data.experience[6]),
-          Gap(20.sp),
-          DataItem(model: Data.experience[7]),
-          Gap(20.sp),
+          Gap(15.sp),
+          ...buildExperience(),
+          Gap(15.sp),
         ],
       ),
     );
+  }
+
+  List<Widget> buildExperience() {
+    final list = <Widget>[];
+
+    double interval =
+        (duration / experience.length).remap(0, duration, 0, 1).toDouble();
+    double sum = 0;
+
+    for (var index = 0; index <= experience.length - 1; index++) {
+      list.add(
+        ExperienceItem(
+          experience: experience[index],
+          begin: sum,
+          end: sum + interval,
+          animationController: animationController,
+        ),
+      );
+
+      sum += interval * 3 / 4;
+    }
+
+    return list;
   }
 }

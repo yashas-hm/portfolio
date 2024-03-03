@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/controller/nav_controller.dart';
+import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/widgets/bottom_bar.dart';
 import 'package:portfolio/widgets/mobile/appbar.dart';
@@ -18,20 +21,24 @@ class CustomScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    final ctr = Get.find<NavController>();
 
     return AdvancedDrawer(
       controller: advancedDrawerController,
+      animationDuration: 600.milliseconds,
+      animationCurve: Curves.easeInOut,
       backdropColor: AppColor.background,
-      drawer: NavItem(
-        advancedDrawerController: advancedDrawerController,
-        initialIndex: 0,
+      drawer: Obx(
+        () => NavItem(
+          advancedDrawerController: advancedDrawerController,
+          initialIndex: Get.find<NavController>().currentIndex.value,
+        ),
       ),
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: CustomAppBar(
-          advancedDrawerController: advancedDrawerController,
-          preferredSize: Size.fromHeight(80.sp)
-        ),
+            advancedDrawerController: advancedDrawerController,
+            preferredSize: Size.fromHeight(70.sp)),
         body: SizedBox(
           height: screenSize.height,
           child: SingleChildScrollView(
@@ -42,7 +49,7 @@ class CustomScaffold extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 child,
-                BottomBar(),
+                if (ctr.pageIndex != AppConstants.homeIndex) BottomBar(),
               ],
             ),
           ),

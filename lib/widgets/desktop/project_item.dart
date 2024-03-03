@@ -6,8 +6,8 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/helpers/dialog_helper.dart';
-import 'package:portfolio/core/helpers/widgets_helper.dart';
 import 'package:portfolio/core/model/project_model.dart';
+import 'package:portfolio/widgets/desktop/skill_chips.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -33,15 +33,7 @@ class ProjectItem extends StatefulWidget {
 }
 
 class _ProjectItemState extends State<ProjectItem> {
-  double buffer = 0;
   bool hovering = false;
-
-  @override
-  void initState() {
-    buffer = (widget.end - widget.begin) / 2;
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +61,7 @@ class _ProjectItemState extends State<ProjectItem> {
             parent: widget.animationController,
             curve: Interval(
               widget.begin,
-              widget.begin + buffer,
+              widget.end,
               curve: Curves.easeIn,
             ),
           ),
@@ -141,8 +133,9 @@ class _ProjectItemState extends State<ProjectItem> {
                         left: 10.sp,
                         bottom: 15.sp,
                       ),
-                      child:
-                          WidgetHelper.skillChipBuilder(widget.project.skills),
+                      child: SkillChips(
+                        skills: widget.project.skills,
+                      ),
                     ),
                   ],
                 ),
