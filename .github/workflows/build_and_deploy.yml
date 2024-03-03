@@ -58,6 +58,7 @@ jobs:
           git config --global user.name yashas-hm
           mkdir upload
           cd upload
+          git init
           git clone https://github.com/yashas-hm/yashas-hm.github.io.git
           git remote remove origin
           git remote add origin https://$ACCESS_TOKEN@github.com/yashas-hm/yashas-hm.github.io.git
