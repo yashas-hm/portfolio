@@ -70,11 +70,8 @@ jobs:
 
       - name: Push to Server Branch
         run: |
-          # Copy Build
           cp -rf build/. .
           rm -r build/
-          ls
-          # Deploy
           git add .
           git commit -m "Workflow Deploy"
           git push --set-upstream origin main
