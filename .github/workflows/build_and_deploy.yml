@@ -30,9 +30,11 @@ jobs:
         run: flutter pub get
 
       - name: Build Flutter Web
+        env:
+          WEB_ENV: ${{ secrets.WEB_ENV_VAR }}
         run: |
-          echo ${{secrets.WEB_ENV_VAR}}
-          echo ${{secrets.WEB_ENV_VAR}} > .env/prod.json 
+          echo $WEB_ENV
+          echo $WEB_ENV > .env/prod.json 
           flutter build web --web-renderer canvaskit --release --dart-define-from-file=.env/prod.json
 
       - name: Create Build Artifact
