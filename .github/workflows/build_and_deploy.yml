@@ -69,12 +69,11 @@ jobs:
           path: build/
 
       - name: Push to Server Branch
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           # Copy Build
-          echo pwd
+          pwd
           cp -rf build/ yashas-hm.github.io/
+          ls
           # Deploy
           cd yashas-hm.github.io
           git add .
