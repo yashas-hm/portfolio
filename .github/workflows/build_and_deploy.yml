@@ -50,21 +50,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Git Setup
+        run: |
+          git config --global user.email yashashm.dev@gmail.com
+          git config --global user.name yashas-hm
+          echo pwd
+          
+
       - name: Get Build Artifact
         uses: actions/download-artifact@v4
         with:
           name: flutter-web-build
           path: build/
-      - name: Push to Server Branch
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: |
-          git init --initial-branch=main
-          git config --global user.email yashashm.dev@gmail.com
-          git config --global user.name yashas-hm
-          # Add Remote Origin
-          git remote add origin https://$ACCESS_TOKEN@github.com/yashas-hm/yashas-hm.github.io.git
-          # Deploy
-          git add .
-          git commit -m "Workflow Deploy"
-          git push --set-upstream origin main
+      - run: ls -l
+#      - name: Push to Server Branch
+#        env:
+#          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+#        run: |
+#          git init --initial-branch=main
+#          git config --global user.email yashashm.dev@gmail.com
+#          git config --global user.name yashas-hm
+#          # Add Remote Origin
+#          git remote add origin https://$ACCESS_TOKEN@github.com/yashas-hm/yashas-hm.github.io.git
+#          # Deploy
+#          git add .
+#          git commit -m "Workflow Deploy"
+#          git push --set-upstream origin main
