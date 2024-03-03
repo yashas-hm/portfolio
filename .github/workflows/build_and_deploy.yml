@@ -73,6 +73,7 @@ jobs:
           # Copy Build
           cp -rf build/. .
           rm -r build/
+          ls
           # Deploy
           git add .
           git commit -m "Workflow Deploy"
