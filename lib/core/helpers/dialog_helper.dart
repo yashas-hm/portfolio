@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:oktoast/oktoast.dart';
@@ -117,12 +118,16 @@ class DialogHelper {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   if (text.isNotEmpty)
-                    Text(
-                      text,
-                      style: TextStyle(
-                        fontSize: 12.sp,
+                    Flexible(
+                      child: AutoSizeText(
+                        text,
+                        minFontSize: 10,
+                        stepGranularity: 0.1,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                        ),
+                        textAlign: TextAlign.justify,
                       ),
-                      textAlign: TextAlign.justify,
                     ),
                   if (text.isNotEmpty) Gap(15.sp),
                   Text(

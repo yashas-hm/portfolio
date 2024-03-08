@@ -9,14 +9,18 @@ final pageIndexProvider = StateProvider((ref) => AppConstants.homeIndex);
 
 final currentIndexProvider = StateProvider((ref) => AppConstants.homeIndex);
 
-void updateIndex(BuildContext context, WidgetRef ref, int index,
-    {force = false}) {
+void updateIndex(
+  BuildContext context,
+  WidgetRef ref,
+  int index, {
+  force = false,
+}) {
   final controller = ref.read(scrollControllerProvider);
   final pageIndex = ref.read(pageIndexProvider.notifier);
 
   if (pageIndex.state != 0 || force) {
     pageIndex.state = index;
-    AppHelper.reRoute(index, context);
+    AppHelper.reRoute(index, context, ref);
   } else {
     controller.scrollTo(
       index: index,

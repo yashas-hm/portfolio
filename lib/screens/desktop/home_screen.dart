@@ -53,11 +53,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final controller = ref.read(scrollControllerProvider.notifier);
     final listener = ref.read(positionListenerProvider.notifier);
 
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      controller.update((state) => ItemScrollController());
-      listener.update((state) => ItemPositionsListener.create());
-    });
-
     return MouseRegion(
       opaque: false,
       child: SizedBox(

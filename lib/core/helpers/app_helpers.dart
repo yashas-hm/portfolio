@@ -8,6 +8,8 @@ import 'package:intl/intl.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/model/experience_model.dart';
 import 'package:portfolio/providers/nav_provider.dart';
+import 'package:portfolio/providers/scroll_provider.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class AppHelper {
   static void indexCheck(int index, WidgetRef ref) {
@@ -19,9 +21,19 @@ class AppHelper {
     }
   }
 
-  static void reRoute(int pageIndex, BuildContext context) {
+  static void reRoute(
+    int pageIndex,
+    BuildContext context,
+    WidgetRef ref,
+  ) {
     switch (pageIndex) {
       case AppConstants.homeIndex:
+        ref
+            .read(scrollControllerProvider.notifier)
+            .update((state) => ItemScrollController());
+        ref
+            .read(positionListenerProvider.notifier)
+            .update((state) => ItemPositionsListener.create());
         Navigator.pushNamed(context, AppConstants.homeRoute);
         break;
       case AppConstants.aboutIndex:
