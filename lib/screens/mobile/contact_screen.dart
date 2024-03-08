@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/core/helpers/app_utils.dart';
 import 'package:portfolio/core/helpers/dialog_helper.dart';
 import 'package:resize/resize.dart';
 
@@ -50,8 +50,9 @@ class _ContactScreenState extends State<ContactScreen> {
               style: TextStyle(
                 fontSize: 12.sp,
               ),
+              textAlign: TextAlign.left,
               decoration: InputDecoration(
-                hintText: 'Ready for a witty email exchange? Let\'s dive in!',
+                hintText: 'Ready for a witty email exchange?',
                 hintStyle: TextStyle(
                   color: AppColor.textColor.withOpacity(0.5),
                   fontSize: 12.sp,

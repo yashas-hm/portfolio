@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:portfolio/controller/nav_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
+import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/widgets/bottom_bar.dart';
 import 'package:portfolio/widgets/desktop/appbar.dart';
 import 'package:portfolio/widgets/desktop/follow_mouse.dart';
 import 'package:resize/resize.dart';
 
-class CustomScaffold extends StatelessWidget {
+class CustomScaffold extends ConsumerWidget {
   const CustomScaffold({
     super.key,
     required this.child,
@@ -16,9 +16,9 @@ class CustomScaffold extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final screenSize = MediaQuery.of(context).size;
-    final ctr = Get.find<NavController>();
+    final pageIndex = ref.watch(pageIndexProvider);
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -27,7 +27,7 @@ class CustomScaffold extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          if (ctr.pageIndex == AppConstants.homeIndex) const FollowMouse(),
+          if (pageIndex == AppConstants.homeIndex) const FollowMouse(),
           MouseRegion(
             opaque: false,
             child: SizedBox(
@@ -40,7 +40,7 @@ class CustomScaffold extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     child,
-                    if (ctr.pageIndex != AppConstants.homeIndex) BottomBar(),
+                    if (pageIndex != AppConstants.homeIndex) const BottomBar(),
                   ],
                 ),
               ),

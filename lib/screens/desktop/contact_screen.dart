@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get_utils/get_utils.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/core/helpers/app_utils.dart';
 import 'package:portfolio/core/helpers/dialog_helper.dart';
 import 'package:resize/resize.dart';
 
@@ -49,7 +49,7 @@ class _ContactScreenState extends State<ContactScreen> {
                 fontSize: 16.sp,
               ),
               decoration: InputDecoration(
-                hintText: 'Ready for a witty email exchange? Let\'s dive in!',
+                hintText: 'Ready for a witty email exchange?',
                 hintStyle: TextStyle(
                   color: AppColor.textColor.withOpacity(0.5),
                 ),
@@ -191,8 +191,9 @@ class _ContactScreenState extends State<ContactScreen> {
                     });
                   }
 
-                  if (context.mounted)
+                  if (context.mounted) {
                     DialogHelper.showToast(context, response.$2);
+                  }
                 }
 
                 setState(() {

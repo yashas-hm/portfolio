@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get.dart';
-import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/core/helpers/app_utils.dart';
 import 'package:portfolio/core/model/project_model.dart';
+import 'package:portfolio/providers/nav_provider.dart';
+import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:portfolio/widgets/mobile/project_item.dart';
 import 'package:resize/resize.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-class Page4 extends StatefulWidget {
+class Page4 extends ConsumerStatefulWidget {
   const Page4({super.key});
 
   @override
-  State<Page4> createState() => _Page4State();
+  ConsumerState<Page4> createState() => _Page4State();
 }
 
-class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
+class _Page4State extends ConsumerState<Page4>
+    with SingleTickerProviderStateMixin {
   final List<ProjectModel> projects = [
     PortfolioData.projects.getByIdentifier('dentavacation'),
     PortfolioData.projects.getByIdentifier('spotter'),
@@ -26,7 +28,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
     PortfolioData.projects.getByIdentifier('glow-app-bar'),
   ];
   late final AnimationController animationController;
-  final ctr = Get.find<NavController>();
+
   bool hovering = false;
   double duration = 0;
 
@@ -39,10 +41,12 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
       duration: duration.milliseconds,
     );
 
-    ctr.listener.itemPositions.addListener(() {
+    final listener = ref.read(positionListenerProvider);
+
+    listener.itemPositions.addListener(() {
       ItemPosition? item;
 
-      for (var position in ctr.listener.itemPositions.value) {
+      for (var position in listener.itemPositions.value) {
         if (position.index == AppConstants.projectsIndex) {
           item = position;
         }
@@ -103,7 +107,9 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
         SizedBox(
           width: screenSize.width / 1.2,
           child: GestureDetector(
-            onTap: () => Get.find<NavController>().updateIndex(
+            onTap: () => updateIndex(
+              context,
+              ref,
               AppConstants.projectsIndex,
               force: true,
             ),

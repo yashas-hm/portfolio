@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:portfolio/controller/nav_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
+import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/widgets/desktop/nav_item.dart';
 import 'package:resize/resize.dart';
 
@@ -38,20 +38,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             MouseRegion(
               opaque: false,
               cursor: SystemMouseCursors.click,
-              child: GestureDetector(
-                onTap: () => Get.find<NavController>()
-                    .updateIndex(AppConstants.homeIndex),
-                child: Container(
-                  height: 60.sp,
-                  width: 60.sp,
-                  clipBehavior: Clip.hardEdge,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.transparent,
+              child: Consumer(builder: (_, ref, __) {
+                return GestureDetector(
+                  onTap: () =>
+                      updateIndex(context, ref, AppConstants.homeIndex),
+                  child: Container(
+                    height: 60.sp,
+                    width: 60.sp,
+                    clipBehavior: Clip.hardEdge,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.transparent,
+                    ),
+                    child: Image.asset(AppConstants.avatar),
                   ),
-                  child: Image.asset(AppConstants.avatar),
-                ),
-              ),
+                );
+              }),
             ),
             ListView.builder(
               physics: const NeverScrollableScrollPhysics(),

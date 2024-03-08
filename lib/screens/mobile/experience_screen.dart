@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get_utils/src/extensions/export.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/core/helpers/app_utils.dart';
 import 'package:portfolio/core/model/experience_model.dart';
 import 'package:portfolio/widgets/mobile/experience_item.dart';
 import 'package:resize/resize.dart';

@@ -1,26 +1,27 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get.dart';
-import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/core/helpers/app_utils.dart';
 import 'package:portfolio/core/model/testimonial_model.dart';
+import 'package:portfolio/providers/nav_provider.dart';
+import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:resize/resize.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-class Page2 extends StatefulWidget {
+class Page2 extends ConsumerStatefulWidget {
   const Page2({super.key});
 
   @override
-  State<Page2> createState() => _Page2State();
+  ConsumerState<Page2> createState() => _Page2State();
 }
 
-class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
+class _Page2State extends ConsumerState<Page2>
+    with SingleTickerProviderStateMixin {
   late AnimationController animationController;
-  final ctr = Get.find<NavController>();
 
   @override
   void initState() {
@@ -29,10 +30,12 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
       duration: 800.milliseconds,
     );
 
-    ctr.listener.itemPositions.addListener(() {
+    final listener = ref.read(positionListenerProvider);
+
+    listener.itemPositions.addListener(() {
       ItemPosition? item;
 
-      for (var position in ctr.listener.itemPositions.value) {
+      for (var position in listener.itemPositions.value) {
         if (position.index == AppConstants.aboutIndex) {
           item = position;
         }
@@ -156,7 +159,9 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
               onEnter: (_) => setState(() => hovering = true),
               onExit: (_) => setState(() => hovering = false),
               child: GestureDetector(
-                onTap: () => Get.find<NavController>().updateIndex(
+                onTap: () => updateIndex(
+                  context,
+                  ref,
                   AppConstants.aboutIndex,
                   force: true,
                 ),

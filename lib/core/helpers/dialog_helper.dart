@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
+import 'package:portfolio/core/helpers/app_utils.dart';
 import 'package:portfolio/widgets/desktop/skill_chips.dart' as desktop;
 import 'package:portfolio/widgets/mobile/skill_chips.dart' as mobile;
 import 'package:resize/resize.dart';

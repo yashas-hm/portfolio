@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:get/get.dart';
-import 'package:portfolio/controller/nav_controller.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
+import 'package:portfolio/core/helpers/app_utils.dart';
+import 'package:portfolio/providers/nav_provider.dart';
 import 'package:resize/resize.dart';
 
-class NavItem extends StatefulWidget {
+class NavItem extends ConsumerStatefulWidget {
   const NavItem(
       {super.key,
       required this.advancedDrawerController,
@@ -18,13 +18,14 @@ class NavItem extends StatefulWidget {
   final int initialIndex;
 
   @override
-  State<NavItem> createState() => _NavItemState();
+  ConsumerState<NavItem> createState() => _NavItemState();
 }
 
-class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
+class _NavItemState extends ConsumerState<NavItem>
+    with TickerProviderStateMixin {
   final Map<GlobalKey, Widget> list = {};
   final List<GlobalKey> keys = [];
-  final ctr = Get.find<NavController>();
+
   int currIndex = 0;
 
   late Animation<double> scaleAnim;
@@ -138,7 +139,11 @@ class _NavItemState extends State<NavItem> with TickerProviderStateMixin {
         oldIndex = -1;
         buildChildren();
       });
-      ctr.updateIndex(index);
+      updateIndex(
+        context,
+        ref,
+        index,
+      );
       oldIndex = index;
       animationController.forward();
     }

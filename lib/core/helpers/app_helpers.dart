@@ -1,18 +1,44 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:get/get.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-import 'package:portfolio/controller/nav_controller.dart';
+import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/model/experience_model.dart';
+import 'package:portfolio/providers/nav_provider.dart';
 
 class AppHelper {
-  static void indexCheck(int index) {
-    final ctr = Get.find<NavController>();
-    if (ctr.currentIndex.value != index) {
-      ctr.pageIndex = index;
-      ctr.currentIndex.value = index;
+  static void indexCheck(int index, WidgetRef ref) {
+    final currentIndex = ref.read(currentIndexProvider.notifier);
+
+    if (currentIndex.state != index) {
+      ref.read(pageIndexProvider.notifier).state = index;
+      currentIndex.state = index;
+    }
+  }
+
+  static void reRoute(int pageIndex, BuildContext context) {
+    switch (pageIndex) {
+      case AppConstants.homeIndex:
+        Navigator.pushNamed(context, AppConstants.homeRoute);
+        break;
+      case AppConstants.aboutIndex:
+        Navigator.pushNamed(context, AppConstants.aboutMeRoute);
+        break;
+      case AppConstants.experienceIndex:
+        Navigator.pushNamed(context, AppConstants.experienceRoute);
+        break;
+      case AppConstants.projectsIndex:
+        Navigator.pushNamed(context, AppConstants.projectsRoute);
+        break;
+      case AppConstants.contactMeIndex:
+        Navigator.pushNamed(context, AppConstants.contactMeRoute);
+        break;
+      default:
+        Navigator.pushNamed(context, AppConstants.homeRoute);
+        break;
     }
   }
 
@@ -39,7 +65,7 @@ class AppHelper {
       final responseBody = jsonDecode(response.body);
 
       return (
-        responseBody['success'] == 'true',
+        responseBody['success'].toString() == 'true',
         responseBody['message'].toString(),
       );
     } catch (err) {
@@ -49,23 +75,5 @@ class AppHelper {
         'Communication hiccup! Unexpected error encountered. Retry later, please!',
       );
     }
-  }
-}
-
-extension RemapExtension on num {
-  num remap(num minExtent, num maxExtent, num minRange, num maxRange) {
-    return (this - minExtent) /
-            (maxExtent - minExtent) *
-            (maxRange - minRange) +
-        minRange;
-  }
-}
-
-extension GetByIdentifier<T> on List {
-  T getByIdentifier(String identifier) {
-    return firstWhere(
-      (element) => element.identifier == identifier,
-      orElse: () => throw Exception('Invalid Identifier'),
-    );
   }
 }

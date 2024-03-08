@@ -1,14 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get.dart';
-import 'package:portfolio/controller/nav_controller.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/helpers/app_helpers.dart';
+import 'package:portfolio/core/helpers/app_utils.dart';
+import 'package:portfolio/providers/nav_provider.dart';
 import 'package:resize/resize.dart';
 
 class SkillBox extends StatefulWidget {
@@ -111,21 +111,25 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
                   sigmaX: 10.sp,
                   sigmaY: 10.sp,
                 ),
-                child: GestureDetector(
-                  onTap: () => Get.find<NavController>().updateIndex(
-                    AppConstants.projectsIndex,
-                    force: true,
-                  ),
-                  child: AnimatedContainer(
-                    duration: 300.milliseconds,
-                    width: screenSize.width / 4,
-                    height: hovering ? screenSize.width / 4 : 0,
-                    alignment: Alignment.center,
-                    child: Text(
-                      'See Projects',
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w500,
+                child: Consumer(
+                  builder: (_, ref, __) => GestureDetector(
+                    onTap: () => updateIndex(
+                      context,
+                      ref,
+                      AppConstants.projectsIndex,
+                      force: true,
+                    ),
+                    child: AnimatedContainer(
+                      duration: 300.milliseconds,
+                      width: screenSize.width / 4,
+                      height: hovering ? screenSize.width / 4 : 0,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'See Projects',
+                        style: TextStyle(
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),

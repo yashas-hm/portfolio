@@ -1,18 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:get/get.dart';
-import 'package:portfolio/controller/nav_controller.dart';
-import 'package:portfolio/core/constants/app_constants.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
+import 'package:portfolio/providers/nav_provider.dart';
 import 'package:resize/resize.dart';
 
-class Page2 extends StatelessWidget {
+class Page2 extends ConsumerWidget {
   const Page2({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final screenSize = MediaQuery.of(context).size;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -83,7 +82,9 @@ class Page2 extends StatelessWidget {
         ...buildChildren(screenSize),
         Gap(15.sp),
         GestureDetector(
-          onTap: () => Get.find<NavController>().updateIndex(
+          onTap: () => updateIndex(
+            context,
+            ref,
             AppConstants.aboutIndex,
             force: true,
           ),
