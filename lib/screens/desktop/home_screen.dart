@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/providers/nav_provider.dart';
-import 'package:portfolio/providers/scroll_provider.dart';import 'package:portfolio/screens/desktop/home_screen/page1.dart';
+import 'package:portfolio/providers/scroll_provider.dart';
+import 'package:portfolio/screens/desktop/home_screen/page1.dart';
 import 'package:portfolio/screens/desktop/home_screen/page2.dart';
 import 'package:portfolio/screens/desktop/home_screen/page3.dart';
 import 'package:portfolio/screens/desktop/home_screen/page4.dart';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';import 'package:portfolio/core/constants/color_constants.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:resize/resize.dart';
