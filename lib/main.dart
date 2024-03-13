@@ -37,7 +37,7 @@ class Portfolio extends StatelessWidget {
         child: MaterialApp(
           theme: AppTheme.getTheme(context),
           debugShowCheckedModeBanner: false,
-          title: 'Software Sorcerer',
+          title: 'Yashas H Majmudar',
           routes: {
             AppConstants.homeRoute: (ctx) => const HomeScreen(),
             AppConstants.aboutMeRoute: (ctx) => const AboutScreen(),
