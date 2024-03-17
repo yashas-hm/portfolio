@@ -362,7 +362,7 @@ class PortfolioData {
           'Machine Learning model that converts ASL Gestures to text.',
       longDescription: '',
       link: 'https://github.com/yashas-hm/ASL-Gesture-Sensing',
-      image: 'https://cdn.yashashm.dev/portfolio/asl.png',
+      image: 'https://yashashm.sirv.com/portfolio/asl.png',
       skills: [
         'Python',
         'TensorFlow',
@@ -378,7 +378,7 @@ class PortfolioData {
           'is fully customizable',
       longDescription: '',
       link: 'https://pub.dev/packages/glow_bottom_app_bar',
-      image: 'https://cdn.yashashm.dev/portfolio/glowAppBar.gif',
+      image: 'https://yashashm.sirv.com/portfolio/glowAppBar.gif',
       skills: [
         'Flutter',
         'Animations',
@@ -392,7 +392,7 @@ class PortfolioData {
           'enhanced messaging efficiency and convenience.',
       longDescription: '',
       link: 'https://github.com/yashas-hm/AutoWhatsapp',
-      image: 'https://cdn.yashashm.dev/portfolio/autowhatsapp.jpg',
+      image: 'https://yashashm.sirv.com/portfolio/autowhatsapp.jpg',
       skills: [
         'Android',
         'Background Services',
@@ -406,7 +406,7 @@ class PortfolioData {
       shortDescription: 'Low-Cost Efficient AR Smart Glass',
       longDescription: '',
       link: 'https://github.com/yashas-hm/Smart-Glass',
-      image: 'https://cdn.yashashm.dev/portfolio/smartglass.jpg',
+      image: 'https://yashashm.sirv.com/portfolio/smartglass.jpg',
       skills: [
         'Iot',
         'Arduino',
@@ -420,7 +420,7 @@ class PortfolioData {
       shortDescription: 'Re-creating of an old game: Space Invaders',
       longDescription: '',
       link: 'https://github.com/yashas-hm/Space_Invaders_JavaFX',
-      image: 'https://cdn.yashashm.dev/portfolio/spaceinvaders.jpg',
+      image: 'https://yashashm.sirv.com/portfolio/spaceinvaders.jpg',
       skills: [
         'Java',
         'JavaFX',
@@ -433,7 +433,7 @@ class PortfolioData {
       shortDescription: 'A simple web scraper api for recipes',
       longDescription: '',
       link: 'https://github.com/yashas-hm/Recipe-Scraper-API',
-      image: 'https://cdn.yashashm.dev/portfolio/recipefetch.png',
+      image: 'https://yashashm.sirv.com/portfolio/recipefetch.png',
       skills: [
         'Python',
         'Flask',
@@ -447,7 +447,7 @@ class PortfolioData {
           'slots while adhering to specified constraints on reoccurrence.',
       longDescription: '',
       link: 'https://github.com/yashas-hm/Exam_Supervision_Assigner',
-      image: 'https://cdn.yashashm.dev/portfolio/examassigner.png',
+      image: 'https://yashashm.sirv.com/portfolio/examassigner.png',
       skills: [
         'Python',
         'Tkinter',
@@ -461,7 +461,7 @@ class PortfolioData {
       shortDescription: 'A simple cost efficient MIDI Drum Set',
       longDescription: '',
       link: 'https://github.com/yashas-hm/Arduino-MIDI-Drums',
-      image: 'https://cdn.yashashm.dev/portfolio/drums.png',
+      image: 'https://yashashm.sirv.com/portfolio/drums.png',
       skills: ['IoT', 'Arduino'],
       codeAvailable: true,
     ),
