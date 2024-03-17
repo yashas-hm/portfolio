@@ -1,4 +1,3 @@
-import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 
@@ -18,8 +17,8 @@ class CustomCachedImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FastCachedImage(
-      url: imageUrl,
+    return Image.network(
+      imageUrl,
       height: height,
       width: width,
       color: Colors.transparent,
