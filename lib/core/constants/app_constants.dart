@@ -28,6 +28,8 @@ class AppConstants {
 
   static const String gif = 'assets/images/coding.gif';
 
+  static const String defaultImage = 'assets/images/default.jpg';
+
   // Connection Links
   static const String linkedinLink = 'https://www.linkedin.com/in/yashashm';
 

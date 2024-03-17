@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/helpers/dialog_helper.dart';
 import 'package:portfolio/core/model/project_model.dart';
+import 'package:portfolio/widgets/custom_cached_image.dart';
 import 'package:portfolio/widgets/mobile/skill_chips.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -56,6 +57,10 @@ class _ProjectItemState extends State<ProjectItem> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            CustomCachedImage(
+              height: height / 2.3,
+              imageUrl: widget.project.image,
+            ),
             Image.network(
               widget.project.image,
               height: height / 2.3,

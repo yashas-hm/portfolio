@@ -20,10 +20,10 @@ dependencies:
   animated_text_kit: ^4.2.2
   flutter_html: ^3.0.0-beta.2
   scrollable_positioned_list: ^0.3.8
+  fast_cached_network_image: ^1.2.8
 
   # Core
   cupertino_icons: ^1.0.2
-#  get: ^4.6.1
   url_launcher: ^6.1.4
   page_transition: ^2.0.5
   resize: ^1.0.0
