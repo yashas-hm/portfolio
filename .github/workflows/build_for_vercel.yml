@@ -54,4 +54,4 @@ jobs:
           git checkout website
           git add .
           git commit -m "build: workflow build and deploy"
-          git push origin website
+          git push
