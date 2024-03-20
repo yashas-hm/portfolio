@@ -1,4 +1,4 @@
-name: Build and Deploy Flutter Web to Vercel
+name: Build and Deploy Flutter Web to Vercel Repo
 
 on:
   push:
@@ -13,7 +13,7 @@ on:
 
 jobs:
 
-   build_and_deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -38,21 +38,42 @@ jobs:
           echo "$WEB_ENV" > prod.json 
           flutter build web --web-renderer canvaskit --release --dart-define-from-file=prod.json
 
-      - name: Prepare for push
-        run: |
-          rm -r website
-          mkdir -p website
-          cp -r build/web/* website/
-          
+      - name: Create Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-web-build
+          path: build/web/
+          retention-days: 1
 
-      - name: Push build changes to Portfolio Folder
+  deploy:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git Setup
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           git config --global user.email yashashm.dev@gmail.com
           git config --global user.name yashas-hm
+          git clone https://github.com/yashas-hm/vercel-portfolio-website.git
+          cp -rf vercel-portfolio-website/. .
+          rm -r vercel-portfolio-website/
           git remote remove origin
-          git remote add origin https://$ACCESS_TOKEN@github.com/yashas-hm/portfolio.git
-          git add website/
-          git commit -m "build: workflow build and deploy"
-          git push origin master
+          git remote add origin https://$ACCESS_TOKEN@github.com/yashas-hm/vercel-portfolio-website.git
+          cd ..
+
+      - name: Get Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: flutter-web-build
+          path: build/
+
+      - name: Push to Server Branch
+        run: |
+          cp -rf build/. .
+          rm -r build/
+          git add .
+          git commit -m "Workflow Deploy"
+          git push --set-upstream origin main
