@@ -1,0 +1,57 @@
+name: Build and Deploy Flutter Web to Vercel
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'lib/**'
+      - 'web/**'
+      - '.github/workflows/**'
+      - 'pubspec.yaml'
+
+jobs:
+
+   build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Flutter Setup
+        uses: subosito/flutter-action@v2.13.0
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Enable Web
+        run: flutter config --enable-web
+
+      - name: Get Flutter Dependencies
+        run: flutter pub get
+
+      - name: Build Flutter Web
+        env:
+          WEB_ENV: ${{ secrets.WEB_ENV_VAR }}
+        run: |
+          echo "$WEB_ENV" > prod.json 
+          flutter build web --web-renderer canvaskit --release --dart-define-from-file=prod.json
+
+      - name: Prepare Portfolio Folder
+        run: |
+          rm -r portfolio/*
+          mkdir -p portfolio
+          cp build/web/. portfolio/.
+          rm -r build/
+
+      - name: Push build changes to Portfolio Folder
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          git config --global user.email yashashm.dev@gmail.com
+          git config --global user.name yashas-hm
+          git remote remove origin
+          git remote add origin https://$ACCESS_TOKEN@github.com/yashas-hm/yashas-hm.github.io.git
+          git add portfolio/
+          git commit -m "build: workflow build and deploy"
+          git push origin main

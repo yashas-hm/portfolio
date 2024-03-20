@@ -24,6 +24,9 @@ class Portfolio extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
 
+    print(const String.fromEnvironment('TEST'));
+    print(const String.fromEnvironment('TEST2'));
+
     Size size;
 
     if (screenSize.height > screenSize.width) {
