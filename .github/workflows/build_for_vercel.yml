@@ -55,4 +55,4 @@ jobs:
           git remote add origin https://$ACCESS_TOKEN@github.com/yashas-hm/portfolio.git
           git add portfolio/
           git commit -m "build: workflow build and deploy"
-          git push origin main
+          git push origin master
