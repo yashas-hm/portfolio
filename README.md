@@ -1,5 +1,5 @@
 ### Howdy, I'm
-![ASCII LOGO](https://raw.githubusercontent.com/yashas-hm/yashas-hm/main/badge/text_name.png)
+![ASCII LOGO](https://raw.githubusercontent.com/yashas-hm/yashas-hm/main/assets/text_name.png)
 
 ### Welcome to my Digital Haven! 🚀
 Hey there! Thanks for stopping by my digital playground! 🎉 Here's where the pixels party and the code dances. 💃 Dive into my online realm and explore the wonders I've conjured up! 💻✨
