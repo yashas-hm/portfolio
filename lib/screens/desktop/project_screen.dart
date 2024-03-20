@@ -3,7 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/helpers/app_utils.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/widgets/connect_button.dart';
 import 'package:portfolio/widgets/desktop/project_item.dart';
 import 'package:resize/resize.dart';

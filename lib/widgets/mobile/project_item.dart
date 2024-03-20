@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/helpers/dialog_helper.dart';
+import 'package:portfolio/core/utilities/dialog_helper.dart';
 import 'package:portfolio/core/model/project_model.dart';
 import 'package:portfolio/widgets/custom_cached_image.dart';
 import 'package:portfolio/widgets/mobile/skill_chips.dart';

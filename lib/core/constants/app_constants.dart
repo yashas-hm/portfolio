@@ -22,8 +22,6 @@ class AppConstants {
   static const String contactMeRoute = '/contactMe';
 
   // Images
-  static const String photo = 'assets/images/photo.png';
-
   static const String avatar = 'assets/images/avatar.png';
 
   static const String gif = 'assets/images/coding.gif';
@@ -147,30 +145,4 @@ class AppConstants {
   static const String linkedin = 'assets/logo/linkedin.svg';
 
   static const String instagram = 'assets/logo/instagram.svg';
-
-  static const String agile = 'assets/logo/agile.png';
-
-  static const String leader = 'assets/logo/leader.png';
-
-  static const String coord = 'assets/logo/coord.png';
-
-  static const String management = 'assets/logo/management.png';
-
-  static const String thinking = 'assets/logo/thinking.png';
-
-  static const String bloc = 'assets/logo/bloc.png';
-
-  static const String dsa = 'assets/logo/dsa.png';
-
-  static const String communication = 'assets/logo/communication.png';
-
-  static const String mvc = 'assets/logo/mvc.png';
-
-  static const String machineLearning = 'assets/logo/ml.png';
-
-  static const String multiDomainProgramming = 'assets/logo/mdp.png';
-
-  static const String cul = 'assets/logo/cul.png';
-
-  static const String tech = 'assets/logo/tech.png';
 }

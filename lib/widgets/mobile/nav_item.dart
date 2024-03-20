@@ -4,7 +4,7 @@ import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/helpers/app_utils.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:resize/resize.dart';
 

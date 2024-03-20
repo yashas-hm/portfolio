@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/helpers/app_helpers.dart';
-import 'package:portfolio/core/helpers/dialog_helper.dart';
+import 'package:portfolio/core/utilities/utils.dart';
+import 'package:portfolio/core/utilities/dialog_helper.dart';
 import 'package:portfolio/core/model/experience_model.dart';
 import 'package:resize/resize.dart';
 
@@ -227,7 +227,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                         : Alignment.centerLeft,
                     width: screenSize.width / 2.5,
                     child: Text(
-                      AppHelper.getTimeLine(widget.experience),
+                      Utils.getTimeLine(widget.experience),
                       style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w600,

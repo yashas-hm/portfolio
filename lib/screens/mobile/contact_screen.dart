@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/helpers/app_helpers.dart';
-import 'package:portfolio/core/helpers/app_utils.dart';
-import 'package:portfolio/core/helpers/dialog_helper.dart';
+import 'package:portfolio/core/utilities/utils.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
+import 'package:portfolio/core/utilities/dialog_helper.dart';
 import 'package:resize/resize.dart';
 
 class ContactScreen extends StatefulWidget {
@@ -181,7 +181,7 @@ class _ContactScreenState extends State<ContactScreen> {
               }
 
               if (!(emailError || textError)) {
-                final response = await AppHelper.sendMessage(
+                final response = await Utils.sendMessage(
                   email: emailCtr.text.trim(),
                   text: textCtr.text.trim(),
                 );

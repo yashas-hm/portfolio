@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/helpers/app_utils.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:resize/resize.dart';
 
 class SkillBox extends StatefulWidget {

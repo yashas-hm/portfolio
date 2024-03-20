@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/helpers/app_utils.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/widgets/desktop/home_name.dart';
 import 'package:portfolio/widgets/desktop/skill_box.dart';
 import 'package:resize/resize.dart';

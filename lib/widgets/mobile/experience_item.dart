@@ -6,8 +6,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/helpers/app_helpers.dart';
-import 'package:portfolio/core/helpers/dialog_helper.dart';
+import 'package:portfolio/core/utilities/utils.dart';
+import 'package:portfolio/core/utilities/dialog_helper.dart';
 import 'package:portfolio/core/model/experience_model.dart';
 import 'package:resize/resize.dart';
 
@@ -75,7 +75,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                 child: Transform.rotate(
                   angle: -pi / 2,
                   child: Text(
-                    AppHelper.getTimeLine(widget.experience),
+                    Utils.getTimeLine(widget.experience),
                     style: TextStyle(
                       fontSize: 14.sp,
                     ),
