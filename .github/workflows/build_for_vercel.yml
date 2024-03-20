@@ -42,7 +42,7 @@ jobs:
         run: |
           rm -r portfolio/*
           mkdir -p portfolio
-          cp build/web/* portfolio/
+          cp -r build/web/ portfolio/
           rm -r build/
 
       - name: Push build changes to Portfolio Folder
