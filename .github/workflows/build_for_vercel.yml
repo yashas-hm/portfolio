@@ -57,7 +57,7 @@ jobs:
         run: |
           git config --global user.email yashashm.dev@gmail.com
           git config --global user.name yashas-hm
-          git clone https://github.com/yashas-hm/vercel-portfolio-website.git
+          git clone https://$ACCESS_TOKEN@github.com/yashas-hm/vercel-portfolio-website.git
           cp -rf vercel-portfolio-website/. .
           rm -r vercel-portfolio-website/
           git remote remove origin
