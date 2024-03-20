@@ -1,14 +1,14 @@
 name: Build and Deploy Flutter Web to Vercel
 
 on:
-#  push:
-#    branches:
-#      - master
-#    paths:
-#      - 'lib/**'
-#      - 'web/**'
-#      - '.github/workflows/**'
-#      - 'pubspec.yaml'
+  push:
+    branches:
+      - master
+    paths:
+      - 'lib/**'
+      - 'web/**'
+      - '.github/workflows/**'
+      - 'pubspec.yaml'
   workflow_dispatch:
 
 jobs:
@@ -38,11 +38,10 @@ jobs:
           echo "$WEB_ENV" > prod.json 
           flutter build web --web-renderer canvaskit --release --dart-define-from-file=prod.json
 
-      - name: Prepare Portfolio Folder
+      - name: Prepare for push
         run: |
-          mkdir -p portfolio
-          cp -r build/web/* portfolio/
-          rm -r build/
+          rm -r assets/
+          cp -r build/web/* .
 
       - name: Push build changes to Portfolio Folder
         env:
@@ -50,9 +49,9 @@ jobs:
         run: |
           git config --global user.email yashashm.dev@gmail.com
           git config --global user.name yashas-hm
-          cd portfolio
           git remote remove origin
           git remote add origin https://$ACCESS_TOKEN@github.com/yashas-hm/portfolio.git
+          git checkout website
           git add .
           git commit -m "build: workflow build and deploy"
           git push origin website
