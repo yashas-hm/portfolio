@@ -2,14 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/app_theme.dart';
 import 'package:portfolio/core/utilities/utils.dart';
-import 'package:portfolio/screens/about_screen.dart';
-import 'package:portfolio/screens/contact_screen.dart';
-import 'package:portfolio/screens/experience_screen.dart';
-import 'package:portfolio/screens/home_screen.dart';
-import 'package:portfolio/screens/project_screen.dart';
 import 'package:resize/resize.dart';
 
 void main() {
