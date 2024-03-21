@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:resize/resize.dart';
@@ -65,7 +66,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   shape: BoxShape.circle,
                   color: Colors.transparent,
                 ),
-                child: Image.asset(AppConstants.avatar),
+                child: SvgPicture.asset(AppConstants.avatar),
               ),
             ),
           ),

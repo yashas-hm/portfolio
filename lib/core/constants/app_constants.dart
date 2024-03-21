@@ -22,7 +22,7 @@ class AppConstants {
   static const String contactMeRoute = '/contactMe';
 
   // Images
-  static const String avatar = 'assets/images/avatar.png';
+  static const String avatar = 'assets/images/avatar.svg';
 
   static const String gif = 'assets/images/coding.gif';
 
