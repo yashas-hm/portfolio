@@ -10,12 +10,12 @@ import 'package:portfolio/core/model/experience_model.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:portfolio/screens/about_screen.dart';
 import 'package:portfolio/screens/contact_screen.dart';
 import 'package:portfolio/screens/experience_screen.dart';
 import 'package:portfolio/screens/home_screen.dart';
 import 'package:portfolio/screens/project_screen.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class Utils {
   static void indexCheck(int index, WidgetRef ref) {
@@ -95,27 +95,38 @@ class Utils {
     }
   }
 
-  static PageRouteBuilder pageRouteBuilder(Widget page) => PageRouteBuilder(
-    pageBuilder: (_, __, ___) => page,
-    transitionsBuilder: (_, animation, __, child) => FadeTransition(
-      opacity:
-      animation.drive(Tween<double>(begin: 0, end: 1).chain(CurveTween(
-        curve: Curves.easeInOut,
-      ))),
-      child: child,
-    ),
-    transitionDuration: 600.milliseconds,
-    reverseTransitionDuration: 600.milliseconds,
-  );
+  static PageRouteBuilder pageRouteBuilder(
+    Widget page,
+    RouteSettings settings,
+  ) =>
+      PageRouteBuilder(
+        settings: settings,
+        pageBuilder: (_, __, ___) => page,
+        transitionsBuilder: (_, animation, __, child) => FadeTransition(
+          opacity:
+              animation.drive(Tween<double>(begin: 0, end: 1).chain(CurveTween(
+            curve: Curves.easeInOut,
+          ))),
+          child: child,
+        ),
+        transitionDuration: 600.milliseconds,
+        reverseTransitionDuration: 600.milliseconds,
+      );
 
-  static Route<dynamic> routeBuilder(RouteSettings settings){
-    switch(settings.name){
-      case AppConstants.homeRoute: return pageRouteBuilder(const HomeScreen());
-      case AppConstants.aboutMeRoute:return pageRouteBuilder(const AboutScreen());
-      case AppConstants.experienceRoute: return pageRouteBuilder(const ExperienceScreen());
-      case AppConstants.projectsRoute: return pageRouteBuilder(const ProjectScreen());
-      case AppConstants.contactMeRoute: return pageRouteBuilder(const ContactScreen());
-      default: return pageRouteBuilder(const HomeScreen());
+  static Route<dynamic> routeBuilder(RouteSettings settings) {
+    switch (settings.name) {
+      case AppConstants.homeRoute:
+        return pageRouteBuilder(const HomeScreen(), settings);
+      case AppConstants.aboutMeRoute:
+        return pageRouteBuilder(const AboutScreen(), settings);
+      case AppConstants.experienceRoute:
+        return pageRouteBuilder(const ExperienceScreen(), settings);
+      case AppConstants.projectsRoute:
+        return pageRouteBuilder(const ProjectScreen(), settings);
+      case AppConstants.contactMeRoute:
+        return pageRouteBuilder(const ContactScreen(), settings);
+      default:
+        return pageRouteBuilder(const HomeScreen(), settings);
     }
   }
 }
