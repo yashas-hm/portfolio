@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
+import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/model/experience_model.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/widgets/desktop/experience_item.dart';
@@ -22,7 +23,7 @@ class _ExperienceScreenState extends State<ExperienceScreen>
 
   @override
   void initState() {
-    experience = experience
+    experience = experienceList
         .where((element) => element.identifier != 'internships')
         .toList();
 
