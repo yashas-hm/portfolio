@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:resize/resize.dart';
@@ -32,7 +31,7 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    data = PortfolioData.skills[widget.stack]!;
+    data = skills[widget.stack]!;
     duration = data.length * 300;
     popupAnimationController = AnimationController(
       vsync: this,
@@ -54,7 +53,7 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
       constraints: BoxConstraints(minHeight: screenSize.height / 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.sp),
-        color: AppColor.box,
+        color: Theme.of(context).colorScheme.secondary,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -111,10 +110,10 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
           child: Container(
             height: 30.sp,
             decoration: BoxDecoration(
-              color: AppColor.background,
+              color: Theme.of(context).scaffoldBackgroundColor,
               borderRadius: BorderRadius.circular(8.sp),
               border: Border.all(
-                color: AppColor.textColor.withOpacity(0.5),
+                color: Theme.of(context).colorScheme.tertiary.withOpacity(0.5),
                 width: 1.sp,
               ),
             ),
@@ -132,13 +131,14 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
                     data[skill]!,
                     height: 15.sp,
                     width: 15.sp,
+                    colorFilter: filterAccToThemeIfNeeded(skill),
                   ),
                 Gap(5.sp),
                 Text(
                   skill,
                   style: TextStyle(
                     fontSize: 12.sp,
-                    color: AppColor.textColor,
+                    color: Theme.of(context).colorScheme.tertiary,
                   ),
                 ),
               ],
@@ -151,5 +151,16 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
     }
 
     return chips;
+  }
+
+  ColorFilter? filterAccToThemeIfNeeded(String skill) {
+    if (skill == 'Express.js' || skill == 'Actions') {
+      return ColorFilter.mode(
+        Theme.of(context).colorScheme.tertiary,
+        BlendMode.srcIn,
+      );
+    }
+
+    return null;
   }
 }

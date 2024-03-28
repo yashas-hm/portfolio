@@ -1,148 +1,154 @@
-class AppConstants {
-  // Nav Routes
-  static const int homeIndex = 0;
+// Nav Routes
+const int homeIndex = 0;
 
-  static const int aboutIndex = 1;
+const int aboutIndex = 1;
 
-  static const int experienceIndex = 2;
+const int experienceIndex = 2;
 
-  static const int projectsIndex = 3;
+const int projectsIndex = 3;
 
-  static const int contactMeIndex = 4;
+const int contactMeIndex = 4;
 
-  // Route Names
-  static const String homeRoute = '/';
+// Route Names
+const String homeRoute = '/';
 
-  static const String aboutMeRoute = '/aboutMe';
+const String aboutMeRoute = '/aboutMe';
 
-  static const String experienceRoute = '/experience';
+const String experienceRoute = '/experience';
 
-  static const String projectsRoute = '/projects';
+const String projectsRoute = '/projects';
 
-  static const String contactMeRoute = '/contactMe';
+const String contactMeRoute = '/contactMe';
 
-  // Images
-  static const String avatar = 'assets/images/avatar.svg';
+// Images
+const String avatar = 'assets/images/avatar.svg';
 
-  static const String gif = 'assets/images/coding.gif';
+const String darkGIF = 'assets/images/coding_dark.gif';
 
-  static const String defaultImage = 'assets/images/default.jpg';
+const String lightGIF = 'assets/images/coding_light.gif';
 
-  // Connection Links
-  static const String linkedinLink = 'https://www.linkedin.com/in/yashashm';
+const String defaultImage = 'assets/images/default.jpg';
 
-  static const String emailId = 'yashashm.dev@gmail.com';
+const String day = 'assets/images/day.svg';
 
-  static const String instaLink = 'https://www.instagram.com/yashas_hm';
+const String night = 'assets/images/night.svg';
 
-  static const String githubLink = 'https://github.com/yashas-hm';
+const String moon = 'assets/images/moon.svg';
 
-  static const String resumeLink =
-      'https://drive.google.com/drive/folders/1EuzYuIQkWz00_tP3e_Y7iVLhX6gvYRLx?usp=drive_link';
+const String sun = 'assets/images/sun.svg';
 
-  // Anim
-  static const String dawn = 'assets/anim/dawn.json';
+// Shared Preferences
+const String darkMode = 'darkMode';
 
-  static const String night = 'assets/anim/night.json';
+// Connection Links
+const String linkedinLink = 'https://www.linkedin.com/in/yashashm';
 
-  // Skills
-  // Front-End
-  static const String flutter = 'assets/logo/flutter.svg';
+const String emailId = 'yashashm.dev@gmail.com';
 
-  static const String css = 'assets/logo/css.svg';
+const String instaLink = 'https://www.instagram.com/yashas_hm';
 
-  static const String react = 'assets/logo/react.svg';
+const String githubLink = 'https://github.com/yashas-hm';
 
-  static const String html = 'assets/logo/html.svg';
+const String resumeLink =
+    'https://drive.google.com/drive/folders/1EuzYuIQkWz00_tP3e_Y7iVLhX6gvYRLx?usp=drive_link';
 
-  // Back-End
-  static const String nodeJs = 'assets/logo/node.svg';
+// Skills
+// Front-End
+const String flutter = 'assets/logo/flutter.svg';
 
-  static const String expressJs = 'assets/logo/express.svg';
+const String css = 'assets/logo/css.svg';
 
-  static const String nginx = 'assets/logo/nginx.svg';
+const String react = 'assets/logo/react.svg';
 
-  static const String graphQl = 'assets/logo/graphql.svg';
+const String html = 'assets/logo/html.svg';
 
-  // DevOps
-  static const String jenkins = 'assets/logo/jenkins.svg';
+// Back-End
+const String nodeJs = 'assets/logo/node.svg';
 
-  static const String kubernetes = 'assets/logo/kubernetes.svg';
+const String expressJs = 'assets/logo/express.svg';
 
-  static const String docker = 'assets/logo/docker.svg';
+const String nginx = 'assets/logo/nginx.svg';
 
-  static const String ansible = 'assets/logo/ansible.svg';
+const String graphQl = 'assets/logo/graphql.svg';
 
-  static const String githubActions = 'assets/logo/github_actions.svg';
+// DevOps
+const String jenkins = 'assets/logo/jenkins.svg';
 
-  static const String prometheus = 'assets/logo/prometheus.svg';
+const String kubernetes = 'assets/logo/kubernetes.svg';
 
-  // Database
-  static const String psql = 'assets/logo/psql.svg';
+const String docker = 'assets/logo/docker.svg';
 
-  static const String firebase = 'assets/logo/firebase.svg';
+const String ansible = 'assets/logo/ansible.svg';
 
-  static const String supabase = 'assets/logo/supabase.svg';
+const String githubActions = 'assets/logo/github_actions.svg';
 
-  static const String mysql = 'assets/logo/mysql.svg';
+const String prometheus = 'assets/logo/prometheus.svg';
 
-  static const String mongoDb = 'assets/logo/mongodb.svg';
+// Database
+const String psql = 'assets/logo/psql.svg';
 
-  // Version Control
-  static const String git = 'assets/logo/git.svg';
+const String firebase = 'assets/logo/firebase.svg';
 
-  // Cloud
-  static const String aws = 'assets/logo/aws.svg';
+const String supabase = 'assets/logo/supabase.svg';
 
-  static const String gcp = 'assets/logo/gcp.svg';
+const String mysql = 'assets/logo/mysql.svg';
 
-  // Languages
-  static const String js = 'assets/logo/js.svg';
+const String mongoDb = 'assets/logo/mongodb.svg';
 
-  static const String java = 'assets/logo/java.svg';
+// Version Control
+const String git = 'assets/logo/git.svg';
 
-  static const String bash = 'assets/logo/bash.svg';
+// Cloud
+const String aws = 'assets/logo/aws.svg';
 
-  static const String python = 'assets/logo/python.svg';
+const String gcp = 'assets/logo/gcp.svg';
 
-  static const String dart = 'assets/logo/dart.svg';
+// Languages
+const String js = 'assets/logo/js.svg';
 
-  static const String cpp = 'assets/logo/c.svg';
+const String java = 'assets/logo/java.svg';
 
-  static const String typescript = 'assets/logo/typescript.svg';
+const String bash = 'assets/logo/bash.svg';
 
-  static const String rust = 'assets/logo/rust.svg';
+const String python = 'assets/logo/python.svg';
 
-  // Machine Learning
-  static const String opencv = 'assets/logo/opencv.svg';
+const String dart = 'assets/logo/dart.svg';
 
-  static const String tensorFlow = 'assets/logo/tf.svg';
+const String cpp = 'assets/logo/c.svg';
 
-  static const String numPy = 'assets/logo/np.svg';
+const String typescript = 'assets/logo/typescript.svg';
 
-  static const String pd = 'assets/logo/pd.svg';
+const String rust = 'assets/logo/rust.svg';
 
-  // IoT
-  static const String arduino = 'assets/logo/arduino.svg';
+// Machine Learning
+const String opencv = 'assets/logo/opencv.svg';
 
-  static const String raspberryPi = 'assets/logo/raspberry.svg';
+const String tensorFlow = 'assets/logo/tf.svg';
 
-  // Others
-  static const String jira = 'assets/logo/jira.svg';
+const String numPy = 'assets/logo/np.svg';
 
-  static const String slack = 'assets/logo/slack.svg';
+const String pd = 'assets/logo/pd.svg';
 
-  static const String cv = 'assets/logo/cv.svg';
+// IoT
+const String arduino = 'assets/logo/arduino.svg';
 
-  static const String mail = 'assets/logo/mail.svg';
+const String raspberryPi = 'assets/logo/raspberry.svg';
 
-  static const String location = 'assets/logo/location.svg';
+// Others
+const String jira = 'assets/logo/jira.svg';
 
-  static const String github = 'assets/logo/github.svg';
+const String slack = 'assets/logo/slack.svg';
 
-  static const String githubAvatar = 'assets/logo/github_avatar.svg';
+const String cv = 'assets/logo/cv.svg';
 
-  static const String linkedin = 'assets/logo/linkedin.svg';
+const String mail = 'assets/logo/mail.svg';
 
-  static const String instagram = 'assets/logo/instagram.svg';
-}
+const String location = 'assets/logo/location.svg';
+
+const String github = 'assets/logo/github.svg';
+
+const String githubAvatar = 'assets/logo/github_avatar.svg';
+
+const String linkedin = 'assets/logo/linkedin.svg';
+
+const String instagram = 'assets/logo/instagram.svg';

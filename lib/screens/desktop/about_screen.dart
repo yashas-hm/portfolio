@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/model/achievement_model.dart';
 import 'package:resize/resize.dart';
@@ -37,13 +36,13 @@ class AboutScreen extends StatelessWidget {
               vertical: 20.sp,
             ),
             decoration: BoxDecoration(
-              color: AppColor.box,
+              color: Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.circular(13.sp),
             ),
             alignment: Alignment.center,
             child: Html(
               data:
-                  '<p style="font-size:${18.sp};text-align: center">${PortfolioData.about}</p>',
+                  '<p style="font-size:${18.sp};text-align: center">$about</p>',
             ),
           ),
           Gap(30.sp),
@@ -71,9 +70,10 @@ class AboutScreen extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
-                      itemCount: PortfolioData.techAchievements.length,
+                      itemCount: techAchievementsList.length,
                       itemBuilder: (ctx, index) => achievements(
-                        PortfolioData.techAchievements[index],
+                        context,
+                        techAchievementsList[index],
                         screenSize,
                         index != 0 ? 30.sp : 0,
                       ),
@@ -100,9 +100,10 @@ class AboutScreen extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
-                      itemCount: PortfolioData.culAchievements.length,
+                      itemCount: culAchievementsList.length,
                       itemBuilder: (ctx, index) => achievements(
-                        PortfolioData.culAchievements[index],
+                        context,
+                        culAchievementsList[index],
                         screenSize,
                         index != 0 ? 30.sp : 0,
                       ),
@@ -117,7 +118,7 @@ class AboutScreen extends StatelessWidget {
             'Hey there! Ready to be blown away? Check out my Instagram for some killer singing and guitar skills! 🎶🎸',
             style: TextStyle(
               fontWeight: FontWeight.w400,
-              color: AppColor.textColor,
+              color: Theme.of(context).colorScheme.tertiary,
               fontSize: 18.sp,
             ),
           ),
@@ -128,6 +129,7 @@ class AboutScreen extends StatelessWidget {
   }
 
   Widget achievements(
+    BuildContext context,
     AchievementModel achievement,
     Size screenSize,
     double upperMargin,
@@ -138,7 +140,7 @@ class AboutScreen extends StatelessWidget {
       constraints: BoxConstraints(maxHeight: screenSize.height / 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(13.sp),
-        color: AppColor.box,
+        color: Theme.of(context).colorScheme.secondary,
       ),
       padding: EdgeInsets.symmetric(
         horizontal: 20.sp,
@@ -154,7 +156,7 @@ class AboutScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 22.sp,
               fontWeight: FontWeight.w600,
-              color: AppColor.primary,
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
           Gap(30.sp),
@@ -169,7 +171,7 @@ class AboutScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w500,
-                    color: AppColor.primary,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 Flexible(

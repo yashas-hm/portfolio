@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
+import 'package:portfolio/core/utilities/utils.dart';
 import 'package:portfolio/providers/nav_provider.dart';
+import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/widgets/desktop/nav_item.dart';
+import 'package:portfolio/widgets/theme_switch.dart';
 import 'package:resize/resize.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({
-    Key? key,
-    this.preferredSize = const Size.fromHeight(80.0),
-  }) : super(key: key);
-
-  @override
-  final Size preferredSize;
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
+AppBar customAppBar(BuildContext context) => AppBar(
       automaticallyImplyLeading: false,
       leadingWidth: 0.sp,
       centerTitle: false,
@@ -33,16 +26,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         padding: EdgeInsets.all(10.sp),
         child: Row(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             MouseRegion(
               opaque: false,
               cursor: SystemMouseCursors.click,
               child: Consumer(builder: (_, ref, __) {
                 return GestureDetector(
-                  onTap: () =>
-                      updateIndex(context, ref, AppConstants.homeIndex),
+                  onTap: () => updateIndex(context, ref, homeIndex),
                   child: Container(
                     height: 60.sp,
                     width: 60.sp,
@@ -51,24 +43,38 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       shape: BoxShape.circle,
                       color: Colors.transparent,
                     ),
-                    child: SvgPicture.asset(AppConstants.avatar),
+                    child: SvgPicture.asset(avatar),
                   ),
                 );
               }),
             ),
-            ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemExtent: MediaQuery.of(context).size.width / 18,
-              itemCount: PortfolioData.navItems.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (ctx, index) => NavItem(
-                index: index,
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemExtent: MediaQuery.of(context).size.width / 18,
+                  itemCount: navItems.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (ctx, index) => NavItem(
+                    index: index,
+                  ),
+                ),
               ),
             ),
+            Gap(25.sp),
+            Consumer(builder: (_, ref, __) {
+              final theme = ref.read(themeModeProvider);
+
+              return ThemeSwitcher(
+                height: 30.sp,
+                width: 70.sp,
+                initiallyDark: isDarkMode(theme),
+                onChange: (darkMode) => toggleThemeMode(ref, darkMode),
+              );
+            }),
           ],
         ),
       ),
     );
-  }
-}

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/widgets/connect_button.dart';
@@ -23,7 +22,7 @@ class _ProjectScreenState extends State<ProjectScreen>
 
   @override
   void initState() {
-    duration = PortfolioData.projects.length * 300;
+    duration = projectsList.length * 300;
 
     animationController = AnimationController(
       vsync: this,
@@ -62,7 +61,7 @@ class _ProjectScreenState extends State<ProjectScreen>
             'Projects',
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              color: AppColor.textColor,
+              color: Theme.of(context).colorScheme.tertiary,
               fontSize: 20.sp,
             ),
           ),
@@ -90,8 +89,8 @@ class _ProjectScreenState extends State<ProjectScreen>
           ),
           Gap(15.sp),
           SocialButton(
-            icon: AppConstants.githubAvatar,
-            link: AppConstants.githubLink,
+            icon: githubAvatar,
+            link: githubLink,
             size: Size(
               screenSize.width / 4,
               screenSize.width / 4,
@@ -105,12 +104,11 @@ class _ProjectScreenState extends State<ProjectScreen>
 
   List<Widget> buildChildren() {
     final list = <Widget>[];
-    double interval = (duration / PortfolioData.projects.length)
-        .remap(0, duration, 0, 1)
-        .toDouble();
+    double interval =
+        (duration / projectsList.length).remap(0, duration, 0, 1).toDouble();
     double begin = 0;
 
-    for (var data in PortfolioData.projects) {
+    for (var data in projectsList) {
       list.add(ProjectItem(
         project: data,
         begin: begin,

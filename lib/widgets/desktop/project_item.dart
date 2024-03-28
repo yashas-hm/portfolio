@@ -3,10 +3,9 @@ import 'dart:ui';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
-import 'package:portfolio/core/utilities/dialog_helper.dart';
 import 'package:portfolio/core/model/project_model.dart';
+import 'package:portfolio/core/utilities/dialog_utils.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/widgets/custom_cached_image.dart';
 import 'package:portfolio/widgets/desktop/skill_chips.dart';
 import 'package:resize/resize.dart';
@@ -77,7 +76,7 @@ class _ProjectItemState extends State<ProjectItem> {
             height: height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(13.sp),
-              color: AppColor.box,
+              color: Theme.of(context).colorScheme.secondary,
             ),
             clipBehavior: Clip.hardEdge,
             child: Stack(
@@ -162,7 +161,7 @@ class _ProjectItemState extends State<ProjectItem> {
                             if (widget.project.longDescription.isNotEmpty)
                               Flexible(
                                 child: GestureDetector(
-                                  onTap: () => DialogHelper.showMore(
+                                  onTap: () => showMore(
                                     context: context,
                                     text: widget.project.longDescription,
                                     skills: widget.project.skills,

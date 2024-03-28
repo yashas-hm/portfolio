@@ -4,20 +4,22 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:portfolio/core/constants/app_theme.dart';
 import 'package:portfolio/core/utilities/utils.dart';
+import 'package:portfolio/providers/ui_provider.dart';
 import 'package:resize/resize.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   usePathUrlStrategy();
   runApp(const ProviderScope(child: Portfolio()));
 }
 
-class Portfolio extends StatelessWidget {
+class Portfolio extends ConsumerWidget {
   const Portfolio({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final screenSize = MediaQuery.of(context).size;
+    final themeMode = ref.watch(themeModeProvider);
 
     Size size;
 
@@ -30,10 +32,12 @@ class Portfolio extends StatelessWidget {
     return Resize(
       builder: () => OKToast(
         child: MaterialApp(
-          theme: AppTheme.getTheme(context),
+          theme: lightTheme(context),
+          darkTheme: darkTheme(context),
+          themeMode: themeMode,
           debugShowCheckedModeBanner: false,
           title: 'Yashas H Majmudar',
-          onGenerateRoute: Utils.routeBuilder,
+          onGenerateRoute: routeBuilder,
         ),
       ),
       allowtextScaling: false,

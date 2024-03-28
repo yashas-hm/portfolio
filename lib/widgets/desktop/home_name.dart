@@ -3,27 +3,31 @@ import 'dart:ui';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
+import 'package:portfolio/core/utilities/utils.dart';
+import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/widgets/connect_button.dart';
 import 'package:resize/resize.dart';
 
-class HomeName extends StatefulWidget {
+class HomeName extends ConsumerStatefulWidget {
   const HomeName({super.key});
 
   @override
-  State<HomeName> createState() => _HomeNameState();
+  ConsumerState<HomeName> createState() => _HomeNameState();
 }
 
-class _HomeNameState extends State<HomeName> {
+class _HomeNameState extends ConsumerState<HomeName> {
   final key = GlobalKey();
   double? boxHeight;
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    final themeMode = ref.watch(themeModeProvider);
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       if (boxHeight == null) {
@@ -43,11 +47,26 @@ class _HomeNameState extends State<HomeName> {
       clipBehavior: Clip.hardEdge,
       child: Stack(
         children: [
-          Image.asset(
-            AppConstants.gif,
-            fit: BoxFit.fill,
-            width: screenSize.width / 3.3,
-            height: boxHeight ?? screenSize.width / 5,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(13.sp),
+            child: AnimatedSwitcher(
+              duration: 500.milliseconds,
+              child: isDarkMode(themeMode)
+                  ? Image.asset(
+                      key: const ValueKey<String>('night'),
+                      darkGIF,
+                      fit: BoxFit.fill,
+                      width: screenSize.width / 3.3,
+                      height: boxHeight ?? screenSize.width / 5,
+                    )
+                  : Image.asset(
+                      key: const ValueKey<String>('day'),
+                      lightGIF,
+                      fit: BoxFit.fill,
+                      width: screenSize.width / 3.3,
+                      height: boxHeight ?? screenSize.width / 5,
+                    ),
+            ),
           ),
           Align(
             alignment: Alignment.center,
@@ -66,6 +85,10 @@ class _HomeNameState extends State<HomeName> {
             child: Container(
               key: key,
               padding: EdgeInsets.all(25.sp),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(13.sp),
+              ),
+              clipBehavior: Clip.hardEdge,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +99,7 @@ class _HomeNameState extends State<HomeName> {
                     child: Text(
                       'Hello 👋🏻, I\'m\nYashas H Majmudar',
                       style: TextStyle(
-                        color: AppColor.textColor,
+                        color: darkText,
                         fontSize: 40.sp,
                         fontWeight: FontWeight.w600,
                       ),
@@ -91,7 +114,7 @@ class _HomeNameState extends State<HomeName> {
                           style: TextStyle(
                             fontSize: 28.sp,
                             fontWeight: FontWeight.w500,
-                            color: AppColor.textColor,
+                            color: darkText,
                           ),
                         ),
                       ),
@@ -117,7 +140,7 @@ class _HomeNameState extends State<HomeName> {
                         style: TextStyle(
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w400,
-                          color: AppColor.textColor,
+                          color: darkText,
                         ),
                       ),
                     ),
@@ -131,22 +154,22 @@ class _HomeNameState extends State<HomeName> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SocialButton(
-                          icon: AppConstants.github,
-                          link: AppConstants.githubLink,
+                          icon: github,
+                          link: githubLink,
                           color: const ColorFilter.mode(
-                            AppColor.textColor,
+                            darkText,
                             BlendMode.srcIn,
                           ),
                           size: Size(40.sp, 40.sp),
                         ),
                         SocialButton(
-                          icon: AppConstants.linkedin,
-                          link: AppConstants.linkedinLink,
+                          icon: linkedin,
+                          link: linkedinLink,
                           size: Size(40.sp, 40.sp),
                         ),
                         SocialButton(
-                          icon: AppConstants.instagram,
-                          link: AppConstants.instaLink,
+                          icon: instagram,
+                          link: instaLink,
                           size: Size(40.sp, 40.sp),
                         ),
                       ],
@@ -178,7 +201,7 @@ class _HomeNameState extends State<HomeName> {
           textStyle: TextStyle(
             fontSize: 28.sp,
             fontWeight: FontWeight.w600,
-            color: AppColor.primary,
+            color: Theme.of(context).colorScheme.primary,
           ),
         ),
       );

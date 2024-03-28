@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/utilities/utils.dart';
+import 'package:portfolio/core/utilities/dialog_utils.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
-import 'package:portfolio/core/utilities/dialog_helper.dart';
+import 'package:portfolio/core/utilities/utils.dart';
 import 'package:resize/resize.dart';
 
 class Page5 extends StatefulWidget {
@@ -52,12 +52,13 @@ class _Page5State extends State<Page5> {
               decoration: InputDecoration(
                 hintText: 'Ready for a witty email exchange',
                 hintStyle: TextStyle(
-                  color: AppColor.textColor.withOpacity(0.5),
+                  color:
+                      Theme.of(context).colorScheme.tertiary.withOpacity(0.5),
                 ),
                 counterText: '',
                 border: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: AppColor.textColor,
+                    color: Theme.of(context).colorScheme.tertiary,
                     width: 1.sp,
                   ),
                   borderRadius: BorderRadius.circular(13.sp),
@@ -71,20 +72,20 @@ class _Page5State extends State<Page5> {
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: AppColor.textColor,
+                    color: Theme.of(context).colorScheme.tertiary,
                     width: 1.sp,
                   ),
                   borderRadius: BorderRadius.circular(13.sp),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: AppColor.primary,
+                    color: Theme.of(context).colorScheme.primary,
                     width: 1.sp,
                   ),
                   borderRadius: BorderRadius.circular(13.sp),
                 ),
                 contentPadding: EdgeInsets.symmetric(horizontal: 15.sp),
-                fillColor: AppColor.box,
+                fillColor: Theme.of(context).colorScheme.secondary,
                 filled: true,
                 errorText: emailError ? 'Invalid email' : null,
                 errorStyle: const TextStyle(color: Colors.redAccent),
@@ -92,7 +93,7 @@ class _Page5State extends State<Page5> {
               maxLines: 1,
               maxLength: 100,
               keyboardType: TextInputType.emailAddress,
-              cursorColor: AppColor.textColor,
+              cursorColor: Theme.of(context).colorScheme.tertiary,
             ),
           ),
           Gap(30.sp),
@@ -107,19 +108,20 @@ class _Page5State extends State<Page5> {
                 hintText:
                     'Let\'s give your keyboard a workout. What\'s on your mind?',
                 hintStyle: TextStyle(
-                  color: AppColor.textColor.withOpacity(0.5),
+                  color:
+                      Theme.of(context).colorScheme.tertiary.withOpacity(0.5),
                 ),
                 counterText: '',
                 border: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: AppColor.textColor,
+                    color: Theme.of(context).colorScheme.tertiary,
                     width: 1.sp,
                   ),
                   borderRadius: BorderRadius.circular(13.sp),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: AppColor.textColor,
+                    color: Theme.of(context).colorScheme.tertiary,
                     width: 1.sp,
                   ),
                   borderRadius: BorderRadius.circular(13.sp),
@@ -133,20 +135,20 @@ class _Page5State extends State<Page5> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: AppColor.primary,
+                    color: Theme.of(context).colorScheme.primary,
                     width: 1.sp,
                   ),
                   borderRadius: BorderRadius.circular(13.sp),
                 ),
                 contentPadding: EdgeInsets.all(15.sp),
-                fillColor: AppColor.box,
+                fillColor: Theme.of(context).colorScheme.secondary,
                 filled: true,
                 errorText: textError ? 'Please enter your message' : null,
                 errorStyle: const TextStyle(color: Colors.redAccent),
               ),
               maxLines: 10,
               keyboardType: TextInputType.multiline,
-              cursorColor: AppColor.textColor,
+              cursorColor: Theme.of(context).colorScheme.tertiary,
             ),
           ),
           Gap(30.sp),
@@ -180,7 +182,7 @@ class _Page5State extends State<Page5> {
                 }
 
                 if (!(emailError || textError)) {
-                  final response = await Utils.sendMessage(
+                  final response = await sendMessage(
                     email: emailCtr.text.trim(),
                     text: textCtr.text.trim(),
                   );
@@ -193,7 +195,7 @@ class _Page5State extends State<Page5> {
                   }
 
                   if (context.mounted) {
-                    DialogHelper.showToast(context, response.$2);
+                    showToast(context, response.$2);
                   }
                 }
 
@@ -206,7 +208,7 @@ class _Page5State extends State<Page5> {
                 width: screenSize.width / 6,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(13.sp),
-                  color: AppColor.primary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 alignment: Alignment.center,
                 child: loading
@@ -214,7 +216,7 @@ class _Page5State extends State<Page5> {
                         height: 30.sp,
                         width: 30.sp,
                         child: const CircularProgressIndicator(
-                          color: AppColor.textColor,
+                          color: darkText,
                         ),
                       )
                     : Text(
@@ -222,6 +224,7 @@ class _Page5State extends State<Page5> {
                         style: TextStyle(
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w500,
+                          color: darkText,
                         ),
                       ),
               ),

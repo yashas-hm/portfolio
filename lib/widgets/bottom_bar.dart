@@ -17,10 +17,10 @@ class BottomBar extends ConsumerWidget {
 
     return screenSize.height > screenSize.width
         ? mobile.CustomBottomBar(
-            noConnection: pageIndex == AppConstants.homeIndex,
+            noConnection: pageIndex == homeIndex,
           )
         : desktop.CustomBottomBar(
-            noConnection: pageIndex == AppConstants.homeIndex,
+            noConnection: pageIndex == homeIndex,
           );
   }
 }

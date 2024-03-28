@@ -15,7 +15,7 @@ class ContactScreen extends ConsumerWidget {
     final screenSize = MediaQuery.of(context).size;
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      Utils.indexCheck(AppConstants.contactMeIndex, ref);
+      indexCheck(contactMeIndex, ref);
     });
 
     return CustomScaffold(

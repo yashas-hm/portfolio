@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/model/experience_model.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/widgets/mobile/experience_item.dart';
 import 'package:resize/resize.dart';
 
@@ -24,7 +22,7 @@ class _ExperienceScreenState extends State<ExperienceScreen>
 
   @override
   void initState() {
-    experience = PortfolioData.experience
+    experience = experience
         .where((element) => element.identifier != 'internships')
         .toList();
 
@@ -67,7 +65,7 @@ class _ExperienceScreenState extends State<ExperienceScreen>
             'Work Experience',
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              color: AppColor.textColor,
+              color: Theme.of(context).colorScheme.tertiary,
               fontSize: 20.sp,
             ),
           ),

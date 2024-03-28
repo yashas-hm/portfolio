@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
@@ -62,10 +61,16 @@ class _NavItemState extends ConsumerState<NavItem>
   }
 
   @override
+  void didChangeDependencies() {
+    buildChildren();
+    super.didChangeDependencies();
+  }
+
+  @override
   void initState() {
     oldIndex = widget.initialIndex;
     generateKeys();
-    buildChildren();
+    // buildChildren();
 
     animationController = AnimationController(
       vsync: this,
@@ -179,7 +184,7 @@ class _NavItemState extends ConsumerState<NavItem>
                   color: Colors.transparent,
                   boxShadow: [
                     BoxShadow(
-                      color: AppColor.primary,
+                      color: Theme.of(context).colorScheme.primary,
                       blurRadius: 150.sp * scaleAnim.value,
                       spreadRadius: 30.sp * scaleAnim.value,
                     ),
@@ -207,7 +212,7 @@ class _NavItemState extends ConsumerState<NavItem>
   }
 
   void generateKeys() {
-    for (var index = 0; index < PortfolioData.navItems.length; index++) {
+    for (var index = 0; index < navItems.length; index++) {
       final key = GlobalKey();
       keys.add(key);
     }
@@ -215,7 +220,7 @@ class _NavItemState extends ConsumerState<NavItem>
 
   void buildChildren() {
     list.clear();
-    for (var index = 0; index < PortfolioData.navItems.length; index++) {
+    for (var index = 0; index < navItems.length; index++) {
       list[keys[index]] = GestureDetector(
         onTap: () => startAnimation(index),
         child: Container(
@@ -224,19 +229,19 @@ class _NavItemState extends ConsumerState<NavItem>
           width: 180.sp,
           margin: EdgeInsets.only(
             left: 25.sp,
-            bottom: PortfolioData.navItems.length - 1 == index ? 0.sp : 35.sp,
+            bottom: navItems.length - 1 == index ? 0.sp : 35.sp,
           ),
           decoration: BoxDecoration(
-            color: AppColor.box,
+            color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(10.sp),
           ),
           alignment: Alignment.center,
           child: Text(
-            PortfolioData.navItems[index],
+            navItems[index],
             style: TextStyle(
               fontSize: 18.sp,
               fontWeight: oldIndex == index ? FontWeight.w600 : FontWeight.w400,
-              color: AppColor.textColor,
+              color: Theme.of(context).colorScheme.tertiary,
             ),
           ),
         ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:resize/resize.dart';
 
 class SkillChips extends StatelessWidget {
@@ -23,14 +22,14 @@ class SkillChips extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.sp),
-            color: AppColor.primary.withOpacity(0.1),
+            color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
           ),
           child: Text(
             skill,
             maxLines: 1,
             style: TextStyle(
               fontSize: 10.sp,
-              color: AppColor.primary,
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
         ),

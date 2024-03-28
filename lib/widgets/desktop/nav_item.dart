@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:resize/resize.dart';
@@ -75,10 +74,10 @@ class _NavItemState extends ConsumerState<NavItem>
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  PortfolioData.navItems[widget.index],
+                  navItems[widget.index],
                   style: TextStyle(
                     fontSize: 18.sp,
-                    color: AppColor.textColor,
+                    color: Theme.of(context).colorScheme.tertiary,
                     fontWeight: currentIndex == widget.index
                         ? FontWeight.w800
                         : FontWeight.normal,
@@ -100,7 +99,7 @@ class _NavItemState extends ConsumerState<NavItem>
                   child: Container(
                     width: MediaQuery.of(context).size.width / 18,
                     decoration: BoxDecoration(
-                      color: AppColor.textColor,
+                      color: Theme.of(context).colorScheme.tertiary,
                       borderRadius: BorderRadius.circular(10.sp),
                     ),
                     height: 3.sp,

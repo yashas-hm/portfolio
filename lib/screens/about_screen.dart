@@ -15,7 +15,7 @@ class AboutScreen extends ConsumerWidget {
     final screenSize = MediaQuery.of(context).size;
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      Utils.indexCheck(AppConstants.aboutIndex, ref);
+      indexCheck(aboutIndex, ref);
     });
 
     return CustomScaffold(

@@ -15,7 +15,7 @@ class ExperienceScreen extends ConsumerWidget {
     final screenSize = MediaQuery.of(context).size;
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      Utils.indexCheck(AppConstants.experienceIndex, ref);
+      indexCheck(experienceIndex, ref);
     });
 
     return CustomScaffold(

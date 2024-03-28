@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/utilities/utils.dart';
-import 'package:portfolio/core/utilities/dialog_helper.dart';
 import 'package:portfolio/core/model/experience_model.dart';
+import 'package:portfolio/core/utilities/dialog_utils.dart';
+import 'package:portfolio/core/utilities/utils.dart';
 import 'package:resize/resize.dart';
 
 class ExperienceItem extends StatefulWidget {
@@ -103,7 +103,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                       vertical: 10.sp,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColor.box,
+                      color: Theme.of(context).colorScheme.secondary,
                       borderRadius: BorderRadius.circular(13.sp),
                     ),
                     alignment: Alignment.center,
@@ -117,7 +117,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                           style: TextStyle(
                             fontSize: 25.sp,
                             fontWeight: FontWeight.w600,
-                            color: AppColor.primary,
+                            color: Theme.of(context).colorScheme.primary,
                           ),
                         ),
                         Text(
@@ -142,7 +142,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                             opaque: false,
                             cursor: SystemMouseCursors.click,
                             child: GestureDetector(
-                              onTap: () => DialogHelper.showMore(
+                              onTap: () => showMore(
                                 context: context,
                                 text: widget.experience.longDescription,
                                 skills: widget.experience.skills,
@@ -170,9 +170,9 @@ class _ExperienceItemState extends State<ExperienceItem> {
                     Align(
                       alignment: Alignment.center,
                       child: Container(
-                        width: 1.sp,
+                        width: 1.5.sp,
                         height: height ?? screenSize.height / 5,
-                        color: AppColor.primary,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     Align(
@@ -181,10 +181,10 @@ class _ExperienceItemState extends State<ExperienceItem> {
                         height: 25.sp,
                         width: 25.sp,
                         decoration: BoxDecoration(
-                          color: AppColor.textColor,
+                          color: darkText,
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: AppColor.primary,
+                            color: Theme.of(context).colorScheme.primary,
                             width: 3.sp,
                           ),
                         ),
@@ -227,12 +227,12 @@ class _ExperienceItemState extends State<ExperienceItem> {
                         : Alignment.centerLeft,
                     width: screenSize.width / 2.5,
                     child: Text(
-                      Utils.getTimeLine(widget.experience),
+                      getTimeLine(widget.experience),
                       style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w600,
                         fontStyle: FontStyle.italic,
-                        color: AppColor.primary,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                   ),

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
-
-final StateProvider<double> xProvider = StateProvider((ref) => 0.0);
-final StateProvider<double> yProvider = StateProvider((ref) => 0.0);
+import 'package:portfolio/providers/ui_provider.dart';
 
 class FollowMouse extends ConsumerStatefulWidget {
   const FollowMouse({super.key});
@@ -43,7 +41,7 @@ class _FollowMouseState extends ConsumerState<FollowMouse> {
                   gradient: RadialGradient(
                     radius: 0.5,
                     colors: [
-                      const Color(0xFF00BBFF).withOpacity(0.25),
+                      Theme.of(context).primaryColor.withOpacity(0.30),
                       Colors.transparent
                     ],
                   ),

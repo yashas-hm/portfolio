@@ -22,7 +22,7 @@ class _ProjectScreenState extends State<ProjectScreen>
 
   @override
   void initState() {
-    duration = PortfolioData.projects.length * 300;
+    duration = projectsList.length * 300;
 
     animationController = AnimationController(
       vsync: this,
@@ -86,8 +86,8 @@ class _ProjectScreenState extends State<ProjectScreen>
           ),
           Gap(30.sp),
           SocialButton(
-            icon: AppConstants.githubAvatar,
-            link: AppConstants.githubLink,
+            icon: githubAvatar,
+            link: githubLink,
             size: Size(screenSize.width / 8, screenSize.width / 8),
           ),
           Gap(30.sp),
@@ -98,15 +98,14 @@ class _ProjectScreenState extends State<ProjectScreen>
 
   List<Widget> buildChildren() {
     final children = <Widget>[];
-    double interval = (duration / PortfolioData.projects.length)
-        .remap(0, duration, 0, 1)
-        .toDouble();
+    double interval =
+        (duration / projectsList.length).remap(0, duration, 0, 1).toDouble();
     double sum = 0;
 
-    for (var index = 0; index <= PortfolioData.projects.length - 1; index++) {
+    for (var index = 0; index <= projectsList.length - 1; index++) {
       children.add(
         ProjectItem(
-          project: PortfolioData.projects[index],
+          project: projectsList[index],
           begin: sum,
           end: sum + interval,
           animationController: animationController,

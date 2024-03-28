@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/utilities/utils.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
+import 'package:portfolio/core/utilities/utils.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
 
-final pageIndexProvider = StateProvider((ref) => AppConstants.homeIndex);
+final pageIndexProvider = StateProvider((ref) => homeIndex);
 
-final currentIndexProvider = StateProvider((ref) => AppConstants.homeIndex);
+final currentIndexProvider = StateProvider((ref) => homeIndex);
 
 void updateIndex(
   BuildContext context,
@@ -20,7 +20,7 @@ void updateIndex(
 
   if (pageIndex.state != 0 || force) {
     pageIndex.state = index;
-    Utils.reRoute(index, context, ref);
+    reRoute(index, context, ref);
   } else {
     controller.scrollTo(
       index: index,

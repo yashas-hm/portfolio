@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:resize/resize.dart';
@@ -35,12 +34,12 @@ class Page2 extends ConsumerWidget {
             vertical: 10.sp,
           ),
           decoration: BoxDecoration(
-            color: AppColor.box,
+            color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(13.sp),
           ),
           alignment: Alignment.center,
           child: AutoSizeText(
-            PortfolioData.aboutBrief,
+            aboutBrief,
             textAlign: TextAlign.justify,
             style: TextStyle(
               fontSize: 12.sp,
@@ -57,7 +56,7 @@ class Page2 extends ConsumerWidget {
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w800,
-                  color: AppColor.primary,
+                  color: Theme.of(context).colorScheme.primary,
                   fontFamily: 'space_grotesk',
                 ),
               ),
@@ -66,7 +65,7 @@ class Page2 extends ConsumerWidget {
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w500,
-                  color: AppColor.textColor,
+                  color: Theme.of(context).colorScheme.tertiary,
                   fontFamily: 'space_grotesk',
                 ),
               ),
@@ -74,19 +73,22 @@ class Page2 extends ConsumerWidget {
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w500,
-              color: AppColor.textColor,
+              color: Theme.of(context).colorScheme.tertiary,
               fontFamily: 'space_grotesk',
             ),
           ),
         ),
         Gap(15.sp),
-        ...buildChildren(screenSize),
+        ...buildChildren(
+          context,
+          screenSize,
+        ),
         Gap(15.sp),
         GestureDetector(
           onTap: () => updateIndex(
             context,
             ref,
-            AppConstants.aboutIndex,
+            aboutIndex,
             force: true,
           ),
           child: SizedBox(
@@ -96,7 +98,7 @@ class Page2 extends ConsumerWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 12.sp,
-                color: AppColor.textColor,
+                color: Theme.of(context).colorScheme.tertiary,
               ),
             ),
           ),
@@ -105,15 +107,15 @@ class Page2 extends ConsumerWidget {
     );
   }
 
-  List<Widget> buildChildren(Size screenSize) {
+  List<Widget> buildChildren(BuildContext context, Size screenSize) {
     final list = <Widget>[];
 
-    for (var index = 0; index < PortfolioData.por.length; index++) {
+    for (var index = 0; index < porList.length; index++) {
       list.add(Container(
         width: screenSize.width / 1.2,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(13.sp),
-          color: AppColor.box,
+          color: Theme.of(context).colorScheme.secondary,
         ),
         padding: EdgeInsets.symmetric(
           horizontal: 15.sp,
@@ -126,15 +128,15 @@ class Page2 extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              PortfolioData.por[index].designation,
+              porList[index].designation,
               style: TextStyle(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
-                color: AppColor.primary,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
             Text(
-              PortfolioData.por[index].referer,
+              porList[index].referer,
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
@@ -142,7 +144,7 @@ class Page2 extends ConsumerWidget {
             ),
             Gap(15.sp),
             Text(
-              PortfolioData.por[index].description,
+              porList[index].description,
               textAlign: TextAlign.justify,
               style: TextStyle(
                 fontSize: 12.sp,
@@ -153,7 +155,7 @@ class Page2 extends ConsumerWidget {
         ),
       ));
 
-      if (index != PortfolioData.por.length - 1) {
+      if (index != porList.length - 1) {
         list.add(Gap(15.sp));
       }
     }

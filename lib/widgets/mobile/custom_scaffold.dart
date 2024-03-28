@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/widgets/bottom_bar.dart';
 import 'package:portfolio/widgets/mobile/appbar.dart';
 import 'package:portfolio/widgets/mobile/nav_item.dart';
-import 'package:resize/resize.dart';
 
 class CustomScaffold extends ConsumerWidget {
   CustomScaffold({
@@ -29,16 +27,16 @@ class CustomScaffold extends ConsumerWidget {
       controller: advancedDrawerController,
       animationDuration: 600.milliseconds,
       animationCurve: Curves.easeInOut,
-      backdropColor: AppColor.background,
       drawer: NavItem(
         advancedDrawerController: advancedDrawerController,
         initialIndex: currentIndex,
       ),
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: CustomAppBar(
-            advancedDrawerController: advancedDrawerController,
-            preferredSize: Size.fromHeight(70.sp)),
+        appBar: customAppBar(
+          context,
+          advancedDrawerController,
+        ),
         body: SizedBox(
           height: screenSize.height,
           child: SingleChildScrollView(
@@ -48,9 +46,8 @@ class CustomScaffold extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                //TODO: check if child being rebuilt
                 child,
-                if (pageIndex != AppConstants.homeIndex) const BottomBar(),
+                if (pageIndex != homeIndex) const BottomBar(),
               ],
             ),
           ),

@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/model/project_model.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:portfolio/widgets/mobile/project_item.dart';
@@ -22,10 +21,10 @@ class Page4 extends ConsumerStatefulWidget {
 class _Page4State extends ConsumerState<Page4>
     with SingleTickerProviderStateMixin {
   final List<ProjectModel> projects = [
-    PortfolioData.projects.getByIdentifier('dentavacation'),
-    PortfolioData.projects.getByIdentifier('spotter'),
-    PortfolioData.projects.getByIdentifier('asl'),
-    PortfolioData.projects.getByIdentifier('glow-app-bar'),
+    projectsList.getByIdentifier('dentavacation'),
+    projectsList.getByIdentifier('spotter'),
+    projectsList.getByIdentifier('asl'),
+    projectsList.getByIdentifier('glow-app-bar'),
   ];
   late final AnimationController animationController;
 
@@ -47,7 +46,7 @@ class _Page4State extends ConsumerState<Page4>
       ItemPosition? item;
 
       for (var position in listener.itemPositions.value) {
-        if (position.index == AppConstants.projectsIndex) {
+        if (position.index == projectsIndex) {
           item = position;
         }
       }
@@ -110,7 +109,7 @@ class _Page4State extends ConsumerState<Page4>
             onTap: () => updateIndex(
               context,
               ref,
-              AppConstants.projectsIndex,
+              projectsIndex,
               force: true,
             ),
             child: Text(
@@ -118,7 +117,7 @@ class _Page4State extends ConsumerState<Page4>
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 12.sp,
-                color: AppColor.textColor,
+                color: Theme.of(context).colorScheme.tertiary,
               ),
             ),
           ),

@@ -5,7 +5,6 @@ import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/widgets/bottom_bar.dart';
 import 'package:portfolio/widgets/desktop/appbar.dart';
 import 'package:portfolio/widgets/desktop/follow_mouse.dart';
-import 'package:resize/resize.dart';
 
 class CustomScaffold extends ConsumerWidget {
   const CustomScaffold({
@@ -22,12 +21,10 @@ class CustomScaffold extends ConsumerWidget {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: CustomAppBar(
-        preferredSize: Size.fromHeight(70.sp),
-      ),
+      appBar: customAppBar(context),
       body: Stack(
         children: [
-          if (pageIndex == AppConstants.homeIndex) const FollowMouse(),
+          if (pageIndex == homeIndex) const FollowMouse(),
           MouseRegion(
             opaque: false,
             child: SizedBox(
@@ -40,7 +37,7 @@ class CustomScaffold extends ConsumerWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     child,
-                    if (pageIndex != AppConstants.homeIndex) const BottomBar(),
+                    if (pageIndex != homeIndex) const BottomBar(),
                   ],
                 ),
               ),

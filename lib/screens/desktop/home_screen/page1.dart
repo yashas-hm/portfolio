@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/widgets/desktop/home_name.dart';
 import 'package:portfolio/widgets/desktop/skill_box.dart';
@@ -180,7 +177,7 @@ class _Page1State extends State<Page1> with TickerProviderStateMixin {
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(13.sp),
-            color: AppColor.box,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           child: SkillBox(
             stack: stack,

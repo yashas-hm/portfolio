@@ -15,7 +15,7 @@ class ProjectScreen extends ConsumerWidget {
     final screenSize = MediaQuery.of(context).size;
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      Utils.indexCheck(AppConstants.projectsIndex, ref);
+      indexCheck(projectsIndex, ref);
     });
 
     return CustomScaffold(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
@@ -24,8 +23,8 @@ class _Page3State extends ConsumerState<Page3>
 
   double duration = 0;
   final experiences = [
-    PortfolioData.experience.getByIdentifier('pb'),
-    PortfolioData.experience.getByIdentifier('internships'),
+    experienceList.getByIdentifier('pb'),
+    experienceList.getByIdentifier('internships'),
   ];
 
   @override
@@ -43,7 +42,7 @@ class _Page3State extends ConsumerState<Page3>
       ItemPosition? item;
 
       for (var position in listener.itemPositions.value) {
-        if (position.index == AppConstants.experienceIndex) {
+        if (position.index == experienceIndex) {
           item = position;
         }
       }
@@ -88,7 +87,7 @@ class _Page3State extends ConsumerState<Page3>
           onTap: () => updateIndex(
             context,
             ref,
-            AppConstants.experienceIndex,
+            experienceIndex,
             force: true,
           ),
           child: SizedBox(
@@ -98,7 +97,7 @@ class _Page3State extends ConsumerState<Page3>
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 12.sp,
-                color: AppColor.textColor,
+                color: Theme.of(context).colorScheme.tertiary,
               ),
             ),
           ),
@@ -119,8 +118,8 @@ class _Page3State extends ConsumerState<Page3>
   List<Widget> buildTestimonials(Size screenSize) {
     final list = <Widget>[];
 
-    for (var index = 0; index < PortfolioData.testimonials.length; index++) {
-      final testimonial = PortfolioData.testimonials[index];
+    for (var index = 0; index < testimonials.length; index++) {
+      final testimonial = testimonials[index];
       list.add(Container(
         width: screenSize.width / 1.2,
         padding: EdgeInsets.symmetric(
@@ -128,7 +127,7 @@ class _Page3State extends ConsumerState<Page3>
           vertical: 10.sp,
         ),
         decoration: BoxDecoration(
-          color: AppColor.box,
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(13.sp),
         ),
         child: Column(
@@ -153,7 +152,7 @@ class _Page3State extends ConsumerState<Page3>
                   height: 1.sp,
                   width: 10.sp,
                   margin: EdgeInsets.only(top: 8.sp),
-                  color: AppColor.primary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 Gap(10.sp),
                 RichText(
@@ -165,7 +164,10 @@ class _Page3State extends ConsumerState<Page3>
                         style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
-                          color: AppColor.textColor.withOpacity(0.5),
+                          color: Theme.of(context)
+                              .colorScheme
+                              .tertiary
+                              .withOpacity(0.5),
                           fontStyle: FontStyle.italic,
                           fontFamily: 'space_grotesk',
                         ),
@@ -174,7 +176,7 @@ class _Page3State extends ConsumerState<Page3>
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
-                      color: AppColor.textColor,
+                      color: Theme.of(context).colorScheme.tertiary,
                       fontFamily: 'space_grotesk',
                     ),
                   ),
@@ -184,7 +186,7 @@ class _Page3State extends ConsumerState<Page3>
           ],
         ),
       ));
-      if (index != PortfolioData.testimonials.length - 1) {
+      if (index != testimonials.length - 1) {
         list.add(Gap(15.sp));
       }
     }

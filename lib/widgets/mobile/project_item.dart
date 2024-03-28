@@ -1,11 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
-import 'package:portfolio/core/utilities/dialog_helper.dart';
 import 'package:portfolio/core/model/project_model.dart';
+import 'package:portfolio/core/utilities/dialog_utils.dart';
 import 'package:portfolio/widgets/custom_cached_image.dart';
 import 'package:portfolio/widgets/mobile/skill_chips.dart';
 import 'package:resize/resize.dart';
@@ -50,7 +47,7 @@ class _ProjectItemState extends State<ProjectItem> {
         clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(13.sp),
-          color: AppColor.box,
+          color: Theme.of(context).colorScheme.secondary,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -60,11 +57,6 @@ class _ProjectItemState extends State<ProjectItem> {
             CustomCachedImage(
               height: height / 2.3,
               imageUrl: widget.project.image,
-            ),
-            Image.network(
-              widget.project.image,
-              height: height / 2.3,
-              fit: BoxFit.fill,
             ),
             Gap(5.sp),
             Padding(
@@ -110,7 +102,7 @@ class _ProjectItemState extends State<ProjectItem> {
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5.sp),
-                  color: AppColor.primary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 child: Text(
                   widget.project.codeAvailable
@@ -126,7 +118,7 @@ class _ProjectItemState extends State<ProjectItem> {
             if (widget.project.longDescription != '') Gap(10.sp),
             if (widget.project.longDescription != '')
               GestureDetector(
-                onTap: () => DialogHelper.showMore(
+                onTap: () => showMore(
                   context: context,
                   text: widget.project.longDescription,
                   skills: widget.project.skills,
@@ -140,7 +132,7 @@ class _ProjectItemState extends State<ProjectItem> {
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5.sp),
-                    color: AppColor.background,
+                    color: Theme.of(context).scaffoldBackgroundColor,
                   ),
                   child: Text(
                     'Read More',

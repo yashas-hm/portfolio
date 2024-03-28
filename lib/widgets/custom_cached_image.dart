@@ -24,7 +24,7 @@ class CustomCachedImage extends StatelessWidget {
       color: Colors.transparent,
       fit: BoxFit.fill,
       errorBuilder: (ctx, _, __) => Image.asset(
-        AppConstants.defaultImage,
+        defaultImage,
         height: height,
         width: width,
         fit: BoxFit.fill,

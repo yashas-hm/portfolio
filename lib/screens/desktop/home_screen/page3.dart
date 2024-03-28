@@ -1,11 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
@@ -24,8 +21,8 @@ class Page3 extends ConsumerStatefulWidget {
 class _Page3State extends ConsumerState<Page3>
     with SingleTickerProviderStateMixin {
   final experiences = [
-    PortfolioData.experience.getByIdentifier('pb'),
-    PortfolioData.experience.getByIdentifier('internships'),
+    experienceList.getByIdentifier('pb'),
+    experienceList.getByIdentifier('internships'),
   ];
 
   late final AnimationController animationController;
@@ -47,7 +44,7 @@ class _Page3State extends ConsumerState<Page3>
       ItemPosition? item;
 
       for (var position in listener.itemPositions.value) {
-        if (position.index == AppConstants.experienceIndex) {
+        if (position.index == experienceIndex) {
           item = position;
         }
       }
@@ -93,7 +90,7 @@ class _Page3State extends ConsumerState<Page3>
                 onTap: () => updateIndex(
                   context,
                   ref,
-                  AppConstants.experienceIndex,
+                  experienceIndex,
                   force: true,
                 ),
                 child: Text(
@@ -101,7 +98,9 @@ class _Page3State extends ConsumerState<Page3>
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20.sp,
-                    color: hovering ? AppColor.primary : AppColor.textColor,
+                    color: hovering
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.tertiary,
                   ),
                 ),
               ),
@@ -113,7 +112,7 @@ class _Page3State extends ConsumerState<Page3>
           'Testimonials',
           style: TextStyle(
             fontSize: 23.sp,
-            color: AppColor.textColor,
+            color: Theme.of(context).colorScheme.tertiary,
           ),
         ),
         Gap(30.sp),
@@ -153,7 +152,7 @@ class _Page3State extends ConsumerState<Page3>
     final screenSize = MediaQuery.of(context).size;
     final list = <Widget>[];
 
-    for (var testimonial in PortfolioData.testimonials) {
+    for (var testimonial in testimonials) {
       list.add(Container(
         width: screenSize.width / 3,
         height: screenSize.height / 3.5,
@@ -162,7 +161,7 @@ class _Page3State extends ConsumerState<Page3>
           vertical: 20.sp,
         ),
         decoration: BoxDecoration(
-          color: AppColor.box,
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(13.sp),
         ),
         child: Column(
@@ -191,7 +190,7 @@ class _Page3State extends ConsumerState<Page3>
                   height: 1.sp,
                   width: 20.sp,
                   margin: EdgeInsets.only(top: 10.sp),
-                  color: AppColor.primary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 Gap(10.sp),
                 RichText(
@@ -203,7 +202,10 @@ class _Page3State extends ConsumerState<Page3>
                         style: TextStyle(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
-                          color: AppColor.textColor.withOpacity(0.5),
+                          color: Theme.of(context)
+                              .colorScheme
+                              .tertiary
+                              .withOpacity(0.5),
                           fontStyle: FontStyle.italic,
                           fontFamily: 'space_grotesk',
                         ),
@@ -212,7 +214,7 @@ class _Page3State extends ConsumerState<Page3>
                     style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w600,
-                      color: AppColor.textColor,
+                      color: Theme.of(context).colorScheme.tertiary,
                       fontFamily: 'space_grotesk',
                     ),
                   ),

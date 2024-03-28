@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -21,7 +20,7 @@ class CustomBottomBar extends StatelessWidget {
 
     return Container(
       width: screenSize.width,
-      color: AppColor.box,
+      color: Theme.of(context).colorScheme.secondary,
       padding: EdgeInsets.symmetric(
         horizontal: 25.sp,
         vertical: 15.sp,
@@ -40,24 +39,26 @@ class CustomBottomBar extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   bottomBarConnection(
-                    asset: AppConstants.location,
+                    context,
+                    asset: location,
                     text: 'Navi Mumbai',
                     onTap: () {},
                     screenSize: screenSize,
                   ),
                   Gap(15.sp),
                   bottomBarConnection(
-                    asset: AppConstants.mail,
+                    context,
+                    asset: mail,
                     text: 'Mail Me',
-                    onTap: () =>
-                        launchUrl(Uri.parse('mailto:${AppConstants.emailId}')),
+                    onTap: () => launchUrl(Uri.parse('mailto:$emailId')),
                     screenSize: screenSize,
                   ),
                   Gap(15.sp),
                   bottomBarConnection(
-                    asset: AppConstants.cv,
+                    context,
+                    asset: cv,
                     text: 'My Resume',
-                    onTap: () => launchUrlString(AppConstants.resumeLink),
+                    onTap: () => launchUrlString(resumeLink),
                     screenSize: screenSize,
                   ),
                 ],
@@ -69,22 +70,25 @@ class CustomBottomBar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     bottomBarSocial(
-                      icon: AppConstants.github,
-                      link: AppConstants.githubLink,
+                      context,
+                      icon: github,
+                      link: githubLink,
                       text: 'GitHub',
                       screenSize: screenSize,
                     ),
                     Gap(15.sp),
                     bottomBarSocial(
-                      icon: AppConstants.linkedin,
-                      link: AppConstants.linkedinLink,
+                      context,
+                      icon: linkedin,
+                      link: linkedinLink,
                       text: 'LinkedIn',
                       screenSize: screenSize,
                     ),
                     Gap(15.sp),
                     bottomBarSocial(
-                      icon: AppConstants.instagram,
-                      link: AppConstants.instaLink,
+                      context,
+                      icon: instagram,
+                      link: instaLink,
                       text: 'Instagram',
                       screenSize: screenSize,
                     ),
@@ -96,7 +100,7 @@ class CustomBottomBar extends StatelessWidget {
           Text(
             'Built with ❤️ by Yashas H Majmudar',
             style: TextStyle(
-              color: AppColor.textColor,
+              color: Theme.of(context).colorScheme.tertiary,
               fontSize: 18.sp,
               fontWeight: FontWeight.w400,
             ),
@@ -106,7 +110,8 @@ class CustomBottomBar extends StatelessWidget {
     );
   }
 
-  Widget bottomBarSocial({
+  Widget bottomBarSocial(
+    BuildContext context, {
     required String icon,
     required String link,
     required String text,
@@ -131,12 +136,12 @@ class CustomBottomBar extends StatelessWidget {
               Text(
                 text,
                 style: TextStyle(
-                  color: AppColor.textColor,
+                  color: Theme.of(context).colorScheme.tertiary,
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w300,
                   decoration: TextDecoration.underline,
                   decorationStyle: TextDecorationStyle.solid,
-                  decorationColor: AppColor.textColor,
+                  decorationColor: Theme.of(context).colorScheme.tertiary,
                 ),
               ),
             ],
@@ -144,7 +149,8 @@ class CustomBottomBar extends StatelessWidget {
         ),
       );
 
-  Widget bottomBarConnection({
+  Widget bottomBarConnection(
+    BuildContext context, {
     required String asset,
     required String text,
     required Function() onTap,
@@ -164,8 +170,8 @@ class CustomBottomBar extends StatelessWidget {
                 asset,
                 height: 20.sp,
                 width: 20.sp,
-                colorFilter: const ColorFilter.mode(
-                  AppColor.textColor,
+                colorFilter: ColorFilter.mode(
+                  Theme.of(context).colorScheme.tertiary,
                   BlendMode.srcIn,
                 ),
               ),
@@ -173,7 +179,7 @@ class CustomBottomBar extends StatelessWidget {
               Text(
                 text,
                 style: TextStyle(
-                  color: AppColor.textColor,
+                  color: Theme.of(context).colorScheme.tertiary,
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w300,
                 ),

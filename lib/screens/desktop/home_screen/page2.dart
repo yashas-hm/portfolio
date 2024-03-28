@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/model/testimonial_model.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:resize/resize.dart';
@@ -36,7 +35,7 @@ class _Page2State extends ConsumerState<Page2>
       ItemPosition? item;
 
       for (var position in listener.itemPositions.value) {
-        if (position.index == AppConstants.aboutIndex) {
+        if (position.index == aboutIndex) {
           item = position;
         }
       }
@@ -79,12 +78,12 @@ class _Page2State extends ConsumerState<Page2>
             vertical: 20.sp,
           ),
           decoration: BoxDecoration(
-            color: AppColor.box,
+            color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(13.sp),
           ),
           alignment: Alignment.center,
           child: AutoSizeText(
-            PortfolioData.aboutBrief,
+            aboutBrief,
             textAlign: TextAlign.justify,
             style: TextStyle(
               fontSize: 18.sp,
@@ -102,7 +101,7 @@ class _Page2State extends ConsumerState<Page2>
                 text: '"Leader Hat"',
                 style: TextStyle(
                   fontSize: 23.sp,
-                  color: AppColor.primary,
+                  color: Theme.of(context).colorScheme.primary,
                   fontFamily: 'space_grotesk',
                 ),
               ),
@@ -111,7 +110,7 @@ class _Page2State extends ConsumerState<Page2>
                 style: TextStyle(
                   fontSize: 23.sp,
                   fontWeight: FontWeight.w500,
-                  color: AppColor.textColor,
+                  color: Theme.of(context).colorScheme.tertiary,
                   fontFamily: 'space_grotesk',
                 ),
               ),
@@ -119,7 +118,7 @@ class _Page2State extends ConsumerState<Page2>
             style: TextStyle(
               fontSize: 23.sp,
               fontWeight: FontWeight.w500,
-              color: AppColor.textColor,
+              color: Theme.of(context).colorScheme.tertiary,
               fontFamily: 'space_grotesk',
             ),
           ),
@@ -132,19 +131,19 @@ class _Page2State extends ConsumerState<Page2>
           children: [
             leaderShipBox(
               screenSize,
-              PortfolioData.por.getByIdentifier('sac'),
+              porList.getByIdentifier('sac'),
               0,
               0.4,
             ),
             leaderShipBox(
               screenSize,
-              PortfolioData.por.getByIdentifier('gdsc'),
+              porList.getByIdentifier('gdsc'),
               0.3,
               0.7,
             ),
             leaderShipBox(
               screenSize,
-              PortfolioData.por.getByIdentifier('hackathon'),
+              porList.getByIdentifier('hackathon'),
               0.6,
               1,
             ),
@@ -162,7 +161,7 @@ class _Page2State extends ConsumerState<Page2>
                 onTap: () => updateIndex(
                   context,
                   ref,
-                  AppConstants.aboutIndex,
+                  aboutIndex,
                   force: true,
                 ),
                 child: Text(
@@ -170,7 +169,9 @@ class _Page2State extends ConsumerState<Page2>
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20.sp,
-                    color: hovering ? AppColor.primary : AppColor.textColor,
+                    color: hovering
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.tertiary,
                   ),
                 ),
               ),
@@ -222,7 +223,7 @@ class _Page2State extends ConsumerState<Page2>
             vertical: 10.sp,
           ),
           decoration: BoxDecoration(
-            color: AppColor.box,
+            color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(13.sp),
           ),
           alignment: Alignment.center,
@@ -236,7 +237,7 @@ class _Page2State extends ConsumerState<Page2>
                 style: TextStyle(
                   fontSize: 25.sp,
                   fontWeight: FontWeight.w600,
-                  color: AppColor.primary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
               Text(
