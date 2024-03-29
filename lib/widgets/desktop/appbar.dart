@@ -64,16 +64,13 @@ AppBar customAppBar(BuildContext context) => AppBar(
               ),
             ),
             Gap(25.sp),
-            Consumer(builder: (_, ref, __) {
-              final theme = ref.read(themeModeProvider);
-
-              return ThemeSwitcher(
-                height: 30.sp,
-                width: 70.sp,
-                initiallyDark: isDarkMode(theme),
+            Consumer(
+              builder: (_, ref, __) => DayNightSwitch(
+                size: 30.sp,
+                initiallyDark: isDarkMode(ref.read(themeModeProvider)),
                 onChange: (darkMode) => toggleThemeMode(ref, darkMode),
-              );
-            }),
+              ),
+            ),
           ],
         ),
       ),

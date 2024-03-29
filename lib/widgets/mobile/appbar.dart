@@ -65,9 +65,8 @@ AppBar customAppBar(
               ),
             ),
             Consumer(
-              builder: (_, ref, __) => ThemeSwitcher(
-                height: 20.sp,
-                width: 45.sp,
+              builder: (_, ref, __) => DayNightSwitch(
+                size: 20.sp,
                 initiallyDark: isDarkMode(ref.read(themeModeProvider)),
                 onChange: (darkMode) => toggleThemeMode(ref, darkMode),
               ),

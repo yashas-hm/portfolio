@@ -3,19 +3,16 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 
-class ThemeSwitcher extends StatefulWidget {
-  const ThemeSwitcher({
+class DayNightSwitch extends StatefulWidget {
+  const DayNightSwitch({
     super.key,
-    this.height = 30,
-    this.width = 70,
     this.initiallyDark = false,
     this.duration = const Duration(milliseconds: 600),
+    this.size = 30,
     required this.onChange,
   });
 
-  final double height;
-
-  final double width;
+  final double size;
 
   final bool initiallyDark;
 
@@ -24,18 +21,24 @@ class ThemeSwitcher extends StatefulWidget {
   final Function(bool) onChange;
 
   @override
-  State createState() => _ThemeSwitcherState();
+  State createState() => _DayNightSwitchState();
 }
 
-class _ThemeSwitcherState extends State<ThemeSwitcher>
+class _DayNightSwitchState extends State<DayNightSwitch>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slideAnim;
+  late double height;
+  late double width;
+
   bool dark = true;
 
   @override
   void initState() {
     dark = widget.initiallyDark;
+
+    height = widget.size;
+    width = widget.size * (7/3);
 
     animationController = AnimationController(
       vsync: this,
@@ -71,10 +74,10 @@ class _ThemeSwitcherState extends State<ThemeSwitcher>
           widget.onChange(dark);
         }),
         child: Container(
-          height: widget.height,
-          width: widget.width,
+          height: height,
+          width: width,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(widget.height / 2),
+            borderRadius: BorderRadius.circular(height / 2),
           ),
           clipBehavior: Clip.hardEdge,
           child: Stack(
@@ -85,19 +88,19 @@ class _ThemeSwitcherState extends State<ThemeSwitcher>
                 switchOutCurve: Curves.easeOut,
                 child: dark
                     ? SvgPicture.asset(
-                        key: const ValueKey<String>('night'),
-                        night,
-                        height: widget.height,
-                        width: widget.width,
-                        fit: BoxFit.cover,
-                      )
+                  key: const ValueKey<String>('night'),
+                  night,
+                  height: height,
+                  width: width,
+                  fit: BoxFit.cover,
+                )
                     : SvgPicture.asset(
-                        key: const ValueKey<String>('day'),
-                        day,
-                        height: widget.height,
-                        width: widget.width,
-                        fit: BoxFit.cover,
-                      ),
+                  key: const ValueKey<String>('day'),
+                  day,
+                  height: height,
+                  width: width,
+                  fit: BoxFit.cover,
+                ),
               ),
               Align(
                 alignment: Alignment.centerLeft,
@@ -105,8 +108,8 @@ class _ThemeSwitcherState extends State<ThemeSwitcher>
                   position: slideAnim,
                   child: Container(
                     alignment: Alignment.center,
-                    height: widget.height,
-                    width: widget.height,
+                    height: height,
+                    width: height,
                     decoration: const BoxDecoration(shape: BoxShape.circle),
                     child: AnimatedSwitcher(
                       duration: widget.duration,
@@ -114,33 +117,33 @@ class _ThemeSwitcherState extends State<ThemeSwitcher>
                       switchOutCurve: Curves.easeOut,
                       child: dark
                           ? SvgPicture.asset(
-                              key: const ValueKey<String>('night'),
-                              moon,
-                              height: widget.height,
-                              width: widget.height,
-                              fit: BoxFit.fill,
-                            )
+                        key: const ValueKey<String>('night'),
+                        moon,
+                        height: height,
+                        width: height,
+                        fit: BoxFit.fill,
+                      )
                           : SvgPicture.asset(
-                              key: const ValueKey<String>('day'),
-                              sun,
-                              height: widget.height,
-                              width: widget.height,
-                              fit: BoxFit.fill,
-                            ),
+                        key: const ValueKey<String>('day'),
+                        sun,
+                        height: height,
+                        width: height,
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),
               ),
               Container(
-                height: widget.height,
-                width: widget.width,
+                height: height,
+                width: width,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(widget.height / 2),
+                  borderRadius: BorderRadius.circular(height / 2),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black38,
-                      blurRadius: widget.height / 5,
-                      spreadRadius: widget.height / 10,
+                      blurRadius: height / 5,
+                      spreadRadius: height / 10,
                       inset: true,
                     ),
                   ],
