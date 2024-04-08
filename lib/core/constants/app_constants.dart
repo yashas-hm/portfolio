@@ -29,14 +29,6 @@ const String lightGIF = 'assets/images/coding_light.gif';
 
 const String defaultImage = 'assets/images/default.jpg';
 
-const String day = 'assets/images/day.svg';
-
-const String night = 'assets/images/night.svg';
-
-const String moon = 'assets/images/moon.svg';
-
-const String sun = 'assets/images/sun.svg';
-
 // Shared Preferences
 const String darkMode = 'darkMode';
 

@@ -1,3 +1,4 @@
+import 'package:day_night_themed_switcher/day_night_themed_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,7 +7,6 @@ import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/utilities/utils.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/ui_provider.dart';
-import 'package:portfolio/widgets/theme_switch.dart';
 import 'package:resize/resize.dart';
 
 AppBar customAppBar(
