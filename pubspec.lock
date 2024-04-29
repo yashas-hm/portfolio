@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  chalkdart:
+    dependency: transitive
+    description:
+      name: chalkdart
+      sha256: "0b7ec5c6a6bafd1445500632c00c573722bd7736e491675d4ac3fe560bbd9cfe"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.1"
   characters:
     dependency: transitive
     description:
@@ -81,6 +89,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  custom_mouse_cursor:
+    dependency: "direct main"
+    description:
+      name: custom_mouse_cursor
+      sha256: "66e8949273aa5f3199f6a23e9ca488a0d8e0587ddba54189d7790a136f391edb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   day_night_themed_switcher:
     dependency: "direct main"
     description:

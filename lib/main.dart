@@ -21,6 +21,8 @@ class Portfolio extends ConsumerWidget {
     final screenSize = MediaQuery.of(context).size;
     final themeMode = ref.watch(themeModeProvider);
 
+    checkTheme(ref);
+
     Size size;
 
     if (screenSize.height > screenSize.width) {

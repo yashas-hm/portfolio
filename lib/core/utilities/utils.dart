@@ -83,10 +83,7 @@ Future<(bool, String)> sendMessage({
 }) async {
   try {
     final response = await http.post(
-      Uri.parse(const String.fromEnvironment('BASE_URL')),
-      headers: <String, String>{
-        'Authorization': 'Bearer ${const String.fromEnvironment('JWT')}',
-      },
+      Uri.parse('https://yashashm.dev/mail'),
       body: jsonEncode({'email': email, 'message': text}),
     );
 

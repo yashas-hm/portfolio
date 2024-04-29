@@ -32,11 +32,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Flutter Web
-        env:
-          WEB_ENV: ${{ secrets.WEB_ENV_VAR }}
-        run: |
-          echo "$WEB_ENV" > prod.json 
-          flutter build web --web-renderer canvaskit --release --dart-define-from-file=prod.json
+        run: flutter build web --web-renderer canvaskit --release
 
       - name: Create Build Artifact
         uses: actions/upload-artifact@v4
