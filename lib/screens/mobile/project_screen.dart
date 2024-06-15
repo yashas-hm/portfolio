@@ -40,8 +40,6 @@ class _ProjectScreenState extends State<ProjectScreen>
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
-
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       if (!animationController.isCompleted) {
         animationController.forward();
@@ -49,7 +47,7 @@ class _ProjectScreenState extends State<ProjectScreen>
     });
 
     return Container(
-      width: screenSize.width / 1.2,
+      width: context.width / 1.2,
       padding: EdgeInsets.only(top: 70.sp),
       alignment: Alignment.center,
       child: Column(
@@ -92,8 +90,8 @@ class _ProjectScreenState extends State<ProjectScreen>
             icon: githubAvatar,
             link: githubLink,
             size: Size(
-              screenSize.width / 4,
-              screenSize.width / 4,
+              context.width / 4,
+              context.width / 4,
             ),
           ),
           Gap(15.sp),

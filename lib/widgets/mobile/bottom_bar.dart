@@ -17,10 +17,8 @@ class CustomBottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
-
     return Container(
-      width: screenSize.width,
+      width: context.width,
       color: Theme.of(context).colorScheme.secondary,
       padding: EdgeInsets.symmetric(
         horizontal: 10.sp,
@@ -43,7 +41,6 @@ class CustomBottomBar extends StatelessWidget {
                     asset: location,
                     text: 'Navi Mumbai',
                     onTap: () {},
-                    screenSize: screenSize,
                   ),
                   Gap(10.sp),
                   bottomBarConnection(
@@ -51,7 +48,6 @@ class CustomBottomBar extends StatelessWidget {
                     asset: mail,
                     text: 'Mail Me',
                     onTap: () => launchUrl(Uri.parse('mailto:$emailId')),
-                    screenSize: screenSize,
                   ),
                   Gap(10.sp),
                   bottomBarConnection(
@@ -59,7 +55,6 @@ class CustomBottomBar extends StatelessWidget {
                     asset: cv,
                     text: 'My Resume',
                     onTap: () => launchUrlString(resumeLink),
-                    screenSize: screenSize,
                   ),
                 ],
               ),
@@ -74,7 +69,6 @@ class CustomBottomBar extends StatelessWidget {
                       icon: github,
                       link: githubLink,
                       text: 'GitHub',
-                      screenSize: screenSize,
                     ),
                     Gap(10.sp),
                     bottomBarSocial(
@@ -82,7 +76,6 @@ class CustomBottomBar extends StatelessWidget {
                       icon: linkedin,
                       link: linkedinLink,
                       text: 'LinkedIn',
-                      screenSize: screenSize,
                     ),
                     Gap(10.sp),
                     bottomBarSocial(
@@ -90,7 +83,6 @@ class CustomBottomBar extends StatelessWidget {
                       icon: instagram,
                       link: instaLink,
                       text: 'Instagram',
-                      screenSize: screenSize,
                     ),
                   ],
                 ),
@@ -115,7 +107,6 @@ class CustomBottomBar extends StatelessWidget {
     required String icon,
     required String link,
     required String text,
-    required Size screenSize,
   }) =>
       MouseRegion(
         opaque: false,
@@ -154,7 +145,6 @@ class CustomBottomBar extends StatelessWidget {
     required String asset,
     required String text,
     required Function() onTap,
-    required Size screenSize,
   }) =>
       MouseRegion(
         opaque: false,

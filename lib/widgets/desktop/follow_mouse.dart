@@ -8,7 +8,6 @@ class FollowMouse extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final screenSize = context.screenSize;
     double x = ref.watch(xProvider);
     double y = ref.watch(yProvider);
 
@@ -19,17 +18,17 @@ class FollowMouse extends ConsumerWidget {
         ref.read(yProvider.notifier).state = event.position.dy;
       },
       child: SizedBox(
-        height: screenSize.height,
-        width: screenSize.width,
+        height: context.height,
+        width: context.width,
         child: Stack(
           children: [
             AnimatedPositioned(
               duration: 100.milliseconds,
-              top: y - (screenSize.width / 4),
-              left: x - (screenSize.width / 4),
+              top: y - (context.width / 4),
+              left: x - (context.width / 4),
               child: Container(
-                height: screenSize.width / 2,
-                width: screenSize.width / 2,
+                height: context.width / 2,
+                width: context.width / 2,
                 clipBehavior: Clip.none,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,

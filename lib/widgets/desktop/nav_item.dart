@@ -98,7 +98,7 @@ class _NavItemState extends ConsumerState<NavItem>
                     ),
                   ),
                   child: Container(
-                    width: context.screenSize.width / 18,
+                    width: context.width / 18,
                     decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.tertiary,
                       borderRadius: BorderRadius.circular(10.sp),

@@ -71,8 +71,6 @@ class _Page4State extends ConsumerState<Page4>
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -88,7 +86,7 @@ class _Page4State extends ConsumerState<Page4>
         ),
         Gap(15.sp),
         SizedBox(
-          width: screenSize.width / 1.1,
+          width: context.width / 1.1,
           child: GridView(
             padding: EdgeInsets.zero,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -104,7 +102,7 @@ class _Page4State extends ConsumerState<Page4>
         ),
         Gap(15.sp),
         SizedBox(
-          width: screenSize.width / 1.2,
+          width: context.width / 1.2,
           child: GestureDetector(
             onTap: () => updateIndex(
               context,

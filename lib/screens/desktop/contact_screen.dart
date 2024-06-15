@@ -23,10 +23,8 @@ class _ContactScreenState extends State<ContactScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
-
     return Container(
-      height: screenSize.height,
+      height: context.height,
       alignment: Alignment.center,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +40,7 @@ class _ContactScreenState extends State<ContactScreen> {
           ),
           Gap(30.sp),
           SizedBox(
-            width: screenSize.width / 2.5,
+            width: context.width / 2.5,
             child: TextField(
               controller: emailCtr,
               style: TextStyle(
@@ -97,7 +95,7 @@ class _ContactScreenState extends State<ContactScreen> {
           ),
           Gap(30.sp),
           SizedBox(
-            width: screenSize.width / 2.5,
+            width: context.width / 2.5,
             child: TextField(
               controller: textCtr,
               style: TextStyle(
@@ -204,7 +202,7 @@ class _ContactScreenState extends State<ContactScreen> {
               },
               child: Container(
                 height: 50.sp,
-                width: screenSize.width / 6,
+                width: context.width / 6,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(13.sp),
                   color: Theme.of(context).colorScheme.primary,

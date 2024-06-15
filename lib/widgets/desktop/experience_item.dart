@@ -49,8 +49,6 @@ class _ExperienceItemState extends State<ExperienceItem> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
-
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       if (height == null) {
         final box = key.currentContext?.findRenderObject() as RenderBox;
@@ -98,7 +96,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                   angle: widget.reverse ? pi : 0,
                   child: Container(
                     key: key,
-                    width: screenSize.width / 2.5,
+                    width: context.width / 2.5,
                     padding: EdgeInsets.symmetric(
                       horizontal: 15.sp,
                       vertical: 10.sp,
@@ -165,14 +163,14 @@ class _ExperienceItemState extends State<ExperienceItem> {
             ),
             Expanded(
               child: SizedBox(
-                height: height ?? screenSize.height / 5,
+                height: height ?? context.height / 5,
                 child: Stack(
                   children: [
                     Align(
                       alignment: Alignment.center,
                       child: Container(
                         width: 1.5.sp,
-                        height: height ?? screenSize.height / 5,
+                        height: height ?? context.height / 5,
                         color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
@@ -226,7 +224,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                     alignment: widget.reverse
                         ? Alignment.centerRight
                         : Alignment.centerLeft,
-                    width: screenSize.width / 2.5,
+                    width: context.width / 2.5,
                     child: Text(
                       getTimeLine(widget.experience),
                       style: TextStyle(

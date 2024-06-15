@@ -66,7 +66,6 @@ class _Page3State extends ConsumerState<Page3>
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -91,7 +90,7 @@ class _Page3State extends ConsumerState<Page3>
             force: true,
           ),
           child: SizedBox(
-            width: screenSize.width / 1.2,
+            width: context.width / 1.2,
             child: Text(
               'Curious about the microcosm of my experiences?🧪\n(Read More)',
               textAlign: TextAlign.center,
@@ -110,18 +109,18 @@ class _Page3State extends ConsumerState<Page3>
           ),
         ),
         Gap(15.sp),
-        ...buildTestimonials(screenSize),
+        ...buildTestimonials(),
       ],
     );
   }
 
-  List<Widget> buildTestimonials(Size screenSize) {
+  List<Widget> buildTestimonials() {
     final list = <Widget>[];
 
     for (var index = 0; index < testimonials.length; index++) {
       final testimonial = testimonials[index];
       list.add(Container(
-        width: screenSize.width / 1.2,
+        width: context.width / 1.2,
         padding: EdgeInsets.symmetric(
           horizontal: 15.sp,
           vertical: 10.sp,

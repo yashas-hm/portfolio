@@ -37,9 +37,8 @@ class _ProjectItemState extends State<ProjectItem> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
-    final height = screenSize.width / 4.6;
-    final width = screenSize.width / 5;
+    final height = context.width / 4.6;
+    final width = context.width / 5;
 
     return SlideTransition(
       position: Tween<Offset>(

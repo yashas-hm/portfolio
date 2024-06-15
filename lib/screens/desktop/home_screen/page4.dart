@@ -72,8 +72,6 @@ class _Page4State extends ConsumerState<Page4>
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -89,7 +87,7 @@ class _Page4State extends ConsumerState<Page4>
         ),
         Gap(30.sp),
         SizedBox(
-          width: screenSize.width / 1.1,
+          width: context.width / 1.1,
           child: Wrap(
             runAlignment: WrapAlignment.start,
             alignment: WrapAlignment.spaceEvenly,

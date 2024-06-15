@@ -45,8 +45,6 @@ class _ExperienceScreenState extends State<ExperienceScreen>
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
-
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       if (!animationController.isCompleted) {
         animationController.forward();
@@ -54,7 +52,7 @@ class _ExperienceScreenState extends State<ExperienceScreen>
     });
 
     return Container(
-      width: screenSize.width,
+      width: context.width,
       padding: EdgeInsets.only(top: 70.sp),
       alignment: Alignment.center,
       child: Column(

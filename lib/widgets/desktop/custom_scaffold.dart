@@ -17,7 +17,6 @@ class CustomScaffold extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final screenSize = context.screenSize;
     final pageIndex = ref.watch(pageIndexProvider);
 
     return Scaffold(
@@ -29,7 +28,7 @@ class CustomScaffold extends ConsumerWidget {
           MouseRegion(
             opaque: false,
             child: SizedBox(
-              height: screenSize.height,
+              height: context.height,
               child: SingleChildScrollView(
                 physics: const ClampingScrollPhysics(),
                 child: Column(

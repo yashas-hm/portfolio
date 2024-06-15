@@ -22,7 +22,7 @@ AppBar customAppBar(
       surfaceTintColor: Colors.transparent,
       title: Container(
         alignment: Alignment.center,
-        width: context.screenSize.width,
+        width: context.width,
         height: 60.sp,
         padding: EdgeInsets.all(10.sp),
         child: Row(

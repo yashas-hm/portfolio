@@ -29,10 +29,11 @@ extension StringUtils on String {
 }
 
 extension ContextUtils on BuildContext {
-  bool get isMobile {
-    final screenSize = MediaQuery.of(this).size;
-    return screenSize.height > screenSize.width;
-  }
+  bool get isMobile => height > width;
+
+  double get height => MediaQuery.of(this).size.height;
+
+  double get width => MediaQuery.of(this).size.width;
 
   Size get screenSize => MediaQuery.of(this).size;
 }

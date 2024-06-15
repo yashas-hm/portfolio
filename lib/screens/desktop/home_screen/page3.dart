@@ -149,13 +149,12 @@ class _Page3State extends ConsumerState<Page3>
   }
 
   List<Widget> buildTestimonials() {
-    final screenSize = context.screenSize;
     final list = <Widget>[];
 
     for (var testimonial in testimonials) {
       list.add(Container(
-        width: screenSize.width / 3,
-        height: screenSize.height / 3.5,
+        width: context.width / 3,
+        height: context.height / 3.5,
         padding: EdgeInsets.symmetric(
           horizontal: 25.sp,
           vertical: 20.sp,

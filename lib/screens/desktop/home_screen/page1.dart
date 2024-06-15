@@ -160,15 +160,13 @@ class _Page1State extends State<Page1> with TickerProviderStateMixin {
     bool xAxis = true,
     bool reverseDirection = false,
   }) {
-    final screenSize = context.screenSize;
-
     return AnimatedBuilder(
       animation: animationController,
       builder: (context, _) => Opacity(
         opacity: fade.value,
         child: Container(
-          width: screenSize.width / 4.3,
-          height: screenSize.height / 4,
+          width: context.width / 4.3,
+          height: context.height / 4,
           transform: Matrix4.translationValues(
             (xAxis ? slide.value : 0) * (reverseDirection ? -1 : 1),
             (xAxis ? 0 : slide.value) * (reverseDirection ? -1 : 1),

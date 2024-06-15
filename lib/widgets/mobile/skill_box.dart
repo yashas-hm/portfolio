@@ -45,12 +45,10 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
-
     return Container(
-      width: screenSize.width / 1.2,
+      width: context.width / 1.2,
       padding: EdgeInsets.all(15.sp),
-      constraints: BoxConstraints(minHeight: screenSize.height / 6),
+      constraints: BoxConstraints(minHeight: context.height / 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.sp),
         color: Theme.of(context).colorScheme.secondary,
@@ -70,7 +68,7 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
           Gap(15.sp),
           Flexible(
             child: SizedBox(
-              width: screenSize.width,
+              width: context.width,
               child: Wrap(
                 runSpacing: 10.sp,
                 spacing: 10.sp,

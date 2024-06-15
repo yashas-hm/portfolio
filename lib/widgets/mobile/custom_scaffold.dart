@@ -19,7 +19,6 @@ class CustomScaffold extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final screenSize = context.screenSize;
     final currentIndex = ref.watch(currentIndexProvider);
     final pageIndex = ref.watch(pageIndexProvider);
 
@@ -38,7 +37,7 @@ class CustomScaffold extends ConsumerWidget {
           advancedDrawerController,
         ),
         body: SizedBox(
-          height: screenSize.height,
+          height: context.height,
           child: SingleChildScrollView(
             physics: const ClampingScrollPhysics(),
             child: Column(

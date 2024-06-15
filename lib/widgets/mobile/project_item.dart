@@ -33,7 +33,7 @@ class ProjectItem extends StatefulWidget {
 class _ProjectItemState extends State<ProjectItem> {
   @override
   Widget build(BuildContext context) {
-    final height = context.screenSize.height / 4;
+    final height = context.height / 4;
 
     return FadeTransition(
       opacity: Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(

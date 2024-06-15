@@ -27,7 +27,6 @@ class _HomeNameState extends ConsumerState<HomeName> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
     final themeMode = ref.watch(themeModeProvider);
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
@@ -40,8 +39,8 @@ class _HomeNameState extends ConsumerState<HomeName> {
     });
 
     return Container(
-      width: screenSize.width / 1.2,
-      height: boxHeight ?? screenSize.height / 3,
+      width: context.width / 1.2,
+      height: boxHeight ?? context.height / 3,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(13.sp),
       ),
@@ -55,15 +54,15 @@ class _HomeNameState extends ConsumerState<HomeName> {
                     key: const ValueKey<String>('night'),
                     darkGIF,
                     fit: BoxFit.fill,
-                    width: screenSize.width,
-                    height: boxHeight ?? screenSize.height / 3,
+                    width: context.width,
+                    height: boxHeight ?? context.height / 3,
                   )
                 : Image.asset(
                     key: const ValueKey<String>('day'),
                     lightGIF,
                     fit: BoxFit.fill,
-                    width: screenSize.width,
-                    height: boxHeight ?? screenSize.height / 3,
+                    width: context.width,
+                    height: boxHeight ?? context.height / 3,
                   ),
           ),
           Align(
@@ -133,7 +132,7 @@ class _HomeNameState extends ConsumerState<HomeName> {
                   ),
                   Gap(20.sp),
                   SizedBox(
-                    width: screenSize.width / 3,
+                    width: context.width / 3,
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

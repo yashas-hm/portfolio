@@ -12,10 +12,8 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
-
     return Container(
-      width: screenSize.width / 1.2,
+      width: context.width / 1.2,
       padding: EdgeInsets.only(top: 70.sp),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -31,7 +29,7 @@ class AboutScreen extends StatelessWidget {
           ),
           Gap(15.sp),
           Container(
-            width: screenSize.width / 1.2,
+            width: context.width / 1.2,
             padding: EdgeInsets.symmetric(
               horizontal: 15.sp,
               vertical: 10.sp,
@@ -63,7 +61,6 @@ class AboutScreen extends StatelessWidget {
             itemBuilder: (ctx, index) => achievements(
               context,
               techAchievementsList[index],
-              screenSize,
               index != 0 ? 15.sp : 0,
             ),
           ),
@@ -84,7 +81,6 @@ class AboutScreen extends StatelessWidget {
             itemBuilder: (ctx, index) => achievements(
               context,
               culAchievementsList[index],
-              screenSize,
               index != 0 ? 15.sp : 0,
             ),
           ),
@@ -107,12 +103,11 @@ class AboutScreen extends StatelessWidget {
   Widget achievements(
     BuildContext context,
     AchievementModel achievement,
-    Size screenSize,
     double upperMargin,
   ) {
     return Container(
       margin: EdgeInsets.only(top: upperMargin),
-      constraints: BoxConstraints(maxHeight: screenSize.height / 8),
+      constraints: BoxConstraints(maxHeight: context.height / 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(13.sp),
         color: Theme.of(context).colorScheme.secondary,

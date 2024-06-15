@@ -55,7 +55,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final listener = ref.read(positionListenerProvider.notifier);
 
     return SizedBox(
-      height: context.screenSize.height,
+      height: context.height,
       child: ScrollablePositionedList.builder(
         shrinkWrap: true,
         itemScrollController: controller.state,

@@ -21,7 +21,7 @@ AppBar customAppBar(BuildContext context) => AppBar(
       surfaceTintColor: Colors.transparent,
       title: Container(
         alignment: Alignment.center,
-        width: context.screenSize.width,
+        width: context.width,
         height: 60.sp,
         color: Colors.transparent,
         padding: EdgeInsets.all(10.sp),
@@ -55,7 +55,7 @@ AppBar customAppBar(BuildContext context) => AppBar(
                 child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemExtent: context.screenSize.width / 18,
+                  itemExtent: context.width / 18,
                   itemCount: navItems.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (ctx, index) => NavItem(

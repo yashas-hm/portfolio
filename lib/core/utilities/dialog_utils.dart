@@ -14,7 +14,6 @@ void showMore({
   required String text,
   required List<String> skills,
 }) {
-
   return context.isMobile
       ? showMoreMobile(context: context, text: text, skills: skills)
       : showMoreDesktop(context: context, text: text, skills: skills);
@@ -25,8 +24,6 @@ void showMoreDesktop({
   required String text,
   required List<String> skills,
 }) {
-  final screenSize = context.screenSize;
-
   showGeneralDialog(
     context: context,
     barrierDismissible: true,
@@ -43,7 +40,7 @@ void showMoreDesktop({
         child: AlertDialog(
           contentPadding: EdgeInsets.zero,
           content: Container(
-            width: screenSize.width / 2.5,
+            width: context.width / 2.5,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(13.sp),
               color: Theme.of(context).colorScheme.secondary,
@@ -84,8 +81,6 @@ void showMoreMobile({
   required String text,
   required List<String> skills,
 }) {
-  final screenSize = context.screenSize;
-
   showGeneralDialog(
     context: context,
     barrierDismissible: true,
@@ -102,8 +97,8 @@ void showMoreMobile({
         child: AlertDialog(
           contentPadding: EdgeInsets.zero,
           content: Container(
-            width: screenSize.width / 1.2,
-            height: screenSize.height / 1.5,
+            width: context.width / 1.2,
+            height: context.height / 1.5,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(13.sp),
               color: Theme.of(context).colorScheme.secondary,
@@ -146,8 +141,6 @@ void showMoreMobile({
 }
 
 void showToast(BuildContext ctx, String text) {
-  final screenSize = MediaQuery.of(ctx).size;
-
   showToastWidget(
     Stack(
       children: [
@@ -161,7 +154,7 @@ void showToast(BuildContext ctx, String text) {
             child: Container(
               constraints: BoxConstraints(
                 minWidth: 100.sp,
-                maxWidth: screenSize.width / 2.5,
+                maxWidth: ctx.width / 2.5,
               ),
               height: 40.sp,
               color: Colors.white.withOpacity(0.05),
@@ -172,7 +165,7 @@ void showToast(BuildContext ctx, String text) {
           height: 40.sp,
           constraints: BoxConstraints(
             minWidth: 100.sp,
-            maxWidth: screenSize.width / 2.5,
+            maxWidth: ctx.width / 2.5,
           ),
           padding: EdgeInsets.symmetric(
             horizontal: 8.sp,

@@ -13,7 +13,6 @@ class ProjectScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     SchedulerBinding.instance.addPostFrameCallback((_) {
       indexCheck(projectsIndex, ref);
     });

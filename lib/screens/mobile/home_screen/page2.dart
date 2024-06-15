@@ -13,7 +13,6 @@ class Page2 extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final screenSize = context.screenSize;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -29,7 +28,7 @@ class Page2 extends ConsumerWidget {
         ),
         Gap(15.sp),
         Container(
-          width: screenSize.width / 1.2,
+          width: context.width / 1.2,
           padding: EdgeInsets.symmetric(
             horizontal: 15.sp,
             vertical: 10.sp,
@@ -82,7 +81,6 @@ class Page2 extends ConsumerWidget {
         Gap(15.sp),
         ...buildChildren(
           context,
-          screenSize,
         ),
         Gap(15.sp),
         GestureDetector(
@@ -93,7 +91,7 @@ class Page2 extends ConsumerWidget {
             force: true,
           ),
           child: SizedBox(
-            width: screenSize.width / 1.2,
+            width: context.width / 1.2,
             child: Text(
               'Care to indulge me in another round of self-glorification? 🤔\n(Read More)',
               textAlign: TextAlign.center,
@@ -108,12 +106,12 @@ class Page2 extends ConsumerWidget {
     );
   }
 
-  List<Widget> buildChildren(BuildContext context, Size screenSize) {
+  List<Widget> buildChildren(BuildContext context) {
     final list = <Widget>[];
 
     for (var index = 0; index < porList.length; index++) {
       list.add(Container(
-        width: screenSize.width / 1.2,
+        width: context.width / 1.2,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(13.sp),
           color: Theme.of(context).colorScheme.secondary,

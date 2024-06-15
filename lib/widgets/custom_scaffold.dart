@@ -13,7 +13,6 @@ class CustomScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return context.isMobile
         ? mobile.CustomScaffold(
             child: child,

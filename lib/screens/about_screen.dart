@@ -13,7 +13,6 @@ class AboutScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     SchedulerBinding.instance.addPostFrameCallback((_) {
       indexCheck(aboutIndex, ref);
     });

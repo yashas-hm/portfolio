@@ -26,7 +26,6 @@ class _HomeNameState extends ConsumerState<HomeName> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
     final themeMode = ref.watch(themeModeProvider);
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
@@ -39,8 +38,8 @@ class _HomeNameState extends ConsumerState<HomeName> {
     });
 
     return Container(
-      width: screenSize.width / 3.3,
-      height: boxHeight ?? screenSize.width / 5,
+      width: context.width / 3.3,
+      height: boxHeight ?? context.width / 5,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(13.sp),
       ),
@@ -56,15 +55,15 @@ class _HomeNameState extends ConsumerState<HomeName> {
                       key: const ValueKey<String>('night'),
                       darkGIF,
                       fit: BoxFit.fill,
-                      width: screenSize.width / 3.3,
-                      height: boxHeight ?? screenSize.width / 5,
+                      width: context.width / 3.3,
+                      height: boxHeight ?? context.width / 5,
                     )
                   : Image.asset(
                       key: const ValueKey<String>('day'),
                       lightGIF,
                       fit: BoxFit.fill,
-                      width: screenSize.width / 3.3,
-                      height: boxHeight ?? screenSize.width / 5,
+                      width: context.width / 3.3,
+                      height: boxHeight ?? context.width / 5,
                     ),
             ),
           ),
@@ -132,7 +131,7 @@ class _HomeNameState extends ConsumerState<HomeName> {
                   Gap(10.sp),
                   Container(
                     alignment: Alignment.centerLeft,
-                    width: screenSize.width / 5,
+                    width: context.width / 5,
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
@@ -147,7 +146,7 @@ class _HomeNameState extends ConsumerState<HomeName> {
                   ),
                   Gap(20.sp),
                   SizedBox(
-                    width: screenSize.width / 6,
+                    width: context.width / 6,
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

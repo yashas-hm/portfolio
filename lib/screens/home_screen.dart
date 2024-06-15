@@ -9,7 +9,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return CustomScaffold(
       child: context.isMobile
           ? const mobile.HomeScreen()

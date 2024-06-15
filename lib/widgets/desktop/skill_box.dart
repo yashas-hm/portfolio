@@ -57,8 +57,6 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
-
     return MouseRegion(
       opaque: false,
       cursor: SystemMouseCursors.click,
@@ -91,7 +89,7 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
                 Gap(15.sp),
                 Expanded(
                   child: SizedBox(
-                    width: screenSize.width / 4.3,
+                    width: context.width / 4.3,
                     child: Wrap(
                       runSpacing: 15.sp,
                       spacing: 15.sp,
@@ -120,8 +118,8 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
                     ),
                     child: AnimatedContainer(
                       duration: 300.milliseconds,
-                      width: screenSize.width / 4,
-                      height: hovering ? screenSize.width / 4 : 0,
+                      width: context.width / 4,
+                      height: hovering ? context.width / 4 : 0,
                       alignment: Alignment.center,
                       child: Text(
                         'See Projects',

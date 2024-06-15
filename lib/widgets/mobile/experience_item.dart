@@ -37,8 +37,6 @@ class _ExperienceItemState extends State<ExperienceItem> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.screenSize;
-
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       if (height == null) {
         final box = key.currentContext?.findRenderObject() as RenderBox;
@@ -58,19 +56,19 @@ class _ExperienceItemState extends State<ExperienceItem> {
         ),
       )),
       child: SizedBox(
-        width: screenSize.width / 1.2,
-        height: height ?? screenSize.height / 1.5,
+        width: context.width / 1.2,
+        height: height ?? context.height / 1.5,
         child: Stack(
           children: [
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
                 transform: Matrix4.translationValues(
-                  -screenSize.width / 4,
+                  -context.width / 4,
                   0,
                   0,
                 ),
-                width: screenSize.width / 2,
+                width: context.width / 2,
                 child: Transform.rotate(
                   angle: -pi / 2,
                   child: Text(
@@ -88,14 +86,14 @@ class _ExperienceItemState extends State<ExperienceItem> {
                 margin: EdgeInsets.only(
                   left: 30.sp,
                 ),
-                height: height ?? screenSize.height / 1.5,
+                height: height ?? context.height / 1.5,
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: height ?? screenSize.height / 5,
+                      height: height ?? context.height / 5,
                       width: 15.sp,
                       child: Stack(
                         children: [
@@ -103,7 +101,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                             alignment: Alignment.center,
                             child: Container(
                               width: 1.5.sp,
-                              height: height ?? screenSize.height / 5,
+                              height: height ?? context.height / 5,
                               color: Theme.of(context).colorScheme.primary,
                             ),
                           ),

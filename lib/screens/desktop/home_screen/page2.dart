@@ -55,7 +55,6 @@ class _Page2State extends ConsumerState<Page2>
   @override
   Widget build(BuildContext context) {
     bool hovering = false;
-    final screenSize = context.screenSize;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -72,7 +71,7 @@ class _Page2State extends ConsumerState<Page2>
         ),
         Gap(30.sp),
         Container(
-          width: screenSize.width / 2,
+          width: context.width / 2,
           padding: EdgeInsets.symmetric(
             horizontal: 25.sp,
             vertical: 20.sp,
@@ -130,19 +129,16 @@ class _Page2State extends ConsumerState<Page2>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             leaderShipBox(
-              screenSize,
               porList.getByIdentifier('sac'),
               0,
               0.4,
             ),
             leaderShipBox(
-              screenSize,
               porList.getByIdentifier('gdsc'),
               0.3,
               0.7,
             ),
             leaderShipBox(
-              screenSize,
               porList.getByIdentifier('hackathon'),
               0.6,
               1,
@@ -183,7 +179,6 @@ class _Page2State extends ConsumerState<Page2>
   }
 
   Widget leaderShipBox(
-    Size screenSize,
     TestimonialModel model,
     double begin,
     double end,
@@ -217,7 +212,7 @@ class _Page2State extends ConsumerState<Page2>
           ),
         ),
         child: Container(
-          width: screenSize.width / 3.4,
+          width: context.width / 3.4,
           padding: EdgeInsets.symmetric(
             horizontal: 15.sp,
             vertical: 10.sp,
