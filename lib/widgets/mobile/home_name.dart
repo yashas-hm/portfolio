@@ -27,7 +27,7 @@ class _HomeNameState extends ConsumerState<HomeName> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
     final themeMode = ref.watch(themeModeProvider);
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {

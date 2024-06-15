@@ -19,7 +19,7 @@ class CustomScaffold extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
     final currentIndex = ref.watch(currentIndexProvider);
     final pageIndex = ref.watch(pageIndexProvider);
 

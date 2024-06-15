@@ -45,7 +45,7 @@ class _ExperienceScreenState extends State<ExperienceScreen>
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       if (!animationController.isCompleted) {

@@ -160,7 +160,7 @@ class _Page1State extends State<Page1> with TickerProviderStateMixin {
     bool xAxis = true,
     bool reverseDirection = false,
   }) {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
 
     return AnimatedBuilder(
       animation: animationController,

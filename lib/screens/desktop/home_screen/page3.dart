@@ -149,7 +149,7 @@ class _Page3State extends ConsumerState<Page3>
   }
 
   List<Widget> buildTestimonials() {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
     final list = <Widget>[];
 
     for (var testimonial in testimonials) {

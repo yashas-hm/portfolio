@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/utilities/utils.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/ui_provider.dart';
@@ -20,7 +21,7 @@ AppBar customAppBar(BuildContext context) => AppBar(
       surfaceTintColor: Colors.transparent,
       title: Container(
         alignment: Alignment.center,
-        width: MediaQuery.of(context).size.width,
+        width: context.screenSize.width,
         height: 60.sp,
         color: Colors.transparent,
         padding: EdgeInsets.all(10.sp),
@@ -54,7 +55,7 @@ AppBar customAppBar(BuildContext context) => AppBar(
                 child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemExtent: MediaQuery.of(context).size.width / 18,
+                  itemExtent: context.screenSize.width / 18,
                   itemCount: navItems.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (ctx, index) => NavItem(

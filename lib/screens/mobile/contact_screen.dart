@@ -23,7 +23,7 @@ class _ContactScreenState extends State<ContactScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
 
     return Container(
       width: screenSize.width / 1.2,

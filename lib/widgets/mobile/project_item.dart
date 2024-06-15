@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/model/project_model.dart';
 import 'package:portfolio/core/utilities/dialog_utils.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/widgets/custom_cached_image.dart';
 import 'package:portfolio/widgets/mobile/skill_chips.dart';
 import 'package:resize/resize.dart';
@@ -32,7 +33,7 @@ class ProjectItem extends StatefulWidget {
 class _ProjectItemState extends State<ProjectItem> {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height / 4;
+    final height = context.screenSize.height / 4;
 
     return FadeTransition(
       opacity: Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(

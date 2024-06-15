@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:portfolio/screens/desktop/home_screen/page1.dart';
@@ -53,20 +54,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final controller = ref.read(scrollControllerProvider.notifier);
     final listener = ref.read(positionListenerProvider.notifier);
 
-    return MouseRegion(
-      opaque: false,
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        child: ScrollablePositionedList.builder(
-          shrinkWrap: true,
-          itemScrollController: controller.state,
-          itemPositionsListener: listener.state,
-          physics: const BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics(),
-          ),
-          itemCount: pages.length,
-          itemBuilder: (ctx, index) => pages[index],
+    return SizedBox(
+      height: context.screenSize.height,
+      child: ScrollablePositionedList.builder(
+        shrinkWrap: true,
+        itemScrollController: controller.state,
+        itemPositionsListener: listener.state,
+        physics: const BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics(),
         ),
+        itemCount: pages.length,
+        itemBuilder: (ctx, index) => pages[index],
       ),
     );
   }

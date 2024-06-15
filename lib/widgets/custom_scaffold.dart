@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/widgets/desktop/custom_scaffold.dart' as desktop;
 import 'package:portfolio/widgets/mobile/custom_scaffold.dart' as mobile;
 
@@ -12,9 +13,8 @@ class CustomScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
 
-    return screenSize.height > screenSize.width
+    return context.isMobile
         ? mobile.CustomScaffold(
             child: child,
           )

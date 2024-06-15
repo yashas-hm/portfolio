@@ -3,17 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/ui_provider.dart';
 
-class FollowMouse extends ConsumerStatefulWidget {
+class FollowMouse extends ConsumerWidget {
   const FollowMouse({super.key});
 
   @override
-  ConsumerState<FollowMouse> createState() => _FollowMouseState();
-}
-
-class _FollowMouseState extends ConsumerState<FollowMouse> {
-  @override
-  Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final screenSize = context.screenSize;
     double x = ref.watch(xProvider);
     double y = ref.watch(yProvider);
 

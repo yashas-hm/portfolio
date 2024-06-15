@@ -55,7 +55,7 @@ class _Page2State extends ConsumerState<Page2>
   @override
   Widget build(BuildContext context) {
     bool hovering = false;
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,

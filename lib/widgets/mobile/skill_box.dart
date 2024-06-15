@@ -45,7 +45,7 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
 
     return Container(
       width: screenSize.width / 1.2,

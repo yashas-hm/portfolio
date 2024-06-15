@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
 import 'package:portfolio/core/model/experience_model.dart';
 import 'package:portfolio/core/utilities/dialog_utils.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/utilities/utils.dart';
 import 'package:resize/resize.dart';
 
@@ -48,7 +49,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       if (height == null) {

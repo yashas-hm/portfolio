@@ -1,13 +1,12 @@
-import 'package:custom_mouse_cursor/custom_mouse_cursor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/core/utilities/shared_pref_utils.dart';
 
-final StateProvider<double> xProvider = StateProvider((ref) => 0.0);
+final StateProvider<double> xProvider = StateProvider<double>((_) => 0.0);
 
-final StateProvider<double> yProvider = StateProvider((ref) => 0.0);
+final StateProvider<double> yProvider = StateProvider<double>((_) => 0.0);
 
-final themeModeProvider = StateProvider<ThemeMode>((ref) => ThemeMode.dark);
+final themeModeProvider = StateProvider<ThemeMode>((_) => ThemeMode.dark);
 
 void toggleThemeMode(
   WidgetRef ref,

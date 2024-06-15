@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/widgets/bottom_bar.dart';
 import 'package:portfolio/widgets/desktop/appbar.dart';
@@ -16,7 +17,7 @@ class CustomScaffold extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
     final pageIndex = ref.watch(pageIndexProvider);
 
     return Scaffold(

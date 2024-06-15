@@ -37,7 +37,7 @@ class _ProjectItemState extends State<ProjectItem> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
     final height = screenSize.width / 4.6;
     final width = screenSize.width / 5;
 

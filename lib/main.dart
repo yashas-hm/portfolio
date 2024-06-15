@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:portfolio/core/constants/app_theme.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/utilities/utils.dart';
 import 'package:portfolio/providers/ui_provider.dart';
 import 'package:resize/resize.dart';
@@ -18,14 +19,13 @@ class Portfolio extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final screenSize = MediaQuery.of(context).size;
     final themeMode = ref.watch(themeModeProvider);
 
     checkTheme(ref);
 
     Size size;
 
-    if (screenSize.height > screenSize.width) {
+    if (context.isMobile) {
       size = const Size(410, 910);
     } else {
       size = const Size(1728, 1000);

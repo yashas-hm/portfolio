@@ -4,6 +4,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/model/achievement_model.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:resize/resize.dart';
 
 class AboutScreen extends StatelessWidget {
@@ -11,7 +12,7 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
 
     return Container(
       width: screenSize.width,

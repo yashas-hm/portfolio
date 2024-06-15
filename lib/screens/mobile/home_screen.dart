@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:portfolio/screens/mobile/home_screen/page1.dart';
@@ -52,7 +53,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final listener = ref.read(positionListenerProvider.notifier);
 
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: context.screenSize.height,
       child: ScrollablePositionedList.builder(
         shrinkWrap: true,
         itemScrollController: controller.state,

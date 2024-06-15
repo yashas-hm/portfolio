@@ -14,9 +14,8 @@ void showMore({
   required String text,
   required List<String> skills,
 }) {
-  final screenSize = MediaQuery.of(context).size;
 
-  return screenSize.height > screenSize.width
+  return context.isMobile
       ? showMoreMobile(context: context, text: text, skills: skills)
       : showMoreDesktop(context: context, text: text, skills: skills);
 }
@@ -26,7 +25,7 @@ void showMoreDesktop({
   required String text,
   required List<String> skills,
 }) {
-  final screenSize = MediaQuery.of(context).size;
+  final screenSize = context.screenSize;
 
   showGeneralDialog(
     context: context,
@@ -85,7 +84,7 @@ void showMoreMobile({
   required String text,
   required List<String> skills,
 }) {
-  final screenSize = MediaQuery.of(context).size;
+  final screenSize = context.screenSize;
 
   showGeneralDialog(
     context: context,
@@ -187,7 +186,7 @@ void showToast(BuildContext ctx, String text) {
           child: Text(
             text,
             style: TextStyle(
-              fontSize: screenSize.height > screenSize.width ? 12.sp : 18.sp,
+              fontSize: ctx.isMobile ? 12.sp : 18.sp,
               color: Theme.of(ctx).colorScheme.tertiary,
               fontWeight: FontWeight.w600,
             ),

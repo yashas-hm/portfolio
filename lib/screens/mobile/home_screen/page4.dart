@@ -71,7 +71,7 @@ class _Page4State extends ConsumerState<Page4>
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
