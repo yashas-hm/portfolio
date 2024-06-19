@@ -30,6 +30,14 @@ class CustomCachedImage extends StatelessWidget {
         width: width,
         fit: BoxFit.fill,
       ),
+      imageBuilder: (_, image) {
+        return Image(
+          image: image,
+          height: height,
+          width: height,
+          fit: BoxFit.cover,
+        );
+      },
       placeholder: (_, __) => Center(
         child: SizedBox(
           height: height / 3,
