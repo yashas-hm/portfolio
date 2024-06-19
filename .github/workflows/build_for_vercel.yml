@@ -23,6 +23,9 @@ jobs:
         with:
           channel: stable
 
+      - name: flutter version
+        run: flutter --version
+
       - name: Enable Web
         run: flutter config --enable-web
 
