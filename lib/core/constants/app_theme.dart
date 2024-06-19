@@ -10,6 +10,11 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
             bodyColor: lightText,
             displayColor: lightText,
           ),
+      fontFamily: 'space_grotesk',
+      fontFamilyFallback: const [
+        'roboto',
+        'arial',
+      ],
       appBarTheme: const AppBarTheme(
         centerTitle: true,
         systemOverlayStyle: SystemUiOverlayStyle(
@@ -42,6 +47,11 @@ ThemeData darkTheme(BuildContext context) => ThemeData(
             bodyColor: darkText,
             displayColor: darkText,
           ),
+      fontFamily: 'space_grotesk',
+      fontFamilyFallback: const [
+        'roboto',
+        'arial',
+      ],
       appBarTheme: const AppBarTheme(
         centerTitle: true,
         systemOverlayStyle: SystemUiOverlayStyle(

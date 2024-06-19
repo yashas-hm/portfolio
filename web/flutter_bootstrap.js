@@ -8,9 +8,6 @@ function delay(time) {
 window.addEventListener('load', (_)=>{
     var loader = document.getElementById("loader");
     _flutter.loader.load({
-        serviceWorkerSettings: {
-            serviceWorkerVersion: {{flutter_service_worker_version}},
-        },
         onEntrypointLoaded: async function(engineInitializer) {
             const appRunner = await engineInitializer.initializeEngine({
                 useColorEmoji: true,
