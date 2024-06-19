@@ -18,13 +18,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
       - name: Flutter Setup
-        uses: subosito/flutter-action@v2.13.0
+        uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
-          flutter-version: 3.22.2
-          cache: true
+          channel: stable
 
       - name: Enable Web
         run: flutter config --enable-web
