@@ -24,32 +24,7 @@
     <link rel="manifest" href="manifest.json">
 </head>
 <body style="background-color: #151515;height: 100vh;width: 100vw;margin: 0;">
-
-<script>
-    {{flutter_js}}
-    {{flutter_build_config}}
-
-    function delay(time) {
-        return new Promise(resolve => setTimeout(resolve, time));
-    }
-
-    var loader = document.getElementById("loader");
-    let version  = {{flutter_service_worker_version}};
-    _flutter.loader.load({
-        onEntrypointLoaded: async function(engineInitializer) {
-            const appRunner = await engineInitializer.initializeEngine({
-                useColorEmoji: true,
-            });
-
-            loader.style.scale="0";
-            await delay(0.4);
-            await appRunner.runApp();
-        },
-        serviceWorkerSettings: {
-            serviceWorkerVersion: version
-       },
-    });
-</script>
+<script src="flutter_bootstrap.js" async></script>
 <div class="main-content" id="loader"
      style="height: 100vh;width: 100vw;display: flex;align-items: center;justify-content: center;position: relative;transition: scale .4s ease-out;">
     <img src="./avatar.png" alt="Not Working" style="object-fit: contain;height: 50%"/>
