@@ -17,12 +17,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Flutter Setup
         uses: subosito/flutter-action@v2.13.0
         with:
           channel: 'stable'
+          flutter-version: 3.22.2
           cache: true
 
       - name: Enable Web
