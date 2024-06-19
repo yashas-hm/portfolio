@@ -33,20 +33,21 @@
         return new Promise(resolve => setTimeout(resolve, time));
     }
 
-    window.addEventListener('load', function (ev) {
-        var loader = document.getElementById("loader");
+    var loader = document.getElementById("loader");
+    let version  = {{flutter_service_worker_version}};
+    _flutter.loader.load({
+        onEntrypointLoaded: async function(engineInitializer) {
+            const appRunner = await engineInitializer.initializeEngine({
+                useColorEmoji: true,
+            });
 
-        _flutter.loader.load({
-            onEntrypointLoaded: async function(engineInitializer) {
-                const appRunner = await engineInitializer.initializeEngine({
-                    useColorEmoji: true,
-                });
-
-                loader.style.scale="0";
-                await delay(0.4);
-                await appRunner.runApp();
-            }
-        });
+            loader.style.scale="0";
+            await delay(0.4);
+            await appRunner.runApp();
+        },
+        serviceWorkerSettings: {
+            serviceWorkerVersion: version
+       },
     });
 </script>
 <div class="main-content" id="loader"
