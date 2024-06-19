@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-final scrollControllerProvider = StateProvider((ref) => ItemScrollController());
+final StateProvider<ItemScrollController> scrollControllerProvider =
+    StateProvider<ItemScrollController>((_) => ItemScrollController());
 
-final positionListenerProvider =
-    StateProvider((ref) => ItemPositionsListener.create());
+final StateProvider<ItemPositionsListener> positionListenerProvider =
+    StateProvider<ItemPositionsListener>((_) => ItemPositionsListener.create());
