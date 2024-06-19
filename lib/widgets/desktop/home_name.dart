@@ -25,7 +25,13 @@ class _HomeNameState extends ConsumerState<HomeName> {
   double? boxHeight;
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+
     final themeMode = ref.watch(themeModeProvider);
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
