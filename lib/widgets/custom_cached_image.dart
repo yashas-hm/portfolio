@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 
@@ -17,17 +18,28 @@ class CustomCachedImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.network(
-      imageUrl,
+    return CachedNetworkImage(
+      imageUrl: imageUrl,
       height: height,
       width: width,
       color: Colors.transparent,
       fit: BoxFit.fill,
-      errorBuilder: (ctx, _, __) => Image.asset(
+      errorWidget: (ctx, _, __) => Image.asset(
         defaultImage,
         height: height,
         width: width,
         fit: BoxFit.fill,
+      ),
+      placeholder: (_, __) => Center(
+        child: SizedBox(
+          height: height / 3,
+          width: height / 3,
+          child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation(
+              Theme.of(context).colorScheme.tertiary,
+            ),
+          ),
+        ),
       ),
     );
   }
