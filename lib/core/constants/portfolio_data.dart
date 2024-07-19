@@ -100,7 +100,7 @@ final List<ExperienceModel> experienceList = [
     role: 'Senior Software Developer',
     organization: 'PracticeBuzz',
     from: DateTime(2023, DateTime.june),
-    to: DateTime(2300, DateTime.june),
+    to: DateTime(2024, DateTime.july),
     shortDescription: '🎨 Crafted captivating cross-platform Flutter apps, '
         'sprinkling them with a touch of magic to enchant users and boost '
         'engagement by 30%\n\n💻 Masterminded custom APIs with Node.js and '
