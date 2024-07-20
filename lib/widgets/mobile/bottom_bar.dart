@@ -39,7 +39,7 @@ class CustomBottomBar extends StatelessWidget {
                   bottomBarConnection(
                     context,
                     asset: location,
-                    text: 'Navi Mumbai',
+                    text: 'Chapel Hill, NC, USA',
                     onTap: () {},
                   ),
                   Gap(10.sp),
