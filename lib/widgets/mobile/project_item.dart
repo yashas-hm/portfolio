@@ -57,6 +57,7 @@ class _ProjectItemState extends State<ProjectItem> {
           children: [
             CustomCachedImage(
               height: height / 2.3,
+              width: double.infinity,
               imageUrl: widget.project.image,
             ),
             Gap(5.sp),
