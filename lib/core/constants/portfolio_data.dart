@@ -138,8 +138,8 @@ final List<ExperienceModel> experienceList = [
   ),
   ExperienceModel(
     identifier: 'internships',
-    role: 'Developer Intern',
-    organization: 'Internships',
+    role: 'Software Developer',
+    organization: 'Internships & Freelancing',
     from: DateTime(2019, DateTime.august),
     to: DateTime(2023, DateTime.may),
     shortDescription: '🌟 Dabbled in over 7 internships, wearing hats as a '
