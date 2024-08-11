@@ -50,6 +50,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   @override
+  void dispose() {
+    final listener = ref.read(positionListenerProvider);
+    listener.itemPositions.removeListener((){});
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final controller = ref.read(scrollControllerProvider.notifier);
     final listener = ref.read(positionListenerProvider.notifier);

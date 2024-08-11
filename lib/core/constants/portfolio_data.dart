@@ -32,7 +32,8 @@ const List<String> navItems = [
   'About Me',
   'Experience',
   'Projects',
-  'Contact Me'
+  'Contact Me',
+  'Resume',
 ];
 
 const Map<String, Map<String, String>> skills = {

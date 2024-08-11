@@ -25,6 +25,7 @@ class CustomScaffold extends ConsumerWidget {
     return AdvancedDrawer(
       controller: advancedDrawerController,
       animationDuration: 600.milliseconds,
+      backdropColor: Theme.of(context).colorScheme.secondary,
       animationCurve: Curves.easeInOut,
       drawer: NavItem(
         advancedDrawerController: advancedDrawerController,

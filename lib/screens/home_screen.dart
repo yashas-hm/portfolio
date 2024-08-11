@@ -5,7 +5,7 @@ import 'package:portfolio/screens/mobile/home_screen.dart' as mobile;
 import 'package:portfolio/widgets/custom_scaffold.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

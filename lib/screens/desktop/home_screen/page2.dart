@@ -53,6 +53,12 @@ class _Page2State extends ConsumerState<Page2>
   }
 
   @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     bool hovering = false;
 
