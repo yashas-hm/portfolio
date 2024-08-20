@@ -42,7 +42,7 @@ const String instaLink = 'https://www.instagram.com/yashas_hm';
 const String githubLink = 'https://github.com/yashas-hm';
 
 const String resumeLink =
-    'https://drive.google.com/file/d/1n49puLg8MZWGxgh3d-3ICYje5BjG3Ff-/view?usp=sharing';
+    'https://drive.google.com/file/d/1voaQTW5d0dcaCp6ygsOjYlfjHYYR6m1O/view?usp=sharing';
 
 // Skills
 // Front-End
