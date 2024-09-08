@@ -181,7 +181,7 @@ final List<ExperienceModel> experienceList = [
     role: 'Flutter Game Developer Intern',
     organization: 'Grahnumb',
     from: DateTime(2023, DateTime.february),
-    to: DateTime(2022, DateTime.march),
+    to: DateTime(2023, DateTime.march),
     shortDescription: 'Spearheaded the development of a visually stunning '
         'Flutter Flame games, boosting user engagement by 20% and enhancing '
         'interactivity with immersive visuals and gameplay experiences. 🎮🚀'
