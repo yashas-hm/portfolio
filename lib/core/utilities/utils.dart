@@ -16,7 +16,6 @@ import 'package:portfolio/screens/experience_screen.dart';
 import 'package:portfolio/screens/home_screen.dart';
 import 'package:portfolio/screens/project_screen.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 void indexCheck(int index, WidgetRef ref) {
   final currentIndex = ref.read(currentIndexProvider.notifier);
@@ -133,9 +132,6 @@ Route<dynamic> routeBuilder(RouteSettings settings) {
       return pageRouteBuilder(const ProjectScreen(), settings);
     case contactMeRoute:
       return pageRouteBuilder(const ContactScreen(), settings);
-    case resumeRoute:
-      launchUrlString(resumeLink);
-      return pageRouteBuilder(const HomeScreen(), settings);
     default:
       return pageRouteBuilder(const HomeScreen(), settings);
   }
