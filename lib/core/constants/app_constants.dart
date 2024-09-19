@@ -20,6 +20,8 @@ const String projectsRoute = '/projects';
 
 const String contactMeRoute = '/contactMe';
 
+const String resumeRoute = '/resume';
+
 // Images
 const String avatar = 'assets/images/avatar.svg';
 
