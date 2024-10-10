@@ -300,6 +300,51 @@ final List<ExperienceModel> experienceList = [
 //INFO: Projects
 final List<ProjectModel> projectsList = [
   ProjectModel(
+    identifier: 'copter-war',
+    name: 'Copter War',
+    link: 'https://github.com/yashas-hm/copter-war',
+    image: 'https://yashashm.sirv.com/portfolio/copterWar.gif',
+    skills: [
+      'JavaScript',
+    ],
+    longDescription: '',
+    shortDescription: 'Copter War is a fast-paced 2D arcade game where you '
+        'navigate a helicopter, dodge obstacles, and shoot enemies to survive.',
+    codeAvailable: true,
+  ),
+  ProjectModel(
+    identifier: 'med-tourism-co',
+    name: 'MedTourism Co.',
+    link:
+        'https://github.com/yashas-hm/just-documentation/blob/main/MedTourismCo/MedTourismCo.md',
+    image: 'https://yashashm.sirv.com/portfolio/mtc.png',
+    skills: [
+      'Flutter',
+      'Node.js',
+      'JavaScript',
+      'TypeScript',
+      'MariaDB',
+      'Python',
+    ],
+    longDescription: '🔍 Search Clinics: Easily find the best dental and '
+        'medical clinics based on location and procedure.\n\n💬 Community '
+        'Forum: Engage with a community by asking questions, sharing '
+        'experiences, and commenting on medical blogs.\n\n📚 Medical Blogs: '
+        'Stay informed with well-researched medical blogs that offer insights '
+        'into procedures, treatments, and healthcare trends.\n\n🍎 Calorie, '
+        'Activity, and Macronutrient Tracker: Maintain your health goals with '
+        'a detailed tracker that monitors your daily caloric intake, physical '
+        'activity, and macronutrients\n\n🍽️ Meal Planner and Recipes: Plan '
+        'nutritious meals effortlessly with a built-in meal planner and '
+        'discover a variety of healthy recipes complete with macronutrient '
+        'breakdowns\n\n💬 Zoho Chat Integration: Get real-time support from '
+        'operators via integrated chat functionality for instant assistance.',
+    shortDescription: 'A comprehensive medical tourism app offering clinic '
+        'search, community forums, health tracking, meal planning, and '
+        'real-time support.',
+    codeAvailable: false,
+  ),
+  ProjectModel(
     identifier: 'dentavacation',
     name: 'DentaVacation',
     shortDescription: 'Innovative Flutter app revolutionizing dental care.',
@@ -325,10 +370,10 @@ final List<ProjectModel> projectsList = [
     skills: [
       'Flutter',
       'Node.js',
-      'Express.js',
+      'JavaScript',
+      'TypeScript',
       'SQL',
       'Python',
-      'Cloud',
     ],
   ),
   ProjectModel(
@@ -369,6 +414,20 @@ final List<ProjectModel> projectsList = [
     codeAvailable: true,
   ),
   ProjectModel(
+    identifier: 'day-night-switcher',
+    name: 'Day Night Switch',
+    link: 'https://github.com/yashas-hm/day-night-themed-switcher',
+    image: 'https://yashashm.sirv.com/portfolio/dayNightSwitcher.gif',
+    skills: [
+      'Flutter',
+      'Animations',
+    ],
+    longDescription: '',
+    shortDescription:
+        'A customizable Flutter widget for toggling between day and night '
+        'themes with smooth transitions and easy integration.',
+  ),
+  ProjectModel(
     identifier: 'glow-app-bar',
     name: 'Glow App Bar',
     shortDescription:
@@ -381,7 +440,19 @@ final List<ProjectModel> projectsList = [
       'Flutter',
       'Animations',
     ],
-    codeAvailable: false,
+  ),
+  ProjectModel(
+    identifier: 'direct-message',
+    name: 'Direct Message',
+    link:
+        'https://play.google.com/store/apps/details?id=dev.yashashm.directmessage',
+    image: 'https://yashashm.sirv.com/portfolio/directMessage.png',
+    skills: [
+      'Flutter',
+    ],
+    longDescription: '',
+    shortDescription: 'Direct Message lets you send WhatsApp messages to any '
+        'number without saving the contact, instantly and effortlessly.',
   ),
   ProjectModel(
     identifier: 'auto-whatsapp',
@@ -409,6 +480,7 @@ final List<ProjectModel> projectsList = [
       'Iot',
       'Arduino',
       'AR',
+      'C++',
     ],
     codeAvailable: true,
   ),
@@ -460,7 +532,11 @@ final List<ProjectModel> projectsList = [
     longDescription: '',
     link: 'https://github.com/yashas-hm/Arduino-MIDI-Drums',
     image: 'https://yashashm.sirv.com/portfolio/drums.png',
-    skills: ['IoT', 'Arduino'],
+    skills: [
+      'IoT',
+      'Arduino',
+      'C++',
+    ],
     codeAvailable: true,
   ),
 ];
