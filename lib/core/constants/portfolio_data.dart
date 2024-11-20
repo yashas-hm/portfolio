@@ -97,6 +97,23 @@ const Map<String, Map<String, String>> skills = {
 //INFO: Experience
 final List<ExperienceModel> experienceList = [
   ExperienceModel(
+    identifier: 'unc-e',
+    role: 'Software Developer Engineer - Game',
+    organization: 'UNC Eshleman School of Pharmacy',
+    from: DateTime(2024, DateTime.november),
+    to: null,
+    shortDescription: '🚀 Engineered and launched a custom game engine, '
+        'reducing load times by 30% and enhancing seamless gameplay 🎮.\n\n'
+        '📊 Introduced analytics to track user performance, boosting training '
+        'effectiveness by 25% 📈 and aiding educators with actionable insights'
+        ' 🧑‍🏫✨.',
+    longDescription: '',
+    skills: [
+      'Flutter',
+      'UI/UX',
+    ],
+  ),
+  ExperienceModel(
     identifier: 'pb',
     role: 'Senior Software Developer',
     organization: 'PracticeBuzz',

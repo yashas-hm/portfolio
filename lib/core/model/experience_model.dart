@@ -4,7 +4,7 @@ class ExperienceModel extends BaseModel {
   final String role;
   final String organization;
   final DateTime from;
-  final DateTime to;
+  final DateTime? to;
   final String shortDescription;
   final String longDescription;
   final List<String> skills;

@@ -72,8 +72,12 @@ bool isDarkMode(ThemeMode themeMode) {
 
 String getTimeLine(ExperienceModel model) {
   final from = DateFormat('MMMM yyyy').format(model.from);
-  final to = DateFormat('MMMM yyyy').format(model.to);
-  final present = model.to.isAfter(DateTime.now());
+
+  String to = '';
+  final present = model.to == null;
+  if (!present) {
+    to = DateFormat('MMMM yyyy').format(model.to!);
+  }
   return '$from — ${present ? 'Present' : to}';
 }
 
