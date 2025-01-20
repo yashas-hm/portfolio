@@ -317,6 +317,36 @@ final List<ExperienceModel> experienceList = [
 //INFO: Projects
 final List<ProjectModel> projectsList = [
   ProjectModel(
+    identifier: 'henchman',
+    name: 'Henchman',
+    link: 'https://github.com/yashas-hm/henchman',
+    image: 'https://yashashm.sirv.com/portfolio/henchman.png',
+    skills: [
+      'JavaScript',
+      'Bash',
+    ],
+    codeAvailable: true,
+    longDescription: '',
+    shortDescription: 'Henchman CLI is an all-in-one, interactive command-line '
+        'tool designed to simplify the creation, setup, and management of '
+        'development projects.',
+  ),
+  ProjectModel(
+    identifier: 'illness-lab',
+    name: 'Illness Lab',
+    link: 'https://yashas-hm-unc.github.io/illness-lab-website/',
+    image: 'https://yashashm.sirv.com/portfolio/illnessLab.png',
+    skills: [
+      'Flutter',
+      'Game',
+    ],
+    codeAvailable: false,
+    longDescription: '',
+    shortDescription: 'A virtual escape room game to teach medical residents '
+        'disease detection, starting with diabetes, combining interactive '
+        'learning with problem-solving to enhance diagnostic skills.',
+  ),
+  ProjectModel(
     identifier: 'copter-war',
     name: 'Copter War',
     link: 'https://github.com/yashas-hm/copter-war',
