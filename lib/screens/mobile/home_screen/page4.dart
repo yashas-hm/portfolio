@@ -21,10 +21,10 @@ class Page4 extends ConsumerStatefulWidget {
 class _Page4State extends ConsumerState<Page4>
     with SingleTickerProviderStateMixin {
   final List<ProjectModel> projects = [
-    projectsList.getByIdentifier('dentavacation'),
-    projectsList.getByIdentifier('spotter'),
+    projectsList.getByIdentifier('henchman'),
+    projectsList.getByIdentifier('illness-lab'),
+    projectsList.getByIdentifier('med-tourism-co'),
     projectsList.getByIdentifier('asl'),
-    projectsList.getByIdentifier('glow-app-bar'),
   ];
   late final AnimationController animationController;
 

@@ -29,9 +29,9 @@ class _Page4State extends ConsumerState<Page4>
   @override
   void initState() {
     projects = [
-      projectsList.getByIdentifier('dentavacation'),
-      projectsList.getByIdentifier('spotter'),
-      projectsList.getByIdentifier('asl'),
+      projectsList.getByIdentifier('henchman'),
+      projectsList.getByIdentifier('illness-lab'),
+      projectsList.getByIdentifier('med-tourism-co'),
     ];
 
     duration = projects.length * 200.0;
