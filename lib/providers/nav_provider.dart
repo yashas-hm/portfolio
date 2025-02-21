@@ -20,7 +20,7 @@ void updateIndex(
   final controller = ref.read(scrollControllerProvider);
   final pageIndex = ref.read(pageIndexProvider.notifier);
 
-  if(index==navItems.length-1){
+  if (index == navItems.length - 1) {
     launchUrl(Uri.parse(resumeLink));
     return;
   }

@@ -49,9 +49,10 @@ class _Page3State extends ConsumerState<Page3>
 
       if (item != null &&
           item.itemLeadingEdge <= 0.7 &&
-          !animationController.isAnimating&& mounted) {
+          !animationController.isAnimating &&
+          mounted) {
         animationController.forward();
-      } else if (item != null && item.itemLeadingEdge > 0.7&& mounted) {
+      } else if (item != null && item.itemLeadingEdge > 0.7 && mounted) {
         animationController.reverse();
       }
     });

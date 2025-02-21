@@ -4,6 +4,17 @@ import 'package:portfolio/core/model/experience_model.dart';
 import 'package:portfolio/core/model/project_model.dart';
 import 'package:portfolio/core/model/testimonial_model.dart';
 
+const String linkedinLink = 'https://www.linkedin.com/in/yashashm';
+
+const String emailId = 'yashashm.dev@gmail.com';
+
+const String instaLink = 'https://www.instagram.com/yashas_hm';
+
+const String githubLink = 'https://github.com/yashas-hm';
+
+const String resumeLink =
+    'https://drive.google.com/file/d/1CGrLjIjB6i2rJtm3QsTKLaF5Xz32l7hI/view?usp=sharing';
+
 const String aboutBrief = '👨🏻‍💻 Experienced developer extraordinaire '
     'here! 💼 With a knack for crafting robust solutions and coding wizardry,'
     ' I\'m your go-to guy for turning ideas into reality. 🛠️ With a proven '

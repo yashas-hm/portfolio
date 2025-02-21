@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_constants.dart';
 import 'package:portfolio/core/constants/color_constants.dart';
+import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/utilities/utils.dart';
 import 'package:portfolio/providers/ui_provider.dart';
@@ -31,7 +32,6 @@ class _HomeNameState extends ConsumerState<HomeName> {
 
   @override
   Widget build(BuildContext context) {
-
     final themeMode = ref.watch(themeModeProvider);
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {

@@ -34,19 +34,6 @@ const String defaultImage = 'assets/images/default.jpg';
 // Shared Preferences
 const String darkMode = 'darkMode';
 
-// Connection Links
-const String linkedinLink = 'https://www.linkedin.com/in/yashashm';
-
-const String emailId = 'yashashm.dev@gmail.com';
-
-const String instaLink = 'https://www.instagram.com/yashas_hm';
-
-const String githubLink = 'https://github.com/yashas-hm';
-
-const String resumeLink =
-    'https://drive.google.com/file/d/1inrmjduEbUJ1woVlePSLCKaHZTbJDso8/view?usp=sharing';
-
-// Skills
 // Front-End
 const String flutter = 'assets/logo/flutter.svg';
 
