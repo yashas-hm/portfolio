@@ -13,7 +13,7 @@ const String instaLink = 'https://www.instagram.com/yashas_hm';
 const String githubLink = 'https://github.com/yashas-hm';
 
 const String resumeLink =
-    'https://drive.google.com/file/d/1CGrLjIjB6i2rJtm3QsTKLaF5Xz32l7hI/view?usp=sharing';
+    'https://drive.google.com/file/d/1UxR96x52o_3eDDiWk2J5Y_AJUU0ljkwq/view?usp=sharing';
 
 const String aboutBrief = '👨🏻‍💻 Experienced developer extraordinaire '
     'here! 💼 With a knack for crafting robust solutions and coding wizardry,'
