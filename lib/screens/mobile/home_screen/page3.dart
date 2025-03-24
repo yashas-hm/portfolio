@@ -167,7 +167,7 @@ class _Page3State extends ConsumerState<Page3>
                           color: Theme.of(context)
                               .colorScheme
                               .tertiary
-                              .withOpacity(0.5),
+                              .withValues(alpha:0.5),
                           fontStyle: FontStyle.italic,
                           fontFamily: 'space_grotesk',
                         ),

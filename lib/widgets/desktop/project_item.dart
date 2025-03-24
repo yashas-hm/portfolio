@@ -7,7 +7,7 @@ import 'package:portfolio/core/model/project_model.dart';
 import 'package:portfolio/core/utilities/dialog_utils.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/widgets/custom_cached_image.dart';
-import 'package:portfolio/widgets/desktop/skill_chips.dart';
+import 'package:portfolio/widgets/skill_chips.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 

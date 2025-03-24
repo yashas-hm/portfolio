@@ -44,6 +44,8 @@ const String react = 'assets/logo/react.svg';
 const String html = 'assets/logo/html.svg';
 
 // Back-End
+const String fastapi = 'assets/logo/fastapi.svg';
+
 const String nodeJs = 'assets/logo/node.svg';
 
 const String expressJs = 'assets/logo/express.svg';
@@ -102,13 +104,17 @@ const String typescript = 'assets/logo/typescript.svg';
 const String rust = 'assets/logo/rust.svg';
 
 // Machine Learning
+const String ollama = 'assets/logo/ollama.svg';
+
+const String vertexai = 'assets/logo/vertexai.svg';
+
+const String huggingface = 'assets/logo/hf.svg';
+
+const String langchain = 'assets/logo/lc.svg';
+
 const String opencv = 'assets/logo/opencv.svg';
 
 const String tensorFlow = 'assets/logo/tf.svg';
-
-const String numPy = 'assets/logo/np.svg';
-
-const String pd = 'assets/logo/pd.svg';
 
 // IoT
 const String arduino = 'assets/logo/arduino.svg';

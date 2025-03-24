@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:resize/resize.dart';
 
 class SkillChips extends StatelessWidget {
@@ -17,18 +18,18 @@ class SkillChips extends StatelessWidget {
       skillsChildren.add(
         Container(
           padding: EdgeInsets.symmetric(
-            horizontal: 5.sp,
-            vertical: 2.sp,
+            horizontal: context.isMobile ? 5.sp : 8.sp,
+            vertical: context.isMobile ? 2.sp : 3.sp,
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.sp),
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
           ),
           child: Text(
             skill,
             maxLines: 1,
             style: TextStyle(
-              fontSize: 10.sp,
+              fontSize: context.isMobile ? 10.sp : 14.sp,
               color: Theme.of(context).colorScheme.primary,
             ),
           ),
@@ -37,8 +38,8 @@ class SkillChips extends StatelessWidget {
     }
 
     return Wrap(
-      runSpacing: 3.sp,
-      spacing: 3.sp,
+      runSpacing: context.isMobile ? 3.sp : 5.sp,
+      spacing: context.isMobile ? 3.sp : 5.sp,
       alignment: WrapAlignment.center,
       runAlignment: WrapAlignment.start,
       children: skillsChildren,

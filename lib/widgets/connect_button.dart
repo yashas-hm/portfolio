@@ -5,12 +5,12 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 class SocialButton extends StatelessWidget {
   const SocialButton({
-    Key? key,
+    super.key,
     required this.icon,
     required this.link,
     this.size,
     this.color,
-  }) : super(key: key);
+  });
 
   final String icon;
 

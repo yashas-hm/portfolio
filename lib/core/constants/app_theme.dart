@@ -35,7 +35,7 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
         tertiary: lightText,
       ),
       textSelectionTheme: TextSelectionThemeData(
-        selectionHandleColor: lightPrimary.withOpacity(0.3),
+        selectionHandleColor: lightPrimary.withValues(alpha:0.3),
       ),
     );
 
@@ -72,6 +72,6 @@ ThemeData darkTheme(BuildContext context) => ThemeData(
         tertiary: darkText,
       ),
       textSelectionTheme: TextSelectionThemeData(
-        selectionHandleColor: darkPrimary.withOpacity(0.3),
+        selectionHandleColor: darkPrimary.withValues(alpha:0.3),
       ),
     );

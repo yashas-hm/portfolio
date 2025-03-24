@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
+import 'package:portfolio/core/utilities/utils.dart';
 import 'package:resize/resize.dart';
 
 class SkillBox extends StatefulWidget {
@@ -111,7 +112,7 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
               color: Theme.of(context).scaffoldBackgroundColor,
               borderRadius: BorderRadius.circular(8.sp),
               border: Border.all(
-                color: Theme.of(context).colorScheme.tertiary.withOpacity(0.5),
+                color: Theme.of(context).colorScheme.tertiary.withValues(alpha:0.5),
                 width: 1.sp,
               ),
             ),
@@ -129,7 +130,7 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
                     data[skill]!,
                     height: 15.sp,
                     width: 15.sp,
-                    colorFilter: filterAccToThemeIfNeeded(skill),
+                    colorFilter: filterAccToThemeIfNeeded(context, skill),
                   ),
                 Gap(5.sp),
                 Text(
@@ -149,16 +150,5 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
     }
 
     return chips;
-  }
-
-  ColorFilter? filterAccToThemeIfNeeded(String skill) {
-    if (skill == 'Express.js' || skill == 'Actions') {
-      return ColorFilter.mode(
-        Theme.of(context).colorScheme.tertiary,
-        BlendMode.srcIn,
-      );
-    }
-
-    return null;
   }
 }

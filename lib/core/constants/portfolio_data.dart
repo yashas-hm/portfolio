@@ -46,7 +46,24 @@ const List<String> navItems = [
   'Resume',
 ];
 
+const List<String> colorOverrideOnTag =[
+  'Express.js',
+  'Actions',
+  'LangChain', 
+  'Ollama'
+];
+
 const Map<String, Map<String, String>> skills = {
+  'Languages': {
+    'Dart': dart,
+    'Python': python,
+    'JAVA': java,
+    'JavaScript': js,
+    'TypeScript': typescript,
+    'Bash': bash,
+    'C++': cpp,
+    'Rust': rust,
+  },
   'Front-End': {
     'Flutter': flutter,
     'React': react,
@@ -54,6 +71,7 @@ const Map<String, Map<String, String>> skills = {
     'CSS': css,
   },
   'Back-End': {
+    'FastAPI': fastapi,
     'Node.js': nodeJs,
     'Express.js': expressJs,
     'NGINX': nginx,
@@ -70,28 +88,20 @@ const Map<String, Map<String, String>> skills = {
     'Git': git,
     'Docker': docker,
     'Kubernetes': kubernetes,
-    'Jenkins': jenkins,
-    'Ansible': ansible,
     'Actions': githubActions,
-    'Prometheus': prometheus,
+    'Jenkins': jenkins,
+    // 'Ansible': ansible,
+    // 'Prometheus': prometheus,
   },
-  'Languages': {
-    'Dart': dart,
-    'Python': python,
-    'JAVA': java,
-    'JavaScript': js,
-    'TypeScript': typescript,
-    'Bash': bash,
-    'C++': cpp,
-    'Rust': rust,
-  },
-  'Machine Learning': {
-    'NumPy': numPy,
+  'ML/AI': {
+    'Ollama': ollama,
+    'HuggingFace': huggingface,
+    'LangChain': langchain,
     'OpenCV': opencv,
     'TensorFlow': tensorFlow,
-    'Pandas': pd,
+    'LLM': ''
   },
-  'Others': {
+  'Cloud & Tools': {
     'GCP': gcp,
     'AWS': aws,
     'Jira': jira,

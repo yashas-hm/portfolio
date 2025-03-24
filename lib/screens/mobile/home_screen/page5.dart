@@ -50,7 +50,7 @@ class _Page5State extends State<Page5> {
                 hintText: 'Ready for a witty email exchange?',
                 hintStyle: TextStyle(
                   color:
-                      Theme.of(context).colorScheme.tertiary.withOpacity(0.5),
+                      Theme.of(context).colorScheme.tertiary.withValues(alpha:0.5),
                   fontSize: 12.sp,
                 ),
                 counterText: '',
@@ -107,7 +107,7 @@ class _Page5State extends State<Page5> {
                     'Let\'s give your keyboard a workout. What\'s on your mind?',
                 hintStyle: TextStyle(
                   color:
-                      Theme.of(context).colorScheme.tertiary.withOpacity(0.5),
+                      Theme.of(context).colorScheme.tertiary.withValues(alpha:0.5),
                   fontSize: 12.sp,
                 ),
                 counterText: '',

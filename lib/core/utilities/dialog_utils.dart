@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
-import 'package:portfolio/widgets/desktop/skill_chips.dart' as desktop;
-import 'package:portfolio/widgets/mobile/skill_chips.dart' as mobile;
+import 'package:portfolio/widgets/skill_chips.dart';
 import 'package:resize/resize.dart';
 
 void showMore({
@@ -66,7 +65,7 @@ void showMoreDesktop({
                   ),
                 ),
                 Gap(15.sp),
-                desktop.SkillChips(skills: skills),
+                SkillChips(skills: skills),
               ],
             ),
           ),
@@ -130,7 +129,7 @@ void showMoreMobile({
                   ),
                 ),
                 Gap(15.sp),
-                mobile.SkillChips(skills: skills),
+                SkillChips(skills: skills),
               ],
             ),
           ),
@@ -157,7 +156,7 @@ void showToast(BuildContext ctx, String text) {
                 maxWidth: ctx.width / 2.5,
               ),
               height: 40.sp,
-              color: Colors.white.withOpacity(0.05),
+              color: Colors.white.withValues(alpha:0.05),
             ),
           ),
         ),
