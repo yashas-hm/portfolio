@@ -37,13 +37,13 @@ class Page1 extends StatelessWidget {
   List<Widget> buildChildren() {
     final list = <Widget>[];
     final skills = [
+      'Languages',
       'Front-End',
       'Back-End',
       'Database',
+      'ML/AI',
       'DevOps',
-      'Machine Learning',
-      'Languages',
-      'Others',
+      'Cloud & Tools',
       'IoT',
     ];
 

@@ -99,7 +99,7 @@ const Map<String, Map<String, String>> skills = {
     'LangChain': langchain,
     'OpenCV': opencv,
     'TensorFlow': tensorFlow,
-    'LLM': ''
+    'LLMs': ''
   },
   'Cloud & Tools': {
     'GCP': gcp,

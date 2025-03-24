@@ -65,37 +65,37 @@ class _Page1State extends State<Page1> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final skills = [
       skillBox(
-        'Front-End',
+        'Languages',
         xAxis: false,
+        reverseDirection: true,
+      ),
+      skillBox(
+        'Front-End',
+        xAxis: true,
         reverseDirection: true,
       ),
       skillBox(
         'Back-End',
         xAxis: true,
-        reverseDirection: true,
+        reverseDirection: false,
       ),
       skillBox(
         'Database',
-        xAxis: true,
+        xAxis: false,
+        reverseDirection: true,
+      ),
+      skillBox(
+        'ML/AI',
+        xAxis: false,
         reverseDirection: false,
       ),
       skillBox(
         'DevOps',
-        xAxis: false,
-        reverseDirection: true,
-      ),
-      skillBox(
-        'Machine Learning',
-        xAxis: false,
-        reverseDirection: false,
-      ),
-      skillBox(
-        'Languages',
         xAxis: true,
         reverseDirection: true,
       ),
       skillBox(
-        'Others',
+        'Cloud & Tools',
         xAxis: true,
         reverseDirection: false,
       ),
