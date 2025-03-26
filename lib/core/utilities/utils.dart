@@ -102,7 +102,7 @@ Future<(bool, String)> sendMessage({
     log(err.toString());
     return (
       false,
-      'Communication hiccup! Unexpected error encountered. Retry later, please!',
+      'Communication hiccup! Unexpected error encountered. Retry later, please!!!',
     );
   }
 }

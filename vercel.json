@@ -9,7 +9,7 @@
       "dest": "/api/routes/mailer.js",
       "headers": {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "https://yashashm.dev/*",
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Headers": "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,locale",
         "Access-Control-Allow-Methods": "POST, OPTIONS, GET"
@@ -24,7 +24,7 @@
       "dest": "/api/routes/llm_prompt.js",
       "headers": {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "https://yashashm.dev/*",
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Headers": "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,locale",
         "Access-Control-Allow-Methods": "POST, OPTIONS, GET"
