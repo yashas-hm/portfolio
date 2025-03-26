@@ -6,9 +6,12 @@ on:
       - master
     paths:
       - 'lib/**'
+      - 'api/**'
       - 'web/**'
       - '.github/workflows/**'
       - 'pubspec.yaml'
+      - 'vercel.json'
+      - '.vercelignore'
   workflow_dispatch:
 
 jobs:
