@@ -32,7 +32,7 @@ module.exports = async (req, res) => {
                     'text': requestBody['message'],
                 },
                 'Subject': 'New message from Website',
-                'TemplateID': process.env.YHM_TEMPLATE,
+                'TemplateID': parseInt(process.env.YHM_TEMPLATE),
                 'TemplateLanguage': true,
             },
             {
@@ -42,7 +42,7 @@ module.exports = async (req, res) => {
                     }
                 ],
                 'Subject': 'Thank you for reaching out!',
-                'TemplateID': process.env.SENDER_TEMPLATE,
+                'TemplateID': parseInt(process.env.SENDER_TEMPLATE),
                 'TemplateLanguage': true,
             }
         ]
