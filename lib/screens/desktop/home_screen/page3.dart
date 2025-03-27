@@ -139,7 +139,7 @@ class _Page3State extends ConsumerState<Page3>
       list.add(ExperienceItem(
         experience: experiences[index],
         begin: sum,
-        end: interval,
+        end: sum + interval,
         reverse: index % 2 != 0,
         animationController: animationController,
       ));
@@ -206,7 +206,7 @@ class _Page3State extends ConsumerState<Page3>
                           color: Theme.of(context)
                               .colorScheme
                               .tertiary
-                              .withValues(alpha:0.5),
+                              .withValues(alpha: 0.5),
                           fontStyle: FontStyle.italic,
                           fontFamily: 'space_grotesk',
                         ),
