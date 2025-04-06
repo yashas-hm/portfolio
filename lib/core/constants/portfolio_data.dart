@@ -68,7 +68,7 @@ const Map<String, Map<String, String>> skills = {
     'TypeScript': typescript,
     'Bash': bash,
     'C++': cpp,
-    'Rust': rust,
+    // 'Rust': rust,
   },
   'Front-End': {
     'Flutter': flutter,
