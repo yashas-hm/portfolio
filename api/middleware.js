@@ -1,4 +1,4 @@
-function check_origin(req, res) {
+function check_origin(req) {
     const allowedOrigin = 'https://yashashm.dev';
     const origin = req.headers.origin;
     return (origin && origin === allowedOrigin);

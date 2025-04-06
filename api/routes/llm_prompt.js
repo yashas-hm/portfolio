@@ -2,7 +2,7 @@ const check_origin = require("../middleware");
 require('dotenv').config({path: `${__dirname}/../.env`});
 
 module.exports = async (req, res) => {
-    if(!check_origin()){
+    if(!check_origin(req)){
         return res.status(403).json({ message: 'Forbidden' });
     }
     
