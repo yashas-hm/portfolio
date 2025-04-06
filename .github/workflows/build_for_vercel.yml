@@ -65,11 +65,11 @@ jobs:
         run: |
           git config --global user.email yashashm.dev@gmail.com
           git config --global user.name yashas-hm
-          git clone https://$PAT@github.com/${{ github.repository }}.git
+          git clone https://$PAT@github.com/yashas-hm/vercel-portfolio-website.git
           cp -rf vercel-portfolio-website/. .
           rm -r vercel-portfolio-website/
           git remote remove origin
-          git remote add origin https://$PAT@github.com/${{ github.repository }}.git
+          git remote add origin https://$PAT@github.com/yashas-hm/vercel-portfolio-website.git
           cd ..
 
       - name: Get Build Artifact
