@@ -15,27 +15,33 @@ const String githubLink = 'https://github.com/yashas-hm';
 const String resumeLink =
     'https://drive.google.com/file/d/1AQldheq0E2W0l3Cr8N2LkstXBG5Hf2U_/view?usp=sharing';
 
-const String aboutBrief = '👨🏻‍💻 Experienced developer extraordinaire '
-    'here! 💼 With a knack for crafting robust solutions and coding wizardry,'
-    ' I\'m your go-to guy for turning ideas into reality. 🛠️ With a proven '
-    'track record of success in diverse projects, I thrive on challenges and '
-    'constantly seek opportunities to innovate and push boundaries. 🧙🏻‍♂️ My '
-    'dedication to excellence, coupled with a passion for learning and growth'
-    ', allows me to adapt swiftly to new technologies and deliver exceptional'
-    ' results. 🌟 I\'m committed to leveraging my skills and experience to'
-    ' drive meaningful impact and contribute to the success of every project'
-    ' I undertake. 🚀 Let\'s collaborate and create something truly magical'
-    ' together! ✨';
+const String aboutBrief = '👨🏻‍💻 Full Stack Software Developer & Digital '
+    'Craftsman at your service! 🚀 From crafting elegant user interfaces to '
+    'engineering rock-solid backend systems, I bring end-to-end software '
+    'solutions to life. 🛠️ Whether it\'s cross-platform mobile apps with '
+    'Flutter, intelligent web platforms powered by Node.js and FastAPI, or '
+    'AI-enhanced tools using Python and LangChain ; I thrive on building '
+    'impactful, scalable, and future-ready software. 💡 Skilled in Dart, '
+    'JavaScript, TypeScript, Python, Java, and more, I tackle every challenge '
+    'with precision and creativity. Databases? From PostgreSQL to ChromaDB, I '
+    'navigate data like a pro. ☁️ And with tools like Docker, Kubernetes, and '
+    'GitHub Actions, I keep the DevOps engine running smoothly. ⚙️ Driven by '
+    'curiosity, a love for clean code, and the desire to make a real impact, '
+    'I’m here to turn bold ideas into brilliant reality. ✨ Let\'s collaborate'
+    ' and create something truly magical';
 
 const String about =
-    "🚀 I'm the Maestro of Code at <b>Practice Buzz!</b><br><br>"
-    "🌐 As a Software Sorcerer, I craft enchanting cross-platform apps that dance seamlessly between devices using <b>Flutter</b> and <b>Dart</b>. I don't just build apps; I craft experiences that users won't forget.<br><br>🎨 Frontend arts are not lost on me. <b>HTML</b>, <b>CSS</b>, <b>Javascript</b>, <b>React</b> are my brushes, turning screens into canvases that tell compelling tales.<br><br>"
-    "💻 In the backend battlegrounds, I wield the mighty <b>Node</b> and <b>Express</b>, sculpting APIs that are more robust than a fortress, backed by the formidable powers of <b>PostgreSQL</b> or the nimble <b>MongoDB</b>. With the wisdom of cloud giants, I effortlessly navigate the realms of <b>AWS</b>, <b>Firebase</b>, and <b>Google Cloud</b>, crafting digital ecosystems that transcend ordinary boundaries.<br><br>"
-    "🐳 <b>Docker</b> is my magic potion, encapsulating my innovations into digital time capsules. When chaos reigns, I summon the <b>Kubernetes</b> forces, orchestrating containers like a symphony conductor.<br><br>"
-    "🏗️ DevOps is my realm; CI/CD is my anthem. <b>Git workflows</b>, <b>Jenkins</b>, and the rhythmic beats of version control with <b>Git</b> and the automated enchantments of <b>Ansible</b> as my trusty steeds, ensuring each line of code dances flawlessly from creation to deployment.<br><br>"
-    "🌐 Stepping into the collaborative cosmos, I am fluent in the languages of collaboration platforms — <b>Jira</b>, <b>Trello</b>, and <b>Slack</b>. I orchestrate seamless teamwork, ensuring that communication flows like a well-rehearsed melody.<br><br>"
-    "💻 From the elegance of Java to the versatility of <b>Python</b>, the dynamism of <b>Java</b> to the power of <b>C++</b>, every coding language, including the rhythmic <b>Bash</b>, is a note in my symphony. <b>GitHub</b> and <b>GitLab</b> are my arenas, where repositories thrive like digital ecosystems.<br><br>"
-    "💡 I don't just write code; I build innovative solutions that push the boundaries of what's possible. Join me on this journey, where every line of code is a stroke of genius! ⚡️";
+    "🚀 I'm the Conductor of Code and Innovation in the digital symphony!<br><br>"
+    "🌐 As a Full Stack Virtuoso, I wield both the frontend finesse and backend brilliance to create experiences that are as seamless as they are stunning. With <b>Flutter</b>, I craft cross-platform mobile marvels, while <b>JavaScript</b>, <b>TypeScript</b>, and <b>Dart</b> are my go-to tools to orchestrate interactive and immersive UIs.<br><br>"
+    "🎨 Whether it's bringing ideas to life with pixel-perfect precision on Android or animating fluid screens using <b>Kotlin</b>, <b>Swift</b>, and <b>Flutter</b>, I turn mobile dreams into reality.<br><br>"
+    "🧠 In the realm of intelligence, I delve deep into the world of <b>Machine Learning</b> and <b>AI</b>, working magic with <b>Python</b>, <b>LangChain</b>, and <b>LLMs</b> like <b>Ollama</b>. From smart assistants to insightful models, I engineer systems that think, learn, and evolve.<br><br>"
+    "🛠️ My backend toolkit includes the sharp precision of <b>FastAPI</b>, the unyielding power of <b>Node.js</b> and <b>Express.js</b>, and the art of building <b>RESTful APIs</b> that power the core of powerful applications.<br><br>"
+    "💾 Data is my muse — from the structured elegance of <b>PostgreSQL</b> and <b>MySQL</b>, to the agile flexibility of <b>MongoDB</b>, and the realtime realm of <b>Firebase</b>. I even venture into the vectorized frontier of <b>ChromaDB</b>, crafting solutions ready for the AI era.<br><br>"
+    "🐳 <b>Docker</b> ensures my environments are portable and precise, while <b>Kubernetes</b> allows me to scale and orchestrate with elegance. My CI/CD mantra flows through <b>GitHub Actions</b>, driving automation that brings code to life instantly.<br><br>"
+    "🌩️ In the clouds, I soar through <b>AWS</b> and <b>GCP</b>, architecting robust, scalable solutions with the agility of a cloud-native artisan.<br><br>"
+    "🔧 With <b>Git</b> as my trusty sidekick, version control is second nature, while collaboration tools like <b>Jira</b> keep my missions clear and collaborative.<br><br>"
+    "💡 From scripting with <b>Bash</b> to engineering with <b>C/C++</b>, from the clarity of <b>Java</b> to the precision of <b>TypeScript</b>, every language is another string on my instrument. Each project is a performance, and every line of code is a note in my digital symphony.<br><br>"
+    "🔥 I don’t just build software — I shape experiences, engineer intelligence, and lead with innovation. Join me on this epic coding quest, where technology meets artistry!";
 
 const List<String> navItems = [
   'Home',
