@@ -8,7 +8,6 @@ on:
       - 'lib/**'
       - 'api/**'
       - 'web/**'
-      - '.github/workflows/**'
       - 'pubspec.yaml'
       - 'vercel.json'
       - '.vercelignore'
@@ -62,15 +61,15 @@ jobs:
     steps:
       - name: Git Setup
         env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          PAT: ${{ secrets.ACCESS_TOKEN }}
         run: |
           git config --global user.email yashashm.dev@gmail.com
           git config --global user.name yashas-hm
-          git clone https://$ACCESS_TOKEN@github.com/yashas-hm/vercel-portfolio-website.git
+          git clone https://$PAT@github.com/${{ github.repository }}.git
           cp -rf vercel-portfolio-website/. .
           rm -r vercel-portfolio-website/
           git remote remove origin
-          git remote add origin https://$ACCESS_TOKEN@github.com/yashas-hm/vercel-portfolio-website.git
+          git remote add origin https://$PAT@github.com/${{ github.repository }}.git
           cd ..
 
       - name: Get Build Artifact
