@@ -24,7 +24,7 @@ void updateIndex(
     launchUrl(Uri.parse(resumeLink));
     return;
   } else if (index == chatIndex) {
-    pageIndex.state=index;
+    pageIndex.state = index;
     reRoute(index, context, ref);
   } else {
     if (pageIndex.state != 0 || force) {

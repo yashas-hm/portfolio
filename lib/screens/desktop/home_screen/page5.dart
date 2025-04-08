@@ -50,8 +50,10 @@ class _Page5State extends State<Page5> {
               decoration: InputDecoration(
                 hintText: 'Ready for a witty email exchange',
                 hintStyle: TextStyle(
-                  color:
-                      Theme.of(context).colorScheme.tertiary.withValues(alpha:0.5),
+                  color: Theme.of(context)
+                      .colorScheme
+                      .tertiary
+                      .withValues(alpha: 0.5),
                 ),
                 counterText: '',
                 border: OutlineInputBorder(
@@ -106,8 +108,10 @@ class _Page5State extends State<Page5> {
                 hintText:
                     'Let\'s give your keyboard a workout. What\'s on your mind?',
                 hintStyle: TextStyle(
-                  color:
-                      Theme.of(context).colorScheme.tertiary.withValues(alpha:0.5),
+                  color: Theme.of(context)
+                      .colorScheme
+                      .tertiary
+                      .withValues(alpha: 0.5),
                 ),
                 counterText: '',
                 border: OutlineInputBorder(

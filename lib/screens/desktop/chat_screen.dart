@@ -19,7 +19,7 @@ class ChatScreen extends ConsumerWidget {
     return Container(
       padding: EdgeInsets.only(bottom: 15.sp),
       height: context.height,
-      width: context.isMobile?context.width/1.2:context.width/2,
+      width: context.isMobile ? context.width / 1.2 : context.width / 2,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -32,7 +32,7 @@ class ChatScreen extends ConsumerWidget {
                 TextSpan(
                   text: 'Ask ',
                   style: TextStyle(
-                    fontSize: context.isMobile?20.sp:30.sp,
+                    fontSize: context.isMobile ? 20.sp : 30.sp,
                     fontStyle: FontStyle.italic,
                     fontWeight: FontWeight.w600,
                     color: Theme.of(context).colorScheme.tertiary,
@@ -41,7 +41,7 @@ class ChatScreen extends ConsumerWidget {
                 TextSpan(
                   text: 'Yashas',
                   style: TextStyle(
-                    fontSize: context.isMobile?20.sp:30.sp,
+                    fontSize: context.isMobile ? 20.sp : 30.sp,
                     fontWeight: FontWeight.w600,
                     color: Theme.of(context).colorScheme.tertiary,
                   ),
@@ -58,7 +58,7 @@ class ChatScreen extends ConsumerWidget {
                 children: buildChatList(
                   chats,
                   loading,
-                  context.isMobile?context.width/1.2:context.width / 2,
+                  context.isMobile ? context.width / 1.2 : context.width / 2,
                 ),
               ),
             ),
@@ -83,7 +83,7 @@ class ChatScreen extends ConsumerWidget {
                   onTap: () => sendMessage(ref),
                   child: Icon(
                     Icons.send_outlined,
-                    size: context.isMobile?15.sp:25.sp,
+                    size: context.isMobile ? 15.sp : 25.sp,
                     color: Theme.of(context).colorScheme.tertiary,
                   ),
                 ),

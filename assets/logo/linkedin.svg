@@ -1,1 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Generator: Gravit.io --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 64 64" width="64pt" height="64pt"><defs><clipPath id="_clipPath_5YOG5X601J0GZjXrzDpslMTv7epOln9W"><rect width="64" height="64"/></clipPath></defs><g clip-path="url(#_clipPath_5YOG5X601J0GZjXrzDpslMTv7epOln9W)"><path d=" M 60 0 L 4 0 C 1.791 0 0 1.791 0 4 L 0 60 C 0 62.209 1.791 64 4 64 L 60 64 C 62.209 64 64 62.209 64 60 L 64 4 C 64 1.791 62.209 0 60 0 Z  M 20 54 L 10 54 L 10 24 L 20 24 L 20 54 Z  M 15 20 C 11.686 20 9 17.314 9 14 C 9 10.686 11.686 8 15 8 C 18.314 8 21 10.686 21 14 C 21 17.314 18.314 20 15 20 Z  M 54 54 L 44 54 L 44 34 C 44 32.34 41.76 31 39 31 C 35 31 34 36.34 34 38 L 34 54 L 24 54 L 24 24 L 34 24 L 34 31 C 34 26 38.48 24 44 24 C 49.523 24 54 28.477 54 34 L 54 54 Z " fill="rgb(1,119,181)"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Generator: Gravit.io -->
+<svg xmlns="http://www.w3.org/2000/svg" style="isolation:isolate"
+     viewBox="0 0 64 64" width="64pt" height="64pt">
+    <defs>
+        <clipPath id="_clipPath_5YOG5X601J0GZjXrzDpslMTv7epOln9W">
+            <rect width="64" height="64"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#_clipPath_5YOG5X601J0GZjXrzDpslMTv7epOln9W)">
+        <path d=" M 60 0 L 4 0 C 1.791 0 0 1.791 0 4 L 0 60 C 0 62.209 1.791 64 4 64 L 60 64 C 62.209 64 64 62.209 64 60 L 64 4 C 64 1.791 62.209 0 60 0 Z  M 20 54 L 10 54 L 10 24 L 20 24 L 20 54 Z  M 15 20 C 11.686 20 9 17.314 9 14 C 9 10.686 11.686 8 15 8 C 18.314 8 21 10.686 21 14 C 21 17.314 18.314 20 15 20 Z  M 54 54 L 44 54 L 44 34 C 44 32.34 41.76 31 39 31 C 35 31 34 36.34 34 38 L 34 54 L 24 54 L 24 24 L 34 24 L 34 31 C 34 26 38.48 24 44 24 C 49.523 24 54 28.477 54 34 L 54 54 Z "
+              fill="rgb(1,119,181)"/>
+    </g>
+</svg>

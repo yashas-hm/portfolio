@@ -156,7 +156,7 @@ void showToast(BuildContext ctx, String text) {
                 maxWidth: ctx.width / 2.5,
               ),
               height: 40.sp,
-              color: Colors.white.withValues(alpha:0.05),
+              color: Colors.white.withValues(alpha: 0.05),
             ),
           ),
         ),

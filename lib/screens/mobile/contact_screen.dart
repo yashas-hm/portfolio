@@ -52,8 +52,10 @@ class _ContactScreenState extends State<ContactScreen> {
               decoration: InputDecoration(
                 hintText: 'Ready for a witty email exchange?',
                 hintStyle: TextStyle(
-                  color:
-                      Theme.of(context).colorScheme.tertiary.withValues(alpha:0.5),
+                  color: Theme.of(context)
+                      .colorScheme
+                      .tertiary
+                      .withValues(alpha: 0.5),
                   fontSize: 12.sp,
                 ),
                 counterText: '',
@@ -109,8 +111,10 @@ class _ContactScreenState extends State<ContactScreen> {
                 hintText:
                     'Let\'s give your keyboard a workout. What\'s on your mind?',
                 hintStyle: TextStyle(
-                  color:
-                      Theme.of(context).colorScheme.tertiary.withValues(alpha:0.5),
+                  color: Theme.of(context)
+                      .colorScheme
+                      .tertiary
+                      .withValues(alpha: 0.5),
                   fontSize: 12.sp,
                 ),
                 counterText: '',

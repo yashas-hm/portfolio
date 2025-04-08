@@ -35,7 +35,7 @@ class FollowMouse extends ConsumerWidget {
                   gradient: RadialGradient(
                     radius: 0.5,
                     colors: [
-                      Theme.of(context).primaryColor.withValues(alpha:0.30),
+                      Theme.of(context).primaryColor.withValues(alpha: 0.30),
                       Colors.transparent
                     ],
                   ),

@@ -3,17 +3,17 @@ const check_origin = require("../middleware");
 require('dotenv').config({path: `${__dirname}/../.env`});
 
 module.exports = async (req, res) => {
-    if(!check_origin(req)){
-        return res.status(403).json({ message: 'Forbidden' });
+    if (!check_origin(req)) {
+        return res.status(403).json({message: 'Forbidden'});
     }
-    
+
     if (req.method === 'OPTIONS') {
         res.status = 200;
         res.send('ok');
         res.end();
         return;
     }
-    
+
     const requestBody = req.body;
 
     const mailer = mailjet.apiConnect(process.env.MAILJET_USERNAME, process.env.MAILJET_PASS);

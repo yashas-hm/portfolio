@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -253,7 +252,7 @@ class _HomeNameState extends ConsumerState<HomeName> {
                               width: size.width / 1.5,
                               child: AutoSizeText(
                                 'Sure, there\'s a dazzling portfolio below; but '
-                                    'hey, wouldn’t it be easier to just ask me? 😉',
+                                'hey, wouldn’t it be easier to just ask me? 😉',
                                 style: TextStyle(
                                   fontSize: 12.sp,
                                 ),

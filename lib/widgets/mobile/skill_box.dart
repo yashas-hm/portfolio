@@ -112,7 +112,10 @@ class _SkillBoxState extends State<SkillBox> with TickerProviderStateMixin {
               color: Theme.of(context).scaffoldBackgroundColor,
               borderRadius: BorderRadius.circular(8.sp),
               border: Border.all(
-                color: Theme.of(context).colorScheme.tertiary.withValues(alpha:0.5),
+                color: Theme.of(context)
+                    .colorScheme
+                    .tertiary
+                    .withValues(alpha: 0.5),
                 width: 1.sp,
               ),
             ),

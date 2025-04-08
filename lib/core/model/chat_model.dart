@@ -1,5 +1,3 @@
-
-
 enum Role {
   ai,
   human;
@@ -15,11 +13,11 @@ class ChatModel {
   Role role;
   String message;
   bool error;
-  
+
   ChatModel({
     required this.role,
     required this.message,
-    this.error=false,
+    this.error = false,
   });
 
   Map<String, String> toJson() {

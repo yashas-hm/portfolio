@@ -3,7 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class ChatPrompterAnimation extends StatefulWidget {
-  const ChatPrompterAnimation({super.key, required this.size, required this.lavaCount});
+  const ChatPrompterAnimation(
+      {super.key, required this.size, required this.lavaCount});
 
   final Size size;
   final int lavaCount;
