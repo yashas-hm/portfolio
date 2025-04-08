@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -56,13 +54,13 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
           Center(
             child: SizedBox(
               height: context.height,
-              width: context.isMobile ? context.width / 1.2 : context.width / 2,
+              width: context.isMobile ? context.width / 1.1 : context.width / 2,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Gap(75.sp),
+                  Gap(context.isMobile?65.sp:45.sp),
                   RichText(
                     text: TextSpan(
                       children: [
@@ -84,6 +82,13 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                           ),
                         ),
                       ],
+                    ),
+                  ),
+                  Gap(5.sp),
+                  Text(
+                    'It knows my story',
+                    style: TextStyle(
+                      fontSize: context.isMobile ? 12.sp : 18.sp,
                     ),
                   ),
                   Gap(15.sp),

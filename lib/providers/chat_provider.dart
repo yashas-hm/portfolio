@@ -99,6 +99,9 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
         curve: Curves.easeIn,
       );
     }
+    {
+      state[state.length - 1].error = false;
+    }
     callApi(
       query,
       regenerate: regenerate,
