@@ -50,12 +50,13 @@ const List<String> navItems = [
   'Projects',
   'Contact Me',
   'Resume',
+  'AskYashas',
 ];
 
-const List<String> colorOverrideOnTag =[
+const List<String> colorOverrideOnTag = [
   'Express.js',
   'Actions',
-  'LangChain', 
+  'LangChain',
   'Ollama'
 ];
 
@@ -342,6 +343,19 @@ final List<ExperienceModel> experienceList = [
 
 //INFO: Projects
 final List<ProjectModel> projectsList = [
+  ProjectModel(
+    identifier: 'ask-yashas',
+    name: 'AskYashas',
+    link: 'https://github.com/yashas-hm/ask-yashas-llm',
+    image: 'https://yashashm.sirv.com/portfolio/henchman.png',
+    skills: ['Python', 'RAG', 'Langchain', 'Serverless', 'LLM'],
+    codeAvailable: true,
+    longDescription: '',
+    shortDescription: 'A personalized RAG chatbot designed to '
+        'answer questions about me with precisions. Whether'
+        ' it’s facts, timelines, or personal achievements, AskYashas knows '
+        'the story.',
+  ),
   ProjectModel(
     identifier: 'henchman',
     name: 'Henchman',

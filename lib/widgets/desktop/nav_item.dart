@@ -7,9 +7,9 @@ import 'package:resize/resize.dart';
 
 class NavItem extends ConsumerStatefulWidget {
   const NavItem({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   final int index;
 

@@ -20,19 +20,22 @@ void updateIndex(
   final controller = ref.read(scrollControllerProvider);
   final pageIndex = ref.read(pageIndexProvider.notifier);
 
-  if (index == navItems.length - 1) {
+  if (index == resumeIndex) {
     launchUrl(Uri.parse(resumeLink));
     return;
-  }
-
-  if (pageIndex.state != 0 || force) {
-    pageIndex.state = index;
+  } else if (index == chatIndex) {
+    pageIndex.state=index;
     reRoute(index, context, ref);
   } else {
-    controller.scrollTo(
-      index: index,
-      duration: 600.milliseconds,
-    );
+    if (pageIndex.state != 0 || force) {
+      pageIndex.state = index;
+      reRoute(index, context, ref);
+    } else {
+      controller.scrollTo(
+        index: index,
+        duration: 600.milliseconds,
+      );
+    }
   }
 
   ref.read(currentIndexProvider.notifier).state = index;

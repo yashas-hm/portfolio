@@ -33,6 +33,7 @@ class CustomScaffold extends ConsumerWidget {
       ),
       child: Scaffold(
         extendBodyBehindAppBar: true,
+        resizeToAvoidBottomInset: true,
         appBar: customAppBar(
           context,
           advancedDrawerController,

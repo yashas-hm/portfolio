@@ -9,6 +9,10 @@ const int projectsIndex = 3;
 
 const int contactMeIndex = 4;
 
+const int resumeIndex = 5;
+
+const int chatIndex = 6;
+
 // Route Names
 const String homeRoute = '/';
 
@@ -21,6 +25,8 @@ const String projectsRoute = '/projects';
 const String contactMeRoute = '/contactMe';
 
 const String resumeRoute = '/resume';
+
+const String chatRoute = '/chat';
 
 // Images
 const String avatar = 'assets/images/avatar.svg';
@@ -139,3 +145,23 @@ const String githubAvatar = 'assets/logo/github_avatar.svg';
 const String linkedin = 'assets/logo/linkedin.svg';
 
 const String instagram = 'assets/logo/instagram.svg';
+
+// Widget Constants
+const List<String> introTyperText = [
+  'Mobile Apps',
+  'Web Apps',
+  'Websites',
+  'Databases',
+  'APIs',
+  'ML Models'
+];
+
+const List<String> chatTyperText = [
+  'Tell me about yashas.',
+  'What experiences yashas has?',
+  'Give me important links.',
+  'List skills yashas possesses.',
+  'List startup experiences.',
+];
+// App Text
+const String skillsHeading = 'My Skills 🚀';

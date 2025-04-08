@@ -117,7 +117,7 @@ class _ProjectItemState extends State<ProjectItem> {
                             fontSize: 16.sp,
                           ),
                           textAlign: TextAlign.center,
-                          maxLines: 3,
+                          maxLines: 9,
                           minFontSize: 5,
                           stepGranularity: 0.1,
                         ),

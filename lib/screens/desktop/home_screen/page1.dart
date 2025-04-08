@@ -113,14 +113,7 @@ class _Page1State extends State<Page1> with TickerProviderStateMixin {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              nameWidget(),
-            ],
-          ),
+          nameWidget(),
           Gap(30.sp),
           FadeTransition(
             opacity: fade,

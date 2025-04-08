@@ -12,6 +12,7 @@ import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:portfolio/screens/about_screen.dart';
+import 'package:portfolio/screens/chat_screen.dart';
 import 'package:portfolio/screens/contact_screen.dart';
 import 'package:portfolio/screens/experience_screen.dart';
 import 'package:portfolio/screens/home_screen.dart';
@@ -54,6 +55,9 @@ void reRoute(
     case contactMeIndex:
       Navigator.pushNamed(context, contactMeRoute);
       break;
+    case chatIndex:
+      Navigator.pushNamed(context, chatRoute);
+      break;
     default:
       Navigator.pushNamed(context, homeRoute);
       break;
@@ -88,7 +92,7 @@ Future<(bool, String)> sendMessage({
 }) async {
   try {
     final response = await http.post(
-      Uri.parse('https://yashashm.dev/mail'),
+      Uri.parse('https://yashashm.dev/api/mail'),
       body: jsonEncode({'email': email, 'message': text}),
     );
 
@@ -137,6 +141,8 @@ Route<dynamic> routeBuilder(RouteSettings settings) {
       return pageRouteBuilder(const ProjectScreen(), settings);
     case contactMeRoute:
       return pageRouteBuilder(const ContactScreen(), settings);
+    case chatRoute:
+      return pageRouteBuilder(const ChatScreen(), settings);
     default:
       return pageRouteBuilder(const HomeScreen(), settings);
   }
