@@ -277,53 +277,56 @@ class _HomeNameState extends ConsumerState<HomeName> {
                               ),
                             ),
                           ),
-                          Container(
-                            height: 40.sp,
-                            width: double.infinity,
-                            padding: EdgeInsets.symmetric(
-                              vertical: 5.sp,
-                              horizontal: 10.sp,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).scaffoldBackgroundColor,
-                              borderRadius: BorderRadius.circular(10.sp),
-                              border: Border.all(
-                                color: Theme.of(context).colorScheme.tertiary,
+                          Hero(
+                            tag: 'heroChat',
+                            child: Container(
+                              height: 40.sp,
+                              width: double.infinity,
+                              padding: EdgeInsets.symmetric(
+                                vertical: 5.sp,
+                                horizontal: 10.sp,
                               ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: FittedBox(
-                                      fit: BoxFit.scaleDown,
-                                      child: typerWidget(
-                                        textList: chatTyperText,
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .tertiary,
-                                        pauseDuration: 1.5.seconds,
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).scaffoldBackgroundColor,
+                                borderRadius: BorderRadius.circular(10.sp),
+                                border: Border.all(
+                                  color: Theme.of(context).colorScheme.tertiary,
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: typerWidget(
+                                          textList: chatTyperText,
+                                          fontSize: 14.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .tertiary,
+                                          pauseDuration: 1.5.seconds,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                Gap(8.sp),
-                                FittedBox(
-                                  fit: BoxFit.scaleDown,
-                                  child: Icon(
-                                    Icons.send_outlined,
-                                    color:
-                                        Theme.of(context).colorScheme.tertiary,
-                                    size: 14.sp,
+                                  Gap(8.sp),
+                                  FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: Icon(
+                                      Icons.send_outlined,
+                                      color:
+                                          Theme.of(context).colorScheme.tertiary,
+                                      size: 14.sp,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ],

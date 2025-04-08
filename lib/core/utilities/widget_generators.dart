@@ -43,14 +43,16 @@ List<Widget> buildChatList(List<ChatModel> chats, bool loading, double width) {
     );
   }
   if (loading) {
-    list.add(
+    list.insert(
+      0,
       TypingIndicator(
         width: width,
       ),
     );
   }
   if (chats.isNotEmpty && !loading && chats.last.error) {
-    list.add(
+    list.insert(
+      0,
       ErrorBubble(
         width: width,
       ),

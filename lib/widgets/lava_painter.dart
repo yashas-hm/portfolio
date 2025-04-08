@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 
 class ChatPrompterAnimation extends StatefulWidget {
   const ChatPrompterAnimation(
-      {super.key, required this.size, required this.lavaCount});
+      {super.key, required this.size, required this.lavaCount, this.color});
 
   final Size size;
   final int lavaCount;
-
+  final Color? color;
   @override
   State<ChatPrompterAnimation> createState() => _ChatPrompterAnimationState();
 }
@@ -43,7 +43,7 @@ class _ChatPrompterAnimationState extends State<ChatPrompterAnimation>
           size: widget.size,
           painter: LavaPainter(
             lava: lava,
-            color: Theme.of(context).primaryColor.withValues(alpha: 0.8),
+            color: widget.color??Theme.of(context).primaryColor,
           ),
         );
       },

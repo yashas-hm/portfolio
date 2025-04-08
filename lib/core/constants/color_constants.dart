@@ -15,3 +15,5 @@ const Color lightPrimary = Color(0xFF009AFF);
 const Color lightBox = Color(0xFFD0E0FA);
 
 const Color lightText = Color(0xFF1F1F1F);
+
+const Color extra = Color(0xFF71BFFF);

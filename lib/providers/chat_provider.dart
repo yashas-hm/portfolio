@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:portfolio/core/model/chat_model.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 
 final StateNotifierProvider<ChatNotifier, List<ChatModel>> chatProvider =
     StateNotifierProvider<ChatNotifier, List<ChatModel>>(
@@ -19,6 +21,7 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
   );
 
   final Ref ref;
+  final ScrollController scrollController = ScrollController();
 
   List<Map<String, String>> generateHistory({List<ChatModel>? chat}) {
     final chats = (chat ?? state)
@@ -69,8 +72,12 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
     } catch (e) {
       state[state.length - 1].error = true;
     } finally {
-      state = [...state];
       ref.read(loadingResponseProvider.notifier).update((_) => false);
+      scrollController.animateTo(
+        0,
+        duration: 500.milliseconds,
+        curve: Curves.easeIn,
+      );
     }
   }
 
@@ -78,10 +85,6 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
     String query, {
     bool regenerate = false,
   }) {
-    callApi(
-      query,
-      regenerate: regenerate,
-    );
     if (!regenerate) {
       state.add(
         ChatModel(
@@ -89,8 +92,16 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
           message: query,
         ),
       );
-
-      state = [...(state.where((chat) => !chat.error))];
+      state = state.where((chat) => !chat.error).toList();
+      scrollController.animateTo(
+        0,
+        duration: 1000.milliseconds,
+        curve: Curves.easeIn,
+      );
     }
+    callApi(
+      query,
+      regenerate: regenerate,
+    );
   }
 }
