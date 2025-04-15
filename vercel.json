@@ -16,8 +16,33 @@
       }
     },
     {
-      "src": "/*",
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/about",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/projects",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/experience",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/contact",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/resume",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/chat",
       "dest": "/index.html"
     }
   ]
 }
+

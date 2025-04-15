@@ -80,6 +80,7 @@ jobs:
         run: |
           cp -rf build/. .
           rm -r build/
+          cp index.html 404.html
           git add .
           git commit -m "Workflow Deploy"
           git push --set-upstream origin main
