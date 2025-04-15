@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
@@ -34,6 +35,14 @@ class Portfolio extends ConsumerWidget {
     return Resize(
       builder: () => OKToast(
         child: MaterialApp(
+          scrollBehavior: const MaterialScrollBehavior().copyWith(
+            dragDevices: {
+              PointerDeviceKind.mouse,
+              PointerDeviceKind.touch,
+              PointerDeviceKind.stylus,
+              PointerDeviceKind.unknown,
+            },
+          ),
           theme: lightTheme(context),
           darkTheme: darkTheme(context),
           themeMode: themeMode,

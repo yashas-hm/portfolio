@@ -16,13 +16,13 @@ const int chatIndex = 6;
 // Route Names
 const String homeRoute = '/';
 
-const String aboutMeRoute = '/aboutMe';
+const String aboutMeRoute = '/about';
 
 const String experienceRoute = '/experience';
 
 const String projectsRoute = '/projects';
 
-const String contactMeRoute = '/contactMe';
+const String contactMeRoute = '/contact';
 
 const String resumeRoute = '/resume';
 
@@ -157,11 +157,11 @@ const List<String> introTyperText = [
 ];
 
 const List<String> chatTyperText = [
-  'Tell me about yashas.',
-  'What experiences yashas has?',
+  'Tell me about Yashas.',
+  'What experiences Yashas has?',
   'Give me important links.',
-  'List skills yashas possesses.',
-  'List startup experiences.',
+  'List Yashas\'s skills.',
+  'List Yashas\'s startup experiences.',
 ];
 // App Text
 const String skillsHeading = 'My Skills 🚀';

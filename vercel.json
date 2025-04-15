@@ -16,31 +16,7 @@
       }
     },
     {
-      "src": "/",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/aboutMe",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/projects",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/experience",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/contactMe",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/resume",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/chat",
+      "src": "/(.*)",
       "dest": "/index.html"
     }
   ]

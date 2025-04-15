@@ -174,7 +174,7 @@ class ErrorBubble extends ConsumerWidget {
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: () => ref.read(chatProvider.notifier).askQuestion(
-              ref.read(chatProvider).last.message,
+              ref.read(chatProvider).lastHumanMessage,
               regenerate: true,
             ),
         child: Container(

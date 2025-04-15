@@ -8,10 +8,11 @@ import 'package:portfolio/providers/nav_provider.dart';
 import 'package:resize/resize.dart';
 
 class NavItem extends ConsumerStatefulWidget {
-  const NavItem(
-      {super.key,
-      required this.advancedDrawerController,
-      required this.initialIndex});
+  const NavItem({
+    super.key,
+    required this.advancedDrawerController,
+    required this.initialIndex,
+  });
 
   final AdvancedDrawerController advancedDrawerController;
 
@@ -25,53 +26,31 @@ class _NavItemState extends ConsumerState<NavItem>
     with TickerProviderStateMixin {
   final Map<GlobalKey, Widget> list = {};
   final List<GlobalKey> keys = [];
-
-  int currIndex = 0;
-
   late Animation<double> scaleAnim;
   late Animation<double> slideAnim;
   late AnimationController animationController;
 
-  int oldIndex = 0;
-  double? from;
-  double? to;
+  double from = 0;
+  double to = 0;
+  int newIndex = 0;
 
   @override
   void didUpdateWidget(covariant NavItem oldWidget) {
-    if (oldIndex != widget.initialIndex) {
-      if (widget.initialIndex < keys.length) {
-        setState(() {
-          to = getYOffset(widget.initialIndex);
-          createSlideAnim(from!, to!);
-          oldIndex = widget.initialIndex;
-          buildChildren();
-        });
-      } else {
-        setState(() {
-          to = 0;
-          createSlideAnim(from!, to!);
-          oldIndex = -1;
-          buildChildren();
-        });
-      }
-      oldIndex = widget.initialIndex;
-      animationController.forward();
+    if (oldWidget.initialIndex != widget.initialIndex) {
+      setState(() {
+        from = getYOffset(oldWidget.initialIndex);
+        to = 0;
+        createSlideAnim();
+      });
+      animationController.reset();
     }
     super.didUpdateWidget(oldWidget);
   }
 
   @override
-  void didChangeDependencies() {
-    buildChildren();
-    super.didChangeDependencies();
-  }
-
-  @override
   void initState() {
-    oldIndex = widget.initialIndex;
     generateKeys();
-    // buildChildren();
-
+    
     animationController = AnimationController(
       vsync: this,
       duration: 800.milliseconds,
@@ -86,23 +65,33 @@ class _NavItemState extends ConsumerState<NavItem>
         curve: Curves.linear,
       ),
     );
-
-    createSlideAnim(0, 0);
+    
+    createSlideAnim();
 
     animationController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        setState(() {
-          from = to!;
-          to = null;
-          buildChildren();
-          createSlideAnim(from!, 0);
-        });
-        animationController.reset();
         widget.advancedDrawerController.hideDrawer();
+        updateIndex(context, ref, newIndex);
+        animationController.reset();
       }
     });
 
     super.initState();
+  }
+  
+  @override
+  void didChangeDependencies() {
+    buildChildren();
+    if(from==0){
+      SchedulerBinding.instance.addPostFrameCallback((_){
+        setState(() {
+          from = getYOffset(widget.initialIndex);
+          to=0;
+          createSlideAnim();
+        });
+      });
+    }
+    super.didChangeDependencies();
   }
 
   @override
@@ -111,13 +100,10 @@ class _NavItemState extends ConsumerState<NavItem>
     super.dispose();
   }
 
-  void createSlideAnim(
-    double begin,
-    double end,
-  ) {
+  void createSlideAnim() {
     slideAnim = Tween<double>(
-      begin: begin,
-      end: end,
+      begin: from,
+      end: to,
     ).animate(
       CurvedAnimation(
         parent: animationController,
@@ -131,40 +117,36 @@ class _NavItemState extends ConsumerState<NavItem>
   }
 
   double getYOffset(index) {
-    final GlobalKey iconKey = list.keys.toList()[index];
-    RenderBox box = iconKey.currentContext?.findRenderObject() as RenderBox;
-    Offset offset = box.localToGlobal(Offset.zero);
-    return offset.dy + 10.sp;
+    if (index >= list.keys.length) {
+      return context.height + 40.sp;
+    } else if (index < 0) {
+      return -40.sp;
+    } else {
+      final GlobalKey iconKey = list.keys.toList()[index];
+      RenderBox box = iconKey.currentContext?.findRenderObject() as RenderBox;
+      Offset offset = box.localToGlobal(Offset.zero);
+      return offset.dy + 10.sp;
+    }
   }
 
-  void startAnimation(int index) {
-    if (index != oldIndex) {
+  void animate(int index) {
+    if (index != widget.initialIndex) {
       setState(() {
+        newIndex = index;
+        from = getYOffset(widget.initialIndex);
         to = getYOffset(index);
-        createSlideAnim(from!, to!);
-        oldIndex = -1;
-        buildChildren();
+        createSlideAnim();
       });
-      updateIndex(
-        context,
-        ref,
-        index,
+      SchedulerBinding.instance.addPostFrameCallback(
+        (_) => animationController.forward(
+          from: 0,
+        ),
       );
-      oldIndex = index;
-      animationController.forward();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      if (from == null) {
-        setState(() {
-          from = getYOffset(oldIndex);
-          createSlideAnim(from!, 0);
-        });
-      }
-    });
     return SafeArea(
       child: Stack(
         children: [
@@ -199,16 +181,12 @@ class _NavItemState extends ConsumerState<NavItem>
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
-              children: getChildren(),
+              children: list.values.toList(),
             ),
           ),
         ],
       ),
     );
-  }
-
-  List<Widget> getChildren() {
-    return list.values.toList();
   }
 
   void generateKeys() {
@@ -222,7 +200,7 @@ class _NavItemState extends ConsumerState<NavItem>
     list.clear();
     for (var index = 0; index < navItems.length; index++) {
       list[keys[index]] = GestureDetector(
-        onTap: () => startAnimation(index),
+        onTap: () => animate(index),
         child: Container(
           key: keys[index],
           height: 60.sp,
@@ -240,7 +218,9 @@ class _NavItemState extends ConsumerState<NavItem>
             navItems[index],
             style: TextStyle(
               fontSize: 18.sp,
-              fontWeight: oldIndex == index ? FontWeight.w600 : FontWeight.w400,
+              fontWeight: widget.initialIndex == index
+                  ? FontWeight.w600
+                  : FontWeight.w400,
               color: Theme.of(context).colorScheme.tertiary,
             ),
           ),

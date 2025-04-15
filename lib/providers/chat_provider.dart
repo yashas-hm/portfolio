@@ -45,6 +45,8 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
     try {
       final history = generateHistory();
       ref.read(loadingResponseProvider.notifier).update((_) => true);
+      // Add bypass key for bypass test (random gen uuid on server)
+      // eg. ?bypass_key=fd271e7e-e6a4-4cd8-9bfe-3c95147d9849
       final response = await http.post(
         Uri.parse('https://ask.yashashm.dev/api/prompt'),
         headers: {
@@ -67,7 +69,20 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
           ),
         );
       } else {
-        state[state.length - 1].error = true;
+        if (state.length <= 1) {
+          ChatModel(
+            role: Role.ai,
+            message:
+                'I\'m snoozing a bit... give me a sec to brew some digital coffee ☕️ I\'ll be right with you!',
+          );
+          askQuestion(
+            state.lastHumanMessage,
+            regenerate: true,
+          );
+          return;
+        } else {
+          state[state.length - 1].error = true;
+        }
       }
     } catch (e) {
       state[state.length - 1].error = true;
@@ -99,9 +114,7 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
         curve: Curves.easeIn,
       );
     }
-    {
-      state[state.length - 1].error = false;
-    }
+    state[state.length - 1].error = false;
     callApi(
       query,
       regenerate: regenerate,

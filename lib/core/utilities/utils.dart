@@ -16,6 +16,7 @@ import 'package:portfolio/screens/chat_screen.dart';
 import 'package:portfolio/screens/contact_screen.dart';
 import 'package:portfolio/screens/experience_screen.dart';
 import 'package:portfolio/screens/home_screen.dart';
+import 'package:portfolio/screens/not_found_screen.dart';
 import 'package:portfolio/screens/project_screen.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -144,7 +145,7 @@ Route<dynamic> routeBuilder(RouteSettings settings) {
     case chatRoute:
       return pageRouteBuilder(const ChatScreen(), settings);
     default:
-      return pageRouteBuilder(const HomeScreen(), settings);
+      return pageRouteBuilder(const NotFoundScreen(), settings);
   }
 }
 

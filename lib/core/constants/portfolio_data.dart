@@ -347,8 +347,14 @@ final List<ProjectModel> projectsList = [
     identifier: 'ask-yashas',
     name: 'AskYashas',
     link: 'https://github.com/yashas-hm/ask-yashas-llm',
-    image: 'https://yashashm.sirv.com/portfolio/henchman.png',
-    skills: ['Python', 'RAG', 'Langchain', 'Serverless', 'LLM'],
+    image: 'https://yashashm.sirv.com/portfolio/askyashas.png',
+    skills: [
+      'Python',
+      'RAG',
+      'Langchain',
+      'Serverless',
+      'LLM',
+    ],
     codeAvailable: true,
     longDescription: '',
     shortDescription: 'A personalized RAG chatbot designed to '
