@@ -55,7 +55,7 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
         body: jsonEncode(
           {
             'query': query,
-            'history': history,
+            'history': [],
           },
         ),
       );
@@ -69,23 +69,23 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
           ),
         );
       } else {
-        if (state.length <= 1) {
-          ChatModel(
-            role: Role.ai,
-            message:
-                'I\'m snoozing a bit... give me a sec to brew some digital coffee ☕️ I\'ll be right with you!',
-          );
-          askQuestion(
-            state.lastHumanMessage,
-            regenerate: true,
-          );
-          return;
-        } else {
-          state[state.length - 1].error = true;
-        }
+        throw Exception('');
       }
     } catch (e) {
-      state[state.length - 1].error = true;
+      if (state.length <= 1) {
+        ChatModel(
+          role: Role.ai,
+          message:
+          'I\'m snoozing a bit... give me a sec to brew some digital coffee ☕️ I\'ll be right with you!',
+        );
+        askQuestion(
+          state.lastHumanMessage,
+          regenerate: true,
+        );
+        return;
+      } else {
+        state[state.length - 1].error = true;
+      }
     } finally {
       ref.read(loadingResponseProvider.notifier).update((_) => false);
       scrollController.animateTo(

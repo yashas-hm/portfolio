@@ -39,9 +39,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
   Widget build(BuildContext context) {
     final chats = ref.watch(chatProvider);
     final loading = ref.watch(loadingResponseProvider);
-    SchedulerBinding.instance.addPostFrameCallback(
-      (_) => _focusNode.requestFocus(),
-    );
+    
     return CustomScaffold(
       child: Stack(
         children: [
@@ -213,6 +211,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                     tag: 'heroChat',
                     child: TextFormField(
                       focusNode: _focusNode,
+                      autofocus: false,
                       maxLines: 1,
                       maxLength: 300,
                       decoration: InputDecoration(
