@@ -144,6 +144,8 @@ Route<dynamic> routeBuilder(RouteSettings settings) {
       return pageRouteBuilder(const ContactScreen(), settings);
     case chatRoute:
       return pageRouteBuilder(const ChatScreen(), settings);
+    case resumeRoute:
+      return pageRouteBuilder(const HomeScreen(), settings);
     default:
       return pageRouteBuilder(const NotFoundScreen(), settings);
   }
