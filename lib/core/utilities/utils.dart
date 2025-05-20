@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-import 'package:portfolio/core/constants/app_constants.dart';
+import 'package:portfolio/core/constants/constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/model/experience_model.dart';
 import 'package:portfolio/core/utilities/extensions.dart';

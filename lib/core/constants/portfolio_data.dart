@@ -1,8 +1,9 @@
-import 'package:portfolio/core/constants/app_constants.dart';
+import 'package:portfolio/core/constants/constants.dart';
 import 'package:portfolio/core/model/achievement_model.dart';
 import 'package:portfolio/core/model/experience_model.dart';
 import 'package:portfolio/core/model/project_model.dart';
 import 'package:portfolio/core/model/testimonial_model.dart';
+import 'package:portfolio/core/utilities/extensions.dart';
 
 const String linkedinLink = 'https://www.linkedin.com/in/yashashm';
 
@@ -13,7 +14,7 @@ const String instaLink = 'https://www.instagram.com/yashas_hm';
 const String githubLink = 'https://github.com/yashas-hm';
 
 const String resumeLink =
-    'https://drive.google.com/file/d/1cMvuEH_gDHlOBSxjoBE8jHWRkanskYnO/view?usp=sharing';
+    'https://drive.google.com/file/d/1cMvuEH_gDHlOBSxjoBE8jHWRkanskYnO/view?usp=drive_link';
 
 const String aboutBrief = '👨🏻‍💻 Full Stack Software Developer & Digital '
     'Craftsman at your service! 🚀 From crafting elegant user interfaces to '
@@ -124,21 +125,34 @@ const Map<String, Map<String, String>> skills = {
 //INFO: Experience
 final List<ExperienceModel> experienceList = [
   ExperienceModel(
+    identifier: 'albi',
+    role: 'Mobile App Developer Intern',
+    organization: 'Albiware LLC',
+    from: DateTime(2025, DateTime.may),
+    to: null,
+    shortDescription: '🚀 Spearheaded high-performance Flutter applications, '
+        'accelerating development timelines by 30% and fortifying code '
+        'reliability.\n\n🛠️ Refactored legacy codebases, slashing crash rates '
+        'by 40%, and 📊 synthesized user analytics to orchestrate UX '
+        'improvements, boosting engagement by 20%.',
+    longDescription: '',
+    skills: [
+      'Flutter',
+    ],
+  ),
+  ExperienceModel(
     identifier: 'unc-e',
     role: 'Software Developer Engineer',
     organization: 'UNC Eshleman School of Pharmacy',
-    from: DateTime(2024, DateTime.november),
-    to: null,
+    from: DateTime(2024, DateTime.october),
+    to: DateTime(2024, DateTime.january),
     shortDescription: '🚀 Engineered and launched a custom game engine, '
         'reducing load times by 30% and enhancing seamless gameplay 🎮.\n\n'
         '📊 Introduced analytics to track user performance, boosting training '
         'effectiveness by 25% 📈 and aiding educators with actionable insights'
         ' 🧑‍🏫✨.',
     longDescription: '',
-    skills: [
-      'Flutter',
-      'UI/UX',
-    ],
+    skills: ['Flutter', 'UI/UX', 'CI/CD'],
   ),
   ExperienceModel(
     identifier: 'pb',
@@ -341,8 +355,47 @@ final List<ExperienceModel> experienceList = [
   ),
 ];
 
+List<ExperienceModel> get allExperiences => experienceList
+    .where((experience) => experience.identifier != 'internships')
+    .toList();
+
+List<ExperienceModel> homeExperience = [
+  experienceList.getByIdentifier('albi'),
+  experienceList.getByIdentifier('unc-e'),
+  experienceList.getByIdentifier('pb'),
+  experienceList.getByIdentifier('internships'),
+];
+
 //INFO: Projects
+final filterKeys = [
+  'Flutter',
+  'Package',
+  'Python',
+  'Full-Stack',
+  'AI/ML',
+  'Javascript',
+  'Typescript',
+  'Android',
+  'IoT',
+  'Java',
+];
+
 final List<ProjectModel> projectsList = [
+  ProjectModel(
+    identifier: 'lava-lamp-effect',
+    name: 'Lava Lamp Effect',
+    link: 'https://pub.dev/packages/lava_lamp_effect',
+    image: 'https://yashashm.sirv.com/portfolio/lava_lamp_effect.gif',
+    skills: [
+      'Flutter',
+      'Package',
+    ],
+    codeAvailable: false,
+    longDescription: '',
+    shortDescription:
+        'A Flutter package that provides a customizable lava lamp effect with '
+        'fluid animations, adjustable colors, sizes, and speeds.',
+  ),
   ProjectModel(
     identifier: 'ask-yashas',
     name: 'AskYashas',
@@ -350,10 +403,9 @@ final List<ProjectModel> projectsList = [
     image: 'https://yashashm.sirv.com/portfolio/askyashas.png',
     skills: [
       'Python',
-      'RAG',
       'Langchain',
-      'Serverless',
       'LLM',
+      'AI/ML',
     ],
     codeAvailable: true,
     longDescription: '',
@@ -365,13 +417,14 @@ final List<ProjectModel> projectsList = [
   ProjectModel(
     identifier: 'henchman',
     name: 'Henchman',
-    link: 'https://github.com/yashas-hm/henchman',
+    link: 'https://www.npmjs.com/package/henchman-cli',
     image: 'https://yashashm.sirv.com/portfolio/henchman.png',
     skills: [
       'JavaScript',
       'Bash',
+      'Package',
     ],
-    codeAvailable: true,
+    codeAvailable: false,
     longDescription: '',
     shortDescription: 'Henchman CLI is an all-in-one, interactive command-line '
         'tool designed to simplify the creation, setup, and management of '
@@ -413,11 +466,10 @@ final List<ProjectModel> projectsList = [
     image: 'https://yashashm.sirv.com/portfolio/mtc.png',
     skills: [
       'Flutter',
-      'Node.js',
-      'JavaScript',
       'TypeScript',
-      'MariaDB',
+      'SQL',
       'Python',
+      'Full-Stack',
     ],
     longDescription: '🔍 Search Clinics: Easily find the best dental and '
         'medical clinics based on location and procedure.\n\n💬 Community '
@@ -462,11 +514,10 @@ final List<ProjectModel> projectsList = [
     image: 'https://yashashm.sirv.com/portfolio/dentavacation.png',
     skills: [
       'Flutter',
-      'Node.js',
-      'JavaScript',
       'TypeScript',
       'SQL',
       'Python',
+      'Full-Stack',
     ],
   ),
   ProjectModel(
@@ -488,7 +539,8 @@ final List<ProjectModel> projectsList = [
     skills: [
       'Flutter',
       'Firebase',
-      'Maps SDK',
+      'Maps SDK'
+          'Full-Stack,',
     ],
   ),
   ProjectModel(
@@ -503,17 +555,18 @@ final List<ProjectModel> projectsList = [
       'Python',
       'TensorFlow',
       'MediaPipe',
+      'AI/ML',
     ],
     codeAvailable: true,
   ),
   ProjectModel(
     identifier: 'day-night-switcher',
     name: 'Day Night Switch',
-    link: 'https://github.com/yashas-hm/day-night-themed-switcher',
+    link: 'https://pub.dev/packages/day-night-themed-switcher',
     image: 'https://yashashm.sirv.com/portfolio/dayNightSwitcher.gif',
     skills: [
       'Flutter',
-      'Animations',
+      'Package',
     ],
     longDescription: '',
     shortDescription:
@@ -531,14 +584,13 @@ final List<ProjectModel> projectsList = [
     image: 'https://yashashm.sirv.com/portfolio/glowAppBar.gif',
     skills: [
       'Flutter',
-      'Animations',
+      'Package',
     ],
   ),
   ProjectModel(
     identifier: 'direct-message',
     name: 'Direct Message',
-    link:
-        'https://play.google.com/store/apps/details?id=dev.yashashm.directmessage',
+    link: 'https://directmessage.yashashm.dev',
     image: 'https://yashashm.sirv.com/portfolio/directMessage.png',
     skills: [
       'Flutter',
@@ -570,7 +622,7 @@ final List<ProjectModel> projectsList = [
     link: 'https://github.com/yashas-hm/Smart-Glass',
     image: 'https://yashashm.sirv.com/portfolio/smartglass.jpg',
     skills: [
-      'Iot',
+      'IoT',
       'Arduino',
       'AR',
       'C++',
@@ -632,6 +684,13 @@ final List<ProjectModel> projectsList = [
     ],
     codeAvailable: true,
   ),
+];
+
+List<ProjectModel> projectHighlight = [
+  projectsList.getByIdentifier('henchman'),
+  projectsList.getByIdentifier('illness-lab'),
+  projectsList.getByIdentifier('med-tourism-co'),
+  projectsList.getByIdentifier('spotter'),
 ];
 
 //INFO: Testimonials

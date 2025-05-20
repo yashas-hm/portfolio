@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/app_constants.dart';
+import 'package:portfolio/core/constants/constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/model/project_model.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
@@ -21,20 +20,13 @@ class Page4 extends ConsumerStatefulWidget {
 class _Page4State extends ConsumerState<Page4>
     with SingleTickerProviderStateMixin {
   late final AnimationController animationController;
-  late final List<ProjectModel> projects;
 
   bool hovering = false;
   double duration = 0;
 
   @override
   void initState() {
-    projects = [
-      projectsList.getByIdentifier('henchman'),
-      projectsList.getByIdentifier('illness-lab'),
-      projectsList.getByIdentifier('med-tourism-co'),
-    ];
-
-    duration = projects.length * 200.0;
+    duration = projectHighlight.length * 200.0;
 
     animationController = AnimationController(
       vsync: this,
@@ -112,7 +104,7 @@ class _Page4State extends ConsumerState<Page4>
                   force: true,
                 ),
                 child: Text(
-                  'Prepped for a follow-up of my creative journey? ${hovering ? '🦾' : '📽️'}\n(Read More)',
+                  'These are just some of my projects. ${hovering ? '🦾' : '📽️'}\nView More!',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20.sp,
@@ -131,11 +123,12 @@ class _Page4State extends ConsumerState<Page4>
 
   List<Widget> buildChildren() {
     final list = <Widget>[];
-    final interval = (duration / projects.length).remap(0, duration, 0, 1);
-    final releaseBefore = interval / projects.length;
+    final interval =
+        (duration / projectHighlight.length).remap(0, duration, 0, 1);
+    final releaseBefore = interval / projectHighlight.length;
     double sum = 0.0;
 
-    for (var project in projects) {
+    for (var project in projectHighlight) {
       list.add(ProjectItem(
         project: project,
         begin: sum,

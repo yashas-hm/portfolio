@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
+import 'package:lava_lamp_effect/lava_lamp_effect.dart';
+import 'package:portfolio/core/constants/colors.dart';
+import 'package:portfolio/core/constants/constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/utilities/utils.dart';
@@ -14,7 +15,6 @@ import 'package:portfolio/core/utilities/widget_generators.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/widgets/connect_button.dart';
-import 'package:portfolio/widgets/lava_painter.dart';
 import 'package:resize/resize.dart';
 
 class HomeName extends ConsumerStatefulWidget {
@@ -204,7 +204,7 @@ class _HomeNameState extends ConsumerState<HomeName> {
             child: Stack(
               children: [
                 Center(
-                  child: ChatPrompterAnimation(
+                  child: LavaLampEffect(
                     size: size,
                     lavaCount: 4,
                   ),
@@ -308,7 +308,8 @@ class _HomeNameState extends ConsumerState<HomeName> {
                                   fit: BoxFit.scaleDown,
                                   child: Icon(
                                     Icons.send_outlined,
-                                    color: Theme.of(context).colorScheme.tertiary,
+                                    color:
+                                        Theme.of(context).colorScheme.tertiary,
                                     size: 14.sp,
                                   ),
                                 ),

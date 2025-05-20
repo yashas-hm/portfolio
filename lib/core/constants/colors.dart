@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-const Color darkBackground = Color(0xFF161617);
+const Color darkBackground = Color(0xFF161616);
 
 const Color darkPrimary = Color(0xFF0C93EE);
 

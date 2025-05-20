@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/app_constants.dart';
+import 'package:portfolio/core/constants/constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
@@ -22,14 +22,10 @@ class _Page3State extends ConsumerState<Page3>
   late final AnimationController animationController;
 
   double duration = 0;
-  final experiences = [
-    experienceList.getByIdentifier('pb'),
-    experienceList.getByIdentifier('internships'),
-  ];
 
   @override
   void initState() {
-    duration = experiences.length * 500;
+    duration = homeExperience.length * 500;
 
     animationController = AnimationController(
       vsync: this,
@@ -198,9 +194,9 @@ class _Page3State extends ConsumerState<Page3>
     final list = <Widget>[];
     double begin = 0;
     double interval =
-        (duration / experiences.length).remap(0, duration, 0, 1).toDouble();
+        (duration / homeExperience.length).remap(0, duration, 0, 1).toDouble();
 
-    for (var experience in experiences) {
+    for (var experience in homeExperience) {
       list.add(ExperienceItem(
         experience: experience,
         begin: begin,

@@ -76,7 +76,7 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
         ChatModel(
           role: Role.ai,
           message:
-          'I\'m snoozing a bit... give me a sec to brew some digital coffee ☕️ I\'ll be right with you!',
+              'I\'m snoozing a bit... give me a sec to brew some digital coffee ☕️ I\'ll be right with you!',
         );
         askQuestion(
           state.lastHumanMessage,

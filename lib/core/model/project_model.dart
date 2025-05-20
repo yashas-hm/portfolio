@@ -1,6 +1,8 @@
 import 'package:portfolio/core/model/base_model.dart';
 
 class ProjectModel extends BaseModel {
+  final int priority;
+
   final String name;
 
   final String shortDescription;
@@ -24,5 +26,6 @@ class ProjectModel extends BaseModel {
     required this.longDescription,
     required this.shortDescription,
     this.codeAvailable = false,
+    this.priority = 1000,
   });
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
+import 'package:portfolio/core/constants/colors.dart';
 import 'package:portfolio/core/model/chat_model.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/chat_provider.dart';

@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/app_constants.dart';
+import 'package:portfolio/core/constants/constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
@@ -20,19 +20,13 @@ class Page3 extends ConsumerStatefulWidget {
 
 class _Page3State extends ConsumerState<Page3>
     with SingleTickerProviderStateMixin {
-  final experiences = [
-    experienceList.getByIdentifier('unc-e'),
-    experienceList.getByIdentifier('pb'),
-    experienceList.getByIdentifier('internships'),
-  ];
-
   late final AnimationController animationController;
   late double duration;
   bool hovering = false;
 
   @override
   void initState() {
-    duration = experiences.length * 500.0;
+    duration = homeExperience.length * 500.0;
 
     animationController = AnimationController(
       vsync: this,
@@ -131,13 +125,13 @@ class _Page3State extends ConsumerState<Page3>
   List<Widget> childrenBuilder() {
     final list = <Widget>[];
     final interval =
-        (duration / experiences.length).remap(0, duration, 0, 1).toDouble();
-    final releaseBefore = interval / experiences.length;
+        (duration / homeExperience.length).remap(0, duration, 0, 1).toDouble();
+    final releaseBefore = interval / homeExperience.length;
     double sum = 0.0;
 
-    for (var index = 0; index < experiences.length; index++) {
+    for (var index = 0; index < homeExperience.length; index++) {
       list.add(ExperienceItem(
-        experience: experiences[index],
+        experience: homeExperience[index],
         begin: sum,
         end: sum + interval,
         reverse: index % 2 != 0,

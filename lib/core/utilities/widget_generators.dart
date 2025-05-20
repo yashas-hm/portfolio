@@ -32,7 +32,11 @@ Widget typerWidget({
   );
 }
 
-List<Widget> buildChatList(List<ChatModel> chats, bool loading, double width) {
+List<Widget> buildChatList(
+  List<ChatModel> chats,
+  bool loading,
+  double width,
+) {
   final list = <Widget>[];
   for (ChatModel chat in chats) {
     list.add(

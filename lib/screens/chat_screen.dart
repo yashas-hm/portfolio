@@ -3,8 +3,9 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/app_constants.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
+import 'package:lava_lamp_effect/lava_lamp_effect.dart';
+import 'package:portfolio/core/constants/colors.dart';
+import 'package:portfolio/core/constants/constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/model/project_model.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
@@ -12,7 +13,6 @@ import 'package:portfolio/core/utilities/utils.dart';
 import 'package:portfolio/core/utilities/widget_generators.dart';
 import 'package:portfolio/providers/chat_provider.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';
-import 'package:portfolio/widgets/lava_painter.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -39,12 +39,12 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
   Widget build(BuildContext context) {
     final chats = ref.watch(chatProvider);
     final loading = ref.watch(loadingResponseProvider);
-    
+
     return CustomScaffold(
       child: Stack(
         children: [
           Center(
-            child: ChatPrompterAnimation(
+            child: LavaLampEffect(
               size: Size(
                 context.width,
                 context.height,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/color_constants.dart';
+import 'package:portfolio/core/constants/colors.dart';
 import 'package:portfolio/core/utilities/dialog_utils.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/utilities/utils.dart';

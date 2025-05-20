@@ -50,7 +50,7 @@ class _NavItemState extends ConsumerState<NavItem>
   @override
   void initState() {
     generateKeys();
-    
+
     animationController = AnimationController(
       vsync: this,
       duration: 800.milliseconds,
@@ -65,7 +65,7 @@ class _NavItemState extends ConsumerState<NavItem>
         curve: Curves.linear,
       ),
     );
-    
+
     createSlideAnim();
 
     animationController.addStatusListener((status) {
@@ -78,15 +78,15 @@ class _NavItemState extends ConsumerState<NavItem>
 
     super.initState();
   }
-  
+
   @override
   void didChangeDependencies() {
     buildChildren();
-    if(from==0){
-      SchedulerBinding.instance.addPostFrameCallback((_){
+    if (from == 0) {
+      SchedulerBinding.instance.addPostFrameCallback((_) {
         setState(() {
           from = getYOffset(widget.initialIndex);
-          to=0;
+          to = 0;
           createSlideAnim();
         });
       });

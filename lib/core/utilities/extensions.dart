@@ -39,6 +39,7 @@ extension ContextUtils on BuildContext {
   Size get screenSize => MediaQuery.of(this).size;
 }
 
-extension HumanMessage on List<ChatModel>{
-  String get lastHumanMessage => where((msg)=>msg.role==Role.human).last.message;
+extension HumanMessage on List<ChatModel> {
+  String get lastHumanMessage =>
+      where((msg) => msg.role == Role.human).last.message;
 }
