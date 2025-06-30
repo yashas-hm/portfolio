@@ -116,7 +116,7 @@ class _NavItemState extends ConsumerState<NavItem>
     );
   }
 
-  double getYOffset(index) {
+  double getYOffset(int index) {
     if (index >= list.keys.length) {
       return context.height + 40.sp;
     } else if (index < 0) {

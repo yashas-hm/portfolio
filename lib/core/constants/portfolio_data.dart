@@ -562,7 +562,7 @@ final List<ProjectModel> projectsList = [
   ProjectModel(
     identifier: 'day-night-switcher',
     name: 'Day Night Switch',
-    link: 'https://pub.dev/packages/day-night-themed-switcher',
+    link: 'https://pub.dev/packages/day_night_themed_switcher',
     image: 'https://yashashm.sirv.com/portfolio/dayNightSwitcher.gif',
     skills: [
       'Flutter',
