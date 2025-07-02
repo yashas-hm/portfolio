@@ -1,17 +1,29 @@
-import 'package:flutter/cupertino.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
+import 'package:portfolio/core/constants/colors.dart';
+import 'package:portfolio/core/constants/constants.dart';
+import 'package:portfolio/core/constants/portfolio_data.dart';
+import 'package:portfolio/core/model/testimonial_model.dart';
+import 'package:portfolio/core/utilities/dialog_utils.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
+import 'package:portfolio/core/utilities/utils.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
-import 'package:portfolio/screens/desktop/home_screen/page1.dart';
-import 'package:portfolio/screens/desktop/home_screen/page2.dart';
-import 'package:portfolio/screens/desktop/home_screen/page3.dart';
-import 'package:portfolio/screens/desktop/home_screen/page4.dart';
-import 'package:portfolio/screens/desktop/home_screen/page5.dart';
 import 'package:portfolio/widgets/bottom_bar.dart';
+import 'package:portfolio/widgets/desktop/experience_item.dart';
+import 'package:portfolio/widgets/desktop/home_name.dart';
+import 'package:portfolio/widgets/desktop/project_item.dart';
+import 'package:portfolio/widgets/desktop/skill_box.dart';
+import 'package:resize/resize.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+
+part 'home_screen/page1.dart';
+part 'home_screen/page2.dart';
+part 'home_screen/page3.dart';
+part 'home_screen/page4.dart';
+part 'home_screen/page5.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});

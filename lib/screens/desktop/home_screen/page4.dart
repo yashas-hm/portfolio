@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/constants.dart';
-import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
-import 'package:portfolio/providers/nav_provider.dart';
-import 'package:portfolio/providers/scroll_provider.dart';
-import 'package:portfolio/widgets/desktop/project_item.dart';
-import 'package:resize/resize.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+part of '../home_screen.dart';
 
 class Page4 extends ConsumerStatefulWidget {
   const Page4({super.key});

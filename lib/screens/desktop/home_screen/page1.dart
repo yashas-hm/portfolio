@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
-import 'package:portfolio/widgets/desktop/home_name.dart';
-import 'package:portfolio/widgets/desktop/skill_box.dart';
-import 'package:resize/resize.dart';
+part of '../home_screen.dart';
 
 class Page1 extends StatefulWidget {
   const Page1({super.key});
