@@ -1,4 +1,4 @@
-part of '../home_screen.dart';
+part of '../mobile_home_screen.dart';
 
 class Page2 extends ConsumerWidget {
   const Page2({super.key});

@@ -15,10 +15,10 @@ void showMore({
 }) {
   return context.isMobile
       ? showMoreMobile(context: context, text: text, skills: skills)
-      : showMoreDesktop(context: context, text: text, skills: skills);
+      : showMoreweb(context: context, text: text, skills: skills);
 }
 
-void showMoreDesktop({
+void showMoreweb({
   required BuildContext context,
   required String text,
   required List<String> skills,

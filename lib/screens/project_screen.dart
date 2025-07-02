@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/constants.dart';
+import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/utilities/utils.dart';
-import 'package:portfolio/screens/desktop/project_screen.dart' as desktop;
-import 'package:portfolio/screens/mobile//project_screen.dart' as mobile;
+import 'package:portfolio/widgets/connect_button.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';
+import 'package:portfolio/widgets/web/web_project_item.dart';
+import 'package:portfolio/widgets/mobile/mobile_project_item.dart';
+import 'package:resize/resize.dart';
+
+part 'web/web_project_screen.dart';
+part 'mobile/mobile_project_screen.dart';
 
 class ProjectScreen extends ConsumerWidget {
   const ProjectScreen({super.key});
@@ -19,8 +26,8 @@ class ProjectScreen extends ConsumerWidget {
 
     return CustomScaffold(
       child: context.isMobile
-          ? const mobile.ProjectScreen()
-          : const desktop.ProjectScreen(),
+          ? const MobileProjectScreen()
+          : const WebProjectScreen(),
     );
   }
 }

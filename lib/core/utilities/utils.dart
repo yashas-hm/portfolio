@@ -14,6 +14,7 @@ import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:portfolio/screens/about_screen.dart';
 import 'package:portfolio/screens/chat_screen.dart';
 import 'package:portfolio/screens/contact_screen.dart';
+import 'package:portfolio/screens/contributions_screen.dart';
 import 'package:portfolio/screens/experience_screen.dart';
 import 'package:portfolio/screens/home_screen.dart';
 import 'package:portfolio/screens/not_found_screen.dart';
@@ -52,6 +53,9 @@ void reRoute(
       break;
     case projectsIndex:
       Navigator.pushNamed(context, projectsRoute);
+      break;
+    case contributionsIndex:
+      Navigator.pushNamed(context, contributionsRoute);
       break;
     case contactMeIndex:
       Navigator.pushNamed(context, contactMeRoute);
@@ -140,6 +144,8 @@ Route<dynamic> routeBuilder(RouteSettings settings) {
       return pageRouteBuilder(const ExperienceScreen(), settings);
     case projectsRoute:
       return pageRouteBuilder(const ProjectScreen(), settings);
+    case contributionsRoute:
+      return pageRouteBuilder(const ContributionsScreen(), settings);
     case contactMeRoute:
       return pageRouteBuilder(const ContactScreen(), settings);
     case chatRoute:

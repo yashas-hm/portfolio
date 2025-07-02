@@ -1,13 +1,13 @@
-part of '../mobile_home_screen.dart';
+part of '../contact_screen.dart';
 
-class Page5 extends StatefulWidget {
-  const Page5({super.key});
+class MobileContactScreen extends StatefulWidget {
+  const MobileContactScreen({super.key});
 
   @override
-  State<Page5> createState() => _Page5State();
+  State<MobileContactScreen> createState() => _MobileContactScreenState();
 }
 
-class _Page5State extends State<Page5> {
+class _MobileContactScreenState extends State<MobileContactScreen> {
   bool loading = false;
   bool emailError = false;
   bool textError = false;
@@ -17,8 +17,10 @@ class _Page5State extends State<Page5> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: context.width / 1.2,
+      height: context.height / 1.175,
+      alignment: Alignment.center,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -40,6 +42,7 @@ class _Page5State extends State<Page5> {
               style: TextStyle(
                 fontSize: 12.sp,
               ),
+              textAlign: TextAlign.left,
               decoration: InputDecoration(
                 hintText: 'Ready for a witty email exchange?',
                 hintStyle: TextStyle(

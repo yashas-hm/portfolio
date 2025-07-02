@@ -26,6 +26,9 @@ void updateIndex(
   } else if (index == chatIndex) {
     pageIndex.state = index;
     reRoute(index, context, ref);
+  } else if(index == contributionsIndex){
+    pageIndex.state = index;
+    reRoute(index, context, ref);
   } else {
     if (pageIndex.state != 0 || force) {
       pageIndex.state = index;

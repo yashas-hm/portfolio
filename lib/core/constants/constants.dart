@@ -7,11 +7,13 @@ const int experienceIndex = 2;
 
 const int projectsIndex = 3;
 
-const int contactMeIndex = 4;
+const int contributionsIndex = 4;
 
-const int resumeIndex = 5;
+const int contactMeIndex = 5;
 
-const int chatIndex = 6;
+const int resumeIndex = 6;
+
+const int chatIndex = 7;
 
 // Route Names
 const String homeRoute = '/';
@@ -21,6 +23,8 @@ const String aboutMeRoute = '/about';
 const String experienceRoute = '/experience';
 
 const String projectsRoute = '/projects';
+
+const String contributionsRoute = '/contributions';
 
 const String contactMeRoute = '/contact';
 

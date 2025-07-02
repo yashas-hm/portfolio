@@ -1,4 +1,4 @@
-part of '../mobile_home_screen.dart';
+part of '../web_home_screen.dart';
 
 class Page4 extends ConsumerStatefulWidget {
   const Page4({super.key});
@@ -10,11 +10,13 @@ class Page4 extends ConsumerStatefulWidget {
 class _Page4State extends ConsumerState<Page4>
     with SingleTickerProviderStateMixin {
   late final AnimationController animationController;
+
+  bool hovering = false;
   double duration = 0;
 
   @override
   void initState() {
-    duration = projectHighlight.length * 300.0;
+    duration = projectHighlight.length * 200.0;
 
     animationController = AnimationController(
       vsync: this,
@@ -58,49 +60,52 @@ class _Page4State extends ConsumerState<Page4>
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Gap(15.sp),
+        Gap(30.sp),
         Text(
           'Projects',
           style: TextStyle(
-            fontSize: 20.sp,
+            fontSize: 30.sp,
             fontWeight: FontWeight.w500,
           ),
         ),
-        Gap(15.sp),
+        Gap(30.sp),
         SizedBox(
           width: context.width / 1.1,
-          child: GridView(
-            padding: EdgeInsets.zero,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 15.sp,
-              crossAxisSpacing: 15.sp,
-              childAspectRatio: 0.6,
-            ),
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
+          child: Wrap(
+            runAlignment: WrapAlignment.start,
+            alignment: WrapAlignment.spaceEvenly,
+            runSpacing: 30.sp,
             children: buildChildren(),
           ),
         ),
-        Gap(15.sp),
-        SizedBox(
-          width: context.width / 1.2,
-          child: GestureDetector(
-            onTap: () => updateIndex(
-              context,
-              ref,
-              projectsIndex,
-              force: true,
-            ),
-            child: Text(
-              'These are just some of my projects.\nView More!',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 12.sp,
-                color: Theme.of(context).colorScheme.tertiary,
+        Gap(30.sp),
+        StatefulBuilder(
+          builder: (ctx, setState) {
+            return MouseRegion(
+              opaque: false,
+              cursor: SystemMouseCursors.click,
+              onEnter: (_) => setState(() => hovering = true),
+              onExit: (_) => setState(() => hovering = false),
+              child: GestureDetector(
+                onTap: () => updateIndex(
+                  context,
+                  ref,
+                  projectsIndex,
+                  force: true,
+                ),
+                child: Text(
+                  'These are just some of my projects. ${hovering ? '🦾' : '📽️'}\nView More!',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    color: hovering
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.tertiary,
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ],
     );
@@ -108,20 +113,21 @@ class _Page4State extends ConsumerState<Page4>
 
   List<Widget> buildChildren() {
     final list = <Widget>[];
-    double interval = (duration / projectHighlight.length)
-        .remap(0, duration, 0, 1)
-        .toDouble();
-    double begin = 0;
+    final interval =
+        (duration / projectHighlight.length).remap(0, duration, 0, 1);
+    final releaseBefore = interval / projectHighlight.length;
+    double sum = 0.0;
 
-    for (var data in projectHighlight) {
-      list.add(MobileProjectItem(
-        project: data,
-        begin: begin,
-        end: begin + interval,
+    for (var project in projectHighlight) {
+      list.add(WebProjectItem(
+        project: project,
+        begin: sum,
+        end: sum + interval,
         animationController: animationController,
       ));
-      begin += interval * 3 / 4;
+      sum += interval - releaseBefore;
     }
+
     return list;
   }
 }

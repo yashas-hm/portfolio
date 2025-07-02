@@ -1,13 +1,13 @@
-part of '../mobile_home_screen.dart';
+part of '../contact_screen.dart';
 
-class Page5 extends StatefulWidget {
-  const Page5({super.key});
+class WebContactScreen extends StatefulWidget {
+  const WebContactScreen({super.key});
 
   @override
-  State<Page5> createState() => _Page5State();
+  State<WebContactScreen> createState() => _WebContactScreenState();
 }
 
-class _Page5State extends State<Page5> {
+class _WebContactScreenState extends State<WebContactScreen> {
   bool loading = false;
   bool emailError = false;
   bool textError = false;
@@ -17,28 +17,28 @@ class _Page5State extends State<Page5> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: context.width / 1.2,
+    return Container(
+      height: context.height,
+      alignment: Alignment.center,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Gap(15.sp),
           Text(
             'Contact Me',
             style: TextStyle(
-              fontSize: 20.sp,
+              fontSize: 30.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
-          Gap(15.sp),
+          Gap(30.sp),
           SizedBox(
-            width: context.width / 1.2,
+            width: context.width / 2.5,
             child: TextField(
               controller: emailCtr,
               style: TextStyle(
-                fontSize: 12.sp,
+                fontSize: 16.sp,
               ),
               decoration: InputDecoration(
                 hintText: 'Ready for a witty email exchange?',
@@ -47,7 +47,6 @@ class _Page5State extends State<Page5> {
                       .colorScheme
                       .tertiary
                       .withValues(alpha: 0.5),
-                  fontSize: 12.sp,
                 ),
                 counterText: '',
                 border: OutlineInputBorder(
@@ -90,13 +89,13 @@ class _Page5State extends State<Page5> {
               cursorColor: Theme.of(context).colorScheme.tertiary,
             ),
           ),
-          Gap(15.sp),
+          Gap(30.sp),
           SizedBox(
-            width: context.width / 1.2,
+            width: context.width / 2.5,
             child: TextField(
               controller: textCtr,
               style: TextStyle(
-                fontSize: 12.sp,
+                fontSize: 16.sp,
               ),
               decoration: InputDecoration(
                 hintText:
@@ -106,7 +105,6 @@ class _Page5State extends State<Page5> {
                       .colorScheme
                       .tertiary
                       .withValues(alpha: 0.5),
-                  fontSize: 12.sp,
                 ),
                 counterText: '',
                 border: OutlineInputBorder(
@@ -137,93 +135,97 @@ class _Page5State extends State<Page5> {
                   ),
                   borderRadius: BorderRadius.circular(13.sp),
                 ),
+                errorStyle: const TextStyle(color: Colors.redAccent),
                 contentPadding: EdgeInsets.all(15.sp),
                 fillColor: Theme.of(context).colorScheme.secondary,
                 filled: true,
                 errorText: textError ? 'Please enter your message' : null,
-                errorStyle: const TextStyle(color: Colors.redAccent),
               ),
               maxLines: 10,
               keyboardType: TextInputType.multiline,
               cursorColor: Theme.of(context).colorScheme.tertiary,
             ),
           ),
-          Gap(15.sp),
-          GestureDetector(
-            onTap: () async {
-              setState(() {
-                loading = true;
-              });
-
-              if (!emailCtr.text.isEmail) {
+          Gap(30.sp),
+          MouseRegion(
+            opaque: false,
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () async {
                 setState(() {
-                  emailError = true;
+                  loading = true;
                 });
-              } else if (emailError) {
-                setState(() {
-                  emailError = false;
-                });
-              }
 
-              if (textCtr.text.isEmpty) {
-                setState(() {
-                  textError = true;
-                });
-              } else if (textError) {
-                setState(() {
-                  textError = false;
-                });
-              }
-
-              if (!(emailError || textError)) {
-                final response = await sendMessage(
-                  email: emailCtr.text.trim(),
-                  text: textCtr.text.trim(),
-                );
-
-                if (response.$1) {
+                if (!emailCtr.text.isEmail) {
                   setState(() {
-                    emailCtr.clear();
-                    textCtr.clear();
+                    emailError = true;
+                  });
+                } else if (emailError) {
+                  setState(() {
+                    emailError = false;
                   });
                 }
 
-                if (context.mounted) {
-                  showToast(context, response.$2);
+                if (textCtr.text.isEmpty) {
+                  setState(() {
+                    textError = true;
+                  });
+                } else if (textError) {
+                  setState(() {
+                    textError = false;
+                  });
                 }
-              }
 
-              setState(() {
-                loading = false;
-              });
-            },
-            child: Container(
-              height: 40.sp,
-              width: context.width / 3,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(13.sp),
-                color: Theme.of(context).colorScheme.primary,
+                if (!(emailError || textError)) {
+                  final response = await sendMessage(
+                    email: emailCtr.text.trim(),
+                    text: textCtr.text.trim(),
+                  );
+
+                  if (response.$1) {
+                    setState(() {
+                      emailCtr.clear();
+                      textCtr.clear();
+                    });
+                  }
+
+                  if (context.mounted) {
+                    showToast(context, response.$2);
+                  }
+                }
+
+                setState(() {
+                  loading = false;
+                });
+              },
+              child: Container(
+                height: 50.sp,
+                width: context.width / 6,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(13.sp),
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                alignment: Alignment.center,
+                child: loading
+                    ? SizedBox(
+                        height: 30.sp,
+                        width: 30.sp,
+                        child: const CircularProgressIndicator(
+                          color: darkText,
+                        ),
+                      )
+                    : Text(
+                        'Tap to Transmit!',
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w500,
+                          color: darkText,
+                        ),
+                      ),
               ),
-              alignment: Alignment.center,
-              child: loading
-                  ? SizedBox(
-                      height: 20.sp,
-                      width: 20.sp,
-                      child: const CircularProgressIndicator(
-                        color: darkText,
-                      ),
-                    )
-                  : Text(
-                      'Tap to Transmit!',
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500,
-                        color: darkText,
-                      ),
-                    ),
             ),
           ),
-          Gap(15.sp),
+          Gap(30.sp),
         ],
       ),
     );

@@ -1,4 +1,4 @@
-part of '../home_screen.dart';
+part of '../mobile_home_screen.dart';
 
 class Page1 extends StatelessWidget {
   const Page1({super.key});
@@ -12,7 +12,7 @@ class Page1 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const HomeName(),
+          const MobileHomeName(),
           Gap(15.sp),
           Text(
             'My Skills 🚀',
@@ -42,7 +42,7 @@ class Page1 extends StatelessWidget {
     ];
 
     for (var index = 0; index < skills.length; index++) {
-      list.add(SkillBox(
+      list.add(MobileSkillBox(
         stack: skills[index],
       ));
 
