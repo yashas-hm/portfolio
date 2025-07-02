@@ -27,8 +27,11 @@ void updateIndex(
     pageIndex.state = index;
     reRoute(index, context, ref);
   } else if(index == contributionsIndex){
-    pageIndex.state = index;
-    reRoute(index, context, ref);
+    // pageIndex.state = index;
+    // reRoute(index, context, ref);
+    // TODO: temporary
+    launchUrl(Uri.parse('https://github.com/yashas-hm/yashas-hm/blob/main/contributions.md'));
+    return;
   } else {
     if (pageIndex.state != 0 || force) {
       pageIndex.state = index;

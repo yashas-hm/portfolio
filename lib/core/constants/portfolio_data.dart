@@ -49,6 +49,7 @@ const List<String> navItems = [
   'About Me',
   'Experience',
   'Projects',
+  'Contributions',
   'Contact Me',
   'Resume',
   'AskYashas',
