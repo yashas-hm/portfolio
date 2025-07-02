@@ -1,12 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/constants.dart';
-import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
-import 'package:portfolio/providers/nav_provider.dart';
-import 'package:resize/resize.dart';
+part of '../home_screen.dart';
 
 class Page2 extends ConsumerWidget {
   const Page2({super.key});
