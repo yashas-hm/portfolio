@@ -127,15 +127,18 @@ const Map<String, Map<String, String>> skills = {
 final List<ExperienceModel> experienceList = [
   ExperienceModel(
     identifier: 'albi',
-    role: 'Mobile App Developer Intern',
+    role: 'Mobile App Developer',
     organization: 'Albiware LLC',
     from: DateTime(2025, DateTime.may),
     to: null,
-    shortDescription: '🚀 Spearheaded high-performance Flutter applications, '
-        'accelerating development timelines by 30% and fortifying code '
-        'reliability.\n\n🛠️ Refactored legacy codebases, slashing crash rates '
-        'by 40%, and 📊 synthesized user analytics to orchestrate UX '
-        'improvements, boosting engagement by 20%.',
+    shortDescription:
+        'Refactored and rewrote legacy Flutter codebase to improve readability,'
+            ' maintainability, and performance.\n\nImplemented custom UI '
+            'components to enhance user experience and align with modern '
+            'design standards.\n\nCollaborated closely with cross-functional '
+            'teams to identify UX pain points and deliver polished, '
+            'user-friendly interfaces.\n\nFocused on clean architecture, '
+            'reusability, and scalability in Flutter development.',
     longDescription: '',
     skills: [
       'Flutter',
@@ -199,7 +202,7 @@ final List<ExperienceModel> experienceList = [
   ExperienceModel(
     identifier: 'internships',
     role: 'Software Developer',
-    organization: 'Internships & Freelancing',
+    organization: 'IMultiple Organizations',
     from: DateTime(2019, DateTime.august),
     to: DateTime(2023, DateTime.may),
     shortDescription: '🌟 Dabbled in over 7 internships, wearing hats as a '
