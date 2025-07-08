@@ -205,7 +205,7 @@ final List<ExperienceModel> experienceList = [
     organization: 'IMultiple Organizations',
     from: DateTime(2019, DateTime.august),
     to: DateTime(2023, DateTime.may),
-    shortDescription: '🌟 Dabbled in over 7 internships, wearing hats as a '
+    shortDescription: '🌟 Worked with over 7 startups, wearing hats as a '
         'software sorcerer, Flutter magician, game genie, and Android '
         'alchemist.\n\n🧙‍♂️ Delivered projects with wizard-like efficiency, '
         'waving my wand to ensure on-time completion and submission with '
