@@ -215,7 +215,7 @@ final List<ExperienceModel> experienceList = [
   ),
   ExperienceModel(
     identifier: 'cy',
-    role: 'Software Developer Intern',
+    role: 'Software Developer (Contract)',
     organization: 'Camp Yellow',
     from: DateTime(2023, DateTime.april),
     to: DateTime(2023, DateTime.may),
@@ -240,7 +240,7 @@ final List<ExperienceModel> experienceList = [
   ),
   ExperienceModel(
     identifier: 'grahnumb',
-    role: 'Flutter Game Developer Intern',
+    role: 'Flutter Game Developer (Contract)',
     organization: 'Grahnumb',
     from: DateTime(2023, DateTime.february),
     to: DateTime(2023, DateTime.march),
@@ -266,7 +266,7 @@ final List<ExperienceModel> experienceList = [
   ),
   ExperienceModel(
     identifier: 'ecsol',
-    role: 'Flutter Developer Intern',
+    role: 'Flutter Developer (Contract)',
     organization: 'EcoConsumers Solutions Pvt. Ltd.',
     from: DateTime(2022, DateTime.june),
     to: DateTime(2022, DateTime.september),
@@ -289,7 +289,7 @@ final List<ExperienceModel> experienceList = [
   ),
   ExperienceModel(
     identifier: 'raahi',
-    role: 'Android Developer Intern',
+    role: 'Android Developer (Contract)',
     organization: 'Raahi Mobi Pvt. Ltd.',
     from: DateTime(2021, DateTime.may),
     to: DateTime(2021, DateTime.june),
@@ -307,7 +307,7 @@ final List<ExperienceModel> experienceList = [
   ),
   ExperienceModel(
     identifier: 'surjal',
-    role: 'Android Developer Intern',
+    role: 'Android Developer (Contract)',
     organization: 'Surjal Services Pvt. Ltd.',
     from: DateTime(2021, DateTime.january),
     to: DateTime(2021, DateTime.february),
@@ -325,7 +325,7 @@ final List<ExperienceModel> experienceList = [
   ),
   ExperienceModel(
     identifier: 'yellow',
-    role: 'Android Developer Intern',
+    role: 'Android Developer (Contract)',
     organization: '99 Yellow',
     from: DateTime(2020, DateTime.august),
     to: DateTime(2020, DateTime.december),
