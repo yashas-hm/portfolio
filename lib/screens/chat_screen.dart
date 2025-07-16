@@ -12,6 +12,7 @@ import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/utilities/utils.dart';
 import 'package:portfolio/core/utilities/widget_generators.dart';
 import 'package:portfolio/providers/chat_provider.dart';
+import 'package:portfolio/screens/not_found_screen.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -39,6 +40,11 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
   Widget build(BuildContext context) {
     final chats = ref.watch(chatProvider);
     final loading = ref.watch(loadingResponseProvider);
+
+    return NotFoundScreen(
+      title: '503',
+      description: 'Page currently under maintenance',
+    );
 
     return CustomScaffold(
       child: Stack(

@@ -11,7 +11,14 @@ import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:resize/resize.dart';
 
 class NotFoundScreen extends ConsumerWidget {
-  const NotFoundScreen({super.key});
+  const NotFoundScreen({
+    super.key,
+    this.title,
+    this.description,
+  });
+
+  final String? title;
+  final String? description;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -30,14 +37,14 @@ class NotFoundScreen extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              '404',
+              title??'404',
               style: TextStyle(
                 fontSize: context.isMobile ? 160.sp : 180.sp,
                 fontWeight: FontWeight.w700,
               ),
             ),
             Text(
-              'Oops! Looks like this page took a vacation without telling anyone.',
+              description??'Oops! Looks like this page took a vacation without telling anyone.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: context.isMobile ? 20.sp : 30.sp,
