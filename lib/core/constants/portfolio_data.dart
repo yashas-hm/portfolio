@@ -52,7 +52,7 @@ const List<String> navItems = [
   'Contributions',
   'Contact Me',
   'Resume',
-  // 'AskYashas',
+  'AskYashas',
 ];
 
 const List<String> colorOverrideOnTag = [
