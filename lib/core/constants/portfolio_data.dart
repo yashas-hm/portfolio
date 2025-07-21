@@ -202,7 +202,7 @@ final List<ExperienceModel> experienceList = [
   ExperienceModel(
     identifier: 'internships',
     role: 'Software Developer',
-    organization: 'IMultiple Organizations',
+    organization: 'Multiple Organizations',
     from: DateTime(2019, DateTime.august),
     to: DateTime(2023, DateTime.may),
     shortDescription: '🌟 Worked with over 7 startups, wearing hats as a '
