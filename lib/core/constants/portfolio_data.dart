@@ -14,7 +14,7 @@ const String instaLink = 'https://www.instagram.com/yashas_hm';
 const String githubLink = 'https://github.com/yashas-hm';
 
 const String resumeLink =
-    'https://drive.google.com/file/d/1QlohpSI04QkvMYNdLpemR5GO43uGg3Kd/view?usp=sharing';
+    'https://drive.google.com/file/d/1cpK9Edd920Gr-qjD_BAAX5oO1CY_VDXQ/view?usp=sharing';
 
 const String aboutBrief = '👨🏻‍💻 Full Stack Software Developer & Digital '
     'Craftsman at your service! 🚀 From crafting elegant user interfaces to '
