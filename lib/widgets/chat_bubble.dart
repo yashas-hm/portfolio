@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/core/constants/colors.dart';
 import 'package:portfolio/core/model/chat_model.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/chat_provider.dart';
 import 'package:resize/resize.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ChatBubble extends StatelessWidget {
   const ChatBubble({
@@ -18,6 +20,9 @@ class ChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final color = Theme.of(context).colorScheme.tertiary;
+    final textStyle =
+        TextStyle(color: color, fontSize: context.isMobile ? 14.sp : 16.sp);
     return Container(
       width: width,
       alignment: chat.role == Role.human
@@ -38,15 +43,44 @@ class ChatBubble extends StatelessWidget {
               : Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(8.sp),
         ),
-        child: Text(
-          chat.message,
-          style: TextStyle(
-            color: chat.role == Role.human
-                ? darkText
-                : Theme.of(context).colorScheme.tertiary,
-            fontSize: context.isMobile ? 14.sp : 16.sp,
-          ),
-        ),
+        child: chat.role == Role.human
+            ? Text(
+                chat.message,
+                style: TextStyle(
+                  color: darkText,
+                  fontSize: context.isMobile ? 14.sp : 16.sp,
+                ),
+              )
+            : MarkdownBody(
+                data: chat.message,
+                selectable: true,
+                onTapLink: (text, href, title) {
+                  if (href != null) launchUrl(Uri.parse(href));
+                },
+                styleSheet:
+                    MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
+                  p: textStyle,
+                  strong: TextStyle(
+                      color: color,
+                      fontWeight: FontWeight.bold,
+                      fontSize: context.isMobile ? 14.sp : 16.sp),
+                  em: TextStyle(
+                      color: color,
+                      fontStyle: FontStyle.italic,
+                      fontSize: context.isMobile ? 14.sp : 16.sp),
+                  h1: textStyle,
+                  h2: textStyle,
+                  h3: textStyle,
+                  h4: textStyle,
+                  h5: textStyle,
+                  h6: textStyle,
+                  listBullet: textStyle,
+                  a: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                      decoration: TextDecoration.underline,
+                      fontSize: context.isMobile ? 14.sp : 16.sp),
+                ),
+              ),
       ),
     );
   }

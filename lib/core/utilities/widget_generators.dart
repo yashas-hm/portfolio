@@ -32,39 +32,6 @@ Widget typerWidget({
   );
 }
 
-List<Widget> buildChatList(
-  List<ChatModel> chats,
-  bool loading,
-  double width,
-) {
-  final list = <Widget>[];
-  for (ChatModel chat in chats) {
-    list.add(
-      ChatBubble(
-        chat: chat,
-        width: width,
-      ),
-    );
-  }
-  if (loading) {
-    list.insert(
-      0,
-      TypingIndicator(
-        width: width,
-      ),
-    );
-  }
-  if (chats.isNotEmpty && !loading && chats.last.error) {
-    list.insert(
-      0,
-      ErrorBubble(
-        width: width,
-      ),
-    );
-  }
-  return list;
-}
-
 OutlineInputBorder outlineBorder(BuildContext context) => OutlineInputBorder(
       borderSide: BorderSide(
         color: Theme.of(context).colorScheme.tertiary,

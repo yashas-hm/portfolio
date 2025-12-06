@@ -160,12 +160,12 @@ const List<String> introTyperText = [
   'ML Models'
 ];
 
-const List<String> chatTyperText = [
+const List<String> chatRecommendations = [
   'Tell me about Yashas.',
   'What experiences Yashas has?',
   'Give me important links.',
   'List Yashas\'s skills.',
   'List Yashas\'s startup experiences.',
 ];
-// App Text
-const String skillsHeading = 'My Skills 🚀';
+
+const chatAPIEndpointURL = 'https://ask.yashashm.dev/api/prompt';

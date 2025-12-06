@@ -292,7 +292,7 @@ class _HomeNameState extends ConsumerState<MobileHomeName> {
                                     child: FittedBox(
                                       fit: BoxFit.scaleDown,
                                       child: typerWidget(
-                                        textList: chatTyperText,
+                                        textList: chatRecommendations,
                                         fontSize: 12.sp,
                                         fontWeight: FontWeight.w400,
                                         color: Theme.of(context)

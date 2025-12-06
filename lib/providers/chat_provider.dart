@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
+import 'package:portfolio/core/constants/constants.dart';
 import 'package:portfolio/core/model/chat_model.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 
@@ -28,7 +29,7 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
         .where((chat) => !chat.error)
         .toList()
         .reversed
-        .take(6)
+        .take(3)
         .toList()
         .reversed;
     final list = <Map<String, String>>[];
@@ -48,7 +49,7 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
       // Add bypass key for bypass test (random gen uuid on server)
       // eg. ?bypass_key=fd271e7e-e6a4-4cd8-9bfe-3c95147d9849
       final response = await http.post(
-        Uri.parse('https://ask.yashashm.dev/api/prompt'),
+        Uri.parse(chatAPIEndpointURL),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -60,6 +61,9 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
         ),
       );
 
+      print(response.body);
+      print(response.statusCode);
+
       if (response.statusCode == 200) {
         final responseBody = jsonDecode(response.body);
         state.add(
@@ -69,23 +73,17 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
           ),
         );
       } else {
-        throw Exception('');
-      }
-    } catch (e) {
-      if (state.length <= 1) {
-        ChatModel(
+        state.add(ChatModel(
           role: Role.ai,
           message:
-              'I\'m snoozing a bit... give me a sec to brew some digital coffee ☕️ I\'ll be right with you!',
-        );
-        askQuestion(
-          state.lastHumanMessage,
-          regenerate: true,
-        );
-        return;
-      } else {
-        state[state.length - 1].error = true;
+              'Whoa, too many questions! 🫠 My brain needs a quick breather. Try again later?\n(Rate Limit reached for free tier)',
+          error: true,
+        ));
+        state = [...state];
       }
+    } catch (e) {
+      state[state.length - 1].error = true;
+      state = [...state];
     } finally {
       ref.read(loadingResponseProvider.notifier).update((_) => false);
       scrollController.animateTo(
