@@ -1,18 +1,7 @@
 {
   "routes": [
     {
-      "src": "/sitemap.xml",
-      "dest": "/sitemap.xml",
-      "headers": {
-        "Content-Type": "application/xml"
-      }
-    },
-    {
-      "src": "/robots.txt",
-      "dest": "/robots.txt",
-      "headers": {
-        "Content-Type": "text/plain"
-      }
+      "handle": "filesystem"
     },
     {
       "src": "/api/mail",
@@ -30,33 +19,8 @@
       }
     },
     {
-      "src": "/",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/about",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/projects",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/experience",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/contact",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/resume",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/chat",
+      "src": "/(.*)",
       "dest": "/index.html"
     }
   ]
 }
-
