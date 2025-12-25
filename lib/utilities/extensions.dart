@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:portfolio/core/model/chat_model.dart';
+import 'package:portfolio/model/chat_model.dart';
 
 extension NumUtils on num {
   num remap(num minExtent, num maxExtent, num minRange, num maxRange) {

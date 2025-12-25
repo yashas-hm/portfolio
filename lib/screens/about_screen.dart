@@ -4,11 +4,11 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/portfolio_constants.dart';
-import 'package:portfolio/core/constants/portfolio_data.dart';
-import 'package:portfolio/core/model/achievement_model.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
-import 'package:portfolio/core/utilities/utils.dart';
+import 'package:portfolio/constants/portfolio_constants.dart';
+import 'package:portfolio/constants/portfolio_data.dart';
+import 'package:portfolio/model/achievement_model.dart';
+import 'package:portfolio/utilities/extensions.dart';
+import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:resize/resize.dart';
 

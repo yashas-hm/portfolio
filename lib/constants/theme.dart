@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:portfolio/core/constants/colors.dart';
+import 'package:portfolio/constants/colors.dart';
 
 ThemeData lightTheme(BuildContext context) => ThemeData(
       primaryColor: lightPrimary,

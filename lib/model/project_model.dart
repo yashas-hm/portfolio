@@ -1,4 +1,4 @@
-import 'package:portfolio/core/model/base_model.dart';
+import 'package:portfolio/model/base_model.dart';
 
 class ProjectModel extends BaseModel {
   final int priority;

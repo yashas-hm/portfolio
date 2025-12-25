@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:portfolio/core/constants/constants.dart';
+import 'package:portfolio/constants/constants.dart';
 
 enum SkillCategory {
   languages(SkillCategoryColors.languages),

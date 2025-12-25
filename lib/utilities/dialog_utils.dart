@@ -4,7 +4,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
+import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/widgets/skill_chips.dart';
 import 'package:resize/resize.dart';
 

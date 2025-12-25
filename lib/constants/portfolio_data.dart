@@ -1,10 +1,10 @@
-import 'package:portfolio/core/data/skills.dart';
-import 'package:portfolio/core/model/achievement_model.dart';
-import 'package:portfolio/core/model/experience_model.dart';
-import 'package:portfolio/core/model/project_model.dart';
-import 'package:portfolio/core/model/skill.dart';
-import 'package:portfolio/core/model/testimonial_model.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
+import 'package:portfolio/data/skills.dart';
+import 'package:portfolio/model/achievement_model.dart';
+import 'package:portfolio/model/experience_model.dart';
+import 'package:portfolio/model/project_model.dart';
+import 'package:portfolio/model/skill.dart';
+import 'package:portfolio/model/testimonial_model.dart';
+import 'package:portfolio/utilities/extensions.dart';
 
 const String linkedinLink = 'https://www.linkedin.com/in/yashashm';
 

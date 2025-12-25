@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-import 'package:portfolio/core/constants/portfolio_constants.dart';
-import 'package:portfolio/core/model/chat_model.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
+import 'package:portfolio/constants/portfolio_constants.dart';
+import 'package:portfolio/model/chat_model.dart';
+import 'package:portfolio/utilities/extensions.dart';
 
 final StateNotifierProvider<ChatNotifier, List<ChatModel>> chatProvider =
     StateNotifierProvider<ChatNotifier, List<ChatModel>>(

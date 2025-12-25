@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
+import 'package:portfolio/utilities/extensions.dart';
 import 'package:resize/resize.dart';
 
 class SkillChips extends StatelessWidget {

@@ -1,5 +1,5 @@
-import 'package:portfolio/core/constants/constants.dart' show LogoAssets;
-import 'package:portfolio/core/model/skill.dart';
+import 'package:portfolio/constants/constants.dart' show LogoAssets;
+import 'package:portfolio/model/skill.dart';
 
 class Skills {
   Skills._();

@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/portfolio_constants.dart';
+import 'package:portfolio/constants/portfolio_constants.dart';
 
 class CustomCachedImage extends StatelessWidget {
   const CustomCachedImage({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
+import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/providers/ui_provider.dart';
 
 class FollowMouse extends ConsumerWidget {

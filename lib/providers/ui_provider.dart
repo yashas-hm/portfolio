@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:portfolio/core/utilities/shared_pref_utils.dart';
+import 'package:portfolio/utilities/shared_pref_utils.dart';
 
 final StateProvider<double> xProvider = StateProvider<double>((_) => 0.0);
 
