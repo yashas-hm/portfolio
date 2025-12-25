@@ -66,6 +66,7 @@ jobs:
           git clone https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/yashas-hm/vercel-portfolio-website.git
           cp -rf vercel-portfolio-website/. .
           rm -r vercel-portfolio-website/
+          rm -rf assets/
           git remote remove origin
           git remote add origin https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/yashas-hm/vercel-portfolio-website.git
           cd ..

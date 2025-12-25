@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/constants.dart';
+import 'package:portfolio/core/constants/portfolio_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
+import 'package:portfolio/core/model/skill.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/utilities/utils.dart';
 import 'package:portfolio/providers/nav_provider.dart';
@@ -28,7 +29,7 @@ class WebSkillBox extends StatefulWidget {
 }
 
 class _WebSkillBoxState extends State<WebSkillBox> with TickerProviderStateMixin {
-  late final Map<String, String> data;
+  late final List<Skill> data;
   late final AnimationController popupAnimationController;
   int duration = 0;
   bool hovering = false;
@@ -148,7 +149,7 @@ class _WebSkillBoxState extends State<WebSkillBox> with TickerProviderStateMixin
 
     List<Widget> chips = [];
 
-    for (var skill in data.keys) {
+    for (var skill in data) {
       chips.add(
         ScaleTransition(
           scale: Tween<double>(
@@ -165,39 +166,36 @@ class _WebSkillBoxState extends State<WebSkillBox> with TickerProviderStateMixin
             ),
           ),
           child: Container(
-            height: 40.sp,
             decoration: BoxDecoration(
-              color: Theme.of(context).scaffoldBackgroundColor,
+              color: skill.backgroundColor,
               borderRadius: BorderRadius.circular(8.sp),
               border: Border.all(
-                color: Theme.of(context)
-                    .colorScheme
-                    .tertiary
-                    .withValues(alpha: 0.5),
+                color: skill.color,
                 width: 1.sp,
               ),
             ),
             padding: EdgeInsets.symmetric(
-              horizontal: 10.sp,
-              vertical: 8.sp,
+              horizontal: 5.sp,
+              vertical: 3.sp,
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                if (data[skill] != '')
+                if (skill.icon != null)
                   SvgPicture.asset(
-                    data[skill]!,
-                    height: 25.sp,
-                    width: 25.sp,
+                    skill.icon!,
+                    height: 18.sp,
+                    width: 18.sp,
                     colorFilter: filterAccToThemeIfNeeded(context, skill),
                   ),
-                Gap(10.sp),
+                Gap(5.sp),
                 Text(
-                  skill,
+                  skill.name,
                   style: TextStyle(
                     fontSize: 14.sp,
+                    fontWeight: FontWeight.bold,
                     color: Theme.of(context).colorScheme.tertiary,
                   ),
                 ),

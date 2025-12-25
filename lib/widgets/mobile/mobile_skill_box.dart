@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
+import 'package:portfolio/core/model/skill.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/core/utilities/utils.dart';
 import 'package:resize/resize.dart';
@@ -19,7 +20,7 @@ class MobileSkillBox extends StatefulWidget {
 }
 
 class _MobileSkillBoxState extends State<MobileSkillBox> with TickerProviderStateMixin {
-  late final Map<String, String> data;
+  late final List<Skill> data;
   late final AnimationController popupAnimationController;
   int duration = 0;
   bool hovering = false;
@@ -90,7 +91,7 @@ class _MobileSkillBoxState extends State<MobileSkillBox> with TickerProviderStat
 
     List<Widget> chips = [];
 
-    for (var skill in data.keys) {
+    for (var skill in data) {
       chips.add(
         ScaleTransition(
           scale: Tween<double>(
@@ -128,16 +129,16 @@ class _MobileSkillBoxState extends State<MobileSkillBox> with TickerProviderStat
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                if (data[skill] != '')
+                if (skill.icon != null)
                   SvgPicture.asset(
-                    data[skill]!,
+                    skill.icon!,
                     height: 15.sp,
                     width: 15.sp,
                     colorFilter: filterAccToThemeIfNeeded(context, skill),
                   ),
                 Gap(5.sp),
                 Text(
-                  skill,
+                  skill.name,
                   style: TextStyle(
                     fontSize: 12.sp,
                     color: Theme.of(context).colorScheme.tertiary,

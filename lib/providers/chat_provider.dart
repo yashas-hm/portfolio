@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-import 'package:portfolio/core/constants/constants.dart';
+import 'package:portfolio/core/constants/portfolio_constants.dart';
 import 'package:portfolio/core/model/chat_model.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 

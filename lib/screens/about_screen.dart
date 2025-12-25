@@ -4,7 +4,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/core/constants/constants.dart';
+import 'package:portfolio/core/constants/portfolio_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/model/achievement_model.dart';
 import 'package:portfolio/core/utilities/extensions.dart';

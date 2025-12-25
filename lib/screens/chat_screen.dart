@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:lava_lamp_effect/lava_lamp_effect.dart';
 import 'package:portfolio/core/constants/colors.dart';
-import 'package:portfolio/core/constants/constants.dart';
+import 'package:portfolio/core/constants/portfolio_constants.dart';
 import 'package:portfolio/core/constants/portfolio_data.dart';
 import 'package:portfolio/core/model/chat_model.dart';
 import 'package:portfolio/core/model/project_model.dart';

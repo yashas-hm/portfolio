@@ -1,7 +1,8 @@
-import 'package:portfolio/core/constants/constants.dart';
+import 'package:portfolio/core/data/skills.dart';
 import 'package:portfolio/core/model/achievement_model.dart';
 import 'package:portfolio/core/model/experience_model.dart';
 import 'package:portfolio/core/model/project_model.dart';
+import 'package:portfolio/core/model/skill.dart';
 import 'package:portfolio/core/model/testimonial_model.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 
@@ -55,72 +56,68 @@ const List<String> navItems = [
   'AskYashas',
 ];
 
-const List<String> colorOverrideOnTag = [
-  'Express.js',
-  'Actions',
-  'LangChain',
-  'Ollama'
-];
-
-const Map<String, Map<String, String>> skills = {
-  'Languages': {
-    'Dart': dart,
-    'Python': python,
-    'JAVA': java,
-    'JavaScript': js,
-    'TypeScript': typescript,
-    'Bash': bash,
-    'C++': cpp,
-    // 'Rust': rust,
-  },
-  'Front-End': {
-    'Flutter': flutter,
-    'React': react,
-    'HTML': html,
-    'CSS': css,
-  },
-  'Back-End': {
-    'FastAPI': fastapi,
-    'Node.js': nodeJs,
-    'Express.js': expressJs,
-    'NGINX': nginx,
-    'GraphQL': graphQl,
-  },
-  'Database': {
-    'Firebase': firebase,
-    'Supabase': supabase,
-    'MySQL': mysql,
-    'PostgreSQL': psql,
-    'MongoDb': mongoDb,
-  },
-  'DevOps': {
-    'Git': git,
-    'Docker': docker,
-    'Kubernetes': kubernetes,
-    'Actions': githubActions,
-    'Jenkins': jenkins,
-    // 'Ansible': ansible,
-    // 'Prometheus': prometheus,
-  },
-  'ML/AI': {
-    'Ollama': ollama,
-    'HuggingFace': huggingface,
-    'LangChain': langchain,
-    'OpenCV': opencv,
-    'TensorFlow': tensorFlow,
-    'LLMs': ''
-  },
-  'Cloud & Tools': {
-    'GCP': gcp,
-    'AWS': aws,
-    'Jira': jira,
-    'Slack': slack,
-  },
-  'IoT': {
-    'Arduino': arduino,
-    'RaspberryPi': raspberryPi,
-    'ESP32': '',
-  }
+final Map<String, List<Skill>> skills = {
+  'Languages': [
+    Skills.dart,
+    Skills.python,
+    Skills.java,
+    Skills.javascript,
+    Skills.typescript,
+    Skills.bash,
+    Skills.cpp,
+    Skills.cSharp,
+  ],
+  'Front-End': [
+    Skills.flutter,
+    Skills.react,
+    Skills.html,
+    Skills.css,
+  ],
+  'Back-End': [
+    Skills.fastapi,
+    Skills.nodeJs,
+    Skills.expressJs,
+    Skills.nginx,
+    Skills.graphql,
+    Skills.dotNet,
+  ],
+  'Database': [
+    Skills.firebase,
+    Skills.supabase,
+    Skills.mysql,
+    Skills.postgresql,
+    Skills.mongodb,
+    Skills.vectorDb,
+  ],
+  'DevOps': [
+    Skills.git,
+    Skills.docker,
+    Skills.kubernetes,
+    Skills.githubActions,
+    Skills.jenkins,
+    Skills.ansible,
+    Skills.prometheus,
+  ],
+  'ML/AI': [
+    Skills.ollama,
+    Skills.huggingface,
+    Skills.langchain,
+    Skills.opencv,
+    Skills.tensorflow,
+    Skills.llms,
+    Skills.langGraph,
+  ],
+  'Cloud & Tools': [
+    Skills.gcp,
+    Skills.aws,
+    Skills.jira,
+    Skills.slack,
+  ],
+  'IoT': [
+    Skills.arduino,
+    Skills.raspberryPi,
+    Skills.esp32,
+  ],
 };
 
 //INFO: Experience

@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-import 'package:portfolio/core/constants/constants.dart';
-import 'package:portfolio/core/constants/portfolio_data.dart';
+import 'package:portfolio/core/constants/portfolio_constants.dart';
 import 'package:portfolio/core/model/experience_model.dart';
+import 'package:portfolio/core/model/skill.dart';
 import 'package:portfolio/core/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
@@ -157,8 +157,8 @@ Route<dynamic> routeBuilder(RouteSettings settings) {
   }
 }
 
-ColorFilter? filterAccToThemeIfNeeded(BuildContext context, String skill) {
-  if (colorOverrideOnTag.contains(skill)) {
+ColorFilter? filterAccToThemeIfNeeded(BuildContext context, Skill skill) {
+  if (skill.overrideLogoColor) {
     return ColorFilter.mode(
       Theme.of(context).colorScheme.tertiary,
       BlendMode.srcIn,
