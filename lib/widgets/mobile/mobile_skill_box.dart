@@ -19,7 +19,8 @@ class MobileSkillBox extends StatefulWidget {
   State<MobileSkillBox> createState() => _MobileSkillBoxState();
 }
 
-class _MobileSkillBoxState extends State<MobileSkillBox> with TickerProviderStateMixin {
+class _MobileSkillBoxState extends State<MobileSkillBox>
+    with TickerProviderStateMixin {
   late final List<Skill> data;
   late final AnimationController popupAnimationController;
   int duration = 0;

@@ -8,7 +8,6 @@ import 'package:intl/intl.dart';
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/model/experience_model.dart';
 import 'package:portfolio/model/skill.dart';
-import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:portfolio/screens/about_screen.dart';
@@ -19,6 +18,7 @@ import 'package:portfolio/screens/experience_screen.dart';
 import 'package:portfolio/screens/home_screen.dart';
 import 'package:portfolio/screens/not_found_screen.dart';
 import 'package:portfolio/screens/project_screen.dart';
+import 'package:portfolio/utilities/extensions.dart';
 
 void indexCheck(int index, WidgetRef ref) {
   final currentValue = ref.read(currentIndexProvider);

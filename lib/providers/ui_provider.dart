@@ -20,18 +20,18 @@ class DoubleNotifier extends Notifier<double> {
 
 class ThemeModeNotifier extends Notifier<ThemeMode> {
   ThemeColors colors = AppTheme.darkColors;
-  
+
   @override
   ThemeMode build() => ThemeMode.dark;
-  
+
   void set(ThemeMode value) {
-    if(value!=state){
+    if (value != state) {
       state = value;
-      if(state==ThemeMode.dark){
+      if (state == ThemeMode.dark) {
         colors = AppTheme.darkColors;
-      }else{
+      } else {
         colors = AppTheme.lightColors;
-      } 
+      }
     }
   }
 }

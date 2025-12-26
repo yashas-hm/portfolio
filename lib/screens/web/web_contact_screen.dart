@@ -211,7 +211,7 @@ class _WebContactScreenState extends State<WebContactScreen> {
                         height: 30.sp,
                         width: 30.sp,
                         child: const CircularProgressIndicator(
-                          color: darkText,
+                          color: KnownColors.gray50,
                         ),
                       )
                     : Text(
@@ -219,7 +219,7 @@ class _WebContactScreenState extends State<WebContactScreen> {
                         style: TextStyle(
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w500,
-                          color: darkText,
+                          color: KnownColors.gray50,
                         ),
                       ),
               ),

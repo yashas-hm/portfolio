@@ -1,6 +1,6 @@
 part of 'theme.dart';
 
-class LightThemeColors extends ThemeColors{
+class LightThemeColors extends ThemeColors {
   @override
   Color get primaryColor => KnownColors.blue400;
 

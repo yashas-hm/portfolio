@@ -1,4 +1,4 @@
-part of  '../about_screen.dart';
+part of '../about_screen.dart';
 
 class WebAboutScreen extends StatelessWidget {
   const WebAboutScreen({super.key});

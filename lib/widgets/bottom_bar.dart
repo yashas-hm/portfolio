@@ -4,14 +4,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
-import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
+import 'package:portfolio/utilities/extensions.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-part 'web/web_bottom_bar.dart';
 part 'mobile/mobile_bottom_bar.dart';
+part 'web/web_bottom_bar.dart';
 
 class BottomBar extends ConsumerWidget {
   const BottomBar({

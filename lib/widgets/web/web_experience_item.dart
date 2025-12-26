@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/constants/colors.dart';
+import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/model/experience_model.dart';
 import 'package:portfolio/utilities/dialog_utils.dart';
 import 'package:portfolio/utilities/extensions.dart';
@@ -180,7 +180,7 @@ class _WebExperienceItemState extends State<WebExperienceItem> {
                         height: 25.sp,
                         width: 25.sp,
                         decoration: BoxDecoration(
-                          color: darkText,
+                          color: KnownColors.gray50,
                           shape: BoxShape.circle,
                           border: Border.all(
                             color: Theme.of(context).colorScheme.primary,

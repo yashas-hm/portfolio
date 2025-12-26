@@ -6,14 +6,14 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:lava_lamp_effect/lava_lamp_effect.dart';
-import 'package:portfolio/constants/colors.dart';
+import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
+import 'package:portfolio/providers/nav_provider.dart';
+import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/utilities/widget_generators.dart';
-import 'package:portfolio/providers/nav_provider.dart';
-import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/widgets/connect_button.dart';
 import 'package:resize/resize.dart';
 
@@ -111,7 +111,7 @@ class _HomeNameState extends ConsumerState<WebHomeName> {
                         child: Text(
                           'Hello 👋🏻, I\'m\nYashas H Majmudar',
                           style: TextStyle(
-                            color: darkText,
+                            color: KnownColors.gray50,
                             fontSize: 40.sp,
                             fontWeight: FontWeight.w600,
                           ),
@@ -126,7 +126,7 @@ class _HomeNameState extends ConsumerState<WebHomeName> {
                               style: TextStyle(
                                 fontSize: 28.sp,
                                 fontWeight: FontWeight.w500,
-                                color: darkText,
+                                color: KnownColors.gray50,
                               ),
                             ),
                           ),
@@ -153,7 +153,7 @@ class _HomeNameState extends ConsumerState<WebHomeName> {
                             style: TextStyle(
                               fontSize: 20.sp,
                               fontWeight: FontWeight.w400,
-                              color: darkText,
+                              color: KnownColors.gray50,
                             ),
                           ),
                         ),
@@ -169,7 +169,7 @@ class _HomeNameState extends ConsumerState<WebHomeName> {
                             icon: github,
                             link: githubLink,
                             color: const ColorFilter.mode(
-                              darkText,
+                              KnownColors.gray50,
                               BlendMode.srcIn,
                             ),
                             size: Size(40.sp, 40.sp),

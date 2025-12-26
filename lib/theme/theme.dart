@@ -9,8 +9,8 @@ import 'package:flutter/material.dart'
         ColorScheme,
         TextSelectionThemeData;
 import 'package:flutter/services.dart';
-import 'package:portfolio/constants/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/constants/constants.dart';
 
 part 'app_theme.dart';
 part 'dark_theme.dart';

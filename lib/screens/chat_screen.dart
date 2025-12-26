@@ -5,15 +5,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:lava_lamp_effect/lava_lamp_effect.dart';
-import 'package:portfolio/constants/colors.dart';
+import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
 import 'package:portfolio/model/chat_model.dart';
 import 'package:portfolio/model/project_model.dart';
+import 'package:portfolio/providers/chat_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/utilities/widget_generators.dart';
-import 'package:portfolio/providers/chat_provider.dart';
 import 'package:portfolio/widgets/chat_bubble.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:resize/resize.dart';
@@ -53,7 +53,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                 context.height,
               ),
               lavaCount: 5,
-              color: extra,
+              color: KnownColors.blue300,
             ),
           ),
           Center(

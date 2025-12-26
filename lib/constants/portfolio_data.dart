@@ -58,22 +58,24 @@ const List<String> navItems = [
 
 final Map<String, List<Skill>> skills = {
   'Languages': [
-    Skills.dart,
     Skills.python,
-    Skills.java,
+    Skills.dart,
     Skills.javascript,
     Skills.typescript,
     Skills.bash,
-    Skills.cpp,
     Skills.cSharp,
+    Skills.cpp,
+    Skills.java,
   ],
-  'Front-End': [
+  'Mobile & Frontend': [
     Skills.flutter,
+    Skills.android,
+    Skills.ios,
     Skills.react,
     Skills.html,
     Skills.css,
   ],
-  'Back-End': [
+  'Backend': [
     Skills.fastapi,
     Skills.nodeJs,
     Skills.expressJs,
@@ -81,31 +83,31 @@ final Map<String, List<Skill>> skills = {
     Skills.graphql,
     Skills.dotNet,
   ],
-  'Database': [
+  'Databases': [
     Skills.firebase,
     Skills.supabase,
     Skills.mysql,
     Skills.postgresql,
     Skills.mongodb,
-    Skills.vectorDb,
+    Skills.vectorDB,
   ],
   'DevOps': [
     Skills.git,
     Skills.docker,
     Skills.kubernetes,
     Skills.githubActions,
-    Skills.jenkins,
-    Skills.ansible,
-    Skills.prometheus,
+    // Skills.jenkins,
+    // Skills.ansible,
+    // Skills.prometheus,
   ],
   'ML/AI': [
     Skills.ollama,
     Skills.huggingface,
     Skills.langchain,
+    Skills.langGraph,
     Skills.opencv,
     Skills.tensorflow,
     Skills.llms,
-    Skills.langGraph,
   ],
   'Cloud & Tools': [
     Skills.gcp,
@@ -130,12 +132,12 @@ final List<ExperienceModel> experienceList = [
     to: null,
     shortDescription:
         'Refactored and rewrote legacy Flutter codebase to improve readability,'
-            ' maintainability, and performance.\n\nImplemented custom UI '
-            'components to enhance user experience and align with modern '
-            'design standards.\n\nCollaborated closely with cross-functional '
-            'teams to identify UX pain points and deliver polished, '
-            'user-friendly interfaces.\n\nFocused on clean architecture, '
-            'reusability, and scalability in Flutter development.',
+        ' maintainability, and performance.\n\nImplemented custom UI '
+        'components to enhance user experience and align with modern '
+        'design standards.\n\nCollaborated closely with cross-functional '
+        'teams to identify UX pain points and deliver polished, '
+        'user-friendly interfaces.\n\nFocused on clean architecture, '
+        'reusability, and scalability in Flutter development.',
     longDescription: '',
     skills: [
       'Flutter',

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
+import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
-import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final pageIndexProvider = NotifierProvider<PageIndexNotifier, int>(
@@ -44,11 +44,12 @@ void updateIndex(
   } else if (index == chatIndex) {
     pageIndex.set(index);
     reRoute(index, context, ref);
-  } else if(index == contributionsIndex){
+  } else if (index == contributionsIndex) {
     // pageIndex.set(index);
     // reRoute(index, context, ref);
     // TODO: temporary
-    launchUrl(Uri.parse('https://github.com/yashas-hm/yashas-hm/blob/main/contributions.md'));
+    launchUrl(Uri.parse(
+        'https://github.com/yashas-hm/yashas-hm/blob/main/contributions.md'));
     return;
   } else {
     if (ref.read(pageIndexProvider) != 0 || force) {

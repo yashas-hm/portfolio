@@ -37,24 +37,6 @@ class KnownColors {
   static const Color black = Color(0xFF000000);
 
   // ===================
-  // PRIMARY
-  // ===================
-  static const Color primaryLight = blue400;
-  static const Color primaryDark = blue500;
-  
-  // ===================
-  // TEXT
-  // ===================
-  static const Color textDark = gray100;
-  static const Color textLight = gray900;
-  
-  // ===================
-  // CARD
-  // ===================
-  static const Color cardLight = white;
-  static const Color cardDark = gray800;
-
-  // ===================
   // COLOR PALETTE
   // ===================
 
@@ -65,6 +47,7 @@ class KnownColors {
 
   // Blue
   static const Color blue50 = Color(0xFFEFF6FF);
+  static const Color blue300 = Color(0xFF5BAADD);
   static const Color blue400 = Color(0xFF009AFF);
   static const Color blue500 = Color(0xFF0C93EE);
   static const Color blue600 = Color(0xFF3B82F6);

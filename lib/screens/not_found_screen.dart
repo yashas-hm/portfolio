@@ -4,9 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
+import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
-import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:resize/resize.dart';
 
@@ -37,14 +37,15 @@ class NotFoundScreen extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              title??'404',
+              title ?? '404',
               style: TextStyle(
                 fontSize: context.isMobile ? 160.sp : 180.sp,
                 fontWeight: FontWeight.w700,
               ),
             ),
             Text(
-              description??'Oops! Looks like this page took a vacation without telling anyone.',
+              description ??
+                  'Oops! Looks like this page took a vacation without telling anyone.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: context.isMobile ? 20.sp : 30.sp,

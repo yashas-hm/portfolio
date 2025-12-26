@@ -8,12 +8,12 @@ import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/connect_button.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';
-import 'package:portfolio/widgets/web/web_project_item.dart';
 import 'package:portfolio/widgets/mobile/mobile_project_item.dart';
+import 'package:portfolio/widgets/web/web_project_item.dart';
 import 'package:resize/resize.dart';
 
-part 'web/web_project_screen.dart';
 part 'mobile/mobile_project_screen.dart';
+part 'web/web_project_screen.dart';
 
 class ProjectScreen extends ConsumerWidget {
   const ProjectScreen({super.key});

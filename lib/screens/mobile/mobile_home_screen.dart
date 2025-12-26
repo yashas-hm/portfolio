@@ -2,14 +2,15 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/constants/colors.dart';
+import 'package:portfolio/constants/constants.dart' show KnownColors;
+import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
+import 'package:portfolio/providers/nav_provider.dart';
+import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:portfolio/utilities/dialog_utils.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
-import 'package:portfolio/providers/nav_provider.dart';
-import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:portfolio/widgets/bottom_bar.dart';
 import 'package:portfolio/widgets/mobile/mobile_experience_item.dart';
 import 'package:portfolio/widgets/mobile/mobile_home_name.dart';
@@ -48,12 +49,13 @@ class _HomeScreenState extends ConsumerState<MobileHomeScreen> {
     listener.itemPositions.addListener(() {
       final item = listener.itemPositions.value;
       final currentValue = ref.read(currentIndexProvider);
-      if (item.last.itemLeadingEdge <= 0.5 &&
-          currentValue != item.last.index) {
+      if (item.last.itemLeadingEdge <= 0.5 && currentValue != item.last.index) {
         ref.read(currentIndexProvider.notifier).set(item.last.index);
       } else if (item.last.itemLeadingEdge > 0.7 &&
           currentValue != item.toList()[item.length - 2].index) {
-        ref.read(currentIndexProvider.notifier).set(item.toList()[item.length - 2].index);
+        ref
+            .read(currentIndexProvider.notifier)
+            .set(item.toList()[item.length - 2].index);
       }
     });
 

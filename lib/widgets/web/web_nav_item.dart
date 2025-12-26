@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
-import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/providers/nav_provider.dart';
+import 'package:portfolio/utilities/extensions.dart';
 import 'package:resize/resize.dart';
 
 class WebNavItem extends ConsumerStatefulWidget {

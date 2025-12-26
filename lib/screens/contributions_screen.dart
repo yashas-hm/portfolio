@@ -6,8 +6,8 @@ import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';
 
-part 'web/web_contributions_screen.dart';
 part 'mobile/mobile_contributions_screen.dart';
+part 'web/web_contributions_screen.dart';
 
 class ContributionsScreen extends ConsumerWidget {
   const ContributionsScreen({super.key});

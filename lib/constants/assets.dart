@@ -106,8 +106,7 @@ class LogoAssets {
   static const String swiftLogo = 'assets/logo/swift.svg';
 
   static const String kotlinLogo = 'assets/logo/kotlin.svg';
-  
-  
+
   static const String mailLogo = 'assets/logo/mail.svg';
 
   static const String locationLogo = 'assets/logo/location.svg';

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
-import 'package:portfolio/utilities/extensions.dart';
-import 'package:portfolio/screens/web/web_home_screen.dart' as web;
 import 'package:portfolio/screens/mobile/mobile_home_screen.dart' as mobile;
+import 'package:portfolio/screens/web/web_home_screen.dart' as web;
+import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 

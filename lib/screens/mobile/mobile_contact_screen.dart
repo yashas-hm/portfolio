@@ -213,7 +213,7 @@ class _MobileContactScreenState extends State<MobileContactScreen> {
                       height: 20.sp,
                       width: 20.sp,
                       child: const CircularProgressIndicator(
-                        color: darkText,
+                        color: KnownColors.gray50,
                       ),
                     )
                   : Text(
@@ -221,7 +221,7 @@ class _MobileContactScreenState extends State<MobileContactScreen> {
                       style: TextStyle(
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w500,
-                        color: darkText,
+                        color: KnownColors.gray50,
                       ),
                     ),
             ),

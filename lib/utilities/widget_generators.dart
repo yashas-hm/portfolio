@@ -1,7 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/model/chat_model.dart';
-import 'package:portfolio/widgets/chat_bubble.dart';
 import 'package:resize/resize.dart';
 
 Widget typerWidget({

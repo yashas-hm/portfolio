@@ -12,8 +12,8 @@ import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:resize/resize.dart';
 
-part 'web/web_about_screen.dart';
 part 'mobile/mobile_about_screen.dart';
+part 'web/web_about_screen.dart';
 
 class AboutScreen extends ConsumerWidget {
   const AboutScreen({super.key});
@@ -25,9 +25,8 @@ class AboutScreen extends ConsumerWidget {
     });
 
     return CustomScaffold(
-      child: context.isMobile
-          ? const MobileAboutScreen()
-          : const WebAboutScreen(),
+      child:
+          context.isMobile ? const MobileAboutScreen() : const WebAboutScreen(),
     );
   }
 }

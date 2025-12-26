@@ -7,9 +7,9 @@ import 'package:gap/gap.dart';
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
 import 'package:portfolio/model/skill.dart';
+import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
-import 'package:portfolio/providers/nav_provider.dart';
 import 'package:resize/resize.dart';
 
 class WebSkillBox extends StatefulWidget {
@@ -28,7 +28,8 @@ class WebSkillBox extends StatefulWidget {
   State<WebSkillBox> createState() => _WebSkillBoxState();
 }
 
-class _WebSkillBoxState extends State<WebSkillBox> with TickerProviderStateMixin {
+class _WebSkillBoxState extends State<WebSkillBox>
+    with TickerProviderStateMixin {
   late final List<Skill> data;
   late final AnimationController popupAnimationController;
   int duration = 0;

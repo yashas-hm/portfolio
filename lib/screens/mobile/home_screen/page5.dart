@@ -210,7 +210,7 @@ class _Page5State extends State<Page5> {
                       height: 20.sp,
                       width: 20.sp,
                       child: const CircularProgressIndicator(
-                        color: darkText,
+                        color: KnownColors.gray50,
                       ),
                     )
                   : Text(
@@ -218,7 +218,7 @@ class _Page5State extends State<Page5> {
                       style: TextStyle(
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w500,
-                        color: darkText,
+                        color: KnownColors.gray50,
                       ),
                     ),
             ),
