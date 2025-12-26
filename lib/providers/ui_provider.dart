@@ -2,20 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/utilities/shared_pref_utils.dart';
 
-final StateProvider<double> xProvider = StateProvider<double>((_) => 0.0);
+final xProvider = NotifierProvider<DoubleNotifier, double>(DoubleNotifier.new);
 
-final StateProvider<double> yProvider = StateProvider<double>((_) => 0.0);
+final yProvider = NotifierProvider<DoubleNotifier, double>(DoubleNotifier.new);
 
-final themeModeProvider = StateProvider<ThemeMode>((_) => ThemeMode.dark);
+final themeModeProvider = NotifierProvider<ThemeModeNotifier, ThemeMode>(
+  ThemeModeNotifier.new,
+);
+
+class DoubleNotifier extends Notifier<double> {
+  @override
+  double build() => 0.0;
+
+  void set(double value) => state = value;
+}
+
+class ThemeModeNotifier extends Notifier<ThemeMode> {
+  @override
+  ThemeMode build() => ThemeMode.dark;
+
+  void set(ThemeMode value) => state = value;
+}
 
 void toggleThemeMode(
   WidgetRef ref,
   bool dark,
 ) async {
   if (dark) {
-    ref.read(themeModeProvider.notifier).update((_) => ThemeMode.dark);
+    ref.read(themeModeProvider.notifier).set(ThemeMode.dark);
   } else {
-    ref.read(themeModeProvider.notifier).update((_) => ThemeMode.light);
+    ref.read(themeModeProvider.notifier).set(ThemeMode.light);
   }
 
   setIsDarkModePref(dark);
@@ -24,8 +40,8 @@ void toggleThemeMode(
 void checkTheme(WidgetRef ref) async {
   bool prefDarkBool = await getIsDarkModePref;
   if (prefDarkBool) {
-    ref.read(themeModeProvider.notifier).update((_) => ThemeMode.dark);
+    ref.read(themeModeProvider.notifier).set(ThemeMode.dark);
   } else {
-    ref.read(themeModeProvider.notifier).update((_) => ThemeMode.light);
+    ref.read(themeModeProvider.notifier).set(ThemeMode.light);
   }
 }

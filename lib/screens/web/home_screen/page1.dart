@@ -65,17 +65,17 @@ class _Page1State extends State<Page1> with TickerProviderStateMixin {
         reverseDirection: true,
       ),
       skillBox(
-        'Front-End',
+        'Mobile & Frontend',
         xAxis: true,
         reverseDirection: true,
       ),
       skillBox(
-        'Back-End',
+        'Backend',
         xAxis: true,
         reverseDirection: false,
       ),
       skillBox(
-        'Database',
+        'Databases',
         xAxis: false,
         reverseDirection: true,
       ),

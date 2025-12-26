@@ -12,6 +12,11 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
+    
+  
+    
+  
+  #-------------------------------------------------------------
 
   # Widgets
   flutter_advanced_drawer: ^1.5.0
@@ -20,7 +25,6 @@ dependencies:
   animated_text_kit: ^4.2.3
   flutter_html: ^3.0.0
   scrollable_positioned_list: ^0.3.8
-#  flutter_inset_shadow: ^2.0.3
   day_night_themed_switcher: ^2.0.2
   cached_network_image: ^3.4.1
   lava_lamp_effect: ^1.0.3
@@ -33,9 +37,9 @@ dependencies:
   gap: ^3.0.1
   http: ^1.4.0
   oktoast: ^3.4.0
-  flutter_riverpod: ^2.6.1
+  flutter_riverpod: ^3.0.3
   shared_preferences: ^2.5.3
-  cached_network_image_platform_interface: ^4.1.1
+#  cached_network_image_platform_interface: ^4.1.1
   flutter_markdown_plus: ^1.0.5
 
 dev_dependencies:

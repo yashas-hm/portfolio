@@ -48,13 +48,13 @@ class _HomeScreenState extends ConsumerState<WebHomeScreen> {
 
     listener.itemPositions.addListener(() {
       final item = listener.itemPositions.value;
-      final currentIndex = ref.read(currentIndexProvider.notifier);
+      final currentValue = ref.read(currentIndexProvider);
       if (item.last.itemLeadingEdge <= 0.5 &&
-          currentIndex.state != item.last.index) {
-        currentIndex.state = item.last.index;
+          currentValue != item.last.index) {
+        ref.read(currentIndexProvider.notifier).set(item.last.index);
       } else if (item.last.itemLeadingEdge > 0.7 &&
-          currentIndex.state != item.toList()[item.length - 2].index) {
-        currentIndex.state = item.toList()[item.length - 2].index;
+          currentValue != item.toList()[item.length - 2].index) {
+        ref.read(currentIndexProvider.notifier).set(item.toList()[item.length - 2].index);
       }
     });
 
@@ -70,15 +70,15 @@ class _HomeScreenState extends ConsumerState<WebHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final controller = ref.read(scrollControllerProvider.notifier);
-    final listener = ref.read(positionListenerProvider.notifier);
+    final controller = ref.read(scrollControllerProvider);
+    final listener = ref.read(positionListenerProvider);
 
     return SizedBox(
       height: context.height,
       child: ScrollablePositionedList.builder(
         shrinkWrap: true,
-        itemScrollController: controller.state,
-        itemPositionsListener: listener.state,
+        itemScrollController: controller,
+        itemPositionsListener: listener,
         physics: const BouncingScrollPhysics(
           parent: AlwaysScrollableScrollPhysics(),
         ),

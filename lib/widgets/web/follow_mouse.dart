@@ -14,8 +14,8 @@ class FollowMouse extends ConsumerWidget {
     return MouseRegion(
       opaque: false,
       onHover: (event) {
-        ref.read(xProvider.notifier).state = event.position.dx;
-        ref.read(yProvider.notifier).state = event.position.dy;
+        ref.read(xProvider.notifier).set(event.position.dx);
+        ref.read(yProvider.notifier).set(event.position.dy);
       },
       child: SizedBox(
         height: context.height,

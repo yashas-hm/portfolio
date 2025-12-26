@@ -19,14 +19,13 @@ import 'package:portfolio/screens/experience_screen.dart';
 import 'package:portfolio/screens/home_screen.dart';
 import 'package:portfolio/screens/not_found_screen.dart';
 import 'package:portfolio/screens/project_screen.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 void indexCheck(int index, WidgetRef ref) {
-  final currentIndex = ref.read(currentIndexProvider.notifier);
+  final currentValue = ref.read(currentIndexProvider);
 
-  if (currentIndex.state != index) {
-    ref.read(pageIndexProvider.notifier).state = index;
-    currentIndex.state = index;
+  if (currentValue != index) {
+    ref.read(pageIndexProvider.notifier).set(index);
+    ref.read(currentIndexProvider.notifier).set(index);
   }
 }
 
@@ -37,12 +36,8 @@ void reRoute(
 ) {
   switch (pageIndex) {
     case homeIndex:
-      ref
-          .read(scrollControllerProvider.notifier)
-          .update((state) => ItemScrollController());
-      ref
-          .read(positionListenerProvider.notifier)
-          .update((state) => ItemPositionsListener.create());
+      ref.read(scrollControllerProvider.notifier).reset();
+      ref.read(positionListenerProvider.notifier).reset();
       Navigator.pushNamed(context, homeRoute);
       break;
     case aboutIndex:

@@ -7,9 +7,27 @@ import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-final pageIndexProvider = StateProvider((ref) => homeIndex);
+final pageIndexProvider = NotifierProvider<PageIndexNotifier, int>(
+  PageIndexNotifier.new,
+);
 
-final currentIndexProvider = StateProvider((ref) => homeIndex);
+final currentIndexProvider = NotifierProvider<CurrentIndexNotifier, int>(
+  CurrentIndexNotifier.new,
+);
+
+class PageIndexNotifier extends Notifier<int> {
+  @override
+  int build() => homeIndex;
+
+  void set(int value) => state = value;
+}
+
+class CurrentIndexNotifier extends Notifier<int> {
+  @override
+  int build() => homeIndex;
+
+  void set(int value) => state = value;
+}
 
 void updateIndex(
   BuildContext context,
@@ -24,17 +42,17 @@ void updateIndex(
     launchUrl(Uri.parse(resumeLink));
     return;
   } else if (index == chatIndex) {
-    pageIndex.state = index;
+    pageIndex.set(index);
     reRoute(index, context, ref);
   } else if(index == contributionsIndex){
-    // pageIndex.state = index;
+    // pageIndex.set(index);
     // reRoute(index, context, ref);
     // TODO: temporary
     launchUrl(Uri.parse('https://github.com/yashas-hm/yashas-hm/blob/main/contributions.md'));
     return;
   } else {
-    if (pageIndex.state != 0 || force) {
-      pageIndex.state = index;
+    if (ref.read(pageIndexProvider) != 0 || force) {
+      pageIndex.set(index);
       reRoute(index, context, ref);
     } else {
       controller.scrollTo(
@@ -44,5 +62,5 @@ void updateIndex(
     }
   }
 
-  ref.read(currentIndexProvider.notifier).state = index;
+  ref.read(currentIndexProvider.notifier).set(index);
 }

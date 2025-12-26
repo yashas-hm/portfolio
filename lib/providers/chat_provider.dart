@@ -7,22 +7,26 @@ import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/model/chat_model.dart';
 import 'package:portfolio/utilities/extensions.dart';
 
-final StateNotifierProvider<ChatNotifier, List<ChatModel>> chatProvider =
-    StateNotifierProvider<ChatNotifier, List<ChatModel>>(
-  (ref) => ChatNotifier([], ref),
+final chatProvider = NotifierProvider<ChatNotifier, List<ChatModel>>(
+  ChatNotifier.new,
 );
 
-final StateProvider<bool> loadingResponseProvider =
-    StateProvider<bool>((_) => false);
+final loadingResponseProvider = NotifierProvider<LoadingNotifier, bool>(
+  LoadingNotifier.new,
+);
 
-class ChatNotifier extends StateNotifier<List<ChatModel>> {
-  ChatNotifier(
-    super.state,
-    this.ref,
-  );
+class LoadingNotifier extends Notifier<bool> {
+  @override
+  bool build() => false;
 
-  final Ref ref;
+  void set(bool value) => state = value;
+}
+
+class ChatNotifier extends Notifier<List<ChatModel>> {
   final ScrollController scrollController = ScrollController();
+
+  @override
+  List<ChatModel> build() => [];
 
   List<Map<String, String>> generateHistory({List<ChatModel>? chat}) {
     final chats = (chat ?? state)
@@ -44,10 +48,7 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
     bool regenerate = false,
   }) async {
     try {
-      final history = generateHistory();
-      ref.read(loadingResponseProvider.notifier).update((_) => true);
-      // Add bypass key for bypass test (random gen uuid on server)
-      // eg. ?bypass_key=fd271e7e-e6a4-4cd8-9bfe-3c95147d9849
+      ref.read(loadingResponseProvider.notifier).set(true);
       final response = await http.post(
         Uri.parse(chatAPIEndpointURL),
         headers: {
@@ -61,31 +62,32 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
         ),
       );
 
-      print(response.body);
-      print(response.statusCode);
-
       if (response.statusCode == 200) {
         final responseBody = jsonDecode(response.body);
-        state.add(
+        state = [
+          ...state,
           ChatModel(
             role: Role.ai,
             message: responseBody['response'],
           ),
-        );
+        ];
       } else {
-        state.add(ChatModel(
-          role: Role.ai,
-          message:
-              'Whoa, too many questions! 🫠 My brain needs a quick breather. Try again later?\n(Rate Limit reached for free tier)',
-          error: true,
-        ));
-        state = [...state];
+        state = [
+          ...state,
+          ChatModel(
+            role: Role.ai,
+            message:
+                'Whoa, too many questions! 🫠 My brain needs a quick breather. Try again later?\n(Rate Limit reached for free tier)',
+            error: true,
+          ),
+        ];
       }
     } catch (e) {
-      state[state.length - 1].error = true;
-      state = [...state];
+      final updated = [...state];
+      updated[updated.length - 1].error = true;
+      state = updated;
     } finally {
-      ref.read(loadingResponseProvider.notifier).update((_) => false);
+      ref.read(loadingResponseProvider.notifier).set(false);
       scrollController.animateTo(
         0,
         duration: 500.milliseconds,
@@ -99,20 +101,22 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
     bool regenerate = false,
   }) {
     if (!regenerate) {
-      state.add(
+      state = [
+        ...state.where((chat) => !chat.error),
         ChatModel(
           role: Role.human,
           message: query,
         ),
-      );
-      state = state.where((chat) => !chat.error).toList();
+      ];
       scrollController.animateTo(
         0,
         duration: 1000.milliseconds,
         curve: Curves.easeIn,
       );
     }
-    state[state.length - 1].error = false;
+    final updated = [...state];
+    updated[updated.length - 1].error = false;
+    state = updated;
     callApi(
       query,
       regenerate: regenerate,
