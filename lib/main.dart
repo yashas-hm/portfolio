@@ -12,7 +12,7 @@ import 'package:resize/resize.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   usePathUrlStrategy();
-  runApp(Portfolio());
+  runApp(ProviderScope(child: Portfolio()));
 }
 
 class Portfolio extends ConsumerWidget {
@@ -32,29 +32,27 @@ class Portfolio extends ConsumerWidget {
       size = const Size(1728, 1000);
     }
 
-    return ProviderScope(
-      child: Resize(
-        builder: () => OKToast(
-          child: MaterialApp(
-            scrollBehavior: const MaterialScrollBehavior().copyWith(
-              dragDevices: {
-                PointerDeviceKind.mouse,
-                PointerDeviceKind.touch,
-                PointerDeviceKind.stylus,
-                PointerDeviceKind.unknown,
-              },
-            ),
-            theme: AppTheme(context).lightTheme,
-            darkTheme: AppTheme(context).darkTheme,
-            themeMode: themeMode,
-            debugShowCheckedModeBanner: false,
-            title: 'Yashas H Majmudar',
-            onGenerateRoute: routeBuilder,
+    return Resize(
+      builder: () => OKToast(
+        child: MaterialApp(
+          scrollBehavior: const MaterialScrollBehavior().copyWith(
+            dragDevices: {
+              PointerDeviceKind.mouse,
+              PointerDeviceKind.touch,
+              PointerDeviceKind.stylus,
+              PointerDeviceKind.unknown,
+            },
           ),
+          theme: AppTheme(context).lightTheme,
+          darkTheme: AppTheme(context).darkTheme,
+          themeMode: themeMode,
+          debugShowCheckedModeBanner: false,
+          title: 'Yashas H Majmudar',
+          onGenerateRoute: routeBuilder,
         ),
-        allowtextScaling: false,
-        size: size,
       ),
+      allowtextScaling: false,
+      size: size,
     );
   }
 }

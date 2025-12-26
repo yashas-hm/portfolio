@@ -1,6 +1,6 @@
 part of 'constants.dart';
 
-class ImageConstants {
+class ImageAssets {
   static const String avatarImage = 'assets/images/avatar.svg';
 
   static const String darkGIFImage = 'assets/images/coding_dark.gif';
@@ -43,7 +43,7 @@ class LogoAssets {
 
   static const String prometheusLogo = 'assets/logo/prometheus.svg';
 
-  static const String psqlLogo = 'assets/logo/psql.svg';
+  static const String psqlLogo = 'assets/logo/postgresql.svg';
 
   static const String firebaseLogo = 'assets/logo/firebase.svg';
 
@@ -59,7 +59,7 @@ class LogoAssets {
 
   static const String gcpLogo = 'assets/logo/gcp.svg';
 
-  static const String jsLogo = 'assets/logo/js.svg';
+  static const String jsLogo = 'assets/logo/javascript.svg';
 
   static const String javaLogo = 'assets/logo/java.svg';
 
@@ -73,19 +73,15 @@ class LogoAssets {
 
   static const String typescriptLogo = 'assets/logo/typescript.svg';
 
-  static const String rustLogo = 'assets/logo/rust.svg';
-
   static const String ollamaLogo = 'assets/logo/ollama.svg';
 
-  static const String vertexaiLogo = 'assets/logo/vertexai.svg';
+  static const String huggingfaceLogo = 'assets/logo/huggingface.svg';
 
-  static const String huggingfaceLogo = 'assets/logo/hf.svg';
-
-  static const String langchainLogo = 'assets/logo/lc.svg';
+  static const String langchainLogo = 'assets/logo/langchain.svg';
 
   static const String opencvLogo = 'assets/logo/opencv.svg';
 
-  static const String tensorFlowLogo = 'assets/logo/tf.svg';
+  static const String tensorFlowLogo = 'assets/logo/tensorflow.svg';
 
   static const String arduinoLogo = 'assets/logo/arduino.svg';
 
@@ -95,7 +91,7 @@ class LogoAssets {
 
   static const String slackLogo = 'assets/logo/slack.svg';
 
-  static const String cvLogo = 'assets/logo/cv.svg';
+  static const String cvLogo = 'assets/logo/comp_vision.svg';
 
   static const String vectorDBLogo = 'assets/logo/pinecone.svg';
 
@@ -106,6 +102,10 @@ class LogoAssets {
   static const String swiftLogo = 'assets/logo/swift.svg';
 
   static const String kotlinLogo = 'assets/logo/kotlin.svg';
+
+  static const String gitlabLogo = 'assets/logo/gitlab.svg';
+  
+  static const String vertexAiLogo = 'assets/logo/vertexAi.svg';
 
   static const String mailLogo = 'assets/logo/mail.svg';
 

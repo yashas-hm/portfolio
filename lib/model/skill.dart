@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:flutter/material.dart' show IconData, Color;
 import 'package:portfolio/constants/constants.dart';
 
 enum SkillCategory {
@@ -31,6 +30,18 @@ class Skill {
   }) : _category = category;
 
   Color get color => _category.color;
-  
+
   Color get backgroundColor => color.withValues(alpha: 0.1);
+}
+
+class SkillGroup {
+  final String groupName;
+  final IconData groupIcon;
+  final List<Skill> skills;
+
+  const SkillGroup({
+    required this.groupName,
+    required this.groupIcon,
+    required this.skills,
+  });
 }

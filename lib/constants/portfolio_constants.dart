@@ -78,7 +78,7 @@ const String githubActions = 'assets/logo/github_actions.svg';
 const String prometheus = 'assets/logo/prometheus.svg';
 
 // Database
-const String psql = 'assets/logo/psql.svg';
+const String psql = 'assets/logo/postgresql.svg';
 
 const String firebase = 'assets/logo/firebase.svg';
 
@@ -97,7 +97,7 @@ const String aws = 'assets/logo/aws.svg';
 const String gcp = 'assets/logo/gcp.svg';
 
 // Languages
-const String js = 'assets/logo/js.svg';
+const String js = 'assets/logo/javascript.svg';
 
 const String java = 'assets/logo/java.svg';
 
@@ -111,20 +111,18 @@ const String cpp = 'assets/logo/c.svg';
 
 const String typescript = 'assets/logo/typescript.svg';
 
-const String rust = 'assets/logo/rust.svg';
-
 // Machine Learning
 const String ollama = 'assets/logo/ollama.svg';
 
 const String vertexai = 'assets/logo/vertexai.svg';
 
-const String huggingface = 'assets/logo/hf.svg';
+const String huggingface = 'assets/logo/huggingface.svg';
 
-const String langchain = 'assets/logo/lc.svg';
+const String langchain = 'assets/logo/langchain.svg';
 
 const String opencv = 'assets/logo/opencv.svg';
 
-const String tensorFlow = 'assets/logo/tf.svg';
+const String tensorFlow = 'assets/logo/tensorflow.svg';
 
 // IoT
 const String arduino = 'assets/logo/arduino.svg';
@@ -136,7 +134,7 @@ const String jira = 'assets/logo/jira.svg';
 
 const String slack = 'assets/logo/slack.svg';
 
-const String cv = 'assets/logo/cv.svg';
+const String cv = 'assets/logo/comp_vision.svg';
 
 const String mail = 'assets/logo/mail.svg';
 
