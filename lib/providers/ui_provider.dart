@@ -7,10 +7,6 @@ final xProvider = NotifierProvider<DoubleNotifier, double>(DoubleNotifier.new);
 
 final yProvider = NotifierProvider<DoubleNotifier, double>(DoubleNotifier.new);
 
-final themeModeProvider = NotifierProvider<ThemeModeNotifier, ThemeMode>(
-  ThemeModeNotifier.new,
-);
-
 class DoubleNotifier extends Notifier<double> {
   @override
   double build() => 0.0;
@@ -18,20 +14,22 @@ class DoubleNotifier extends Notifier<double> {
   void set(double value) => state = value;
 }
 
-class ThemeModeNotifier extends Notifier<ThemeMode> {
-  ThemeColors colors = AppTheme.darkColors;
+typedef ThemeState = ({ThemeMode mode, ThemeColors colors});
 
+final themeProvider = NotifierProvider<ThemeNotifier, ThemeState>(
+  ThemeNotifier.new,
+);
+
+class ThemeNotifier extends Notifier<ThemeState> {
   @override
-  ThemeMode build() => ThemeMode.dark;
+  ThemeState build() => (mode: ThemeMode.dark, colors: AppTheme.darkColors);
 
-  void set(ThemeMode value) {
-    if (value != state) {
-      state = value;
-      if (state == ThemeMode.dark) {
-        colors = AppTheme.darkColors;
-      } else {
-        colors = AppTheme.lightColors;
-      }
+  void setMode(ThemeMode value) {
+    if (value != state.mode) {
+      state = (
+        mode: value,
+        colors: value == ThemeMode.dark ? AppTheme.darkColors : AppTheme.lightColors,
+      );
     }
   }
 }
@@ -41,9 +39,9 @@ void toggleThemeMode(
   bool dark,
 ) async {
   if (dark) {
-    ref.read(themeModeProvider.notifier).set(ThemeMode.dark);
+    ref.read(themeProvider.notifier).setMode(ThemeMode.dark);
   } else {
-    ref.read(themeModeProvider.notifier).set(ThemeMode.light);
+    ref.read(themeProvider.notifier).setMode(ThemeMode.light);
   }
 
   setIsDarkModePref(dark);
@@ -52,8 +50,8 @@ void toggleThemeMode(
 void checkTheme(WidgetRef ref) async {
   bool prefDarkBool = await getIsDarkModePref;
   if (prefDarkBool) {
-    ref.read(themeModeProvider.notifier).set(ThemeMode.dark);
+    ref.read(themeProvider.notifier).setMode(ThemeMode.dark);
   } else {
-    ref.read(themeModeProvider.notifier).set(ThemeMode.light);
+    ref.read(themeProvider.notifier).setMode(ThemeMode.light);
   }
 }

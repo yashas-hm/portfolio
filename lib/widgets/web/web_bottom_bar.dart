@@ -46,7 +46,7 @@ class WebBottomBar extends StatelessWidget {
                   Gap(15.sp),
                   bottomBarConnection(
                     context,
-                    asset: cv,
+                    asset: '',
                     text: 'My Resume',
                     onTap: () => launchUrlString(resumeLink),
                   ),

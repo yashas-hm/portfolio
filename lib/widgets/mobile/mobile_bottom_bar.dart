@@ -45,7 +45,7 @@ class MobileBottomBar extends StatelessWidget {
                   Gap(10.sp),
                   bottomBarConnection(
                     context,
-                    asset: cv,
+                    asset: '',
                     text: 'My Resume',
                     onTap: () => launchUrlString(resumeLink),
                   ),

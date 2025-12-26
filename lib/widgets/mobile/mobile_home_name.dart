@@ -46,7 +46,7 @@ class _HomeNameState extends ConsumerState<MobileHomeName> {
 
   @override
   Widget build(BuildContext context) {
-    final themeMode = ref.watch(themeModeProvider);
+    final theme = ref.watch(themeProvider);
     final size = Size(
       context.width / 1.2,
       boxHeight ?? context.height / 3,
@@ -68,7 +68,7 @@ class _HomeNameState extends ConsumerState<MobileHomeName> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(13.sp),
-                child: isDarkMode(themeMode)
+                child: isDarkMode(theme.mode)
                     ? Image.asset(
                         key: const ValueKey<String>('night'),
                         darkGIF,

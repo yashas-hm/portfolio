@@ -20,7 +20,7 @@ class Portfolio extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeModeProvider);
+    final theme = ref.watch(themeProvider);
 
     checkTheme(ref);
 
@@ -45,7 +45,7 @@ class Portfolio extends ConsumerWidget {
           ),
           theme: AppTheme(context).lightTheme,
           darkTheme: AppTheme(context).darkTheme,
-          themeMode: themeMode,
+          themeMode: theme.mode,
           debugShowCheckedModeBanner: false,
           title: 'Yashas H Majmudar',
           onGenerateRoute: routeBuilder,
