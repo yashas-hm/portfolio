@@ -96,6 +96,16 @@ class LogoAssets {
   static const String slackLogo = 'assets/logo/slack.svg';
 
   static const String cvLogo = 'assets/logo/cv.svg';
+
+  static const String vectorDBLogo = 'assets/logo/pinecone.svg';
+
+  static const String cSharpLogo = 'assets/logo/csharp.svg';
+
+  static const String dotnetLogo = 'assets/logo/dotnet.svg';
+
+  static const String swiftLogo = 'assets/logo/swift.svg';
+
+  static const String kotlinLogo = 'assets/logo/kotlin.svg';
   
   
   static const String mailLogo = 'assets/logo/mail.svg';

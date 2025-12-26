@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utilities/shared_pref_utils.dart';
 
 final xProvider = NotifierProvider<DoubleNotifier, double>(DoubleNotifier.new);
@@ -18,10 +19,21 @@ class DoubleNotifier extends Notifier<double> {
 }
 
 class ThemeModeNotifier extends Notifier<ThemeMode> {
+  ThemeColors colors = AppTheme.darkColors;
+  
   @override
   ThemeMode build() => ThemeMode.dark;
-
-  void set(ThemeMode value) => state = value;
+  
+  void set(ThemeMode value) {
+    if(value!=state){
+      state = value;
+      if(state==ThemeMode.dark){
+        colors = AppTheme.darkColors;
+      }else{
+        colors = AppTheme.lightColors;
+      } 
+    }
+  }
 }
 
 void toggleThemeMode(

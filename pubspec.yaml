@@ -13,6 +13,8 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
     
+  google_fonts: ^6.3.3
+  font_awesome_flutter: ^10.12.0
   
     
   
@@ -20,9 +22,9 @@ dependencies:
 
   # Widgets
   flutter_advanced_drawer: ^1.5.0
-  flutter_svg: ^2.1.0
+  flutter_svg: ^2.2.3
   auto_size_text: ^3.0.0
-  animated_text_kit: ^4.2.3
+  animated_text_kit: ^4.3.0
   flutter_html: ^3.0.0
   scrollable_positioned_list: ^0.3.8
   day_night_themed_switcher: ^2.0.2
@@ -30,17 +32,17 @@ dependencies:
   lava_lamp_effect: ^1.0.3
 
   # Core
-  url_launcher: ^6.3.1
+  url_launcher: ^6.3.2
   page_transition: ^2.2.1
   resize: ^1.0.0
   intl: ^0.20.2
   gap: ^3.0.1
-  http: ^1.4.0
+  http: ^1.6.0
   oktoast: ^3.4.0
   flutter_riverpod: ^3.0.3
-  shared_preferences: ^2.5.3
+  shared_preferences: ^2.5.4
 #  cached_network_image_platform_interface: ^4.1.1
-  flutter_markdown_plus: ^1.0.5
+  flutter_markdown_plus: ^1.0.6
 
 dev_dependencies:
   flutter_test:

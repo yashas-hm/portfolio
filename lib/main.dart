@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:portfolio/constants/theme.dart';
+import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/providers/ui_provider.dart';
@@ -12,7 +12,7 @@ import 'package:resize/resize.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   usePathUrlStrategy();
-  runApp(const ProviderScope(child: Portfolio()));
+  runApp(Portfolio());
 }
 
 class Portfolio extends ConsumerWidget {
@@ -32,27 +32,29 @@ class Portfolio extends ConsumerWidget {
       size = const Size(1728, 1000);
     }
 
-    return Resize(
-      builder: () => OKToast(
-        child: MaterialApp(
-          scrollBehavior: const MaterialScrollBehavior().copyWith(
-            dragDevices: {
-              PointerDeviceKind.mouse,
-              PointerDeviceKind.touch,
-              PointerDeviceKind.stylus,
-              PointerDeviceKind.unknown,
-            },
+    return ProviderScope(
+      child: Resize(
+        builder: () => OKToast(
+          child: MaterialApp(
+            scrollBehavior: const MaterialScrollBehavior().copyWith(
+              dragDevices: {
+                PointerDeviceKind.mouse,
+                PointerDeviceKind.touch,
+                PointerDeviceKind.stylus,
+                PointerDeviceKind.unknown,
+              },
+            ),
+            theme: AppTheme(context).lightTheme,
+            darkTheme: AppTheme(context).darkTheme,
+            themeMode: themeMode,
+            debugShowCheckedModeBanner: false,
+            title: 'Yashas H Majmudar',
+            onGenerateRoute: routeBuilder,
           ),
-          theme: lightTheme(context),
-          darkTheme: darkTheme(context),
-          themeMode: themeMode,
-          debugShowCheckedModeBanner: false,
-          title: 'Yashas H Majmudar',
-          onGenerateRoute: routeBuilder,
         ),
+        allowtextScaling: false,
+        size: size,
       ),
-      allowtextScaling: false,
-      size: size,
     );
   }
 }

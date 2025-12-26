@@ -1,4 +1,4 @@
 import 'dart:ui';
 
-part 'asset_constants.dart';
+part 'assets.dart';
 part 'color_constants.dart';
