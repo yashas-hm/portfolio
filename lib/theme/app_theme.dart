@@ -47,9 +47,6 @@ class AppTheme {
           seedColor: colors.primaryColor,
           primary: colors.primaryColor,
           onPrimary: colors.onPrimary,
-          secondary: colors.surfaceColor,
-          tertiary: colors.textColor,
-          tertiaryContainer: colors.secondarySurface,
         ),
         textSelectionTheme: TextSelectionThemeData(
           selectionHandleColor: colors.primaryColor.withValues(alpha: 0.3),

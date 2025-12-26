@@ -2,17 +2,26 @@ part of 'theme.dart';
 
 class LightThemeColors extends ThemeColors {
   @override
-  Color get primaryColor => KnownColors.blue400;
+  Color get primaryColor => KnownColors.lightPrimary;
 
   @override
-  Color get backgroundColor => KnownColors.gray100;
+  Color get backgroundColor => KnownColors.lightBackground;
 
   @override
-  Color get surfaceColor => KnownColors.white;
+  Color get surfaceColor => KnownColors.lightSurface;
 
   @override
-  Color get secondarySurface => KnownColors.gray400;
+  Color get secondarySurface => KnownColors.lightSurfaceSecondary;
 
   @override
-  Color get textColor => KnownColors.gray950;
+  Color get textColor => KnownColors.lightText;
+
+  @override
+  Color get textSecondary => KnownColors.lightTextSecondary;
+
+  @override
+  Color get borderColor => KnownColors.lightBorder;
+
+  @override
+  Color get secondaryBorderColor => KnownColors.lightBorderSecondary;
 }

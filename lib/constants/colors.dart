@@ -40,6 +40,26 @@ class KnownColors {
   // COLOR PALETTE
   // ===================
 
+  // Light
+  static const Color lightPrimary = Color(0xFF1687E7);
+  static const Color lightBackground = Color(0xFFF4F5F6);
+  static const Color lightSurface = Color(0xFFFFFFFF);
+  static const Color lightSurfaceSecondary = Color(0xFFECF0F1);
+  static const Color lightBorder = Color(0xFFDFE0E6);
+  static const Color lightBorderSecondary = Color(0xFF262626);
+  static const Color lightText = Color(0xFF0E121D);
+  static const Color lightTextSecondary = Color(0xFF595E6E);
+  
+  // Dark
+  static const Color darkPrimary = Color(0xFF6A9FCA);
+  static const Color darkBackground = Color(0xFF0C0C0C);
+  static const Color darkSurface = Color(0xFF101114);
+  static const Color darkSurfaceSecondary = Color(0xFF141619);
+  static const Color darkBorder = Color(0xFF24282F);
+  static const Color darkBorderSecondary = Color(0xFF262626);
+  static const Color darkText = Color(0xFFFFFFFF);
+  static const Color darkTextSecondary = Color(0xFF8A91A0);
+
   // Purple
   static const Color purple50 = Color(0xFFFAF5FF);
   static const Color purple500 = Color(0xFF8B5CF6);
