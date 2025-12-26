@@ -134,8 +134,6 @@ const String jira = 'assets/logo/jira.svg';
 
 const String slack = 'assets/logo/slack.svg';
 
-const String cv = 'assets/logo/comp_vision.svg';
-
 const String mail = 'assets/logo/mail.svg';
 
 const String location = 'assets/logo/location.svg';

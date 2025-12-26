@@ -90,9 +90,7 @@ class LogoAssets {
   static const String jiraLogo = 'assets/logo/jira.svg';
 
   static const String slackLogo = 'assets/logo/slack.svg';
-
-  static const String cvLogo = 'assets/logo/comp_vision.svg';
-
+  
   static const String vectorDBLogo = 'assets/logo/pinecone.svg';
 
   static const String cSharpLogo = 'assets/logo/csharp.svg';
