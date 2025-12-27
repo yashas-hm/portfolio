@@ -110,34 +110,7 @@ class _Page1State extends State<Page1> with TickerProviderStateMixin {
         children: [
           nameWidget(),
           Gap(30.sp),
-          FadeTransition(
-            opacity: fade,
-            child: Text(
-              'My Skills 🚀',
-              style: TextStyle(
-                fontSize: 23.sp,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-          Gap(30.sp),
-          Flexible(
-            child: GridView.builder(
-              padding: EdgeInsets.symmetric(
-                horizontal: 30.sp,
-              ),
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4,
-                mainAxisSpacing: 30.sp,
-                crossAxisSpacing: 30.sp,
-                childAspectRatio: 1.5,
-              ),
-              itemCount: skills.length,
-              itemBuilder: (ctx, index) => skills[index],
-            ),
-          ),
+          Flexible(child: SkillsComponent()),
         ],
       ),
     );

@@ -11,6 +11,7 @@ class SequentialAnimator extends StatefulWidget {
     this.totalDuration,
     this.overlap = 0.3,
     this.curve = Curves.easeInOut,
+    this.delay = const Duration(milliseconds: 0),
   })  : assert(
           overlap >= 0 && overlap <= 1,
           'overlap must be in range [0.0, 1.0]',
@@ -22,6 +23,7 @@ class SequentialAnimator extends StatefulWidget {
 
   final Duration? totalDuration;
   final Duration? itemDuration;
+  final Duration delay;
   final Curve curve;
   final double overlap;
   final List<Widget> children;
@@ -30,13 +32,11 @@ class SequentialAnimator extends StatefulWidget {
       animationBuilder;
 
   bool needsUpdate(SequentialAnimator oldWidget) =>
-      totalDuration != oldWidget.totalDuration &&
-      itemDuration != oldWidget.itemDuration &&
-      curve != oldWidget.curve &&
-      overlap != oldWidget.overlap &&
-      children != oldWidget.children &&
-      builder != oldWidget.builder &&
-      animationBuilder != oldWidget.animationBuilder;
+      totalDuration != oldWidget.totalDuration ||
+      itemDuration != oldWidget.itemDuration ||
+      curve != oldWidget.curve ||
+      overlap != oldWidget.overlap ||
+      children.length != oldWidget.children.length;
 
   @override
   State<SequentialAnimator> createState() => _SequentialAnimatorState();
@@ -50,8 +50,10 @@ class _SequentialAnimatorState extends State<SequentialAnimator>
   void initState() {
     _animationController = AnimationController(vsync: this, duration: duration);
 
-    SchedulerBinding.instance
-        .addPostFrameCallback((_) => _animationController.forward());
+    SchedulerBinding.instance.addPostFrameCallback((_) =>
+        Future.delayed(widget.delay, () {
+          if (mounted) _animationController.forward();
+        }));
 
     super.initState();
   }
@@ -75,12 +77,11 @@ class _SequentialAnimatorState extends State<SequentialAnimator>
   @override
   void didUpdateWidget(covariant SequentialAnimator oldWidget) {
     if (widget.needsUpdate(oldWidget)) {
-      _animationController =
-          AnimationController(vsync: this, duration: duration);
-      setState(() {
-        SchedulerBinding.instance
-            .addPostFrameCallback((_) => _animationController.forward());
-      });
+      _animationController
+        ..stop()
+        ..duration = duration
+        ..reset()
+        ..forward();
     }
     super.didUpdateWidget(oldWidget);
   }
@@ -120,6 +121,7 @@ class _SequentialAnimatorState extends State<SequentialAnimator>
       } else {
         children.add(ScaleTransition(
           scale: Tween<double>(begin: 0, end: 1).animate(animation),
+          child: widget.children[index],
         ));
       }
     }
@@ -131,8 +133,6 @@ class _SequentialAnimatorState extends State<SequentialAnimator>
   Widget build(BuildContext context) {
     return widget.builder != null
         ? widget.builder!(animatorWrappedChildren)
-        : Wrap(
-            children: animatorWrappedChildren,
-          );
+        : Wrap(children: animatorWrappedChildren);
   }
 }

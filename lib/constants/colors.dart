@@ -46,7 +46,7 @@ class KnownColors {
   static const Color lightSurface = Color(0xFFFFFFFF);
   static const Color lightSurfaceSecondary = Color(0xFFECF0F1);
   static const Color lightBorder = Color(0xFFDFE0E6);
-  static const Color lightBorderSecondary = Color(0xFF262626);
+  static const Color lightBorderSecondary = Color(0xFFD4D6DC);
   static const Color lightText = Color(0xFF0E121D);
   static const Color lightTextSecondary = Color(0xFF595E6E);
   
@@ -55,8 +55,8 @@ class KnownColors {
   static const Color darkBackground = Color(0xFF0C0C0C);
   static const Color darkSurface = Color(0xFF101114);
   static const Color darkSurfaceSecondary = Color(0xFF141619);
-  static const Color darkBorder = Color(0xFF24282F);
-  static const Color darkBorderSecondary = Color(0xFF262626);
+  static const Color darkBorder = Color(0xFF3F4651);
+  static const Color darkBorderSecondary = Color(0xFF3C3D40);
   static const Color darkText = Color(0xFFFFFFFF);
   static const Color darkTextSecondary = Color(0xFF8A91A0);
 
@@ -75,6 +75,7 @@ class KnownColors {
 
   // Green
   static const Color green50 = Color(0xFFF0FDF4);
+  static const Color green100 = Color(0xFF5EE872);
   static const Color green400 = Color(0xFF27C93F);
   static const Color green500 = Color(0xFF22C55E);
   static const Color green600 = Color(0xFF16A34A);

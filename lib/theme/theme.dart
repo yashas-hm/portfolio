@@ -7,7 +7,8 @@ import 'package:flutter/material.dart'
         AppBarTheme,
         IconThemeData,
         ColorScheme,
-        TextSelectionThemeData;
+        TextSelectionThemeData,
+        Theme;
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/constants.dart';

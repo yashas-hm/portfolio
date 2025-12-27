@@ -22,7 +22,9 @@ class AppTheme {
       ThemeData(
         primaryColor: colors.primaryColor,
         scaffoldBackgroundColor: colors.backgroundColor,
-        textTheme: GoogleFonts.jetBrainsMonoTextTheme().apply(
+        textTheme:
+            GoogleFonts.jetBrainsMonoTextTheme(Theme.of(context).textTheme)
+                .apply(
           bodyColor: colors.textColor,
           displayColor: colors.textColor,
         ),
@@ -47,6 +49,10 @@ class AppTheme {
           seedColor: colors.primaryColor,
           primary: colors.primaryColor,
           onPrimary: colors.onPrimary,
+          secondary: colors.backgroundColor,
+        ),
+        iconTheme: IconThemeData(
+          color: colors.textColor,
         ),
         textSelectionTheme: TextSelectionThemeData(
           selectionHandleColor: colors.primaryColor.withValues(alpha: 0.3),

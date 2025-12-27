@@ -409,7 +409,7 @@ class SkillGroups {
 
   static const cloudTools = SkillGroup(
     groupName: 'Cloud & Tools',
-    groupIcon: FontAwesomeIcons.cloud,
+    groupIcon: FontAwesomeIcons.solidCloud,
     skills: [
       Skills.githubSkill,
       Skills.gitlabSkill,
