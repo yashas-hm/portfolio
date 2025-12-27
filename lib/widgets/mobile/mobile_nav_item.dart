@@ -84,11 +84,13 @@ class _NavItemState extends ConsumerState<MobileNavItem>
     buildChildren();
     if (from == 0) {
       SchedulerBinding.instance.addPostFrameCallback((_) {
-        setState(() {
-          from = getYOffset(widget.initialIndex);
-          to = 0;
-          createSlideAnim();
-        });
+        if (mounted) {
+          setState(() {
+            from = getYOffset(widget.initialIndex);
+            to = 0;
+            createSlideAnim();
+          });
+        }
       });
     }
     super.didChangeDependencies();
@@ -137,11 +139,9 @@ class _NavItemState extends ConsumerState<MobileNavItem>
         to = getYOffset(index);
         createSlideAnim();
       });
-      SchedulerBinding.instance.addPostFrameCallback(
-        (_) => animationController.forward(
-          from: 0,
-        ),
-      );
+      SchedulerBinding.instance.addPostFrameCallback((_) {
+        if (mounted) animationController.forward(from: 0);
+      });
     }
   }
 

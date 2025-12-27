@@ -50,10 +50,9 @@ class _WebSkillBoxState extends State<WebSkillBox>
       duration: duration.milliseconds,
     );
 
-    Future.delayed(
-      900.milliseconds,
-      popupAnimationController.forward,
-    );
+    Future.delayed(900.milliseconds, () {
+      if (mounted) popupAnimationController.forward();
+    });
 
     super.initState();
   }

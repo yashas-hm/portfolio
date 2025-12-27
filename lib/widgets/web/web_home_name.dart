@@ -31,7 +31,7 @@ class _HomeNameState extends ConsumerState<WebHomeName> {
   @override
   void initState() {
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      if (boxHeight == null) {
+      if (mounted && boxHeight == null) {
         final box = key.currentContext?.findRenderObject() as RenderBox;
         setState(() => boxHeight = box.size.height + 30.sp);
       }

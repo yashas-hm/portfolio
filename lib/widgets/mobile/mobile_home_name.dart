@@ -33,7 +33,7 @@ class _HomeNameState extends ConsumerState<MobileHomeName> {
   @override
   void initState() {
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      if (boxHeight == null) {
+      if (mounted && boxHeight == null) {
         final box = key.currentContext?.findRenderObject() as RenderBox;
         setState(() => boxHeight = box.size.height + 20.sp);
         if (widget.retHeight != null) {
