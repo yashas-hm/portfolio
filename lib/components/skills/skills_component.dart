@@ -17,17 +17,16 @@ part 'skill_chip.dart';
 part 'skills_container.dart';
 part 'skills_window.dart';
 
-class SkillsComponent extends ConsumerWidget {
+class SkillsComponent extends StatelessWidget {
   const SkillsComponent({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeProvider);
-
+  Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
+      spacing: Sizes.spacingLarge,
       children: [
         SizedBox(
           width: context.width * 0.9,
@@ -40,45 +39,6 @@ class SkillsComponent extends ConsumerWidget {
             ),
           ),
         ),
-        Gap(Sizes.spacingRegular),
-        Container(
-          width: context.width * (context.isMobile ? 0.9 : 0.4),
-          padding: Sizes.paddingRegular,
-          decoration: BoxDecoration(
-            color: theme.colors.backgroundColor.withValues(alpha: 0.5),
-            borderRadius: Sizes.borderRadiusSmall,
-            border: Border.all(color: theme.colors.borderColor),
-          ),
-          child: RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: '> BOOT_SEQUENCE: ',
-                  style: Styles.regularTextBold(
-                    textColor: KnownColors.green100,
-                  ),
-                ),
-                TextSpan(
-                  text:
-                      'Languages compiled. Frontend rendered. Backend online. '
-                      'Databases connected. DevOps active. AI synchronized. '
-                      'Cloud scaled. IoT linked.',
-                  style: Styles.regularText(
-                    textColor: theme.colors.textColor,
-                  ),
-                ),
-                TextSpan(
-                  text: ' _',
-                  style: Styles.regularText(
-                    textColor: KnownColors.green100,
-                  ),
-                ),
-              ],
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
-        Gap(Sizes.spacingLarge),
         SkillsWindow(),
       ],
     );
