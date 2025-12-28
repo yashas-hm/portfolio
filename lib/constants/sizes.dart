@@ -23,7 +23,9 @@ class Sizes {
 
   static const double iconMedium = 20.0;
   
-  static const double iconExtraLarge = 70.0;
+  static const double iconLarge = 25.0;
+  
+  static const double iconHuge = 70.0;
 
 
   static BorderRadius get borderRadiusSmall =>

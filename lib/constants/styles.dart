@@ -3,6 +3,11 @@ part of 'constants.dart';
 class Styles {
   Styles._();
 
+  static TextStyle extraSmallText({Color? textColor}) => TextStyle(
+    fontSize: 10,
+    color: textColor,
+  );
+  
   static TextStyle smallText({Color? textColor}) => TextStyle(
         fontSize: 12,
         color: textColor,
@@ -36,6 +41,12 @@ class Styles {
         fontWeight: FontWeight.bold,
       );
 
+  static TextStyle emphasisText({Color? textColor}) => TextStyle(
+    fontSize: 50,
+    color: textColor,
+    fontWeight: FontWeight.bold,
+  );
+
   static TextStyle headlineText({Color? textColor, bool isMobile = false}) =>
       TextStyle(
         fontSize: isMobile ? 30 : 40,
@@ -54,12 +65,5 @@ class Styles {
       TextStyle(
         fontSize: isMobile ? 14 : 16,
         color: textColor,
-      );
-
-  static TextStyle subTextBold({Color? textColor, bool isMobile = false}) =>
-      TextStyle(
-        fontSize: isMobile ? 14 : 16,
-        color: textColor,
-        fontWeight: FontWeight.bold,
       );
 }
