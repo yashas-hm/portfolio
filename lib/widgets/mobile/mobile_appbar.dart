@@ -68,7 +68,7 @@ AppBar mobileAppBar(
             Consumer(
               builder: (_, ref, __) => DayNightSwitch(
                 size: 20.sp,
-                initiallyDark: isDarkMode(ref.read(themeProvider).mode),
+                initiallyDark: isDarkMode(ref.read(themeProvider)),
                 onChange: (darkMode) => toggleThemeMode(ref, darkMode),
               ),
             ),

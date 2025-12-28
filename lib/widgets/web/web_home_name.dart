@@ -41,7 +41,7 @@ class _HomeNameState extends ConsumerState<WebHomeName> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = ref.watch(themeProvider);
+    final themeMode = ref.watch(themeProvider);
     final size = Size(
       context.width / 3.3,
       boxHeight ?? context.width / 5,
@@ -65,7 +65,7 @@ class _HomeNameState extends ConsumerState<WebHomeName> {
                 borderRadius: BorderRadius.circular(13.sp),
                 child: AnimatedSwitcher(
                   duration: 500.milliseconds,
-                  child: isDarkMode(theme.mode)
+                  child: isDarkMode(themeMode)
                       ? Image.asset(
                           key: const ValueKey<String>('night'),
                           darkGIF,

@@ -1,27 +1,27 @@
 part of 'skills_component.dart';
 
-class SkillsContainer extends ConsumerWidget {
+class SkillsContainer extends StatelessWidget {
   const SkillsContainer({super.key, required this.skillGroup});
 
   final SkillGroup skillGroup;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeProvider);
+  Widget build(BuildContext context) {
+    final colors = context.colors;
 
     return Container(
       height: context.isMobile ? null : context.height / 4,
       width: context.isMobile ? context.width : context.width / 5,
       constraints: BoxConstraints(minHeight: context.height / 4),
       decoration: BoxDecoration(
-        color: theme.colors.surfaceColor,
+        color: colors.surfaceColor,
         borderRadius: Sizes.borderRadiusRegular,
-        border: Border.all(color: theme.colors.borderColor),
+        border: Border.all(color: colors.borderColor),
       ),
       padding: Sizes.paddingLarge,
       child: Stack(
         children: [
-          _randomlyPositionedIcon(theme.colors),
+          _randomlyPositionedIcon(colors),
           Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -36,7 +36,7 @@ class SkillsContainer extends ConsumerWidget {
                 children: [
                   Icon(
                     skillGroup.groupIcon,
-                    color: theme.colors.primaryColor,
+                    color: colors.primaryColor,
                     size: Sizes.iconMedium,
                   ),
                   FittedBox(
@@ -52,12 +52,12 @@ class SkillsContainer extends ConsumerWidget {
                 width: double.infinity,
                 height: 1,
                 decoration: BoxDecoration(
-                  color: theme.colors.borderColor,
+                  color: colors.borderColor,
                 ),
               ),
               SequentialAnimator(
-                delay: Duration(milliseconds: 400),
-                itemDuration: const Duration(milliseconds: 200),
+                delay: 400.milliseconds,
+                itemDuration: 200.milliseconds,
                 curve: Curves.bounceInOut,
                 animationBuilder: (child, animation) => ScaleTransition(
                   scale: Tween<double>(begin: 0, end: 1).animate(animation),

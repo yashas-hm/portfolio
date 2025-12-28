@@ -68,7 +68,7 @@ AppBar webAppBar(BuildContext context) => AppBar(
             Consumer(
               builder: (_, ref, __) => DayNightSwitch(
                 size: 30.sp,
-                initiallyDark: isDarkMode(ref.read(themeProvider).mode),
+                initiallyDark: isDarkMode(ref.read(themeProvider)),
                 onChange: (darkMode) => toggleThemeMode(ref, darkMode),
               ),
             ),

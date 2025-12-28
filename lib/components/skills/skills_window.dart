@@ -1,19 +1,19 @@
 part of 'skills_component.dart';
 
-class SkillsWindow extends ConsumerWidget {
+class SkillsWindow extends StatelessWidget {
   const SkillsWindow({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeProvider);
+  Widget build(BuildContext context) {
+    final colors = context.colors;
 
     return Container(
       constraints: BoxConstraints(maxWidth: context.width * 0.9),
       decoration: BoxDecoration(
         borderRadius: Sizes.borderRadiusRegular,
-        color: theme.colors.backgroundColor.withValues(alpha: 0.5),
+        color: colors.backgroundColor.withValues(alpha: 0.5),
         border: Border.all(
-          color: theme.colors.borderColor,
+          color: colors.borderColor,
         ),
       ),
       child: ClipRRect(
@@ -26,7 +26,7 @@ class SkillsWindow extends ConsumerWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: theme.colors.secondarySurface,
+                color: colors.secondarySurface,
               ),
               padding: Sizes.paddingRegular,
               child: Row(
@@ -63,9 +63,9 @@ class SkillsWindow extends ConsumerWidget {
                     child: Center(
                       child: Container(
                         decoration: BoxDecoration(
-                          color: theme.colors.backgroundColor,
-                          border: Border.all(
-                              color: theme.colors.secondaryBorderColor),
+                          color: colors.backgroundColor,
+                          border:
+                              Border.all(color: colors.secondaryBorderColor),
                           borderRadius: Sizes.borderRadiusSmall,
                         ),
                         padding:
@@ -79,12 +79,12 @@ class SkillsWindow extends ConsumerWidget {
                             Icon(
                               FontAwesomeIcons.solidFolder,
                               size: Sizes.iconRegular,
-                              color: theme.colors.textSecondary,
+                              color: colors.textSecondary,
                             ),
                             Text(
                               '~/portfolio/skills',
                               style: Styles.regularText(
-                                textColor: theme.colors.textSecondary,
+                                textColor: colors.textSecondary,
                               ),
                             ),
                           ],
@@ -114,7 +114,7 @@ class SkillsWindow extends ConsumerWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                color: theme.colors.secondarySurface,
+                color: colors.secondarySurface,
               ),
               padding: Sizes.paddingRegular,
               child: Row(
@@ -131,10 +131,9 @@ class SkillsWindow extends ConsumerWidget {
                   Text(
                     '~',
                     style: Styles.regularText(
-                      textColor: theme.colors.primaryColor,
+                      textColor: colors.primaryColor,
                     ),
                   ),
-                  
                   Flexible(
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
@@ -143,11 +142,11 @@ class SkillsWindow extends ConsumerWidget {
                         style: context.isMobile
                             ? Styles.smallText(
                                 textColor:
-                                    theme.colors.textColor.withValues(alpha: 0.7),
+                                    colors.textColor.withValues(alpha: 0.7),
                               )
                             : Styles.regularText(
                                 textColor:
-                                    theme.colors.textColor.withValues(alpha: 0.7),
+                                    colors.textColor.withValues(alpha: 0.7),
                               ),
                       ),
                     ),

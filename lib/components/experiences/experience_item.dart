@@ -1,6 +1,6 @@
 part of 'experiences_component.dart';
 
-class ExperienceItem extends ConsumerWidget {
+class ExperienceItem extends StatelessWidget {
   const ExperienceItem({
     super.key,
     required this.experience,
@@ -9,10 +9,10 @@ class ExperienceItem extends ConsumerWidget {
 
   final Experience experience;
   final bool collapsed;
-  
+
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeProvider);
+  Widget build(BuildContext context) {
+    final colors = context.colors;
 
     return TimelineContainer(
       present: experience.present,
@@ -39,14 +39,14 @@ class ExperienceItem extends ConsumerWidget {
                     Container(
                       padding: Sizes.paddingMedium,
                       decoration: BoxDecoration(
-                        color: theme.colors.textColor.withValues(alpha: 0.05),
+                        color: colors.textColor.withValues(alpha: 0.05),
                         borderRadius: Sizes.borderRadiusSmall,
-                        border: Border.all(color: theme.colors.borderColor),
+                        border: Border.all(color: colors.borderColor),
                       ),
                       child: Icon(
                         experience.icon,
                         size: Sizes.iconRegular,
-                        color: theme.colors.primaryColor,
+                        color: colors.primaryColor,
                       ),
                     ),
                     Column(
@@ -61,7 +61,7 @@ class ExperienceItem extends ConsumerWidget {
                         Text(
                           experience.company,
                           style: Styles.smallTextBold(
-                              textColor: theme.colors.primaryColor),
+                              textColor: colors.primaryColor),
                         ),
                         Gap(Sizes.spacingSmall),
                         Container(
@@ -73,8 +73,7 @@ class ExperienceItem extends ConsumerWidget {
                           ),
                           child: Text(
                             experience.type.value,
-                            style:
-                            Styles.extraSmallText(),
+                            style: Styles.extraSmallText(),
                           ),
                         ),
                       ],
@@ -83,9 +82,9 @@ class ExperienceItem extends ConsumerWidget {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    color: theme.colors.textColor.withValues(alpha: 0.05),
+                    color: colors.textColor.withValues(alpha: 0.05),
                     borderRadius: BorderRadius.circular(Sizes.iconHuge),
-                    border: Border.all(color: theme.colors.borderColor),
+                    border: Border.all(color: colors.borderColor),
                   ),
                   padding: EdgeInsets.symmetric(
                       vertical: Sizes.spacingSmall,
@@ -99,9 +98,8 @@ class ExperienceItem extends ConsumerWidget {
             ),
           ),
           Gap(Sizes.spacingRegular),
-          ...experience.descriptions
-              .map(
-                (description) => Row(
+          ...experience.descriptions.map(
+            (description) => Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -114,7 +112,7 @@ class ExperienceItem extends ConsumerWidget {
                   child: Icon(
                     description.icon,
                     size: Sizes.iconSmall,
-                    color: theme.colors.primaryColor,
+                    color: colors.primaryColor,
                   ),
                 ),
                 Expanded(
@@ -128,8 +126,8 @@ class ExperienceItem extends ConsumerWidget {
           ),
           Gap(Sizes.spacingRegular),
           SequentialAnimator(
-            delay: Duration(milliseconds: 400),
-            itemDuration: const Duration(milliseconds: 200),
+            delay: 400.milliseconds,
+            itemDuration: 200.milliseconds,
             curve: Curves.bounceInOut,
             animationBuilder: (child, animation) => ScaleTransition(
               scale: Tween<double>(begin: 0, end: 1).animate(animation),

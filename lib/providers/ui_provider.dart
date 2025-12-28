@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utilities/shared_pref_utils.dart';
 
 final xProvider = NotifierProvider<DoubleNotifier, double>(DoubleNotifier.new);
@@ -14,22 +13,17 @@ class DoubleNotifier extends Notifier<double> {
   void set(double value) => state = value;
 }
 
-typedef ThemeState = ({ThemeMode mode, ThemeColors colors});
-
-final themeProvider = NotifierProvider<ThemeNotifier, ThemeState>(
+final themeProvider = NotifierProvider<ThemeNotifier, ThemeMode>(
   ThemeNotifier.new,
 );
 
-class ThemeNotifier extends Notifier<ThemeState> {
+class ThemeNotifier extends Notifier<ThemeMode> {
   @override
-  ThemeState build() => (mode: ThemeMode.dark, colors: AppTheme.darkColors);
+  ThemeMode build() => ThemeMode.dark;
 
   void setMode(ThemeMode value) {
-    if (value != state.mode) {
-      state = (
-        mode: value,
-        colors: value == ThemeMode.dark ? AppTheme.darkColors : AppTheme.lightColors,
-      );
+    if (value != state) {
+      state = value;
     }
   }
 }

@@ -8,7 +8,7 @@ import 'package:flutter/material.dart'
         IconThemeData,
         ColorScheme,
         TextSelectionThemeData,
-        Theme;
+        Theme, ThemeExtension;
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/constants.dart';

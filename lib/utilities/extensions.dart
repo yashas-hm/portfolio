@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart' show Theme;
 import 'package:flutter/widgets.dart';
 import 'package:portfolio/model/chat_model.dart';
+import 'package:portfolio/theme/theme.dart' show ThemeColors;
 
 extension NumUtils on num {
   num remap(num minExtent, num maxExtent, num minRange, num maxRange) {
@@ -37,6 +39,8 @@ extension ContextUtils on BuildContext {
   double get width => MediaQuery.of(this).size.width;
 
   Size get screenSize => MediaQuery.of(this).size;
+
+  ThemeColors get colors => Theme.of(this).extension<ThemeColors>()!;
 }
 
 extension HumanMessage on List<ChatModel> {

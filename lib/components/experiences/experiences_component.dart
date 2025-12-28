@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/components/skills/skills_component.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/data/experiences.dart';
 import 'package:portfolio/model/experience.dart';
-import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
@@ -14,14 +12,14 @@ import 'package:portfolio/widgets/new_widgets/timeline_container.dart';
 
 part 'experience_item.dart';
 
-class ExperiencesComponent extends ConsumerWidget {
+class ExperiencesComponent extends StatelessWidget {
   const ExperiencesComponent({super.key});
 
   static const int topK = 3;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeProvider);
+  Widget build(BuildContext context) {
+    final colors = context.colors;
     final experiences = Experiences.sortedExperiences;
 
     return Column(
@@ -47,7 +45,7 @@ class ExperiencesComponent extends ConsumerWidget {
                 Text(
                   'Path',
                   style: Styles.headlineTextBold(
-                    textColor: theme.colors.textColor,
+                    textColor: colors.textColor,
                     isMobile: context.isMobile,
                   ),
                 ),
@@ -61,7 +59,7 @@ class ExperiencesComponent extends ConsumerWidget {
           child: Text(
             'A timeline of my professional journey in software engineering, focusing on scalable architecture, mobile development, and full-stack solutions.',
             style: Styles.subText(
-              textColor: theme.colors.textSecondary,
+              textColor: colors.textSecondary,
               isMobile: context.isMobile,
             ),
             textAlign: TextAlign.center,
@@ -95,7 +93,7 @@ class ExperiencesComponent extends ConsumerWidget {
                       child: Text(
                         'Previous Work',
                         style: Styles.largeTextBold(
-                          textColor: theme.colors.textSecondary,
+                          textColor: colors.textSecondary,
                         ),
                       ),
                     ),

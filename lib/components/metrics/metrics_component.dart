@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/data/metrics.dart';
 import 'package:portfolio/model/metric.dart';
-import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
 
 part 'metric_container.dart';
 
-class MetricsComponent extends ConsumerWidget {
+class MetricsComponent extends StatelessWidget {
   const MetricsComponent({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeProvider);
+  Widget build(BuildContext context) {
+    final colors = context.colors;
 
     return SizedBox(
       width: context.width * 0.9,
@@ -36,7 +34,7 @@ class MetricsComponent extends ConsumerWidget {
                   Text(
                     'Engineering ',
                     style: Styles.headlineTextBold(
-                      textColor: theme.colors.textColor,
+                      textColor: colors.textColor,
                       isMobile: context.isMobile,
                     ),
                   ),
@@ -49,7 +47,7 @@ class MetricsComponent extends ConsumerWidget {
                   Text(
                     '.',
                     style: Styles.headlineTextBold(
-                      textColor: theme.colors.textColor,
+                      textColor: colors.textColor,
                       isMobile: context.isMobile,
                     ),
                   ),
@@ -63,7 +61,7 @@ class MetricsComponent extends ConsumerWidget {
             child: Text(
               'Beyond clean code, I build scalable, efficient systems that drive measurable product growth with AI-native architectures.',
               style: Styles.subText(
-                textColor: theme.colors.textSecondary,
+                textColor: colors.textSecondary,
                 isMobile: context.isMobile,
               ),
               textAlign: TextAlign.center,

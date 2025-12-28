@@ -1,13 +1,13 @@
 part of 'skills_component.dart';
 
-class SkillChip extends ConsumerWidget {
+class SkillChip extends StatelessWidget {
   const SkillChip({super.key, required this.skill});
 
   final Skill skill;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeProvider);
+  Widget build(BuildContext context) {
+    final colors = context.colors;
 
     return Container(
       decoration: BoxDecoration(
@@ -33,7 +33,7 @@ class SkillChip extends ConsumerWidget {
               width: Sizes.iconSmall,
               colorFilter: skill.overrideLogoColor
                   ? ColorFilter.mode(
-                      theme.colors.textColor,
+                      colors.textColor,
                       BlendMode.srcIn,
                     )
                   : null,

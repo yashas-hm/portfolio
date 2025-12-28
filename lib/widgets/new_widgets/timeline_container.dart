@@ -4,7 +4,7 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';
 
-class TimelineContainer extends ConsumerWidget {
+class TimelineContainer extends StatelessWidget {
   const TimelineContainer({
     super.key,
     required this.child,
@@ -17,15 +17,16 @@ class TimelineContainer extends ConsumerWidget {
   final bool showContainer;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeProvider);
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    
     return Container(
       width: context.width * (context.isMobile ? 0.9 : 0.6),
       clipBehavior: Clip.none,
       decoration: BoxDecoration(
         border: Border(
           left: BorderSide(
-            color: theme.colors.borderColor,
+            color: colors.borderColor,
             width: 1.5,
           ),
         ),
@@ -52,8 +53,8 @@ class TimelineContainer extends ConsumerWidget {
             decoration: showContainer
                 ? BoxDecoration(
                     borderRadius: Sizes.borderRadiusRegular,
-                    border: Border.all(color: theme.colors.borderColor),
-                    color: theme.colors.surfaceColor,
+                    border: Border.all(color: colors.borderColor),
+                    color: colors.surfaceColor,
                   )
                 : null,
             child: child,
@@ -71,7 +72,7 @@ class TimelineIndicator extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeProvider);
+    final colors = context.colors;
 
     double size = Sizes.iconXXS;
 
@@ -88,8 +89,8 @@ class TimelineIndicator extends ConsumerWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: present
-              ? theme.colors.backgroundColor
-              : theme.colors.textSecondary,
+              ? colors.backgroundColor
+              : colors.textSecondary,
           boxShadow: [
             if (present)
               BoxShadow(

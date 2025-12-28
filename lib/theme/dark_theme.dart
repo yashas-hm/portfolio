@@ -24,4 +24,7 @@ class DarkThemeColors extends ThemeColors {
 
   @override
   Color get secondaryBorderColor => KnownColors.darkBorderSecondary;
+
+  @override
+  ThemeColors copyWith() => DarkThemeColors();
 }

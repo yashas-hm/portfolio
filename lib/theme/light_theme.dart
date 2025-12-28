@@ -24,4 +24,7 @@ class LightThemeColors extends ThemeColors {
 
   @override
   Color get secondaryBorderColor => KnownColors.lightBorderSecondary;
+
+  @override
+  ThemeColors copyWith() => LightThemeColors();
 }

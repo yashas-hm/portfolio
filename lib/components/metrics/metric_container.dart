@@ -1,21 +1,21 @@
 part of 'metrics_component.dart';
 
-class MetricContainer extends ConsumerWidget {
+class MetricContainer extends StatelessWidget {
   const MetricContainer({super.key, required this.impact});
 
   final Metric impact;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeProvider);
+  Widget build(BuildContext context) {
+    final colors = context.colors;
 
     return Container(
       height: context.height / 4,
       width: context.isMobile ? context.width : context.width / 5,
       decoration: BoxDecoration(
-        color: theme.colors.surfaceColor,
+        color: colors.surfaceColor,
         borderRadius: Sizes.borderRadiusRegular,
-        border: Border.all(color: theme.colors.borderColor),
+        border: Border.all(color: colors.borderColor),
       ),
       padding: Sizes.paddingLarge,
       child: Stack(
@@ -25,7 +25,7 @@ class MetricContainer extends ConsumerWidget {
             child: Icon(
               impact.impactIcon,
               size: Sizes.iconHuge,
-              color: theme.colors.textSecondary.withValues(alpha: 0.1),
+              color: colors.textSecondary.withValues(alpha: 0.1),
             ),
           ),
           Column(
@@ -58,7 +58,7 @@ class MetricContainer extends ConsumerWidget {
                         child: Icon(
                           impact.metricSuffixIcon,
                           size: Sizes.iconMedium,
-                          color: theme.colors.primaryColor,
+                          color: colors.primaryColor,
                         ),
                       ),
                     ],
@@ -75,7 +75,7 @@ class MetricContainer extends ConsumerWidget {
                 child: Container(),
               ),
               Divider(
-                color: theme.colors.borderColor,
+                color: colors.borderColor,
               ),
               Gap(Sizes.spacingRegular),
               Text(

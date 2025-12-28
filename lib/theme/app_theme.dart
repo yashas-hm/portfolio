@@ -57,5 +57,6 @@ class AppTheme {
         textSelectionTheme: TextSelectionThemeData(
           selectionHandleColor: colors.primaryColor.withValues(alpha: 0.3),
         ),
+        extensions: [colors],
       );
 }
