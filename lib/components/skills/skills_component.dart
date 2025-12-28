@@ -67,7 +67,7 @@ class SkillsComponent extends ConsumerWidget {
         SizedBox(
           width: context.width * (context.isMobile ? 0.9 : 0.4),
           child: Text(
-            'The complete toolset deployed to build low-latency systems and production-grade AI models.',
+            'The complete toolset deployed to build low-latency systems and production-grade AI architectures.',
             style: Styles.subText(
               isMobile: context.isMobile,
               textColor: theme.colors.textSecondary,

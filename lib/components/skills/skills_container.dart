@@ -91,7 +91,7 @@ class SkillsContainer extends ConsumerWidget {
       right: v(),
       child: Icon(
         skillGroup.groupIcon,
-        size: Sizes.iconExtraLarge,
+        size: Sizes.iconHuge,
         color: colors.primaryColor.withValues(alpha: 0.3),
       ),
     );
