@@ -43,3 +43,7 @@ extension HumanMessage on List<ChatModel> {
   String get lastHumanMessage =>
       where((msg) => msg.role == Role.human).last.message;
 }
+
+extension ColorUtils on Color{
+  Color get backgroundColor => withValues(alpha: 0.1);
+}

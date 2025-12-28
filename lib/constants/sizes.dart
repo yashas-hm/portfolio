@@ -3,6 +3,8 @@ part of 'constants.dart';
 class Sizes {
   Sizes._();
 
+  static const double spacingXS = 3.0;
+  
   static const double spacingSmall = 5.0;
 
   static const double spacingRegular = 10.0;
@@ -13,9 +15,13 @@ class Sizes {
 
   static const double spacingLarge = 20.0;
 
-  static const double spacingExtraLarge = 30.0;
+  static const double spacingXL = 30.0;
 
-  static const double iconExtraSmall = 10.0;
+  static const double spacingXXL = 50.0;
+  
+  static const double iconXXS = 8.0;
+
+  static const double iconXS = 10.0;
 
   static const double iconSmall = 12.0;
 
@@ -31,10 +37,19 @@ class Sizes {
   static BorderRadius get borderRadiusSmall =>
       BorderRadius.circular(spacingSmall);
 
+  static BorderRadius get borderRadiusXS =>
+      BorderRadius.circular(spacingXS);
+
   static BorderRadius get borderRadiusRegular =>
       BorderRadius.circular(spacingRegular);
 
+  static EdgeInsets get paddingXS => EdgeInsets.all(spacingXS);
+
+  static EdgeInsets get paddingSmall => EdgeInsets.all(spacingSmall);
+  
   static EdgeInsets get paddingRegular => EdgeInsets.all(spacingRegular);
+
+  static EdgeInsets get paddingMedium => EdgeInsets.all(spacingMedium);
 
   static EdgeInsets get paddingLarge => EdgeInsets.all(spacingLarge);
 }

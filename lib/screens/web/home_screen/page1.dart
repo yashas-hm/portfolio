@@ -110,6 +110,7 @@ class _Page1State extends State<Page1> with TickerProviderStateMixin {
         children: [
           nameWidget(),
           Gap(30.sp),
+          Flexible(child: ExperiencesComponent()),
           Flexible(child: MetricsComponent()),
           Gap(30.sp),
           Flexible(child: SkillsComponent()),

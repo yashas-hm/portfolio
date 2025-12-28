@@ -1,3 +1,4 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/data/skills.dart';
 import 'package:portfolio/model/experience.dart';
 
@@ -13,23 +14,23 @@ class Experiences {
     descriptions: [
       (
         description:
-            'Spearheaded the architectural migration of a legacy application to a modern Flutter codebase while simultaneously engineering scalable endpoints in .NET, ensuring seamless cross-platform performance.',
-        icon: null,
+            'Migrated legacy app to modern Flutter & .NET endpoints, ensuring seamless cross-platform performance.',
+        icon: FontAwesomeIcons.code
       ),
       (
         description:
-            'Directed the technical evaluation and integration of critical 3rd-party SDKs; conducted trade-off analysis to select optimal tools, reducing integration overhead by 20% and enhancing app stability.',
-        icon: null,
+            'Integrated 3rd-party SDKs, reducing overhead by 20% and improving stability.',
+        icon: FontAwesomeIcons.screwdriverWrench
       ),
       (
         description:
-            'Diagnosed and resolved complex race conditions across the stack (Flutter & .NET), slashing application crash rates by 40% and significantly improving data consistency.',
-        icon: null,
+            'Resolved race conditions, cutting crash rates by 40% and improving data consistency.',
+        icon: FontAwesomeIcons.bug
       ),
       (
         description:
-            'Designed and deployed custom UI components and backend logic for new product features, directly contributing to a 20% increase in user engagement through data-driven UX improvements.',
-        icon: null,
+            'Deployed custom UI & backend features, boosting engagement by 20%.',
+        icon: FontAwesomeIcons.penRuler
       ),
     ],
     skills: [
@@ -42,34 +43,41 @@ class Experiences {
       Skills.git,
       Skills.gitlabSkill,
     ],
+    icon: FontAwesomeIcons.laptopCode,
   );
 
   static final uncE = Experience(
     role: 'Software Engineer',
     company: 'UNC Eshleman School of Pharmacy',
     startDate: DateTime(2024, DateTime.october),
-    endDate: DateTime(2024, DateTime.january),
+    endDate: DateTime(2025, DateTime.january),
     type: ExperienceType.partTime,
     descriptions: [
       (
         description:
-            'Engineered and launched a custom educational game using Flutter, designed to enhance diagnostic skills in doctors; resulted in a measurable increase of knowledge retention among participants by 40%.',
-        icon: null,
+            'Built an educational Flutter game, increasing diagnostic knowledge retention by 40%.',
+        icon: FontAwesomeIcons.gamepad
       ),
       (
         description:
-            'Introduced analytics to track user performance, boosting training effectiveness by 25% and aiding educators with actionable insights.',
-        icon: null,
+            'Added analytics to track performance, boosting training effectiveness by 25%.',
+        icon: FontAwesomeIcons.chartPie
+      ),
+      (
+        description:
+            'Improved engagement by 30% and learning retention by 25% using gameplay metrics from 1,000+ students across UNC, UIC, and Monash.',
+        icon: FontAwesomeIcons.arrowUpRightDots,
       ),
     ],
     skills: [
       Skills.flutter,
       Skills.gcp,
     ],
+    icon: FontAwesomeIcons.graduationCap,
   );
 
   static final pb = Experience(
-    role: 'Senior Software Developer',
+    role: 'Software Engineer',
     company: 'PracticeBuzz',
     startDate: DateTime(2023, DateTime.june),
     endDate: DateTime(2024, DateTime.july),
@@ -77,28 +85,27 @@ class Experiences {
     descriptions: [
       (
         description:
-            'Developed cross-platform mobile applications using Flutter, increasing client base by 30% in six months.',
-        icon: null,
+            'Built cross-platform apps with Flutter, increasing client base by 30%.',
+        icon: FontAwesomeIcons.mobileScreenButton
       ),
       (
         description:
-            'Engineered an AI-powered dental analysis framework using computer vision to scan human mouths, detect teeth, and identify issues such as decay and cavities, enabling automated diagnostics.',
-        icon: null,
+            'Engineered AI-powered dental analysis for automated diagnostics.',
+        icon: FontAwesomeIcons.brain
       ),
       (
         description:
-            'Designed and implemented backend APIs and SQL databases with Node.js and Express.js, improving processing efficiency by 40% and maintaining 99.8% uptime',
-        icon: null
+            'Developed Node.js/Express APIs and SQL databases, improving efficiency by 40%.',
+        icon: FontAwesomeIcons.server
       ),
       (
         description:
-            'Built a CMS and integrated payment interfaces, reducing update time by 50% and increasing online sales by 15%.',
-        icon: null,
+            'Built CMS & payment integration, cutting update time by 50% and boosting sales by 15%.',
+        icon: FontAwesomeIcons.moneyBill
       ),
       (
-        description:
-            'Demonstrated technical leadership and measurable impact, achieving promotion within 8 months.',
-        icon: null,
+        description: 'Led projects and achieved promotion within 8 months.',
+        icon: FontAwesomeIcons.trophy
       ),
     ],
     skills: [
@@ -113,6 +120,7 @@ class Experiences {
       Skills.python,
       Skills.githubActions,
     ],
+    icon: FontAwesomeIcons.briefcase,
   );
 
   static final freelance = Experience(
@@ -124,18 +132,18 @@ class Experiences {
     descriptions: [
       (
         description:
-            'Oversaw and delivered Flutter applications for seven companies, achieving over 10K+ downloads and maintaining an average rating of 4.3 stars, ensuring 95% client satisfaction.',
-        icon: null,
+            'Delivered Flutter apps for 7 companies, achieving 10K+ downloads and 95% client satisfaction.',
+        icon: FontAwesomeIcons.users
       ),
       (
         description:
-            'Integrated Firebase and other Cloud Services, speeding up data retrieval by 40% and boosting engagement by 30%.',
-        icon: null,
+            'Integrated Firebase & Cloud services, speeding up data retrieval by 40% and boosting engagement by 30%.',
+        icon: FontAwesomeIcons.cloud
       ),
       (
         description:
-            'Implemented and deployed scalable ML models and Games, increasing user retention by 25% and improving app ratings by 20%.',
-        icon: null,
+            'Deployed ML models and games, increasing retention by 25% and improving app ratings by 20%.',
+        icon: FontAwesomeIcons.robot
       ),
     ],
     skills: [
@@ -147,39 +155,40 @@ class Experiences {
       Skills.opencv,
       Skills.nodeJs,
     ],
+    icon: FontAwesomeIcons.userGear,
   );
 
-  static final cy = Experience(
+  static final campYellow = Experience(
     role: 'Software Engineer',
     company: 'Camp Yellow',
     startDate: DateTime(2023, DateTime.april),
-    endDate: DateTime(2023, DateTime.may),
+    endDate: DateTime(2023, DateTime.april),
     type: ExperienceType.internship,
     descriptions: [
       (
         description:
-            'Engineered a parallel downloading method and file compression technique, reducing download time by 50% for 1000+ monthly active users.',
-        icon: null,
+            'Engineered parallel download & compression, cutting download time by 50%.',
+        icon: FontAwesomeIcons.download
       ),
       (
         description:
-            'Implemented a dynamic system to update gameplay storyboards from Excel sheets, streamlining content management and reducing update time by 50%.',
-        icon: null,
+            'Updated gameplay storyboards from Excel sheets, reducing update time by 50%.',
+        icon: FontAwesomeIcons.fileExcel
       ),
       (
         description:
-            'Collaborated with UI/UX designers to integrate innovative designs and animations, increasing user engagement by 30%.',
-        icon: null,
+            'Collaborated with UI/UX designers, increasing engagement by 30%.',
+        icon: FontAwesomeIcons.paintbrush
       ),
       (
         description:
-            'Implemented secure APIs for authentication and data transfer, prioritizing data security and user privacy for a substantial user base.',
-        icon: null,
+            'Implemented secure APIs for authentication and data transfer.',
+        icon: FontAwesomeIcons.lock
       ),
       (
         description:
-            'Implemented audio interface for seamless background music during gameplay, enhancing user experience.',
-        icon: null,
+            'Added audio interface for seamless background music during gameplay.',
+        icon: FontAwesomeIcons.music
       ),
     ],
     skills: [
@@ -189,6 +198,7 @@ class Experiences {
       Skills.gcp,
       Skills.git,
     ],
+    icon: FontAwesomeIcons.gamepad,
   );
 
   static final grahnumb = Experience(
@@ -200,23 +210,23 @@ class Experiences {
     descriptions: [
       (
         description:
-            'Spearheaded the development of a visually stunning Flutter Flame games, boosting user engagement by 20% and enhancing interactivity with immersive visuals and gameplay experiences.',
-        icon: null,
+            'Built Flutter Flame games, increasing engagement by 20% with immersive visuals and gameplay.',
+        icon: FontAwesomeIcons.gamepad
       ),
       (
         description:
-            'Engineered secure authentication and data APIs, ensuring user privacy and achieving an impressive error rate of less than 3%. Prioritized data security to establish trust and reliability for users.',
-        icon: null,
+            'Implemented secure auth and data APIs, maintaining <3% error rate and strong user trust.',
+        icon: FontAwesomeIcons.lock
       ),
       (
         description:
-            'Optimized code efficiency, reducing loading times by 30% and delivering a smoother gameplay experience. Implemented reusable and reliable code to enhance performance and user satisfaction.',
-        icon: null,
+            'Optimized performance, reducing load times by 30% for smoother gameplay.',
+        icon: FontAwesomeIcons.rocket
       ),
       (
         description:
-            'Crafted and engineered three dynamic Flutter games, each contributing to a significant 20% reduction in user churn rate.',
-        icon: null,
+            'Developed three Flutter games, reducing user churn by 20%.',
+        icon: FontAwesomeIcons.thumbsUp
       ),
     ],
     skills: [
@@ -225,6 +235,7 @@ class Experiences {
       Skills.firebase,
       Skills.git,
     ],
+    icon: FontAwesomeIcons.gamepad,
   );
 
   static final ecsol = Experience(
@@ -236,18 +247,18 @@ class Experiences {
     descriptions: [
       (
         description:
-            'Developed a B2C mobile app integrated with Firebase, resulting in a remarkable 40% increase in user engagement and dynamic content delivery.',
-        icon: null,
+            'Built a Firebase-backed B2C app, increasing user engagement by 40%.',
+        icon: FontAwesomeIcons.mobileScreenButton
       ),
       (
         description:
-            'Leveraged the Provider & RiverPod library for streamlined state management, yielding a significant 20% reduction in development time and enhancing app responsiveness.',
-        icon: null,
+            'Applied Provider & Riverpod for state management, cutting dev time by 20%.',
+        icon: FontAwesomeIcons.diagramProject
       ),
       (
         description:
-            'Implemented caching using the Hive library, leading to a substantial 30% improvement in app performance and a 50% reduction in server requests.',
-        icon: null,
+            'Implemented Hive caching, boosting performance by 30% and reducing server calls by 50%.',
+        icon: FontAwesomeIcons.database
       ),
     ],
     skills: [
@@ -256,6 +267,7 @@ class Experiences {
       Skills.firebase,
       Skills.git,
     ],
+    icon: FontAwesomeIcons.mobileScreenButton,
   );
 
   static final raahi = Experience(
@@ -268,18 +280,19 @@ class Experiences {
       (
         description:
             'Integrated caching mechanism, reducing asset loading time by 20% for enhanced performance.',
-        icon: null,
+        icon: FontAwesomeIcons.boxesStacked
       ),
       (
         description:
             'Developed and implemented RESTful search and create API, reducing development time by 30%.',
-        icon: null,
+        icon: FontAwesomeIcons.server
       ),
     ],
     skills: [
       Skills.android,
       Skills.java,
     ],
+    icon: FontAwesomeIcons.server,
   );
 
   static final surjal = Experience(
@@ -292,15 +305,16 @@ class Experiences {
       (
         description:
             'Developed a WhatsApp auto-responder app with a 95% response rate, boosting user engagement.',
-        icon: null,
+        icon: FontAwesomeIcons.whatsapp
       ),
       (
         description:
             'Optimized performance and reduced battery consumption by 30% through Android native services integration.',
-        icon: null,
+        icon: FontAwesomeIcons.bolt
       ),
     ],
     skills: [Skills.android],
+    icon: FontAwesomeIcons.mobileScreenButton,
   );
 
   static final yellow = Experience(
@@ -313,15 +327,16 @@ class Experiences {
       (
         description:
             'Implemented local storage with Room Database, reducing data retrieval time by 30%.',
-        icon: null,
+        icon: FontAwesomeIcons.database
       ),
       (
         description:
             'Conducted thorough unit tests using JUnit, achieving a test coverage of 95%.',
-        icon: null,
+        icon: FontAwesomeIcons.vial
       ),
     ],
     skills: [Skills.android],
+    icon: FontAwesomeIcons.android,
   );
 
   static final ngo = Experience(
@@ -334,15 +349,16 @@ class Experiences {
       (
         description:
             'Integrated offline storage, enabling browsing history access without internet, enhancing user convenience.',
-        icon: null,
+        icon: FontAwesomeIcons.boxArchive
       ),
       (
         description:
             'Optimized performance with threading techniques, reducing loading time by 50%.',
-        icon: null,
+        icon: FontAwesomeIcons.gaugeHigh
       ),
     ],
     skills: [Skills.android],
+    icon: FontAwesomeIcons.heart,
   );
 
   static final List<Experience> all = [
@@ -350,7 +366,7 @@ class Experiences {
     uncE,
     pb,
     freelance,
-    cy,
+    campYellow,
     grahnumb,
     ecsol,
     raahi,
@@ -358,4 +374,18 @@ class Experiences {
     yellow,
     ngo,
   ];
+  
+  static List<Experience> get sortedExperiences{
+    final experiences = [...all];
+    experiences.sort((a, b) {
+      final aEnd = a.endDate ?? DateTime(9999);
+      final bEnd = b.endDate ?? DateTime(9999);
+
+      final endCompare = bEnd.compareTo(aEnd);
+      if (endCompare != 0) return endCompare;
+
+      return b.startDate.compareTo(a.startDate);
+    });
+    return experiences;
+  }
 }

@@ -15,30 +15,11 @@ class SkillCategoryColors {
 
 class KnownColors {
   KnownColors._();
-
-  // ===================
-  // GRAY (Light → Dark)
-  // ===================
-  static const Color white = Color(0xFFFFFFFF);
-  static const Color gray50 = Color(0xFFFAFAFA);
-  static const Color gray100 = Color(0xFFF6F7F8);
-  static const Color gray150 = Color(0xFFF3F4F6);
-  static const Color gray200 = Color(0xFFF0F3F4);
-  static const Color gray300 = Color(0xFFE5E7EB);
-  static const Color gray400 = Color(0xFF9CA3AF);
-  static const Color gray500 = Color(0xFF333333);
-  static const Color gray600 = Color(0xFF30363D);
-  static const Color gray700 = Color(0xFF2C3135);
-  static const Color gray750 = Color(0xFF1A1D21);
-  static const Color gray800 = Color(0xFF161B22);
-  static const Color gray850 = Color(0xFF121516);
-  static const Color gray900 = Color(0xFF111111);
-  static const Color gray950 = Color(0xFF0D0D0D);
+  
+  // Basic
   static const Color black = Color(0xFF000000);
-
-  // ===================
-  // COLOR PALETTE
-  // ===================
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color transparent = Color(0x00000000);
 
   // Light
   static const Color lightPrimary = Color(0xFF1687E7);
@@ -59,6 +40,22 @@ class KnownColors {
   static const Color darkBorderSecondary = Color(0xFF3C3D40);
   static const Color darkText = Color(0xFFFFFFFF);
   static const Color darkTextSecondary = Color(0xFF8A91A0);
+
+  // Gray
+  static const Color gray50 = Color(0xFFFAFAFA);
+  static const Color gray100 = Color(0xFFF6F7F8);
+  static const Color gray150 = Color(0xFFF3F4F6);
+  static const Color gray200 = Color(0xFFF0F3F4);
+  static const Color gray300 = Color(0xFFE5E7EB);
+  static const Color gray400 = Color(0xFF9CA3AF);
+  static const Color gray500 = Color(0xFF333333);
+  static const Color gray600 = Color(0xFF30363D);
+  static const Color gray700 = Color(0xFF2C3135);
+  static const Color gray750 = Color(0xFF1A1D21);
+  static const Color gray800 = Color(0xFF161B22);
+  static const Color gray850 = Color(0xFF121516);
+  static const Color gray900 = Color(0xFF111111);
+  static const Color gray950 = Color(0xFF0D0D0D);
 
   // Purple
   static const Color purple50 = Color(0xFFFAF5FF);

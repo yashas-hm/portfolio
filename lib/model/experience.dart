@@ -1,16 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/model/skill.dart' show Skill;
 
 enum ExperienceType {
-  partTime('Part Time'),
-  fullTime('Full Time'),
-  internship('Internship'),
-  freelance('Freelance');
+  partTime('Part Time', KnownColors.amber500),
+  fullTime('Full Time', KnownColors.green500),
+  internship('Internship', KnownColors.blue600),
+  freelance('Freelance', KnownColors.purple500);
 
   final String value;
+  final Color color;
 
-  const ExperienceType(this.value);
+  const ExperienceType(this.value, this.color);
 }
 
 typedef ExperienceDescription = ({String description, IconData? icon});
@@ -35,4 +37,6 @@ class Experience {
     this.endDate,
     this.icon = FontAwesomeIcons.codeBranch,
   });
+
+  bool get present => endDate == null;
 }

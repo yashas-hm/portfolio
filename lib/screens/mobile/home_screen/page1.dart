@@ -14,6 +14,8 @@ class Page1 extends StatelessWidget {
         children: [
           const MobileHomeName(),
           Gap(15.sp),
+          ExperiencesComponent(),
+          
           MetricsComponent(),
           Gap(30.sp),
           SkillsComponent(),
