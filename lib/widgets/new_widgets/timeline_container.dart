@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';
 
 class TimelineContainer extends StatelessWidget {
@@ -19,7 +18,7 @@ class TimelineContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    
+
     return Container(
       width: context.width * (context.isMobile ? 0.9 : 0.6),
       clipBehavior: Clip.none,
@@ -38,26 +37,33 @@ class TimelineContainer extends StatelessWidget {
             TimelineIndicator(
               present: present,
             ),
-          Container(
-            width: double.infinity,
-            margin: EdgeInsets.only(
-              top: showContainer ? Sizes.spacingRegular : Sizes.spacingXL,
-              bottom: showContainer ? Sizes.spacingRegular : Sizes.spacingSmall,
-              left: context.isMobile ? Sizes.spacingXL : Sizes.spacingXXL,
+          AnimatedSize(
+            duration: 400.milliseconds,
+            curve: Curves.easeInOut,
+            alignment: Alignment.topCenter,
+            child: Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(
+                top: showContainer ? Sizes.spacingRegular : Sizes.spacingXL,
+                bottom:
+                    showContainer ? Sizes.spacingRegular : Sizes.spacingSmall,
+                left: context.isMobile ? Sizes.spacingXL : Sizes.spacingXXL,
+              ),
+              padding: EdgeInsets.symmetric(
+                horizontal:
+                    showContainer ? Sizes.spacingLarge : Sizes.spacingSmall,
+                vertical:
+                    showContainer ? Sizes.spacingLarge : Sizes.spacingSmall,
+              ),
+              decoration: showContainer
+                  ? BoxDecoration(
+                      borderRadius: Sizes.borderRadiusRegular,
+                      border: Border.all(color: colors.borderColor),
+                      color: colors.surfaceColor,
+                    )
+                  : null,
+              child: child,
             ),
-            padding: EdgeInsets.symmetric(
-              horizontal:
-                  showContainer ? Sizes.spacingLarge : Sizes.spacingSmall,
-              vertical: showContainer ? Sizes.spacingLarge : Sizes.spacingSmall,
-            ),
-            decoration: showContainer
-                ? BoxDecoration(
-                    borderRadius: Sizes.borderRadiusRegular,
-                    border: Border.all(color: colors.borderColor),
-                    color: colors.surfaceColor,
-                  )
-                : null,
-            child: child,
           ),
         ],
       ),
@@ -88,9 +94,7 @@ class TimelineIndicator extends ConsumerWidget {
         width: size,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: present
-              ? colors.backgroundColor
-              : colors.textSecondary,
+          color: present ? colors.backgroundColor : colors.textSecondary,
           boxShadow: [
             if (present)
               BoxShadow(

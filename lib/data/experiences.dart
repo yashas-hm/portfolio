@@ -358,7 +358,7 @@ class Experiences {
       ),
     ],
     skills: [Skills.android],
-    icon: FontAwesomeIcons.heart,
+    icon: FontAwesomeIcons.solidHeart,
   );
 
   static final List<Experience> all = [

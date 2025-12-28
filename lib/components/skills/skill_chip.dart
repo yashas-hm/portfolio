@@ -14,6 +14,7 @@ class SkillChip extends StatelessWidget {
         color: skill.backgroundColor,
         borderRadius: BorderRadius.circular(5),
         border: Border.all(
+          width: 0.3,
           color: skill.color,
         ),
       ),
