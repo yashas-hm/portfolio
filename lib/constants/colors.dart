@@ -67,6 +67,7 @@ class KnownColors {
 
   // Blue
   static const Color blue50 = Color(0xFFEFF6FF);
+  static const Color blue100 = Color(0xFFABCAF1);
   static const Color blue300 = Color(0xFF5BAADD);
   static const Color blue400 = Color(0xFF009AFF);
   static const Color blue500 = Color(0xFF0C93EE);

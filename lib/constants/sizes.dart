@@ -13,6 +13,8 @@ class Sizes {
 
   static const double spacingLarge = 20.0;
 
+  static const double spacingExtraLarge = 30.0;
+
   static const double iconExtraSmall = 10.0;
 
   static const double iconSmall = 12.0;
