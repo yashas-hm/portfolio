@@ -11,6 +11,7 @@ import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
 import 'package:portfolio/widgets/new_widgets/sequential_animator.dart';
+import 'package:portfolio/widgets/new_widgets/window_container.dart';
 
 part 'skill_chip.dart';
 part 'skill_item.dart';
