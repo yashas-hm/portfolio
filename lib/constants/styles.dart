@@ -8,6 +8,12 @@ class Styles {
         color: textColor,
       );
 
+  static TextStyle extraSmallTextThin({Color? textColor}) => TextStyle(
+    fontSize: 10,
+    color: textColor,
+    fontWeight: FontWeight.w200
+  );
+
   static TextStyle extraSmallTextBold({Color? textColor}) => TextStyle(
         fontSize: 10,
         color: textColor,

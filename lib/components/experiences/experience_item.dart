@@ -88,15 +88,13 @@ class _ExperienceItemState extends State<ExperienceItem> {
                               widget.experience.role,
                               style: Styles.mediumTextBold(),
                             ),
-                            AnimatedDefaultTextStyle(
+                            Text(
+                              widget.experience.company,
                               style: Styles.smallTextBold(
                                 textColor: _collapsed
                                     ? colors.textSecondary
                                     : colors.primaryColor,
                               ),
-                              duration: 300.milliseconds,
-                              curve: Curves.easeInOut,
-                              child: Text(widget.experience.company),
                             ),
                             Gap(Sizes.spacingSmall),
                             Container(

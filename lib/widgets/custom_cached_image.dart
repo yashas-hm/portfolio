@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/constants/portfolio_constants.dart';
+import 'package:portfolio/utilities/extensions.dart';
 
 class CustomCachedImage extends StatelessWidget {
   const CustomCachedImage({
@@ -24,29 +24,28 @@ class CustomCachedImage extends StatelessWidget {
       height: height,
       width: width,
       color: Colors.transparent,
-      fit: BoxFit.fill,
       imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
-      errorWidget: (ctx, _, __) => Image.asset(
-        defaultImage,
+      errorWidget: (ctx, _, __) => Container(
         height: height,
         width: width,
-        fit: BoxFit.fill,
+        color: context.colors.backgroundColor,
       ),
       imageBuilder: (_, image) {
         return Image(
           image: image,
           height: height,
           width: height,
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
+          alignment: Alignment.topCenter,
         );
       },
       placeholder: (_, __) => Center(
         child: SizedBox(
-          height: height / 3,
-          width: height / 3,
+          height: height / 5,
+          width: height / 5,
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation(
-              Theme.of(context).colorScheme.tertiary,
+              context.colors.textColor,
             ),
           ),
         ),

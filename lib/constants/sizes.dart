@@ -6,6 +6,8 @@ class Sizes {
   static const double spacingXS = 3.0;
   
   static const double spacingSmall = 5.0;
+  
+  static const double spacingSmallRegular = 8.0;
 
   static const double spacingRegular = 10.0;
 

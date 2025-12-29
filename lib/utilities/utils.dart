@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:oktoast/oktoast.dart';
+import 'package:portfolio/constants/constants.dart'
+    show Styles, KnownColors, Sizes;
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/model/experience.dart';
 import 'package:portfolio/model/experience_model.dart';
@@ -20,6 +23,7 @@ import 'package:portfolio/screens/home_screen.dart';
 import 'package:portfolio/screens/not_found_screen.dart';
 import 'package:portfolio/screens/project_screen.dart';
 import 'package:portfolio/utilities/extensions.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void indexCheck(int index, WidgetRef ref) {
   final currentValue = ref.read(currentIndexProvider);
@@ -175,7 +179,7 @@ ColorFilter? filterAccToThemeIfNeeded(BuildContext context, Skill skill) {
   return null;
 }
 
-class Utils{
+class Utils {
   Utils._();
 
   static String convertToTimeline(Experience experience) {
@@ -187,5 +191,85 @@ class Utils{
       to = DateFormat('MMM yyyy').format(experience.endDate!);
     }
     return '$from — ${present ? 'Present' : to}';
+  }
+
+  static void safelyLaunchUrl(String url, BuildContext context) async {
+    bool launched = false;
+
+    try {
+      final uri = Uri.parse(url);
+      if (await canLaunchUrl(uri)) {
+        launched = await launchUrl(
+          uri,
+          mode: LaunchMode.externalApplication,
+          webOnlyWindowName: '_blank',
+        );
+      }
+    } catch (_) {}
+
+    if (!launched && context.mounted) {
+      showErrorToast(
+        context,
+        'Sorry, couldn\'t launch the URL. Please try again later.',
+      );
+    }
+  }
+
+  static void showErrorToast(BuildContext context, String text) {
+    showToastWidget(
+      Container(
+        width: context.isMobile ? context.width * 0.9 : context.width * 0.6,
+        padding: Sizes.paddingRegular,
+        decoration: BoxDecoration(
+          borderRadius: Sizes.borderRadiusXS,
+          gradient: LinearGradient(
+            colors: [
+              KnownColors.red600,
+              KnownColors.red100,
+              KnownColors.red600,
+            ],
+          ),
+        ),
+        child: Text(
+          text,
+          style: Styles.regularTextBold(textColor: KnownColors.white),
+          textAlign: TextAlign.center,
+        ),
+      ),
+      context: context,
+      dismissOtherToast: true,
+      handleTouch: true,
+      position: ToastPosition.bottom,
+      duration: 2500.milliseconds,
+    );
+  }
+
+  static void showSuccessToast(BuildContext context, String text) {
+    showToastWidget(
+      Container(
+        width: context.isMobile ? context.width * 0.9 : context.width * 0.6,
+        padding: Sizes.paddingRegular,
+        decoration: BoxDecoration(
+          borderRadius: Sizes.borderRadiusXS,
+          gradient: LinearGradient(
+            colors: [
+              KnownColors.green600,
+              KnownColors.green100,
+              KnownColors.green600,
+            ],
+          ),
+        ),
+        child: Text(
+          text,
+          style: Styles.regularTextBold(textColor: KnownColors.black),
+          textAlign: TextAlign.center,
+        ),
+      ),
+      context: context,
+      dismissOtherToast: true,
+      handleTouch: true,
+      position: ToastPosition.bottom,
+      duration: 2500.milliseconds,
+    );
   }
 }

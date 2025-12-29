@@ -85,9 +85,11 @@ class KnownColors {
   static const Color amber600 = Color(0xFFD97706);
 
   // Red
+  static const Color red100 = Color(0xFFF86760);
   static const Color red400 = Color(0xFFFF5F56);
   static const Color red450 = Color(0xFFFF5252);
   static const Color red500 = Color(0xFFEF4444);
+  static const Color red600 = Color(0xFFEF372C);
 
   // Cyan
   static const Color cyan500 = Color(0xFF06B6D4);

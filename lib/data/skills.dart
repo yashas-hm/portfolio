@@ -309,6 +309,21 @@ class Skills {
     icon: LogoAssets.vertexAiLogo,
     category: SkillCategory.mlAi,
   );
+  
+  static const cicd = Skill(
+    name: 'CI/CD',
+    category: SkillCategory.devops,
+  );
+
+  static const mediapipe = Skill(
+    name: 'MediaPipe',
+    category: SkillCategory.mlAi,
+  );
+
+  static const ar = Skill(
+    name: 'AR',
+    category: SkillCategory.mlAi,
+  );
 }
 
 class SkillGroups {

@@ -1,9 +1,10 @@
 part of 'skills_component.dart';
 
 class SkillChip extends StatelessWidget {
-  const SkillChip({super.key, required this.skill});
+  const SkillChip({super.key, required this.skill, this.compact = false});
 
   final Skill skill;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
@@ -12,26 +13,29 @@ class SkillChip extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: skill.backgroundColor,
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: compact ? Sizes.borderRadiusXS : Sizes.borderRadiusSmall,
         border: Border.all(
           width: 0.3,
           color: skill.color,
         ),
       ),
-      padding: EdgeInsets.symmetric(
-        horizontal: Sizes.spacingRegular,
-        vertical: Sizes.spacingSmall,
-      ),
+      padding: compact
+          ? Sizes.paddingXS
+          : EdgeInsets.symmetric(
+              horizontal: Sizes.spacingSmallRegular,
+              vertical: Sizes.spacingXS,
+            ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
+        spacing: compact ? Sizes.spacingXS : Sizes.spacingSmall,
         children: [
-          if (skill.icon != null) ...[
+          if (skill.icon != null)
             SvgPicture.asset(
               skill.icon!,
-              height: Sizes.iconSmall,
-              width: Sizes.iconSmall,
+              height: compact ? Sizes.iconXS : Sizes.iconSmall,
+              width: compact ? Sizes.iconXS : Sizes.iconSmall,
               colorFilter: skill.overrideLogoColor
                   ? ColorFilter.mode(
                       colors.textColor,
@@ -39,11 +43,10 @@ class SkillChip extends StatelessWidget {
                     )
                   : null,
             ),
-            Gap(Sizes.spacingSmall),
-          ],
           Text(
             skill.name,
-            style: Styles.smallTextThin(),
+            style:
+                compact ? Styles.extraSmallTextThin() : Styles.smallTextThin(),
           ),
         ],
       ),

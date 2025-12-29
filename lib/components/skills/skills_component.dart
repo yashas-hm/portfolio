@@ -1,14 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/data/skills.dart';
 import 'package:portfolio/model/skill.dart';
-import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
