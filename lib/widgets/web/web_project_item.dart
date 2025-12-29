@@ -6,7 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:portfolio/model/project_model.dart';
 import 'package:portfolio/utilities/dialog_utils.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:portfolio/widgets/custom_cached_image.dart';
+import 'package:portfolio/widgets/new_widgets/custom_cached_image.dart';
 import 'package:portfolio/widgets/skill_chips.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
