@@ -9,16 +9,19 @@ class SkillsWindow extends StatelessWidget {
       headlineIcon: FontAwesomeIcons.solidFolder,
       headline: '~/portfolio/skills',
       bottomText: 'Stack Initialized Successfully.',
-      content: Wrap(
-        alignment: WrapAlignment.spaceEvenly,
-        runAlignment: WrapAlignment.spaceEvenly,
-        runSpacing: Sizes.spacingLarge,
-        spacing: Sizes.spacingLarge,
-        children: SkillGroups.all
-            .map((skillGroup) => SkillItem(
-                  skillGroup: skillGroup,
-                ))
-            .toList(),
+      content: Padding(
+        padding: Sizes.paddingLarge,
+        child: Wrap(
+          alignment: WrapAlignment.spaceEvenly,
+          runAlignment: WrapAlignment.spaceEvenly,
+          runSpacing: Sizes.spacingLarge,
+          spacing: Sizes.spacingLarge,
+          children: SkillGroups.all
+              .map((skillGroup) => SkillItem(
+                    skillGroup: skillGroup,
+                  ))
+              .toList(),
+        ),
       ),
     );
   }

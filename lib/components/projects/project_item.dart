@@ -10,12 +10,12 @@ class ProjectItem extends StatelessWidget {
     final colors = context.colors;
     final height = context.height / 2.5;
     return Container(
-      height: context.isMobile ? null : height,
+      height: height,
       width: context.isMobile ? context.width : context.width / 5,
       clipBehavior: Clip.hardEdge,
       constraints: BoxConstraints(minHeight: height),
       decoration: BoxDecoration(
-        color: colors.secondarySurface,
+        color: colors.surfaceColor,
         borderRadius: Sizes.borderRadiusRegular,
         border: Border.all(color: colors.borderColor),
       ),
@@ -31,7 +31,7 @@ class ProjectItem extends StatelessWidget {
               width: double.infinity,
               imageUrl: project.imageUrl,
             ),
-            Flexible(
+            Expanded(
               child: Container(
                 padding: Sizes.paddingLarge,
                 child: Column(

@@ -197,7 +197,13 @@ class Utils {
     bool launched = false;
 
     try {
-      final uri = Uri.parse(url);
+      final split = url.split(':');
+      Uri uri;
+      if (split.length > 1) {
+        uri = Uri(scheme: split[0], path: split[1]);
+      } else {
+        uri = Uri.parse(url);
+      }
       if (await canLaunchUrl(uri)) {
         launched = await launchUrl(
           uri,
@@ -214,6 +220,9 @@ class Utils {
       );
     }
   }
+
+  static void showToast(BuildContext context, String text, bool success) =>
+      success ? showSuccessToast(context, text) : showErrorToast(context, text);
 
   static void showErrorToast(BuildContext context, String text) {
     showToastWidget(

@@ -29,9 +29,13 @@ class Sizes {
 
   static const double iconRegular = 15.0;
 
+  static const double iconRegularMedium = 18.0;
+
   static const double iconMedium = 20.0;
   
   static const double iconLarge = 25.0;
+  
+  static const double iconXL = 40.0;
   
   static const double iconHuge = 70.0;
 

@@ -8,11 +8,8 @@ class Styles {
         color: textColor,
       );
 
-  static TextStyle extraSmallTextThin({Color? textColor}) => TextStyle(
-    fontSize: 10,
-    color: textColor,
-    fontWeight: FontWeight.w200
-  );
+  static TextStyle extraSmallTextThin({Color? textColor}) =>
+      TextStyle(fontSize: 10, color: textColor, fontWeight: FontWeight.w200);
 
   static TextStyle extraSmallTextBold({Color? textColor}) => TextStyle(
         fontSize: 10,
@@ -26,10 +23,10 @@ class Styles {
       );
 
   static TextStyle smallTextBold({Color? textColor}) => TextStyle(
-    fontSize: 12,
-    color: textColor,
-    fontWeight: FontWeight.bold,
-  );
+        fontSize: 12,
+        color: textColor,
+        fontWeight: FontWeight.bold,
+      );
 
   static TextStyle smallTextThin({Color? textColor}) => TextStyle(
         fontSize: 12,
@@ -82,8 +79,10 @@ class Styles {
         color: textColor,
       );
 
-  static TextStyle headlineTextBold(
-          {Color? textColor, bool isMobile = false}) =>
+  static TextStyle headlineTextBold({
+    Color? textColor,
+    bool isMobile = false,
+  }) =>
       TextStyle(
         fontSize: isMobile ? 30 : 40,
         color: textColor,
@@ -94,5 +93,14 @@ class Styles {
       TextStyle(
         fontSize: isMobile ? 14 : 16,
         color: textColor,
+      );
+
+  static InputBorder regularInputBorder(Color borderColor) =>
+      OutlineInputBorder(
+        borderSide: BorderSide(
+          color: borderColor,
+          width: 1,
+        ),
+        borderRadius: Sizes.borderRadiusSmall,
       );
 }

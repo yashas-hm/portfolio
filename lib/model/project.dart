@@ -2,6 +2,12 @@ import 'package:flutter/material.dart' show IconData, Color;
 import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/model/skill.dart' show Skill;
 
+typedef Link = ({
+  String urlText,
+  String url,
+  IconData icon,
+});
+
 enum ProjectTag {
   all('All', -1, KnownColors.transparent),
   inProgress('In Progress', 1, KnownColors.amber500),
@@ -20,19 +26,13 @@ enum ProjectTag {
   String toString() => value;
 }
 
-typedef ProjectURL = ({
-  String urlText,
-  String url,
-  IconData icon,
-});
-
 class Project {
   final String name;
   final String imageUrl;
   final ProjectTag tag;
   final String description;
   final List<Skill> skills;
-  final List<ProjectURL> links;
+  final List<Link> links;
   final DateTime? endDate;
 
   const Project({

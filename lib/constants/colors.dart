@@ -25,7 +25,7 @@ class KnownColors {
   static const Color lightPrimary = Color(0xFF1687E7);
   static const Color lightBackground = Color(0xFFF4F5F6);
   static const Color lightSurface = Color(0xFFFFFFFF);
-  static const Color lightSurfaceSecondary = Color(0xFFECF0F1);
+  static const Color lightSurfaceSecondary = Color(0xFFECEDF1);
   static const Color lightBorder = Color(0xFFDFE0E6);
   static const Color lightBorderSecondary = Color(0xFFD4D6DC);
   static const Color lightText = Color(0xFF0E121D);
@@ -35,7 +35,7 @@ class KnownColors {
   static const Color darkPrimary = Color(0xFF6A9FCA);
   static const Color darkBackground = Color(0xFF0C0C0C);
   static const Color darkSurface = Color(0xFF101114);
-  static const Color darkSurfaceSecondary = Color(0xFF141619);
+  static const Color darkSurfaceSecondary = Color(0xFF242930);
   static const Color darkBorder = Color(0xFF3F4651);
   static const Color darkBorderSecondary = Color(0xFF3C3D40);
   static const Color darkText = Color(0xFFFFFFFF);

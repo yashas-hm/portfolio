@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:portfolio/components/contact/contact_component.dart';
 import 'package:portfolio/components/experiences/experiences_component.dart';
 import 'package:portfolio/components/metrics/metrics_component.dart';
 import 'package:portfolio/components/projects/projects_component.dart';
