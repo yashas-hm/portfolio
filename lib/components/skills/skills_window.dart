@@ -105,7 +105,7 @@ class SkillsWindow extends StatelessWidget {
                   runSpacing: Sizes.spacingLarge,
                   spacing: Sizes.spacingLarge,
                   children: SkillGroups.all
-                      .map((skillGroup) => SkillsContainer(
+                      .map((skillGroup) => SkillItem(
                             skillGroup: skillGroup,
                           ))
                       .toList(),

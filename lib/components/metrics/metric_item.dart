@@ -1,7 +1,7 @@
 part of 'metrics_component.dart';
 
-class MetricContainer extends StatelessWidget {
-  const MetricContainer({super.key, required this.impact});
+class MetricItem extends StatelessWidget {
+  const MetricItem({super.key, required this.impact});
 
   final Metric impact;
 

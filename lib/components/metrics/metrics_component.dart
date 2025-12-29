@@ -6,7 +6,7 @@ import 'package:portfolio/model/metric.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
 
-part 'metric_container.dart';
+part 'metric_item.dart';
 
 class MetricsComponent extends StatelessWidget {
   const MetricsComponent({super.key});
@@ -76,7 +76,7 @@ class MetricsComponent extends StatelessWidget {
               runSpacing: Sizes.spacingLarge,
               spacing: Sizes.spacingLarge,
               children: Metrics.all
-                  .map((impact) => MetricContainer(impact: impact))
+                  .map((impact) => MetricItem(impact: impact))
                   .toList(),
             ),
           ),

@@ -1,7 +1,7 @@
 part of 'skills_component.dart';
 
-class SkillsContainer extends StatelessWidget {
-  const SkillsContainer({super.key, required this.skillGroup});
+class SkillItem extends StatelessWidget {
+  const SkillItem({super.key, required this.skillGroup});
 
   final SkillGroup skillGroup;
 

@@ -13,7 +13,7 @@ import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
 import 'package:portfolio/widgets/new_widgets/sequential_animator.dart';
 
 part 'skill_chip.dart';
-part 'skills_container.dart';
+part 'skill_item.dart';
 part 'skills_window.dart';
 
 class SkillsComponent extends StatelessWidget {
