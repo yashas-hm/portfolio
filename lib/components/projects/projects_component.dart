@@ -117,26 +117,29 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
           ),
         ),
         Gap(Sizes.spacingXL),
-        AnimatedSwitcher(
-          duration: 300.milliseconds,
-          switchInCurve: Curves.easeOut,
-          switchOutCurve: Curves.easeIn,
-          layoutBuilder: (currentChild, previousChildren) {
-            return Stack(
-              children: [
-                ...previousChildren,
-                if (currentChild != null) currentChild,
-              ],
-            );
-          },
-          child: Wrap(
-            alignment: WrapAlignment.center,
-            runAlignment: WrapAlignment.start,
-            spacing: Sizes.spacingLarge,
-            runSpacing: Sizes.spacingLarge,
-            children: projects
-                .map((project) => AnimatedProjectItem(project: project))
-                .toList(),
+        SizedBox(
+          width: context.width * 0.9,
+          child: AnimatedSwitcher(
+            duration: 300.milliseconds,
+            switchInCurve: Curves.easeOut,
+            switchOutCurve: Curves.easeIn,
+            layoutBuilder: (currentChild, previousChildren) {
+              return Stack(
+                children: [
+                  ...previousChildren,
+                  if (currentChild != null) currentChild,
+                ],
+              );
+            },
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              runAlignment: WrapAlignment.start,
+              spacing: Sizes.spacingLarge,
+              runSpacing: Sizes.spacingLarge,
+              children: projects
+                  .map((project) => AnimatedProjectItem(project: project))
+                  .toList(),
+            ),
           ),
         ),
       ],

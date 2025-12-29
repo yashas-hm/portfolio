@@ -31,7 +31,7 @@ class ProjectItem extends StatelessWidget {
               width: double.infinity,
               imageUrl: project.imageUrl,
             ),
-            Expanded(
+            Flexible(
               child: Container(
                 padding: Sizes.paddingLarge,
                 child: Column(

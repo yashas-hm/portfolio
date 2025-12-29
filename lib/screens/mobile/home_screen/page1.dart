@@ -14,6 +14,9 @@ class Page1 extends StatelessWidget {
         children: [
           const MobileHomeName(),
           Gap(15.sp),
+          
+          ProjectsComponent(),
+          
           ExperiencesComponent(),
           
           MetricsComponent(),

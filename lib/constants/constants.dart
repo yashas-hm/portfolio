@@ -1,7 +1,5 @@
-import 'dart:ui' show FontWeight;
-
 import 'package:flutter/material.dart'
-    show BorderRadius, EdgeInsets, Color, TextStyle;
+    show BorderRadius, EdgeInsets, Color, TextStyle, FontWeight;
 
 part 'assets.dart';
 part 'colors.dart';

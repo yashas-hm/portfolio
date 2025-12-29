@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/components/experiences/experiences_component.dart';
 import 'package:portfolio/components/metrics/metrics_component.dart';
+import 'package:portfolio/components/projects/projects_component.dart';
 import 'package:portfolio/components/skills/skills_component.dart';
 import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/constants/constants.dart';
