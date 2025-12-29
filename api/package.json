@@ -1,13 +1,16 @@
 {
   "name": "mailer",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@types/node": "^22.0.0",
+    "@vercel/node": "^3.2.0",
     "dotenv": "^16.4.5",
-    "node-mailjet": "^6.0.5"
+    "node-mailjet": "^6.0.5",
+    "typescript": "^5.7.0"
   },
   "author": "Yashas H Majmudar",
   "license": "MIT"
