@@ -73,47 +73,51 @@ class _ExperienceItemState extends State<ExperienceItem> {
                             _collapsed
                                 ? FontAwesomeIcons.chevronRight
                                 : widget.experience.icon,
-                            size: Sizes.iconMedium,
+                            size: _collapsed
+                                ? Sizes.iconRegular
+                                : Sizes.iconMedium,
                             color: _collapsed
                                 ? colors.textSecondary
                                 : colors.primaryColor,
                           ),
                         ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              widget.experience.role,
-                              style: Styles.mediumTextBold(),
-                            ),
-                            Text(
-                              widget.experience.company,
-                              style: Styles.smallTextBold(
-                                textColor: _collapsed
-                                    ? colors.textSecondary
-                                    : colors.primaryColor,
+                        Flexible(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                widget.experience.role,
+                                style: Styles.mediumTextBold(),
                               ),
-                            ),
-                            Gap(Sizes.spacingSmall),
-                            Container(
-                              padding: Sizes.paddingXS,
-                              decoration: BoxDecoration(
-                                borderRadius: Sizes.borderRadiusXS,
-                                color: widget
-                                    .experience.type.color.backgroundColor,
-                                border: Border.all(
-                                  width: 0.3,
-                                  color: widget.experience.type.color,
+                              Text(
+                                widget.experience.company,
+                                style: Styles.smallTextBold(
+                                  textColor: _collapsed
+                                      ? colors.textSecondary
+                                      : colors.primaryColor,
                                 ),
                               ),
-                              child: Text(
-                                widget.experience.type.value,
-                                style: Styles.extraSmallText(),
+                              Gap(Sizes.spacingSmall),
+                              Container(
+                                padding: Sizes.paddingXS,
+                                decoration: BoxDecoration(
+                                  borderRadius: Sizes.borderRadiusXS,
+                                  color: widget
+                                      .experience.type.color.backgroundColor,
+                                  border: Border.all(
+                                    width: 0.3,
+                                    color: widget.experience.type.color,
+                                  ),
+                                ),
+                                child: Text(
+                                  widget.experience.type.value,
+                                  style: Styles.extraSmallText(),
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -124,8 +128,9 @@ class _ExperienceItemState extends State<ExperienceItem> {
                         border: Border.all(color: colors.borderColor),
                       ),
                       padding: EdgeInsets.symmetric(
-                          vertical: Sizes.spacingSmall,
-                          horizontal: Sizes.spacingRegular),
+                        vertical: Sizes.spacingSmall,
+                        horizontal: Sizes.spacingRegular,
+                      ),
                       child: Text(
                         Utils.convertToTimeline(widget.experience),
                         style: Styles.extraSmallText(),

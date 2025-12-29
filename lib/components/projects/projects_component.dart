@@ -13,6 +13,7 @@ import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
 import 'package:portfolio/widgets/new_widgets/sequential_animator.dart';
 
 part 'project_item.dart';
+part 'project_tag_selector.dart';
 
 class ProjectsComponent extends StatefulWidget {
   const ProjectsComponent({super.key});
@@ -73,51 +74,13 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
           ),
         ),
         Gap(Sizes.spacingXL),
-        SizedBox(
-          width: context.width * (context.isMobile ? 0.9 : 0.6),
-          child: Wrap(
-            alignment: WrapAlignment.center,
-            runAlignment: WrapAlignment.center,
-            spacing: Sizes.spacingMedium,
-            runSpacing: Sizes.spacingMedium,
-            children: ProjectTag.values
-                .map(
-                  (tag) => MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    child: GestureDetector(
-                      onTap: () => setState(() => _selectedTag = tag),
-                      child: AnimatedContainer(
-                        duration: 400.milliseconds,
-                        constraints: BoxConstraints(minWidth: 100),
-                        decoration: BoxDecoration(
-                          borderRadius: _selectedTag == tag
-                              ? BorderRadius.circular(Sizes.spacingLarge)
-                              : Sizes.borderRadiusRegular,
-                          border: _selectedTag == tag
-                              ? null
-                              : Border.all(color: colors.borderColor),
-                          color: _selectedTag == tag
-                              ? colors.primaryColor
-                              : colors.secondarySurface,
-                        ),
-                        padding: Sizes.paddingRegular,
-                        child: Text(
-                          tag.value,
-                          style: _selectedTag == tag
-                              ? Styles.regularTextBold(
-                                  textColor: colors.onPrimary)
-                              : Styles.regularText(),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-                .toList(),
-          ),
+        ProjectTagSelector(
+          selectedTag: _selectedTag,
+          onChanged: (tag) => setState(() => _selectedTag = tag),
         ),
         Gap(Sizes.spacingXL),
-        SizedBox(
+        Container(
+          alignment: Alignment.center,
           width: context.width * 0.9,
           child: AnimatedSwitcher(
             duration: 300.milliseconds,

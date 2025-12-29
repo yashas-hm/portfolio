@@ -67,8 +67,8 @@ class Styles {
         fontWeight: FontWeight.bold,
       );
 
-  static TextStyle emphasisText({Color? textColor}) => TextStyle(
-        fontSize: 50,
+  static TextStyle emphasisText({Color? textColor, bool isMobile = false}) => TextStyle(
+        fontSize: isMobile?35:50,
         color: textColor,
         fontWeight: FontWeight.bold,
       );

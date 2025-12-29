@@ -49,11 +49,13 @@ class MetricItem extends StatelessWidget {
                     children: [
                       Text(
                         impact.metric,
-                        style: Styles.emphasisText(),
+                        style: Styles.emphasisText(isMobile: context.isMobile),
                       ),
                       Gap(Sizes.spacingSmall),
                       Baseline(
-                        baseline: Styles.emphasisText().fontSize!,
+                        baseline:
+                            Styles.emphasisText(isMobile: context.isMobile)
+                                .fontSize!,
                         baselineType: TextBaseline.alphabetic,
                         child: Icon(
                           impact.metricSuffixIcon,

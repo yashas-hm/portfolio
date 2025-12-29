@@ -11,8 +11,6 @@ import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
-import 'package:portfolio/data/experiences.dart';
-import 'package:portfolio/data/metrics.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:portfolio/utilities/dialog_utils.dart';
@@ -22,7 +20,6 @@ import 'package:portfolio/widgets/bottom_bar.dart';
 import 'package:portfolio/widgets/mobile/mobile_experience_item.dart';
 import 'package:portfolio/widgets/mobile/mobile_home_name.dart';
 import 'package:portfolio/widgets/mobile/mobile_project_item.dart';
-import 'package:portfolio/widgets/mobile/mobile_skill_box.dart';
 import 'package:resize/resize.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 

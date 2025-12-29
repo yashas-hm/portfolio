@@ -8,10 +8,11 @@ class ProjectItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final height = context.height / 2.5;
+    final height = context.height / (context.isMobile ? 2 : 2.5);
+
     return Container(
       height: height,
-      width: context.isMobile ? context.width : context.width / 5,
+      width: context.isMobile ? context.width * 0.8 : context.width / 5,
       clipBehavior: Clip.hardEdge,
       constraints: BoxConstraints(minHeight: height),
       decoration: BoxDecoration(
@@ -124,8 +125,7 @@ class ProjectItem extends StatelessWidget {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   spacing: Sizes.spacingSmallRegular,
                                   children: [
                                     Icon(
@@ -158,7 +158,7 @@ class AnimatedProjectItem extends StatelessWidget {
   const AnimatedProjectItem({super.key, required this.project});
 
   final Project project;
-  
+
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder<double>(
@@ -175,4 +175,3 @@ class AnimatedProjectItem extends StatelessWidget {
     );
   }
 }
-

@@ -58,48 +58,48 @@ class _Page1State extends State<Page1> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final skills = [
-      skillBox(
-        'Languages',
-        xAxis: false,
-        reverseDirection: true,
-      ),
-      skillBox(
-        'Mobile & Frontend',
-        xAxis: true,
-        reverseDirection: true,
-      ),
-      skillBox(
-        'Backend',
-        xAxis: true,
-        reverseDirection: false,
-      ),
-      skillBox(
-        'Databases',
-        xAxis: false,
-        reverseDirection: true,
-      ),
-      skillBox(
-        'ML/AI',
-        xAxis: false,
-        reverseDirection: false,
-      ),
-      skillBox(
-        'DevOps',
-        xAxis: true,
-        reverseDirection: true,
-      ),
-      skillBox(
-        'Cloud & Tools',
-        xAxis: true,
-        reverseDirection: false,
-      ),
-      skillBox(
-        'IoT',
-        xAxis: false,
-        reverseDirection: false,
-      ),
-    ];
+    // final skills = [
+    //   skillBox(
+    //     'Languages',
+    //     xAxis: false,
+    //     reverseDirection: true,
+    //   ),
+    //   skillBox(
+    //     'Mobile & Frontend',
+    //     xAxis: true,
+    //     reverseDirection: true,
+    //   ),
+    //   skillBox(
+    //     'Backend',
+    //     xAxis: true,
+    //     reverseDirection: false,
+    //   ),
+    //   skillBox(
+    //     'Databases',
+    //     xAxis: false,
+    //     reverseDirection: true,
+    //   ),
+    //   skillBox(
+    //     'ML/AI',
+    //     xAxis: false,
+    //     reverseDirection: false,
+    //   ),
+    //   skillBox(
+    //     'DevOps',
+    //     xAxis: true,
+    //     reverseDirection: true,
+    //   ),
+    //   skillBox(
+    //     'Cloud & Tools',
+    //     xAxis: true,
+    //     reverseDirection: false,
+    //   ),
+    //   skillBox(
+    //     'IoT',
+    //     xAxis: false,
+    //     reverseDirection: false,
+    //   ),
+    // ];
 
     return Container(
       padding: EdgeInsets.only(top: 90.sp),

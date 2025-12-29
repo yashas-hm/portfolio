@@ -28,7 +28,6 @@ class ContactTextField extends StatefulWidget {
 
 class _ContactTextFieldState extends State<ContactTextField> {
   late FocusNode _focusNode;
-  bool _isFocused = false;
 
   @override
   void initState() {
