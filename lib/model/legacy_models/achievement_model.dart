@@ -1,4 +1,5 @@
-import 'package:portfolio/model/base_model.dart';
+import 'package:portfolio/model/legacy_models/base_model.dart';
+import 'package:portfolio/model/legacy_models/base_model.dart';
 
 class AchievementModel extends BaseModel {
   String eventName;

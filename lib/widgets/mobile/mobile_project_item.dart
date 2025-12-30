@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/model/project_model.dart';
+import 'package:portfolio/model/legacy_models/project_model.dart';
 import 'package:portfolio/utilities/dialog_utils.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/widgets/new_widgets/custom_cached_image.dart';

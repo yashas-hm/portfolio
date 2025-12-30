@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
-import 'package:portfolio/model/achievement_model.dart';
+import 'package:portfolio/model/legacy_models/achievement_model.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';

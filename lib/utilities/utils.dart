@@ -10,7 +10,7 @@ import 'package:portfolio/constants/constants.dart'
     show Styles, KnownColors, Sizes;
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/model/experience.dart';
-import 'package:portfolio/model/experience_model.dart';
+import 'package:portfolio/model/legacy_models/experience_model.dart';
 import 'package:portfolio/model/skill.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
@@ -87,17 +87,6 @@ String getTimeLine(ExperienceModel model) {
   final present = model.to == null;
   if (!present) {
     to = DateFormat('MMMM yyyy').format(model.to!);
-  }
-  return '$from — ${present ? 'Present' : to}';
-}
-
-String convertToTimeline(Experience experience) {
-  final from = DateFormat('MMM yyyy').format(experience.startDate);
-
-  String to = '';
-  final present = experience.endDate == null;
-  if (!present) {
-    to = DateFormat('MMM yyyy').format(experience.endDate!);
   }
   return '$from — ${present ? 'Present' : to}';
 }

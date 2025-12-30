@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' show Theme, ThemeMode;
 import 'package:flutter/widgets.dart';
-import 'package:portfolio/model/chat_model.dart';
+import 'package:portfolio/model/legacy_models/chat_model.dart';
 import 'package:portfolio/theme/theme.dart' show ThemeColors;
 
 extension NumUtils on num {

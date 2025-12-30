@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/constants/constants.dart' show KnownColors;
-import 'package:portfolio/model/chat_model.dart';
+import 'package:portfolio/model/legacy_models/chat_model.dart';
 import 'package:portfolio/providers/chat_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:resize/resize.dart';

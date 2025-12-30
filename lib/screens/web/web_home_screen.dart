@@ -10,7 +10,7 @@ import 'package:portfolio/components/skills/skills_component.dart';
 import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
-import 'package:portfolio/model/testimonial_model.dart';
+import 'package:portfolio/model/legacy_models/testimonial_model.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/scroll_provider.dart';
 import 'package:portfolio/utilities/dialog_utils.dart';

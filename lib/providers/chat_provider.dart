@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:portfolio/constants/portfolio_constants.dart';
-import 'package:portfolio/model/chat_model.dart';
+import 'package:portfolio/model/legacy_models/chat_model.dart';
 import 'package:portfolio/utilities/extensions.dart';
 
 final chatProvider = NotifierProvider<ChatNotifier, List<ChatModel>>(
