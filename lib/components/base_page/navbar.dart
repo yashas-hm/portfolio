@@ -32,8 +32,8 @@ class _NavbarState extends State<Navbar> {
               child: GestureDetector(
                 onTap: () => AppNavigator.push(Routes.home),
                 child: Container(
-                  height: context.isMobile ? Sizes.iconLarge : Sizes.iconXL,
-                  width: context.isMobile ? Sizes.iconLarge : Sizes.iconXL,
+                  height: Sizes.iconXL,
+                  width: Sizes.iconXL,
                   alignment: Alignment.center,
                   clipBehavior: Clip.hardEdge,
                   decoration: const BoxDecoration(

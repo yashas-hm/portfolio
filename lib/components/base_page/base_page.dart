@@ -48,7 +48,8 @@ class BasePage extends StatelessWidget {
                 physics: BouncingScrollPhysics().applyTo(
                   ClampingScrollPhysics(),
                 ),
-                child: Padding(
+                clipBehavior: Clip.none,
+                child: Container(
                   padding: EdgeInsets.only(
                     top: Sizes.navBarHeight ,
                   ),
