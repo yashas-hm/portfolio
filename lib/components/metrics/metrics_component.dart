@@ -67,7 +67,7 @@ class MetricsComponent extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          Gap(Sizes.spacingLarge),
+          Gap(Sizes.spacingXXL),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: Sizes.spacingLarge),
             child: Wrap(

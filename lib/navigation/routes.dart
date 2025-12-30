@@ -3,7 +3,7 @@ part of 'navigation.dart';
 enum Routes {
   home('Home', '/'),
   about('About', '/about'),
-  experience('Experience', '/experience'),
+  experience('Experience', '/experiences'),
   projects('Projects', '/projects'),
   skills('Skills', '/skills'),
   contact('Contact', '/contact'),

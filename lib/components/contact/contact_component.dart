@@ -69,7 +69,7 @@ class ContactComponent extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        Gap(Sizes.spacingLarge),
+        Gap(Sizes.spacingXXL),
         Container(
           constraints: BoxConstraints(
             maxWidth: context.width * 0.9,

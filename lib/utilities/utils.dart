@@ -195,13 +195,13 @@ class Utils {
 
   static void safelyLaunchUrl(String url, BuildContext? context) async {
     bool launched = false;
-    
-    if(context==null) return;
+
+    if (context == null) return;
 
     try {
       final split = url.split(':');
       Uri uri;
-      if (split.length > 1) {
+      if (split.length > 1 && !split[0].startsWith('http')) {
         uri = Uri(scheme: split[0], path: split[1]);
       } else {
         uri = Uri.parse(url);

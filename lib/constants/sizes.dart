@@ -38,6 +38,8 @@ class Sizes {
   static const double iconXL = 40.0;
   
   static const double iconHuge = 70.0;
+  
+  static const double navBarHeight = 90.0;
 
 
   static BorderRadius get borderRadiusSmall =>

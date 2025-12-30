@@ -78,7 +78,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
           selectedTag: _selectedTag,
           onChanged: (tag) => setState(() => _selectedTag = tag),
         ),
-        Gap(Sizes.spacingXL),
+        Gap(Sizes.spacingXXL),
         Container(
           alignment: Alignment.center,
           width: context.width * 0.9,

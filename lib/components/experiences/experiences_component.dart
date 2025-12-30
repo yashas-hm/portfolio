@@ -67,15 +67,10 @@ class ExperiencesComponent extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        Gap(Sizes.spacingLarge),
+        Gap(Sizes.spacingXXL),
         SizedBox(
           width: context.width * (context.isMobile ? 0.9 : 0.6),
           child: ListView.builder(
-            // TODO: Reinstate
-            // physics: const BouncingScrollPhysics(
-            //   parent: AlwaysScrollableScrollPhysics(),
-            // ),
-            /// TODO: Remove when moving to separate page
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: experiences.length,

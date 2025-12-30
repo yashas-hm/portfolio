@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' show Theme;
+import 'package:flutter/material.dart' show Theme, ThemeMode;
 import 'package:flutter/widgets.dart';
 import 'package:portfolio/model/chat_model.dart';
 import 'package:portfolio/theme/theme.dart' show ThemeColors;
@@ -48,6 +48,14 @@ extension HumanMessage on List<ChatModel> {
       where((msg) => msg.role == Role.human).last.message;
 }
 
-extension ColorUtils on Color{
+extension ColorUtils on Color {
   Color get backgroundColor => withValues(alpha: 0.1);
+}
+
+extension ThemeUtils on ThemeMode {
+  bool get isDarkMode => switch (this) {
+        ThemeMode.light => false,
+        ThemeMode.dark => true,
+        _ => true,
+      };
 }

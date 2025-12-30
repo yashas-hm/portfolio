@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:portfolio/components/base_page/base_page.dart';
 import 'package:portfolio/constants/portfolio_constants.dart';
 import 'package:portfolio/constants/portfolio_data.dart';
 import 'package:portfolio/screens/mobile/mobile_home_screen.dart' as mobile;
@@ -34,5 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ? const mobile.MobileHomeScreen()
           : const web.WebHomeScreen(),
     );
+    // return BasePage(content: Placeholder());
+    // return SkillsPage();
   }
 }

@@ -3,35 +3,53 @@ part of 'navigation.dart';
 Route<dynamic>? routeGenerator(RouteSettings settings) {
   final route = Routes.fromPath(settings.name ?? '/');
 
-  Widget page;
+  Widget? page;
+  
+  print(settings.name);
+  
   switch (route) {
     case Routes.home:
-      page = const Placeholder(); 
+      page = const HomePage();
+      break;
     case Routes.about:
-      page = const Placeholder(); 
+      page = const AboutPage();
+      break;
     case Routes.experience:
-      page = const Placeholder(); 
+      page = const ExperiencePage();
+      break;
     case Routes.projects:
-      page = const Placeholder(); 
+      page = const ProjectPage();
+      break;
     case Routes.skills:
-      page = const Placeholder(); 
+      page = const SkillPage();
+      break;
     case Routes.contact:
-      page = const Placeholder(); 
+      page = const ContactPage();
+      break;
     case Routes.chat:
-      page = const Placeholder(); 
+      page = const ChatPage();
+      break;
     case Routes.contributions:
-      page = const Placeholder(); 
+      Utils.safelyLaunchUrl(Links.contributions.url, AppNavigator.context);
+      break;
+    case Routes.resume:
+      Utils.safelyLaunchUrl(Links.resume.url, AppNavigator.context);
+      break;
+    case Routes.blog:
+      Utils.safelyLaunchUrl(Links.medium.url, AppNavigator.context);
+      break;
     case Routes.talks:
-      page = const Placeholder(); 
-    case null:
-      page = const Placeholder(); 
+      Utils.safelyLaunchUrl(Links.talks.url, AppNavigator.context);
+      break;
     default:
-      page = const Placeholder(); 
+      page = HomePage();
   }
+
+  if (page == null) return null;
 
   return PageRouteBuilder(
     settings: settings,
-    pageBuilder: (_, __, ___) => page,
+    pageBuilder: (_, __, ___) => page!,
     transitionsBuilder: (_, animation, __, child) {
       return FadeTransition(opacity: animation, child: child);
     },

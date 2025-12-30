@@ -70,47 +70,7 @@ class SkillsComponent extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        // Container(
-        //   width: context.width * (context.isMobile ? 0.9 : 0.4),
-        //   padding: Sizes.paddingRegular,
-        //   decoration: BoxDecoration(
-        //     color: colors.backgroundColor.withValues(alpha: 0.5),
-        //     borderRadius: Sizes.borderRadiusSmall,
-        //     border: Border.all(color: colors.borderColor),
-        //   ),
-        //   child: RichText(
-        //     text: TextSpan(
-        //       children: [
-        //         TextSpan(
-        //           text: '> BOOT_SEQUENCE: ',
-        //           style: Styles.mediumTextBold(
-        //             textColor: KnownColors.green100,
-        //             isMobile: context.isMobile,
-        //           ),
-        //         ),
-        //         TextSpan(
-        //           text:
-        //               'Languages compiled. Frontend rendered. Backend online. '
-        //               'Databases connected. DevOps active. AI synchronized. '
-        //               'Cloud scaled. IoT linked.',
-        //           style: Styles.mediumText(
-        //             textColor: colors.textColor,
-        //             isMobile: context.isMobile,
-        //           ),
-        //         ),
-        //         TextSpan(
-        //           text: ' _',
-        //           style: Styles.mediumText(
-        //             textColor: KnownColors.green100,
-        //             isMobile: context.isMobile,
-        //           ),
-        //         ),
-        //       ],
-        //     ),
-        //     textAlign: TextAlign.center,
-        //   ),
-        // ),
-        Gap(Sizes.spacingLarge),
+        Gap(Sizes.spacingXXL),
         SkillsWindow(),
       ],
     );

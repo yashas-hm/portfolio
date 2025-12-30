@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:portfolio/navigation/navigation.dart';
 import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:portfolio/utilities/utils.dart';
 import 'package:resize/resize.dart';
 
 void main() async {
@@ -15,14 +15,23 @@ void main() async {
   runApp(ProviderScope(child: Portfolio()));
 }
 
-class Portfolio extends ConsumerWidget {
+class Portfolio extends ConsumerStatefulWidget {
   const Portfolio({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeProvider);
+  ConsumerState<Portfolio> createState() => _PortfolioState();
+}
 
+class _PortfolioState extends ConsumerState<Portfolio> {
+  @override
+  void initState() {
     checkTheme(ref);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final themeMode = ref.watch(themeProvider);
 
     Size size;
 
@@ -35,6 +44,7 @@ class Portfolio extends ConsumerWidget {
     return Resize(
       builder: () => OKToast(
         child: MaterialApp(
+          navigatorKey: AppNavigator.navigatorKey,
           scrollBehavior: const MaterialScrollBehavior().copyWith(
             dragDevices: {
               PointerDeviceKind.mouse,
@@ -50,7 +60,7 @@ class Portfolio extends ConsumerWidget {
           themeAnimationCurve: Curves.easeInOut,
           debugShowCheckedModeBanner: false,
           title: 'Yashas H Majmudar',
-          onGenerateRoute: routeBuilder,
+          onGenerateRoute: routeGenerator,
         ),
       ),
       allowtextScaling: false,
