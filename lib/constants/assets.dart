@@ -6,8 +6,6 @@ class ImageAssets {
   static const String darkGIFImage = 'assets/images/coding_dark.gif';
 
   static const String lightGIFImage = 'assets/images/coding_light.gif';
-
-  static const String defaultImage = 'assets/images/default.jpg';
 }
 
 class LogoAssets {

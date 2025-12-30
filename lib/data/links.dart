@@ -33,4 +33,23 @@ class Links {
     urlText: 'Base\nUnited States',
     icon: FontAwesomeIcons.locationDot,
   );
+
+  static const resume = (
+    url:
+        'https://drive.google.com/file/d/1cpK9Edd920Gr-qjD_BAAX5oO1CY_VDXQ/view?usp=sharing',
+    urlText: 'Resume',
+    icon: FontAwesomeIcons.arrowUpRightFromSquare,
+  );
+
+  static const contributions = (
+    url: 'https://github.com/yashas-hm/yashas-hm/blob/main/contributions.md',
+    urlText: 'Contributions',
+    icon: FontAwesomeIcons.codeFork,
+  );
+
+  static const talks = (
+    url: 'https://github.com/yashas-hm/talks',
+    urlText: 'Tech Talks',
+    icon: FontAwesomeIcons.microphoneLines,
+  );
 }
