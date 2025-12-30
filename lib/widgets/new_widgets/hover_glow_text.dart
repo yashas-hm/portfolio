@@ -70,7 +70,6 @@ class _HoverGlowTextState extends State<HoverGlowText> {
                       ? textStyle.shadows
                       : [
                           ...?textStyle.shadows,
-                          Shadow(blurRadius: glow * 0.5, color: glowColor),
                           Shadow(blurRadius: glow, color: glowColor),
                           Shadow(
                             blurRadius: glow * 1.5,
@@ -79,6 +78,10 @@ class _HoverGlowTextState extends State<HoverGlowText> {
                           Shadow(
                             blurRadius: glow * 2.5,
                             color: glowColor.withValues(alpha: 0.5),
+                          ),
+                          Shadow(
+                            blurRadius: glow * 3.5,
+                            color: glowColor.withValues(alpha: 0.2),
                           ),
                         ],
                 ),
