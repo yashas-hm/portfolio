@@ -1,4 +1,4 @@
-import 'package:portfolio/constants/portfolio_constants.dart';
+import 'package:portfolio/constants/legacy_constants/portfolio_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<bool> get getIsDarkModePref async {

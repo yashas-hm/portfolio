@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:portfolio/components/base_page/base_page.dart';
-import 'package:portfolio/constants/portfolio_constants.dart';
-import 'package:portfolio/constants/portfolio_data.dart';
+import 'package:portfolio/constants/legacy_constants/portfolio_constants.dart';
+import 'package:portfolio/constants/legacy_constants/portfolio_data.dart';
 import 'package:portfolio/screens/mobile/mobile_home_screen.dart' as mobile;
 import 'package:portfolio/screens/web/web_home_screen.dart' as web;
 import 'package:portfolio/utilities/extensions.dart';

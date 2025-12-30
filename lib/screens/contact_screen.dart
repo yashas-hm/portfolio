@@ -3,7 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/constants/constants.dart' show KnownColors;
-import 'package:portfolio/constants/portfolio_constants.dart';
+import 'package:portfolio/constants/legacy_constants/portfolio_constants.dart';
 import 'package:portfolio/utilities/dialog_utils.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';

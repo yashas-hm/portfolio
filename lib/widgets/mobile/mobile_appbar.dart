@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio/constants/portfolio_constants.dart';
+import 'package:portfolio/constants/legacy_constants/portfolio_constants.dart';
 import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';

@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:portfolio/constants/constants.dart'
     show Styles, KnownColors, Sizes;
-import 'package:portfolio/constants/portfolio_constants.dart';
+import 'package:portfolio/constants/legacy_constants/portfolio_constants.dart';
 import 'package:portfolio/model/experience.dart';
 import 'package:portfolio/model/legacy_models/experience_model.dart';
 import 'package:portfolio/model/skill.dart';
