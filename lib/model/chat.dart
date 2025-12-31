@@ -52,11 +52,12 @@ class ChatState {
     List<ChatMessage>? messages,
     bool? isLoading,
     String? errorMessage,
-    bool clearError = false,
   }) =>
       ChatState(
         messages: messages ?? this.messages,
         isLoading: isLoading ?? this.isLoading,
-        errorMessage: clearError ? null : (errorMessage ?? this.errorMessage),
+        errorMessage: errorMessage ?? this.errorMessage,
       );
+
+  bool get isStateError => isLoading || errorMessage != null;
 }

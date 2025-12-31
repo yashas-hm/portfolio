@@ -18,11 +18,13 @@ class BasePage extends StatelessWidget {
   const BasePage({
     super.key,
     required this.content,
+    this.additionalBackground,
     this.singlePageContent = false,
   });
 
   final Widget content;
   final bool singlePageContent;
+  final Widget? additionalBackground;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,7 @@ class BasePage extends StatelessWidget {
                 runnerColor: colors.primaryColor,
               ),
             ),
+            if (additionalBackground != null) additionalBackground!,
             Align(
               alignment: Alignment.topCenter,
               child: SingleChildScrollView(

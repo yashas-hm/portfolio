@@ -20,10 +20,10 @@ class Utils {
     return '$from — ${present ? 'Present' : to}';
   }
 
-  static void safelyLaunchUrl(String url, BuildContext? context) async {
+  static void safelyLaunchUrl(String? url, BuildContext? context) async {
+    if (context == null || url == null) return;
+    
     bool launched = false;
-
-    if (context == null) return;
 
     try {
       final split = url.split(':');

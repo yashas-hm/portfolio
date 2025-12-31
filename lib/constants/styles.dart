@@ -45,6 +45,12 @@ class Styles {
         fontWeight: FontWeight.bold,
       );
 
+  static TextStyle regularTextItalics({Color? textColor}) => TextStyle(
+    fontSize: 14,
+    color: textColor,
+    fontStyle: FontStyle.italic,
+  );
+
   static TextStyle mediumText({Color? textColor}) => TextStyle(
         fontSize: 16,
         color: textColor,

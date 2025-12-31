@@ -2,15 +2,18 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:portfolio/constants/legacy_constants/portfolio_constants.dart';
 import 'package:portfolio/model/chat.dart';
 import 'package:portfolio/utilities/extensions.dart';
 
 class ChatRepository {
   ChatRepository._();
+
+  final _apiUrl = 'https://ask.yashashm.dev/api/prompt';
+
   static final ChatRepository instance = ChatRepository._();
 
   final ValueNotifier<ChatState> state = ValueNotifier(const ChatState());
+
   final ScrollController scrollController = ScrollController();
 
   List<Map<String, dynamic>> generateHistory() {
@@ -27,10 +30,8 @@ class ChatRepository {
 
   Future<void> _callApi(String query) async {
     try {
-      state.value = state.value.copyWith(isLoading: true, clearError: true);
-
       final response = await http.post(
-        Uri.parse(chatAPIEndpointURL),
+        Uri.parse(_apiUrl),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'query': query,
@@ -54,41 +55,54 @@ class ChatRepository {
         state.value = state.value.copyWith(
           isLoading: false,
           errorMessage:
-              'Whoa, too many questions! 🫠 My brain needs a quick breather. Try again later?\n(Rate Limit reached for free tier)',
+              'Whoa, too many questions! My brain needs a quick breather. Try again later?\n(Rate Limit reached for free tier)',
         );
       }
     } catch (e) {
       state.value = state.value.copyWith(
         isLoading: false,
-        errorMessage: 'Oops! Unexpected error occurred. Regenerate response?',
+        errorMessage: 'Oops! Unexpected error occurred.',
       );
     } finally {
-      scrollController.animateTo(
-        0,
-        duration: 500.milliseconds,
-        curve: Curves.easeIn,
-      );
+      _scrollToTheEnd();
     }
   }
 
-  void askQuestion(String query, {bool regenerate = false}) {
-    if (!regenerate) {
-      final humanMessage = ChatMessage(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
-        role: Role.human,
-        content: query,
-        timestamp: DateTime.now(),
-      );
-      state.value = state.value.copyWith(
-        messages: [...state.value.messages, humanMessage],
-        clearError: true,
-      );
-      scrollController.animateTo(
-        0,
-        duration: 1000.milliseconds,
-        curve: Curves.easeIn,
-      );
-    }
+  void _scrollToTheEnd() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (scrollController.hasClients) {
+        scrollController.animateTo(
+          scrollController.position.maxScrollExtent,
+          duration: 500.milliseconds,
+          curve: Curves.easeIn,
+        );
+      }
+    });
+  }
+
+  void askQuestion(String query) {
+    final humanMessage = ChatMessage(
+      id: DateTime.now().millisecondsSinceEpoch.toString(),
+      role: Role.human,
+      content: query,
+      timestamp: DateTime.now(),
+    );
+    state.value = state.value.copyWith(
+      messages: [...state.value.messages, humanMessage],
+      isLoading: true,
+      errorMessage: null,
+    );
+    _scrollToTheEnd();
+    _callApi(query);
+  }
+
+  void regenerateResponse() {
+    final query = lastHumanMessage;
+    if (query.isEmpty) return;
+    state.value = state.value.copyWith(
+      isLoading: true,
+      errorMessage: null,
+    );
     _callApi(query);
   }
 
