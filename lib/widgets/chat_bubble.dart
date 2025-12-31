@@ -4,7 +4,7 @@ import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/model/chat.dart';
 import 'package:portfolio/repositories/chat_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:resize/resize.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 class ChatBubble extends StatelessWidget {
@@ -21,7 +21,7 @@ class ChatBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = Theme.of(context).colorScheme.tertiary;
     final textStyle =
-        TextStyle(color: color, fontSize: context.isMobile ? 14.sp : 16.sp);
+        TextStyle(color: color, fontSize: context.isMobile ? 14 : 16);
     return Container(
       width: width,
       alignment: chat.role == Role.human
@@ -29,10 +29,10 @@ class ChatBubble extends StatelessWidget {
           : Alignment.centerLeft,
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: 10.sp,
-          vertical: 8.sp,
+          horizontal: 10,
+          vertical: 8,
         ),
-        margin: EdgeInsets.only(bottom: 10.sp),
+        margin: EdgeInsets.only(bottom: 10),
         constraints: BoxConstraints(
           maxWidth: context.isMobile ? width / 1.1 : width / 1.3,
         ),
@@ -40,14 +40,14 @@ class ChatBubble extends StatelessWidget {
           color: chat.role == Role.human
               ? Theme.of(context).colorScheme.primary
               : Theme.of(context).colorScheme.secondary,
-          borderRadius: BorderRadius.circular(8.sp),
+          borderRadius: BorderRadius.circular(8),
         ),
         child: chat.role == Role.human
             ? Text(
                 chat.content,
                 style: TextStyle(
                   color: KnownColors.gray50,
-                  fontSize: context.isMobile ? 14.sp : 16.sp,
+                  fontSize: context.isMobile ? 14 : 16,
                 ),
               )
             : MarkdownBody(
@@ -62,11 +62,11 @@ class ChatBubble extends StatelessWidget {
                   strong: TextStyle(
                       color: color,
                       fontWeight: FontWeight.bold,
-                      fontSize: context.isMobile ? 14.sp : 16.sp),
+                      fontSize: context.isMobile ? 14 : 16),
                   em: TextStyle(
                       color: color,
                       fontStyle: FontStyle.italic,
-                      fontSize: context.isMobile ? 14.sp : 16.sp),
+                      fontSize: context.isMobile ? 14 : 16),
                   h1: textStyle,
                   h2: textStyle,
                   h3: textStyle,
@@ -77,7 +77,7 @@ class ChatBubble extends StatelessWidget {
                   a: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                       decoration: TextDecoration.underline,
-                      fontSize: context.isMobile ? 14.sp : 16.sp),
+                      fontSize: context.isMobile ? 14 : 16),
                 ),
               ),
       ),
@@ -145,20 +145,20 @@ class _TypingIndicatorState extends State<TypingIndicator>
       width: widget.width,
       alignment: Alignment.centerLeft,
       child: Container(
-        height: 40.sp,
+        height: 40,
         padding: EdgeInsets.symmetric(
-          horizontal: 10.sp,
-          vertical: 8.sp,
+          horizontal: 10,
+          vertical: 8,
         ),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.secondary,
-          borderRadius: BorderRadius.circular(13.sp),
+          borderRadius: BorderRadius.circular(13),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
-          spacing: 3.sp,
+          spacing: 3,
           children: List.generate(
             3,
             (index) {
@@ -176,8 +176,8 @@ class _TypingIndicatorState extends State<TypingIndicator>
                 builder: (_, __) => Transform.translate(
                   offset: animation.value,
                   child: Container(
-                    height: 8.sp,
-                    width: 8.sp,
+                    height: 8,
+                    width: 8,
                     decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.tertiary,
                       shape: BoxShape.circle,
@@ -218,18 +218,18 @@ class ErrorBubble extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Container(
             padding: EdgeInsets.symmetric(
-              horizontal: 10.sp,
-              vertical: 8.sp,
+              horizontal: 10,
+              vertical: 8,
             ),
             decoration: BoxDecoration(
               color: Colors.redAccent,
-              borderRadius: BorderRadius.circular(13.sp),
+              borderRadius: BorderRadius.circular(13),
             ),
             child: Text(
               message,
               style: TextStyle(
                 color: KnownColors.gray50,
-                fontSize: context.isMobile ? 14.sp : 16.sp,
+                fontSize: context.isMobile ? 14 : 16,
               ),
             ),
           ),

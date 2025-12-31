@@ -6,7 +6,7 @@ import 'package:portfolio/navigation/navigation.dart';
 import 'package:portfolio/repositories/theme_repository.dart';
 import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:resize/resize.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,35 +28,31 @@ class Portfolio extends StatelessWidget {
       size = const Size(1728, 1000);
     }
 
-    return Resize(
-      builder: () => OKToast(
-        child: ValueListenableBuilder<ThemeMode>(
-          valueListenable: ThemeRepository.instance.state,
-          builder: (context, themeMode, _) {
-            return MaterialApp(
-              navigatorKey: AppNavigator.navigatorKey,
-              scrollBehavior: const MaterialScrollBehavior().copyWith(
-                dragDevices: {
-                  PointerDeviceKind.mouse,
-                  PointerDeviceKind.touch,
-                  PointerDeviceKind.stylus,
-                  PointerDeviceKind.unknown,
-                },
-              ),
-              theme: AppTheme(context).lightTheme,
-              darkTheme: AppTheme(context).darkTheme,
-              themeMode: themeMode,
-              themeAnimationDuration: 200.milliseconds,
-              themeAnimationCurve: Curves.easeInOut,
-              debugShowCheckedModeBanner: false,
-              title: 'Yashas H Majmudar',
-              onGenerateRoute: routeGenerator,
-            );
-          },
-        ),
+    return OKToast(
+      child: ValueListenableBuilder<ThemeMode>(
+        valueListenable: ThemeRepository.instance.state,
+        builder: (context, themeMode, _) {
+          return MaterialApp(
+            navigatorKey: AppNavigator.navigatorKey,
+            scrollBehavior: const MaterialScrollBehavior().copyWith(
+              dragDevices: {
+                PointerDeviceKind.mouse,
+                PointerDeviceKind.touch,
+                PointerDeviceKind.stylus,
+                PointerDeviceKind.unknown,
+              },
+            ),
+            theme: AppTheme(context).lightTheme,
+            darkTheme: AppTheme(context).darkTheme,
+            themeMode: themeMode,
+            themeAnimationDuration: 200.milliseconds,
+            themeAnimationCurve: Curves.easeInOut,
+            debugShowCheckedModeBanner: false,
+            title: 'Yashas H Majmudar',
+            onGenerateRoute: routeGenerator,
+          );
+        },
       ),
-      allowtextScaling: false,
-      size: size,
     );
   }
 }

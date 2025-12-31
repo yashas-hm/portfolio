@@ -13,7 +13,7 @@ import 'package:portfolio/repositories/chat_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/widget_generators.dart';
 import 'package:portfolio/widgets/chat_bubble.dart';
-import 'package:resize/resize.dart';
+
 import 'package:url_launcher/url_launcher_string.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -128,14 +128,14 @@ class _ChatScreenState extends State<ChatScreen> {
 
   List<Widget> buildHeading() {
     return [
-      Gap(context.isMobile ? 65.sp : 45.sp),
+      Gap(context.isMobile ? 65 : 45),
       RichText(
         text: TextSpan(
           children: [
             TextSpan(
               text: 'Ask ',
               style: TextStyle(
-                fontSize: context.isMobile ? 20.sp : 30.sp,
+                fontSize: context.isMobile ? 20 : 30,
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w600,
                 color: Theme.of(context).colorScheme.tertiary,
@@ -144,7 +144,7 @@ class _ChatScreenState extends State<ChatScreen> {
             TextSpan(
               text: 'Yashas',
               style: TextStyle(
-                fontSize: context.isMobile ? 20.sp : 30.sp,
+                fontSize: context.isMobile ? 20 : 30,
                 fontWeight: FontWeight.w600,
                 color: Theme.of(context).colorScheme.tertiary,
               ),
@@ -152,20 +152,20 @@ class _ChatScreenState extends State<ChatScreen> {
           ],
         ),
       ),
-      Gap(5.sp),
+      Gap(5),
       Text(
         'It knows my story',
         style: TextStyle(
-          fontSize: context.isMobile ? 12.sp : 18.sp,
+          fontSize: context.isMobile ? 12 : 18,
         ),
       ),
-      Gap(15.sp),
+      Gap(15),
     ];
   }
 
   Widget getRecommendations() {
     return SizedBox(
-      height: context.isMobile ? 20.sp : 30.sp,
+      height: context.isMobile ? 20 : 30,
       width: context.isMobile ? context.width / 1.1 : context.width / 2,
       child: ListView.builder(
         shrinkWrap: true,
@@ -183,12 +183,12 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   child: Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.sp),
+                      borderRadius: BorderRadius.circular(15),
                       color: Theme.of(context).colorScheme.secondary,
                     ),
                     padding: EdgeInsets.symmetric(
-                      horizontal: 8.sp,
-                      vertical: 3.sp,
+                      horizontal: 8,
+                      vertical: 3,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -197,18 +197,18 @@ class _ChatScreenState extends State<ChatScreen> {
                       children: [
                         SvgPicture.asset(
                           github,
-                          height: context.isMobile ? 10.sp : 15.sp,
-                          width: context.isMobile ? 10.sp : 15.sp,
+                          height: context.isMobile ? 10 : 15,
+                          width: context.isMobile ? 10 : 15,
                           colorFilter: ColorFilter.mode(
                             Theme.of(context).colorScheme.tertiary,
                             BlendMode.srcIn,
                           ),
                         ),
-                        Gap(5.sp),
+                        Gap(5),
                         Text(
                           'Source Code',
                           style: TextStyle(
-                            fontSize: context.isMobile ? 11.sp : 16.sp,
+                            fontSize: context.isMobile ? 11 : 16,
                           ),
                         ),
                       ],
@@ -222,20 +222,20 @@ class _ChatScreenState extends State<ChatScreen> {
                   onTap: () => _chatRepo.askQuestion(chatRecommendations[index - 1]),
                   child: Container(
                     margin: EdgeInsets.only(
-                      left: 10.sp,
+                      left: 10,
                     ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.sp),
+                      borderRadius: BorderRadius.circular(15),
                       color: Theme.of(context).colorScheme.secondary,
                     ),
                     padding: EdgeInsets.symmetric(
-                      horizontal: 8.sp,
-                      vertical: 3.sp,
+                      horizontal: 8,
+                      vertical: 3,
                     ),
                     child: Text(
                       chatRecommendations[index - 1],
                       style: TextStyle(
-                        fontSize: context.isMobile ? 11.sp : 16.sp,
+                        fontSize: context.isMobile ? 11 : 16,
                       ),
                     ),
                   ),
@@ -247,9 +247,9 @@ class _ChatScreenState extends State<ChatScreen> {
 
   List<Widget> buildChatText(bool loading) {
     return [
-      Gap(15.sp),
+      Gap(15),
       getRecommendations(),
-      Gap(5.sp),
+      Gap(5),
       Hero(
         tag: 'heroChat',
         child: KeyboardListener(
@@ -285,7 +285,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   onTap: loading ? () {} : () => sendMessage(),
                   child: Icon(
                     Icons.send_outlined,
-                    size: context.isMobile ? 15.sp : 25.sp,
+                    size: context.isMobile ? 15 : 25,
                     color: Theme.of(context).colorScheme.tertiary,
                   ),
                 ),
@@ -294,7 +294,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
         ),
       ),
-      Gap(15.sp),
+      Gap(15),
     ];
   }
 }

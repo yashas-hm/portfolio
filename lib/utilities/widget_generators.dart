@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:resize/resize.dart';
+
 
 Widget typerWidget({
   required List<String> textList,
@@ -33,7 +33,7 @@ Widget typerWidget({
 OutlineInputBorder outlineBorder(BuildContext context) => OutlineInputBorder(
       borderSide: BorderSide(
         color: Theme.of(context).colorScheme.tertiary,
-        width: 1.sp,
+        width: 1,
       ),
-      borderRadius: BorderRadius.circular(13.sp),
+      borderRadius: BorderRadius.circular(13),
     );

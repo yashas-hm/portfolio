@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:resize/resize.dart';
+
 
 class NotFoundScreen extends StatelessWidget {
   const NotFoundScreen({
@@ -17,7 +17,7 @@ class NotFoundScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(15.sp),
+        padding: EdgeInsets.all(15),
         height: context.height,
         width: context.width,
         child: Column(
@@ -28,7 +28,7 @@ class NotFoundScreen extends StatelessWidget {
             Text(
               title ?? '404',
               style: TextStyle(
-                fontSize: context.isMobile ? 160.sp : 180.sp,
+                fontSize: context.isMobile ? 160 : 180,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -37,10 +37,10 @@ class NotFoundScreen extends StatelessWidget {
                   'Oops! Looks like this page took a vacation without telling anyone.',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: context.isMobile ? 20.sp : 30.sp,
+                fontSize: context.isMobile ? 20 : 30,
               ),
             ),
-            Gap(10.sp),
+            Gap(10),
             MouseRegion(
               cursor: SystemMouseCursors.click,
               child: GestureDetector(
@@ -48,7 +48,7 @@ class NotFoundScreen extends StatelessWidget {
                 child: Text(
                   'Try the homepage?',
                   style: TextStyle(
-                    fontSize: context.isMobile ? 18.sp : 26.sp,
+                    fontSize: context.isMobile ? 18 : 26,
                     color: Theme.of(context).primaryColor,
                   ),
                 ),

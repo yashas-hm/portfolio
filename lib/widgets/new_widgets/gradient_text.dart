@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/constants/constants.dart';
 
-class GradientText extends ConsumerWidget {
+class GradientText extends StatelessWidget {
   const GradientText({
     super.key,
     required this.text,
@@ -19,7 +18,7 @@ class GradientText extends ConsumerWidget {
   final List<Color> colors;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return ShaderMask(
       shaderCallback: LinearGradient(
         colors: colors,

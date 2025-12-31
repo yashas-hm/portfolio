@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/utilities/extensions.dart';
 
@@ -71,13 +70,13 @@ class TimelineContainer extends StatelessWidget {
   }
 }
 
-class TimelineIndicator extends ConsumerWidget {
+class TimelineIndicator extends StatelessWidget {
   const TimelineIndicator({super.key, this.present = false});
 
   final bool present;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final colors = context.colors;
 
     double size = Sizes.iconXXS;
