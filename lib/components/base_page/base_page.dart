@@ -15,9 +15,14 @@ part 'global_footer.dart';
 part 'navbar.dart';
 
 class BasePage extends StatelessWidget {
-  const BasePage({super.key, required this.content});
+  const BasePage({
+    super.key,
+    required this.content,
+    this.singlePageContent = false,
+  });
 
   final Widget content;
+  final bool singlePageContent;
 
   @override
   Widget build(BuildContext context) {
@@ -42,24 +47,33 @@ class BasePage extends StatelessWidget {
                 runnerColor: colors.primaryColor,
               ),
             ),
-            Center(
+            Align(
+              alignment: Alignment.topCenter,
               child: SingleChildScrollView(
                 physics: BouncingScrollPhysics().applyTo(
                   ClampingScrollPhysics(),
                 ),
                 clipBehavior: Clip.none,
-                child: Container(
-                  padding: EdgeInsets.only(
-                    top: Sizes.navBarHeight ,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Flexible(child: content),
-                    ],
-                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Flexible(
+                      child: Container(
+                        alignment: singlePageContent
+                            ? Alignment.center
+                            : Alignment.topCenter,
+                        padding: EdgeInsets.only(
+                          top: Sizes.navBarHeight,
+                        ),
+                        constraints: BoxConstraints(
+                          minHeight: context.height,
+                        ),
+                        child: content,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

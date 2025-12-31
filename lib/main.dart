@@ -20,14 +20,6 @@ class Portfolio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size;
-
-    if (context.isMobile) {
-      size = const Size(410, 910);
-    } else {
-      size = const Size(1728, 1000);
-    }
-
     return OKToast(
       child: ValueListenableBuilder<ThemeMode>(
         valueListenable: ThemeRepository.instance.state,

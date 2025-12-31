@@ -8,6 +8,7 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BasePage(
+      singlePageContent: true,
       content: ContactComponent(),
     );
   }
