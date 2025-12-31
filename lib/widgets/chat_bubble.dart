@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/constants/constants.dart' show KnownColors;
-import 'package:portfolio/model/legacy_models/chat_model.dart';
-import 'package:portfolio/providers/chat_provider.dart';
+import 'package:portfolio/model/chat.dart';
+import 'package:portfolio/repositories/chat_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -15,7 +14,7 @@ class ChatBubble extends StatelessWidget {
     required this.width,
   });
 
-  final ChatModel chat;
+  final ChatMessage chat;
   final double width;
 
   @override
@@ -45,14 +44,14 @@ class ChatBubble extends StatelessWidget {
         ),
         child: chat.role == Role.human
             ? Text(
-                chat.message,
+                chat.content,
                 style: TextStyle(
                   color: KnownColors.gray50,
                   fontSize: context.isMobile ? 14.sp : 16.sp,
                 ),
               )
             : MarkdownBody(
-                data: chat.message,
+                data: chat.content,
                 selectable: true,
                 onTapLink: (text, href, title) {
                   if (href != null) launchUrl(Uri.parse(href));
@@ -194,28 +193,30 @@ class _TypingIndicatorState extends State<TypingIndicator>
   }
 }
 
-class ErrorBubble extends ConsumerWidget {
+class ErrorBubble extends StatelessWidget {
   const ErrorBubble({
     super.key,
     required this.width,
+    required this.message,
   });
 
   final double width;
+  final String message;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
+    final chatRepo = ChatRepository.instance;
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => ref.read(chatProvider.notifier).askQuestion(
-              ref.read(chatProvider).lastHumanMessage,
-              regenerate: true,
-            ),
+        onTap: () => chatRepo.askQuestion(
+          chatRepo.lastHumanMessage,
+          regenerate: true,
+        ),
         child: Container(
           width: width,
           alignment: Alignment.centerLeft,
           child: Container(
-            height: 40.sp,
             padding: EdgeInsets.symmetric(
               horizontal: 10.sp,
               vertical: 8.sp,
@@ -225,7 +226,7 @@ class ErrorBubble extends ConsumerWidget {
               borderRadius: BorderRadius.circular(13.sp),
             ),
             child: Text(
-              'Oops! Unexpected error occurred. Regenerate response?',
+              message,
               style: TextStyle(
                 color: KnownColors.gray50,
                 fontSize: context.isMobile ? 14.sp : 16.sp,

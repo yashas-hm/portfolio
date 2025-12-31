@@ -1,48 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:lava_lamp_effect/lava_lamp_effect.dart';
 import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/constants/legacy_constants/portfolio_constants.dart';
 import 'package:portfolio/constants/legacy_constants/portfolio_data.dart';
-import 'package:portfolio/model/legacy_models/chat_model.dart';
+import 'package:portfolio/model/chat.dart';
 import 'package:portfolio/model/legacy_models/project_model.dart';
-import 'package:portfolio/providers/chat_provider.dart';
+import 'package:portfolio/repositories/chat_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/utilities/widget_generators.dart';
 import 'package:portfolio/widgets/chat_bubble.dart';
 import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class ChatScreen extends ConsumerStatefulWidget {
+class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
   @override
-  ConsumerState<ChatScreen> createState() => _ChatScreenState();
+  State<ChatScreen> createState() => _ChatScreenState();
 }
 
-class _ChatScreenState extends ConsumerState<ChatScreen> {
+class _ChatScreenState extends State<ChatScreen> {
+  final _chatRepo = ChatRepository.instance;
   final FocusNode _focusNode = FocusNode();
   final tec = TextEditingController();
 
   @override
   void initState() {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      indexCheck(chatIndex, ref);
-    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    final chats = ref.watch(chatProvider);
-    final loading = ref.watch(loadingResponseProvider);
-
     return CustomScaffold(
       child: Stack(
         children: [
@@ -60,33 +53,36 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
             child: SizedBox(
               height: context.height,
               width: context.isMobile ? context.width / 1.1 : context.width / 2,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ...buildHeading(),
-                  Expanded(
-                    child: Container(
-                      alignment: Alignment.topCenter,
-                      child: ListView(
-                        controller:
-                            ref.read(chatProvider.notifier).scrollController,
-                        shrinkWrap: true,
-                        reverse: true,
-                        padding: EdgeInsets.zero,
-                        children: buildChatList(
-                          chats.reversed.toList(),
-                          loading,
-                          context.isMobile
-                              ? context.width / 1.2
-                              : context.width / 2,
+              child: ValueListenableBuilder<ChatState>(
+                valueListenable: _chatRepo.state,
+                builder: (context, state, _) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ...buildHeading(),
+                      Expanded(
+                        child: Container(
+                          alignment: Alignment.topCenter,
+                          child: ListView(
+                            controller: _chatRepo.scrollController,
+                            shrinkWrap: true,
+                            reverse: true,
+                            padding: EdgeInsets.zero,
+                            children: buildChatList(
+                              state,
+                              context.isMobile
+                                  ? context.width / 1.2
+                                  : context.width / 2,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  ...buildChatText(loading),
-                ],
+                      ...buildChatText(state.isLoading),
+                    ],
+                  );
+                },
               ),
             ),
           ),
@@ -95,33 +91,29 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
     );
   }
 
-  List<Widget> buildChatList(
-    List<ChatModel> chats,
-    bool loading,
-    double width,
-  ) {
+  List<Widget> buildChatList(ChatState state, double width) {
     final list = <Widget>[];
-    for (ChatModel chat in chats) {
+    for (ChatMessage chat in state.messages.reversed) {
       list.add(
         ChatBubble(
+          key: ValueKey(chat.id),
           chat: chat,
           width: width,
         ),
       );
     }
-    if (loading) {
+    if (state.isLoading) {
       list.insert(
         0,
-        TypingIndicator(
-          width: width,
-        ),
+        TypingIndicator(width: width),
       );
     }
-    if (chats.isNotEmpty && !loading && chats.first.error) {
+    if (state.errorMessage != null && !state.isLoading) {
       list.insert(
         0,
         ErrorBubble(
           width: width,
+          message: state.errorMessage!,
         ),
       );
     }
@@ -130,7 +122,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
 
   void sendMessage() {
     if (tec.text.trim() != '') {
-      ref.read(chatProvider.notifier).askQuestion(tec.text);
+      _chatRepo.askQuestion(tec.text);
       tec.clear();
     }
   }
@@ -228,9 +220,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
             : MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () => ref
-                      .read(chatProvider.notifier)
-                      .askQuestion(chatRecommendations[index - 1]),
+                  onTap: () => _chatRepo.askQuestion(chatRecommendations[index - 1]),
                   child: Container(
                     margin: EdgeInsets.only(
                       left: 10.sp,
