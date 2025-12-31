@@ -8,6 +8,7 @@ import 'package:portfolio/presentation/experience_page.dart';
 import 'package:portfolio/presentation/home_page.dart';
 import 'package:portfolio/presentation/project_page.dart';
 import 'package:portfolio/presentation/skill_page.dart';
+import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 
 part 'app_navigator.dart';

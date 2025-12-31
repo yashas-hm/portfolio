@@ -242,32 +242,35 @@ class _NavbarState extends State<Navbar> {
   }
 }
 
-class _ThemeSwitcher extends ConsumerWidget {
+class _ThemeSwitcher extends StatelessWidget {
   const _ThemeSwitcher();
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeProvider);
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
-      spacing: Sizes.spacingRegular,
-      children: [
-        Text(
-          themeMode.isDarkMode ? 'Dark Mode' : 'Light Mode',
-          style: Styles.smallText(textColor: context.colors.textColor),
-        ),
-        DayNightSwitch(
-          size: Sizes.iconSmall,
-          initiallyDark: themeMode.isDarkMode,
-          onChange: (darkMode) {
-            toggleThemeMode(ref, darkMode);
-            Navigator.of(context).pop();
-          },
-        ),
-      ],
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: ThemeRepository.instance.state,
+      builder: (_, themeMode, __) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          spacing: Sizes.spacingRegular,
+          children: [
+            Text(
+              themeMode.isDarkMode ? 'Dark Mode' : 'Light Mode',
+              style: Styles.smallText(textColor: context.colors.textColor),
+            ),
+            DayNightSwitch(
+              size: Sizes.iconSmall,
+              initiallyDark: themeMode.isDarkMode,
+              onChange: (darkMode) {
+                ThemeRepository.instance.toggle(darkMode);
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

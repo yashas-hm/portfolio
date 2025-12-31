@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:portfolio/providers/ui_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';
+
+final xProvider = NotifierProvider<DoubleNotifier, double>(DoubleNotifier.new);
+
+final yProvider = NotifierProvider<DoubleNotifier, double>(DoubleNotifier.new);
+
+class DoubleNotifier extends Notifier<double> {
+  @override
+  double build() => 0.0;
+
+  void set(double value) => state = value;
+}
 
 class FollowMouse extends ConsumerWidget {
   const FollowMouse({super.key});

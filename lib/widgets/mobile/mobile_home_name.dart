@@ -10,9 +10,8 @@ import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/constants/legacy_constants/portfolio_constants.dart';
 import 'package:portfolio/constants/legacy_constants/portfolio_data.dart';
 import 'package:portfolio/providers/nav_provider.dart';
-import 'package:portfolio/providers/ui_provider.dart';
+import 'package:portfolio/repositories/theme_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/utilities/widget_generators.dart';
 import 'package:portfolio/widgets/connect_button.dart';
 import 'package:resize/resize.dart';
@@ -46,7 +45,6 @@ class _HomeNameState extends ConsumerState<MobileHomeName> {
 
   @override
   Widget build(BuildContext context) {
-    final themeMode = ref.watch(themeProvider);
     final size = Size(
       context.width / 1.2,
       boxHeight ?? context.height / 3,
@@ -68,21 +66,26 @@ class _HomeNameState extends ConsumerState<MobileHomeName> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(13.sp),
-                child: isDarkMode(themeMode)
-                    ? Image.asset(
-                        key: const ValueKey<String>('night'),
-                        darkGIF,
-                        fit: BoxFit.fill,
-                        width: context.width,
-                        height: boxHeight ?? context.height / 3,
-                      )
-                    : Image.asset(
-                        key: const ValueKey<String>('day'),
-                        lightGIF,
-                        fit: BoxFit.fill,
-                        width: context.width,
-                        height: boxHeight ?? context.height / 3,
-                      ),
+                child: ValueListenableBuilder<ThemeMode>(
+                  valueListenable: ThemeRepository.instance.state,
+                  builder: (_, themeMode, __) {
+                    return themeMode.isDarkMode
+                        ? Image.asset(
+                            key: const ValueKey<String>('night'),
+                            darkGIF,
+                            fit: BoxFit.fill,
+                            width: context.width,
+                            height: boxHeight ?? context.height / 3,
+                          )
+                        : Image.asset(
+                            key: const ValueKey<String>('day'),
+                            lightGIF,
+                            fit: BoxFit.fill,
+                            width: context.width,
+                            height: boxHeight ?? context.height / 3,
+                          );
+                  },
+                ),
               ),
               Align(
                 alignment: Alignment.center,
@@ -252,7 +255,7 @@ class _HomeNameState extends ConsumerState<MobileHomeName> {
                               width: size.width / 1.5,
                               child: AutoSizeText(
                                 'Sure, there\'s a dazzling portfolio below; but '
-                                'hey, wouldn’t it be easier to just ask me? 😉',
+                                'hey, wouldn\'t it be easier to just ask me? 😉',
                                 style: TextStyle(
                                   fontSize: 12.sp,
                                 ),

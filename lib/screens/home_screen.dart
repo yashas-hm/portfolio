@@ -19,12 +19,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      final settings = ModalRoute.of(context)?.settings;
-      if (settings != null && settings.name == resumeRoute) {
-        launchUrlString(resumeLink);
-      }
-    });
+    
     super.initState();
   }
 

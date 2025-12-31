@@ -18,10 +18,6 @@ class ContactScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      indexCheck(contactMeIndex, ref);
-    });
-
     return CustomScaffold(
       child: context.isMobile
           ? const MobileContactScreen()

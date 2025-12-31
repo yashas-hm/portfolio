@@ -51,6 +51,6 @@ Route<dynamic>? routeGenerator(RouteSettings settings) {
     transitionsBuilder: (_, animation, __, child) {
       return FadeTransition(opacity: animation, child: child);
     },
-    transitionDuration: const Duration(milliseconds: 300),
+    transitionDuration: 400.milliseconds,
   );
 }

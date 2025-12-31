@@ -5,9 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/constants/legacy_constants/portfolio_constants.dart';
 import 'package:portfolio/providers/nav_provider.dart';
-import 'package:portfolio/providers/ui_provider.dart';
+import 'package:portfolio/repositories/theme_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:portfolio/utilities/utils.dart';
 import 'package:resize/resize.dart';
 
 AppBar mobileAppBar(
@@ -65,12 +64,10 @@ AppBar mobileAppBar(
                 ),
               ),
             ),
-            Consumer(
-              builder: (_, ref, __) => DayNightSwitch(
-                size: 20.sp,
-                initiallyDark: isDarkMode(ref.read(themeProvider)),
-                onChange: (darkMode) => toggleThemeMode(ref, darkMode),
-              ),
+            DayNightSwitch(
+              size: 20.sp,
+              initiallyDark: ThemeRepository.instance.isDark,
+              onChange: (darkMode) => ThemeRepository.instance.toggle(darkMode),
             ),
           ],
         ),

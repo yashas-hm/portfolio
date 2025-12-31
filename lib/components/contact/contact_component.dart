@@ -6,7 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/data/links.dart';
 import 'package:portfolio/model/contact.dart';
-import 'package:portfolio/repository/contact_repository.dart';
+import 'package:portfolio/repositories/contact_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/new_widgets/gradient_text.dart';

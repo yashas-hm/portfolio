@@ -1,12 +1,11 @@
 import 'package:day_night_themed_switcher/day_night_themed_switcher.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/data/links.dart';
 import 'package:portfolio/navigation/navigation.dart';
-import 'package:portfolio/providers/ui_provider.dart';
+import 'package:portfolio/repositories/theme_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/new_widgets/grid_background.dart';

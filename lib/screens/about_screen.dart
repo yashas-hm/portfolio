@@ -20,10 +20,7 @@ class AboutScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      indexCheck(aboutIndex, ref);
-    });
-
+    
     return CustomScaffold(
       child:
           context.isMobile ? const MobileAboutScreen() : const WebAboutScreen(),

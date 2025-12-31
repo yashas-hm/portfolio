@@ -6,9 +6,8 @@ import 'package:gap/gap.dart';
 import 'package:portfolio/constants/legacy_constants/portfolio_constants.dart';
 import 'package:portfolio/constants/legacy_constants/portfolio_data.dart';
 import 'package:portfolio/providers/nav_provider.dart';
-import 'package:portfolio/providers/ui_provider.dart';
+import 'package:portfolio/repositories/theme_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/web/web_nav_item.dart';
 import 'package:resize/resize.dart';
 
@@ -65,12 +64,10 @@ AppBar webAppBar(BuildContext context) => AppBar(
               ),
             ),
             Gap(25.sp),
-            Consumer(
-              builder: (_, ref, __) => DayNightSwitch(
-                size: 30.sp,
-                initiallyDark: isDarkMode(ref.read(themeProvider)),
-                onChange: (darkMode) => toggleThemeMode(ref, darkMode),
-              ),
+            DayNightSwitch(
+              size: 30.sp,
+              initiallyDark: ThemeRepository.instance.isDark,
+              onChange: (darkMode) => ThemeRepository.instance.toggle(darkMode),
             ),
           ],
         ),

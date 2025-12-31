@@ -41,7 +41,7 @@ class _ContactWindowState extends State<ContactWindow> {
                       final fieldWidth = context.isMobile
                           ? constraints.maxWidth
                           : (constraints.maxWidth - Sizes.spacingLarge) / 2;
-              
+
                       return Wrap(
                         alignment: WrapAlignment.center,
                         runAlignment: WrapAlignment.center,
@@ -113,7 +113,7 @@ class _ContactWindowState extends State<ContactWindow> {
                                     return 'Invalid Email';
                                   }
                                 }
-              
+
                                 return null;
                               },
                               onChanged: (value) {
@@ -157,7 +157,7 @@ class _ContactWindowState extends State<ContactWindow> {
                             return 'Message cannot be empty';
                           }
                         }
-              
+
                         return null;
                       },
                       onChanged: (value) {
@@ -180,11 +180,12 @@ class _ContactWindowState extends State<ContactWindow> {
                                       _loading = true;
                                       _message = 'Sending message...';
                                     });
-              
-                                    final response =
-                                        await ContactRepository.sendEmailRequest(
-                                            _request);
-              
+
+                                    final response = await ContactRepository
+                                        .sendEmailRequest(
+                                      _request,
+                                    );
+
                                     if (context.mounted) {
                                       Utils.showToast(
                                         context,
@@ -192,7 +193,7 @@ class _ContactWindowState extends State<ContactWindow> {
                                         response.success,
                                       );
                                     }
-              
+
                                     setState(() {
                                       _loading = false;
                                       _message = response.success

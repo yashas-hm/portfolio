@@ -22,9 +22,6 @@ class NotFoundScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      indexCheck(navItems.length, ref);
-    });
 
     return CustomScaffold(
       child: Container(

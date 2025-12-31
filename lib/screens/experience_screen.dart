@@ -19,10 +19,7 @@ class ExperienceScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      indexCheck(experienceIndex, ref);
-    });
-
+    
     return CustomScaffold(
       child: context.isMobile
           ? const MobileExperienceScreen()

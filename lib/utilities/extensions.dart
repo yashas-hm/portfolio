@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart' show Theme, ThemeMode;
 import 'package:flutter/widgets.dart';
-import 'package:portfolio/model/legacy_models/chat_model.dart';
 import 'package:portfolio/theme/theme.dart' show ThemeColors;
 
 extension NumUtils on num {
@@ -41,11 +40,6 @@ extension ContextUtils on BuildContext {
   Size get screenSize => MediaQuery.of(this).size;
 
   ThemeColors get colors => Theme.of(this).extension<ThemeColors>()!;
-}
-
-extension HumanMessage on List<ChatModel> {
-  String get lastHumanMessage =>
-      where((msg) => msg.role == Role.human).last.message;
 }
 
 extension ColorUtils on Color {
