@@ -13,7 +13,6 @@ import 'package:portfolio/repositories/chat_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/widget_generators.dart';
 import 'package:portfolio/widgets/chat_bubble.dart';
-import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:resize/resize.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -36,8 +35,8 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-      child: Stack(
+    return Scaffold(
+      body: Stack(
         children: [
           Center(
             child: LavaLampEffect(

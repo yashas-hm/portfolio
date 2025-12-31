@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/constants/legacy_constants/portfolio_constants.dart';
-import 'package:portfolio/constants/legacy_constants/portfolio_data.dart';
-import 'package:portfolio/providers/nav_provider.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:portfolio/utilities/utils.dart';
-import 'package:portfolio/widgets/custom_scaffold.dart';
 import 'package:resize/resize.dart';
 
-class NotFoundScreen extends ConsumerWidget {
+class NotFoundScreen extends StatelessWidget {
   const NotFoundScreen({
     super.key,
     this.title,
@@ -21,10 +14,9 @@ class NotFoundScreen extends ConsumerWidget {
   final String? description;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-
-    return CustomScaffold(
-      child: Container(
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
         padding: EdgeInsets.all(15.sp),
         height: context.height,
         width: context.width,
@@ -52,7 +44,7 @@ class NotFoundScreen extends ConsumerWidget {
             MouseRegion(
               cursor: SystemMouseCursors.click,
               child: GestureDetector(
-                onTap: () => updateIndex(context, ref, homeIndex),
+                // onTap: () => updateIndex(context, ref, homeIndex),
                 child: Text(
                   'Try the homepage?',
                   style: TextStyle(

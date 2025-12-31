@@ -48,9 +48,17 @@ Route<dynamic>? routeGenerator(RouteSettings settings) {
   return PageRouteBuilder(
     settings: settings,
     pageBuilder: (_, __, ___) => page!,
-    transitionsBuilder: (_, animation, __, child) {
-      return FadeTransition(opacity: animation, child: child);
-    },
-    transitionDuration: 400.milliseconds,
+    transitionsBuilder: (_, animation, __, child) => FadeTransition(
+      opacity: animation.drive(
+        Tween<double>(begin: 0, end: 1).chain(
+          CurveTween(
+            curve: Curves.easeInOut,
+          ),
+        ),
+      ),
+      child: child,
+    ),
+    transitionDuration: 600.milliseconds,
+    reverseTransitionDuration: 600.milliseconds,
   );
 }

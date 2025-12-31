@@ -29,7 +29,7 @@ enum Routes {
   ),
   blog(
     'Tech Blog',
-    '/blog',
+    '/blogs',
     icon: FontAwesomeIcons.medium,
   );
 
@@ -69,10 +69,4 @@ enum Routes {
         Routes.talks,
         Routes.blog,
       ];
-
-  bool get isExternal =>
-      this == Routes.resume ||
-      this == Routes.blog ||
-      this == Routes.talks ||
-      this == Routes.contributions;
 }
