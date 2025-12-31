@@ -40,7 +40,7 @@ Route<dynamic>? routeGenerator(RouteSettings settings) {
       Utils.safelyLaunchUrl(Links.talks.url, AppNavigator.context);
       break;
     default:
-      page = HomePage();
+      page = NotFoundPage();
   }
 
   if (page == null) return null;

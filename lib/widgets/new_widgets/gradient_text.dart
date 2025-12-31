@@ -11,11 +11,13 @@ class GradientText extends StatelessWidget {
       KnownColors.blue300,
       KnownColors.blue700
     ],
+    this.textAlign = TextAlign.start,
   });
 
   final String text;
   final TextStyle textStyle;
   final List<Color> colors;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {

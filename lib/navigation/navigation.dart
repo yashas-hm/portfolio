@@ -6,6 +6,7 @@ import 'package:portfolio/presentation/chat_page.dart';
 import 'package:portfolio/presentation/contact_page.dart';
 import 'package:portfolio/presentation/experience_page.dart';
 import 'package:portfolio/presentation/home_page.dart';
+import 'package:portfolio/presentation/not_found_page.dart';
 import 'package:portfolio/presentation/project_page.dart';
 import 'package:portfolio/presentation/skill_page.dart';
 import 'package:portfolio/utilities/extensions.dart';
