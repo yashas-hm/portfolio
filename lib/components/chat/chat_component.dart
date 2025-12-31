@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
@@ -17,6 +18,7 @@ part 'chat_bubble/thinking_bubble.dart';
 part 'chat_text_field.dart';
 part 'chat_view.dart';
 part 'chat_window.dart';
+part 'chat_recommendation.dart';
 
 class ChatComponent extends StatefulWidget {
   const ChatComponent({super.key});

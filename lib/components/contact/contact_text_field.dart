@@ -84,6 +84,8 @@ class _ContactTextFieldState extends State<ContactTextField> {
             ),
             alignLabelWithHint: true,
             fillColor: colors.surfaceColor,
+            hoverColor: colors.surfaceColor,
+            focusColor: colors.surfaceColor,
             filled: true,
             errorStyle: Styles.smallText(textColor: KnownColors.red400),
           ),
