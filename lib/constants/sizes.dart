@@ -41,6 +41,8 @@ class Sizes {
 
   static const double navBarHeight = 90.0;
 
+  static const double minBoxWidth = 300.0;
+
   static BorderRadius get borderRadiusSmall =>
       BorderRadius.circular(spacingSmall);
 

@@ -16,8 +16,8 @@ import 'package:portfolio/repositories/theme_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/widgets/new_widgets/arrow_controller.dart';
 import 'package:portfolio/widgets/new_widgets/auto_scroll.dart';
-import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
 import 'package:portfolio/widgets/new_widgets/sliding_carousel.dart';
+import 'package:portfolio/widgets/new_widgets/text/gradient_text.dart';
 
 part 'intro/display_image.dart';
 part 'intro/skill_carousel.dart';

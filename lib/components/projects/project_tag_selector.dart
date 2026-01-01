@@ -14,8 +14,9 @@ class ProjectTagSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
 
-    return SizedBox(
-      width: context.width * (context.isMobile ? 0.9 : 0.6),
+    return Container(
+      width: context.width * 0.9,
+      constraints: BoxConstraints(minWidth: 400),
       child: Wrap(
         alignment: WrapAlignment.center,
         runAlignment: WrapAlignment.center,
@@ -29,7 +30,6 @@ class ProjectTagSelector extends StatelessWidget {
                   onTap: () => onChanged(tag),
                   child: AnimatedContainer(
                     duration: 400.milliseconds,
-                    // constraints: BoxConstraints(minWidth: 100),
                     decoration: BoxDecoration(
                       borderRadius: selectedTag == tag
                           ? Sizes.borderRadiusRegular

@@ -9,8 +9,9 @@ import 'package:portfolio/model/experience.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/new_widgets/bounce_animator.dart';
-import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
 import 'package:portfolio/widgets/new_widgets/sequential_animator.dart';
+import 'package:portfolio/widgets/new_widgets/text/gradient_text.dart';
+import 'package:portfolio/widgets/new_widgets/text/subtext.dart';
 
 part 'experience_item.dart';
 
@@ -56,16 +57,8 @@ class ExperiencesComponent extends StatelessWidget {
           ),
         ),
         Gap(Sizes.spacingMedium),
-        SizedBox(
-          width: context.width * (context.isMobile ? 0.9 : 0.4),
-          child: Text(
-            'A timeline of my professional journey in software engineering, focusing on scalable architecture, mobile development, and full-stack solutions.',
-            style: Styles.subText(
-              textColor: colors.textSecondary,
-              isMobile: context.isMobile,
-            ),
-            textAlign: TextAlign.center,
-          ),
+        Subtext(
+          'A timeline of my professional journey in software engineering, focusing on scalable architecture, mobile development, and full-stack solutions.',
         ),
         Gap(Sizes.spacingXXL),
         SizedBox(

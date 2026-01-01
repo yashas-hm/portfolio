@@ -8,10 +8,11 @@ class AiChatBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    final isMobileView = context.isMobile || context.width < context.height;
 
     return Container(
       constraints: BoxConstraints(
-        maxWidth: context.width * (context.isMobile ? 0.60 : 0.35),
+        maxWidth: context.width * (isMobileView ? 0.60 : 0.35),
       ),
       margin: EdgeInsets.only(bottom: Sizes.spacingRegular),
       padding: Sizes.paddingRegular,

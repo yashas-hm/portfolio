@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -9,6 +11,7 @@ class SlidingCarouselController extends ChangeNotifier {
   ScrollController? _scrollController;
   double _itemWidth = 0;
   double _spacing = 0;
+  bool _isDisposed = false;
 
   int get currentIndex => _currentIndex;
 
@@ -17,6 +20,12 @@ class SlidingCarouselController extends ChangeNotifier {
   bool get canGoForward => _currentIndex < _itemCount - _visibleCount;
 
   bool get showArrows => _itemCount > _visibleCount;
+
+  @override
+  void dispose() {
+    _isDisposed = true;
+    super.dispose();
+  }
 
   void _attach({
     required ScrollController scrollController,
@@ -37,9 +46,11 @@ class SlidingCarouselController extends ChangeNotifier {
     _itemWidth = itemWidth;
     _spacing = spacing;
 
-    if (hasChanged) {
+    if (hasChanged && !_isDisposed) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        notifyListeners();
+        if (!_isDisposed) {
+          notifyListeners();
+        }
       });
     }
   }
@@ -80,6 +91,8 @@ class SlidingCarousel extends StatefulWidget {
     this.maxVisibleCount = 1,
     this.spacing,
     this.height,
+    this.minHeight,
+    this.minItemWidth,
     this.physics,
   });
 
@@ -94,6 +107,10 @@ class SlidingCarousel extends StatefulWidget {
   final double? spacing;
 
   final double? height;
+
+  final double? minHeight;
+
+  final double? minItemWidth;
 
   final ScrollPhysics? physics;
 
@@ -123,25 +140,48 @@ class _SlidingCarouselState extends State<SlidingCarousel> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final containerWidth = constraints.maxWidth;
-        final count = widget.maxVisibleCount;
-        final totalSpacing = _spacing * (count - 1);
-        final itemWidth = (containerWidth - totalSpacing) / count;
+        var itemWidth =
+            (containerWidth - _spacing * (widget.maxVisibleCount - 1)) /
+                widget.maxVisibleCount;
+
+        // Apply minimum item width if specified
+        if (widget.minItemWidth != null) {
+          itemWidth = math.max(itemWidth, widget.minItemWidth!);
+        }
+
+        // Calculate actual visible count based on final item width
+        final actualVisibleCount = math
+            .max(
+              1,
+              ((containerWidth + _spacing) / (itemWidth + _spacing)).floor(),
+            )
+            .clamp(1, widget.maxVisibleCount);
+
+        // Calculate height with minimum
+        final height = widget.minHeight != null && widget.height != null
+            ? math.max(widget.height!, widget.minHeight!)
+            : widget.height ?? widget.minHeight;
 
         // Attach controller with current layout info
         widget.controller._attach(
           scrollController: _scrollController,
           itemCount: widget.itemCount,
-          visibleCount: count,
+          visibleCount: actualVisibleCount,
           itemWidth: itemWidth,
           spacing: _spacing,
         );
 
+        final enableScrolling = widget.itemCount > actualVisibleCount;
+
         return SizedBox(
-          height: widget.height,
+          height: height,
           child: ListView.separated(
             controller: _scrollController,
             scrollDirection: Axis.horizontal,
-            physics: widget.physics ?? const NeverScrollableScrollPhysics(),
+            physics: widget.physics ??
+                (enableScrolling
+                    ? const ClampingScrollPhysics()
+                    : const NeverScrollableScrollPhysics()),
             itemCount: widget.itemCount,
             separatorBuilder: (_, __) => Gap(_spacing),
             itemBuilder: (context, index) {

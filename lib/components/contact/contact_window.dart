@@ -18,8 +18,11 @@ class _ContactWindowState extends State<ContactWindow> {
   Widget build(BuildContext context) {
     final colors = context.colors;
 
-    return SizedBox(
+    return Container(
       width: context.width * (context.isMobile ? 0.9 : 0.45),
+      constraints: BoxConstraints(
+        minWidth: 500,
+      ),
       child: WindowContainer(
         headline: '~/contact/compose.sh',
         headlineIcon: FontAwesomeIcons.solidEnvelope,

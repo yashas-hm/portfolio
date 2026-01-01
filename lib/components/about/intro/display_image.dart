@@ -7,9 +7,10 @@ class DisplayImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
 
-    return SizedBox(
+    return Container(
       height: context.height * (context.isMobile ? 0.3 : 0.4),
       width: context.height * (context.isMobile ? 0.3 : 0.4),
+      constraints: BoxConstraints(minWidth: 300, minHeight: 300),
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -17,7 +18,7 @@ class DisplayImage extends StatelessWidget {
             valueListenable: ThemeRepository.instance.state,
             builder: (_, state, __) => SvgPicture.asset(
               ImageAssets.displayImagePop,
-              fit: BoxFit.fill,
+              fit: BoxFit.fitHeight,
               colorFilter: ColorFilter.mode(
                 colors.textColor.withValues(
                   alpha: state.isDarkMode ? 1 : 0.3,
@@ -28,7 +29,7 @@ class DisplayImage extends StatelessWidget {
           ),
           SvgPicture.asset(
             ImageAssets.displayImageAnnotation,
-            fit: BoxFit.fill,
+            fit: BoxFit.fitHeight,
             colorFilter: ColorFilter.mode(
               colors.textColor,
               BlendMode.srcIn,
@@ -36,7 +37,7 @@ class DisplayImage extends StatelessWidget {
           ),
           Image.asset(
             ImageAssets.displayImage,
-            fit: BoxFit.fill,
+            fit: BoxFit.fitHeight,
           ),
         ],
       ),

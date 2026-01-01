@@ -15,6 +15,8 @@ class _NavbarState extends State<Navbar> {
 
   @override
   Widget build(BuildContext context) {
+    bool isCompactWidth = context.width < 800;
+
     return Container(
       margin: EdgeInsets.symmetric(
         vertical: Sizes.spacingMedium,
@@ -45,7 +47,7 @@ class _NavbarState extends State<Navbar> {
               ),
             ),
           ),
-          if (!context.isMobile)
+          if (!context.isMobile && !isCompactWidth)
             Align(
               alignment: Alignment.center,
               child: SizedBox(
@@ -73,8 +75,9 @@ class _NavbarState extends State<Navbar> {
             ),
           Align(
             alignment: Alignment.centerRight,
-            child:
-                context.isMobile ? _buildMobileOptions() : _buildWebOptions(),
+            child: context.isMobile || isCompactWidth
+                ? _buildMobileOptions()
+                : _buildWebOptions(),
           ),
         ],
       ),
@@ -190,47 +193,50 @@ class _NavbarState extends State<Navbar> {
         setState(() => _menuOpen = false);
         AppNavigator.push(route);
       },
-      itemBuilder: (_) => [
-        ...routes.map(
-          (route) => PopupMenuItem<dynamic>(
-            value: route,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
-              spacing: Sizes.spacingRegular,
-              children: [
-                if (route.icon != null)
-                  Icon(
-                    route.icon,
-                    size: Sizes.iconSmall,
-                    color: colors.primaryColor,
-                  ),
-                HoverGlowText(
-                  text: Text(
-                    route.name,
-                    style: Styles.smallText(
-                      textColor: colors.textColor,
+      itemBuilder: (popupContext) {
+        final popupColors = popupContext.colors;
+        return [
+          ...routes.map(
+            (route) => PopupMenuItem<dynamic>(
+              value: route,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                spacing: Sizes.spacingRegular,
+                children: [
+                  if (route.icon != null)
+                    Icon(
+                      route.icon,
+                      size: Sizes.iconSmall,
+                      color: popupColors.primaryColor,
                     ),
+                  HoverGlowText(
+                    text: Text(
+                      route.name,
+                      style: Styles.smallText(
+                        textColor: popupColors.textColor,
+                      ),
+                    ),
+                    glowColor: popupColors.primaryColor,
+                    alwaysHighlight: isCurrentRoute(route),
                   ),
-                  glowColor: colors.primaryColor,
-                  alwaysHighlight: isCurrentRoute(route),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-        PopupMenuDivider(
-          thickness: 0.5,
-          color: colors.borderColor,
-          indent: Sizes.spacingRegular,
-          endIndent: Sizes.spacingRegular,
-        ),
-        PopupMenuItem<void>(
-          enabled: false,
-          child: _ThemeSwitcher(),
-        ),
-      ],
+          PopupMenuDivider(
+            thickness: 0.5,
+            color: popupColors.borderColor,
+            indent: Sizes.spacingRegular,
+            endIndent: Sizes.spacingRegular,
+          ),
+          PopupMenuItem<void>(
+            enabled: false,
+            child: _ThemeSwitcher(),
+          ),
+        ];
+      },
       child: icon,
     );
   }

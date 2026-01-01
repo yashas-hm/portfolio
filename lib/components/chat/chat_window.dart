@@ -11,7 +11,9 @@ class ChatWindow extends StatelessWidget {
       duration: 400.milliseconds,
       child: Container(
         constraints: BoxConstraints(
-          maxWidth: context.width * (context.isMobile ? 0.9 : 0.5),
+          maxWidth: context.width *
+              (context.isMobile || context.width < context.height ? 0.9 : 0.5),
+          minHeight: 400,
         ),
         decoration: BoxDecoration(
           borderRadius: Sizes.borderRadiusRegular,

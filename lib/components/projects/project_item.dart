@@ -9,12 +9,17 @@ class ProjectItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     final height = context.height / (context.isMobile ? 2 : 2.5);
+    final minHeight = max<double>(height, 380.0);
 
     return Container(
       height: height,
       width: context.isMobile ? context.width * 0.8 : context.width / 5,
       clipBehavior: Clip.hardEdge,
-      constraints: BoxConstraints(minHeight: height),
+      constraints: BoxConstraints(
+        minHeight: 380,
+        minWidth: 350,
+        maxHeight: 500,
+      ),
       decoration: BoxDecoration(
         color: colors.surfaceColor,
         borderRadius: Sizes.borderRadiusRegular,
@@ -28,7 +33,7 @@ class ProjectItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomCachedImage(
-              height: height / 2.5,
+              height: minHeight / 2.5,
               width: double.infinity,
               imageUrl: project.imageUrl,
             ),
@@ -72,7 +77,7 @@ class ProjectItem extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Flexible(
+                    Expanded(
                       child: AutoSizeText(
                         project.description,
                         style: Styles.regularText(

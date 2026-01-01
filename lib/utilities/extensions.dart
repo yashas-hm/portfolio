@@ -65,13 +65,15 @@ extension StringUtils on String {
 }
 
 extension ContextUtils on BuildContext {
-  bool get isMobile => height > width;
+  bool get isMobile => width < 600;
 
   double get height => MediaQuery.of(this).size.height;
 
   double get width => MediaQuery.of(this).size.width;
 
   Size get screenSize => MediaQuery.of(this).size;
+
+  double get aspectRatio => width / height;
 
   ThemeColors get colors => Theme.of(this).extension<ThemeColors>()!;
 }

@@ -5,8 +5,8 @@ import 'package:portfolio/data/responsibilities.dart';
 import 'package:portfolio/model/responsibility.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/widgets/new_widgets/arrow_controller.dart';
-import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
 import 'package:portfolio/widgets/new_widgets/sliding_carousel.dart';
+import 'package:portfolio/widgets/new_widgets/text/gradient_text.dart';
 
 class ResponsibilityItem extends StatefulWidget {
   const ResponsibilityItem({super.key});
@@ -85,6 +85,8 @@ class _ResponsibilityItemState extends State<ResponsibilityItem> {
             itemCount: _responsibilities.length,
             maxVisibleCount: context.isMobile ? 1 : 3,
             height: context.height / (context.isMobile ? 3.5 : 4.5),
+            minHeight: 200,
+            minItemWidth: context.isMobile ? null : 350,
             itemBuilder: (context, index) => _ResponsibilityCard(
               responsibility: _responsibilities[index],
             ),

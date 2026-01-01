@@ -9,7 +9,6 @@ class SkillCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     final skills = SkillGroups.allSkills
-        .take(5)
         .map((skill) => CarouselItem(skill: skill))
         .toList();
 
@@ -50,7 +49,7 @@ class SkillCarousel extends StatelessWidget {
                   end: Alignment.centerRight,
                   colors: [
                     colors.backgroundColor,
-                    KnownColors.transparent,
+                    colors.backgroundColor.withValues(alpha: 0),
                   ],
                 ),
               ),
@@ -69,7 +68,7 @@ class SkillCarousel extends StatelessWidget {
                   end: Alignment.centerLeft,
                   colors: [
                     colors.backgroundColor,
-                    KnownColors.transparent,
+                    colors.backgroundColor.withValues(alpha: 0),
                   ],
                 ),
               ),

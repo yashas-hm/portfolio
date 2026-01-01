@@ -10,9 +10,11 @@ class SkillItem extends StatelessWidget {
     final colors = context.colors;
 
     return Container(
-      height: context.isMobile ? null : context.height / 4,
+      height: 250,
       width: context.isMobile ? context.width : context.width / 5,
-      constraints: BoxConstraints(minHeight: context.height / 4),
+      constraints: BoxConstraints(
+        minWidth: Sizes.minBoxWidth,
+      ),
       decoration: BoxDecoration(
         color: colors.surfaceColor,
         borderRadius: Sizes.borderRadiusRegular,

@@ -4,7 +4,8 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/data/metrics.dart';
 import 'package:portfolio/model/metric.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
+import 'package:portfolio/widgets/new_widgets/text/gradient_text.dart';
+import 'package:portfolio/widgets/new_widgets/text/subtext.dart';
 
 part 'metric_item.dart';
 
@@ -56,16 +57,8 @@ class MetricsComponent extends StatelessWidget {
             ),
           ),
           Gap(Sizes.spacingMedium),
-          SizedBox(
-            width: context.width * (context.isMobile ? 0.9 : 0.4),
-            child: Text(
-              'Beyond clean code, I build scalable, efficient systems that drive measurable product growth with AI-native architectures.',
-              style: Styles.subText(
-                textColor: colors.textSecondary,
-                isMobile: context.isMobile,
-              ),
-              textAlign: TextAlign.center,
-            ),
+          Subtext(
+            'Beyond clean code, I build scalable, efficient systems that drive measurable product growth with AI-native architectures.',
           ),
           Gap(Sizes.spacingXXL),
           Padding(

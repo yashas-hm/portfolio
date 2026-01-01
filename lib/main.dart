@@ -20,6 +20,7 @@ class Portfolio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(context.screenSize);
     return OKToast(
       child: ValueListenableBuilder<ThemeMode>(
         valueListenable: ThemeRepository.instance.state,

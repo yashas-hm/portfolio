@@ -6,23 +6,25 @@ class Intro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    final isMobileView = context.isMobile || context.width < context.height;
 
     return SizedBox(
-      width: context.width * (context.isMobile ? 0.9 : 0.6),
+      width: context.width * 0.9,
       child: Wrap(
         alignment: WrapAlignment.center,
         runAlignment: WrapAlignment.start,
         crossAxisAlignment: WrapCrossAlignment.center,
         spacing: Sizes.spacingXXL,
-        runSpacing: Sizes.spacingXL,
+        runSpacing: Sizes.spacingXXL,
         children: [
           DisplayImage(),
           Container(
+            width: context.width * (context.isMobile ? 0.9 : 0.3),
             constraints: BoxConstraints(
-              maxWidth: context.width * (context.isMobile ? 0.9 : 0.3),
+              minWidth: 500,
             ),
             child: Column(
-              crossAxisAlignment: context.isMobile
+              crossAxisAlignment: isMobileView
                   ? CrossAxisAlignment.center
                   : CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -36,9 +38,8 @@ class Intro extends StatelessWidget {
                   ),
                 ),
                 Wrap(
-                  alignment: context.isMobile
-                      ? WrapAlignment.center
-                      : WrapAlignment.start,
+                  alignment:
+                      isMobileView ? WrapAlignment.center : WrapAlignment.start,
                   runAlignment: WrapAlignment.start,
                   children: [
                     Text(
@@ -49,13 +50,13 @@ class Intro extends StatelessWidget {
                       ),
                     ),
                     GradientText(
-                      text: 'Intelligent',
+                      text: 'Intelligent ',
                       textStyle: Styles.headlineTextBold(
                         isMobile: context.isMobile,
                       ),
                     ),
                     Text(
-                      ' Systems.',
+                      'Systems.',
                       style: Styles.headlineTextBold(
                         textColor: colors.textColor,
                         isMobile: context.isMobile,
@@ -69,8 +70,7 @@ class Intro extends StatelessWidget {
                     textColor: colors.textSecondary,
                     isMobile: context.isMobile,
                   ),
-                  textAlign:
-                      context.isMobile ? TextAlign.center : TextAlign.start,
+                  textAlign: isMobileView ? TextAlign.center : TextAlign.start,
                 ),
                 Gap(Sizes.spacingLarge),
                 SkillCarousel(),

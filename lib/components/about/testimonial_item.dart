@@ -77,6 +77,8 @@ class _TestimonialItemState extends State<TestimonialItem> {
             itemCount: _testimonials.length,
             maxVisibleCount: context.isMobile ? 1 : 2,
             height: context.height / (context.isMobile ? 2.5 : 4),
+            minHeight: 250,
+            minItemWidth: context.isMobile ? null : 400,
             itemBuilder: (context, index) => _TestimonialCard(
               testimonial: _testimonials[index],
             ),

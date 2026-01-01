@@ -7,8 +7,9 @@ class ContactConnections extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
 
-    return SizedBox(
+    return Container(
       width: context.width * (context.isMobile ? 0.9 : 0.25),
+      constraints: BoxConstraints(minWidth: 500),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,

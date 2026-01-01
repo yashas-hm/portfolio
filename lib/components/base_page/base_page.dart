@@ -9,7 +9,7 @@ import 'package:portfolio/repositories/theme_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/new_widgets/grid_background.dart';
-import 'package:portfolio/widgets/new_widgets/hover_glow_text.dart';
+import 'package:portfolio/widgets/new_widgets/text/hover_glow_text.dart';
 
 part 'global_footer.dart';
 part 'navbar.dart';

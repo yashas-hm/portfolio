@@ -6,6 +6,7 @@ class NarrativeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    final isMobileView = context.isMobile || context.width < context.height;
 
     return ConstrainedBox(
       constraints: BoxConstraints(maxWidth: context.width * 0.9),
@@ -19,7 +20,7 @@ class NarrativeItem extends StatelessWidget {
             width: context.width * 0.9,
             child: Wrap(
               alignment:
-                  context.isMobile ? WrapAlignment.center : WrapAlignment.start,
+                  isMobileView ? WrapAlignment.center : WrapAlignment.start,
               runAlignment: WrapAlignment.center,
               children: [
                 Text(
@@ -38,9 +39,12 @@ class NarrativeItem extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: Wrap(
-              alignment: WrapAlignment.spaceBetween,
+              alignment: isMobileView
+                  ? WrapAlignment.center
+                  : WrapAlignment.spaceBetween,
               runAlignment: WrapAlignment.start,
               runSpacing: Sizes.spacingLarge,
+              spacing: Sizes.spacingLarge,
               children: Narratives.all
                   .map((narrative) => _NarrativeCard(narrative: narrative))
                   .toList(),
@@ -66,6 +70,10 @@ class _NarrativeCard extends StatelessWidget {
       child: Container(
         height: context.height / 3.5,
         width: context.isMobile ? context.width : context.width / 5,
+        constraints: BoxConstraints(
+          minWidth: 250,
+          minHeight: 300,
+        ),
         decoration: BoxDecoration(
           color: colors.surfaceColor,
           borderRadius: Sizes.borderRadiusRegular,

@@ -9,7 +9,8 @@ import 'package:portfolio/model/contact.dart';
 import 'package:portfolio/repositories/contact_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
-import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
+import 'package:portfolio/widgets/new_widgets/text/gradient_text.dart';
+import 'package:portfolio/widgets/new_widgets/text/subtext.dart';
 import 'package:portfolio/widgets/new_widgets/window_container.dart';
 
 part 'contact_connections.dart';
@@ -58,16 +59,8 @@ class ContactComponent extends StatelessWidget {
           ),
         ),
         Gap(Sizes.spacingMedium),
-        SizedBox(
-          width: context.width * (context.isMobile ? 0.9 : 0.4),
-          child: Text(
-            'Initiate a connection protocol. Whether it\'s a project inquiry or a technical discussion, fill out the terminal inputs below to transmit your message.',
-            style: Styles.subText(
-              textColor: colors.textSecondary,
-              isMobile: context.isMobile,
-            ),
-            textAlign: TextAlign.center,
-          ),
+        Subtext(
+          'Initiate a connection protocol. Whether it\'s a project inquiry or a technical discussion, fill out the terminal inputs below to transmit your message.',
         ),
         Gap(Sizes.spacingXXL),
         Container(

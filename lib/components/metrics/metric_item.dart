@@ -10,8 +10,11 @@ class MetricItem extends StatelessWidget {
     final colors = context.colors;
 
     return Container(
-      height: context.height / 4,
+      height: 250,
       width: context.isMobile ? context.width : context.width / 5,
+      constraints: BoxConstraints(
+        minWidth: 300,
+      ),
       decoration: BoxDecoration(
         color: colors.surfaceColor,
         borderRadius: Sizes.borderRadiusRegular,
@@ -73,7 +76,7 @@ class MetricItem extends StatelessWidget {
                   ),
                 ],
               ),
-              Expanded(
+              Flexible(
                 child: Container(),
               ),
               Divider(

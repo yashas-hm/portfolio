@@ -9,7 +9,8 @@ import 'package:portfolio/model/chat.dart';
 import 'package:portfolio/repositories/chat_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
-import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
+import 'package:portfolio/widgets/new_widgets/text/gradient_text.dart';
+import 'package:portfolio/widgets/new_widgets/text/subtext.dart';
 
 part 'chat_bubble/ai_chat_bubble.dart';
 part 'chat_bubble/error_bubble.dart';
@@ -94,16 +95,8 @@ class _ChatComponentState extends State<ChatComponent> {
               ),
             ),
             Gap(Sizes.spacingMedium),
-            SizedBox(
-              width: context.width * (context.isMobile ? 0.9 : 0.4),
-              child: Text(
-                'Ask me about Yashas\'s experience, specific projects, technical skills, or just say hello.',
-                style: Styles.subText(
-                  textColor: colors.textSecondary,
-                  isMobile: context.isMobile,
-                ),
-                textAlign: TextAlign.center,
-              ),
+            Subtext(
+              'Ask me about Yashas\'s experience, specific projects, technical skills, or just say hello.',
             ),
             Gap(Sizes.spacingXXL),
           ],

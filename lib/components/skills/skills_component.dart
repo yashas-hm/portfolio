@@ -9,8 +9,9 @@ import 'package:portfolio/data/skills.dart';
 import 'package:portfolio/model/skill.dart';
 import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
 import 'package:portfolio/widgets/new_widgets/sequential_animator.dart';
+import 'package:portfolio/widgets/new_widgets/text/gradient_text.dart';
+import 'package:portfolio/widgets/new_widgets/text/subtext.dart';
 import 'package:portfolio/widgets/new_widgets/window_container.dart';
 
 part 'skill_chip.dart';
@@ -59,16 +60,8 @@ class SkillsComponent extends StatelessWidget {
           ),
         ),
         Gap(Sizes.spacingMedium),
-        SizedBox(
-          width: context.width * (context.isMobile ? 0.9 : 0.4),
-          child: Text(
-            'The complete toolset deployed to build low-latency systems and production-grade AI architectures.',
-            style: Styles.subText(
-              isMobile: context.isMobile,
-              textColor: colors.textSecondary,
-            ),
-            textAlign: TextAlign.center,
-          ),
+        Subtext(
+          'The complete toolset deployed to build low-latency systems and production-grade AI architectures.',
         ),
         Gap(Sizes.spacingXXL),
         SkillsWindow(),
