@@ -50,10 +50,10 @@ class _SequentialAnimatorState extends State<SequentialAnimator>
   void initState() {
     _animationController = AnimationController(vsync: this, duration: duration);
 
-    SchedulerBinding.instance.addPostFrameCallback((_) =>
-        Future.delayed(widget.delay, () {
-          if (mounted) _animationController.forward();
-        }));
+    SchedulerBinding.instance
+        .addPostFrameCallback((_) => Future.delayed(widget.delay, () {
+              if (mounted) _animationController.forward();
+            }));
 
     super.initState();
   }

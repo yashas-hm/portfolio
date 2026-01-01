@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
+import 'package:portfolio/components/experiences/timeline_container.dart';
 import 'package:portfolio/components/skills/skills_component.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/data/experiences.dart';
@@ -10,7 +11,6 @@ import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/new_widgets/bounce_animator.dart';
 import 'package:portfolio/widgets/new_widgets/gradient_text.dart';
 import 'package:portfolio/widgets/new_widgets/sequential_animator.dart';
-import 'package:portfolio/components/experiences/timeline_container.dart';
 
 part 'experience_item.dart';
 

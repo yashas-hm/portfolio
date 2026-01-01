@@ -6,7 +6,7 @@ class DisplayImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    
+
     return SizedBox(
       height: context.height * (context.isMobile ? 0.3 : 0.4),
       width: context.height * (context.isMobile ? 0.3 : 0.4),

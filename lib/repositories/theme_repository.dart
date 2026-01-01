@@ -3,8 +3,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeRepository {
   ThemeRepository._();
+
   static final ThemeRepository instance = ThemeRepository._();
-  
+
   static const String _darkModeKey = 'Dark Mode';
 
   final ValueNotifier<ThemeMode> state = ValueNotifier(ThemeMode.dark);

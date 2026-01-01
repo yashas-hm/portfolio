@@ -7,7 +7,8 @@ class Metrics {
   static const highConcurrency = Metric(
     impactIcon: FontAwesomeIcons.peopleGroup,
     metricSuffixIcon: FontAwesomeIcons.plus,
-    details: 'Active users supported via scalable cloud infrastructure and efficient backend logic',
+    details:
+        'Active users supported via scalable cloud infrastructure and efficient backend logic',
     name: 'High Concurrency',
     metric: '10k',
   );
@@ -15,10 +16,11 @@ class Metrics {
   static const latencyOptimization = Metric(
     impactIcon: FontAwesomeIcons.bolt,
     metricSuffixIcon: FontAwesomeIcons.percent,
-    details: 'Faster data retrieval across the stack, from database queries to frontend rendering',
+    details:
+        'Faster data retrieval across the stack, from database queries to frontend rendering',
     name: 'Latency Optimization',
     metric: '40',
-    suffixIcon: FontAwesomeIcons.arrowDownLong, 
+    suffixIcon: FontAwesomeIcons.arrowDownLong,
   );
 
   static const globalDeployment = Metric(
@@ -32,7 +34,8 @@ class Metrics {
   static const systemResilience = Metric(
     impactIcon: FontAwesomeIcons.shieldHalved,
     metricSuffixIcon: FontAwesomeIcons.percent,
-    details: 'Reduction in production errors via clean architecture and rigorous CI/CD',
+    details:
+        'Reduction in production errors via clean architecture and rigorous CI/CD',
     name: 'System Resilience',
     metric: '40',
     suffixIcon: FontAwesomeIcons.arrowDownLong,

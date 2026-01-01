@@ -4,7 +4,7 @@ Route<dynamic>? routeGenerator(RouteSettings settings) {
   final route = Routes.fromPath(settings.name ?? '/');
 
   Widget? page;
-  
+
   switch (route) {
     case Routes.home:
       page = const HomePage();

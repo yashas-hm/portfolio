@@ -22,7 +22,7 @@ class Utils {
 
   static void safelyLaunchUrl(String? url, BuildContext? context) async {
     if (context == null || url == null) return;
-    
+
     bool launched = false;
 
     try {

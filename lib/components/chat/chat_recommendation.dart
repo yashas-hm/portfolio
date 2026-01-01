@@ -10,7 +10,7 @@ class ChatRecommendation extends StatelessWidget {
     'List Yashas\'s skills.',
     'List Yashas\'s startup experiences.',
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return const Placeholder();

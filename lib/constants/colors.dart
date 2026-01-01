@@ -15,7 +15,7 @@ class SkillCategoryColors {
 
 class KnownColors {
   KnownColors._();
-  
+
   // Basic
   static const Color black = Color(0xFF000000);
   static const Color white = Color(0xFFFFFFFF);
@@ -30,7 +30,7 @@ class KnownColors {
   static const Color lightBorderSecondary = Color(0xFFD4D6DC);
   static const Color lightText = Color(0xFF0E121D);
   static const Color lightTextSecondary = Color(0xFF595E6E);
-  
+
   // Dark
   static const Color darkPrimary = Color(0xFF6A9FCA);
   static const Color darkBackground = Color(0xFF0C0C0C);

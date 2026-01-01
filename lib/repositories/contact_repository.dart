@@ -6,8 +6,9 @@ import 'package:portfolio/model/contact.dart';
 
 class ContactRepository {
   ContactRepository._();
-  
-  static Future<ContactResponse> sendEmailRequest(ContactRequest request) async {
+
+  static Future<ContactResponse> sendEmailRequest(
+      ContactRequest request) async {
     try {
       final response = await http.post(
         Uri.parse('https://yashashm.dev/api/mail'),

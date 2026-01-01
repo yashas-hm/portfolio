@@ -374,8 +374,8 @@ class Experiences {
     yellow,
     ngo,
   ];
-  
-  static List<Experience> get sortedExperiences{
+
+  static List<Experience> get sortedExperiences {
     final experiences = [...all];
     experiences.sort((a, b) {
       final aEnd = a.endDate ?? DateTime(9999);

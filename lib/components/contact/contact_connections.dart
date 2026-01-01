@@ -103,7 +103,7 @@ class ContactConnections extends StatelessWidget {
                     top: 0,
                     child: Icon(
                       FontAwesomeIcons.comments,
-                      size: Sizes.iconHuge*1.5,
+                      size: Sizes.iconHuge * 1.5,
                       color: colors.textSecondary.withValues(alpha: 0.5),
                     ),
                   ),

@@ -45,14 +45,14 @@ extension StringUtils on String {
           style: normalStyle,
         ));
       }
-      
+
       spans.add(TextSpan(
         text: match.group(1),
         style: boldStyle,
       ));
       lastEnd = match.end;
     }
-    
+
     if (lastEnd < length) {
       spans.add(TextSpan(
         text: substring(lastEnd),

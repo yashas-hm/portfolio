@@ -15,10 +15,10 @@ part 'chat_bubble/ai_chat_bubble.dart';
 part 'chat_bubble/error_bubble.dart';
 part 'chat_bubble/human_chat_bubble.dart';
 part 'chat_bubble/thinking_bubble.dart';
+part 'chat_recommendation.dart';
 part 'chat_text_field.dart';
 part 'chat_view.dart';
 part 'chat_window.dart';
-part 'chat_recommendation.dart';
 
 class ChatComponent extends StatefulWidget {
   const ChatComponent({super.key});

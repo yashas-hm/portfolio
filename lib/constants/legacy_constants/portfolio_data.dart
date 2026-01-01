@@ -2,8 +2,8 @@ import 'package:portfolio/data/skills.dart';
 import 'package:portfolio/model/legacy_models/achievement_model.dart';
 import 'package:portfolio/model/legacy_models/experience_model.dart';
 import 'package:portfolio/model/legacy_models/project_model.dart';
-import 'package:portfolio/model/skill.dart';
 import 'package:portfolio/model/legacy_models/testimonial_model.dart';
+import 'package:portfolio/model/skill.dart';
 import 'package:portfolio/utilities/extensions.dart';
 
 const String linkedinLink = 'https://www.linkedin.com/in/yashashm';
@@ -695,7 +695,6 @@ const String about =
     "🔧 With <b>Git</b> as my trusty sidekick, version control is second nature, while collaboration tools like <b>Jira</b> keep my missions clear and collaborative.<br><br>"
     "💡 From scripting with <b>Bash</b> to engineering with <b>C/C++</b>, from the clarity of <b>Java</b> to the precision of <b>TypeScript</b>, every language is another string on my instrument. Each project is a performance, and every line of code is a note in my digital symphony.<br><br>"
     "🔥 I don’t just build software — I shape experiences, engineer intelligence, and lead with innovation. Join me on this epic coding quest, where technology meets artistry!";
-
 
 //INFO: Testimonials
 final List<TestimonialModel> testimonials = [

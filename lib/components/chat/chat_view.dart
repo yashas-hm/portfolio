@@ -1,6 +1,5 @@
 part of 'chat_component.dart';
 
-
 class ChatView extends StatelessWidget {
   ChatView({super.key});
 
