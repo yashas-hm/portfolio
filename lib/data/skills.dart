@@ -309,7 +309,7 @@ class Skills {
     icon: LogoAssets.vertexAiLogo,
     category: SkillCategory.mlAi,
   );
-  
+
   static const cicd = Skill(
     name: 'CI/CD',
     category: SkillCategory.devops,
@@ -416,6 +416,7 @@ class SkillGroups {
       Skills.langGraph,
       Skills.ollama,
       Skills.llms,
+      Skills.vertexAISkill,
       Skills.huggingface,
       Skills.opencv,
       Skills.tensorflow,
@@ -445,14 +446,17 @@ class SkillGroups {
     ],
   );
 
-  static const all = [
-    languages,
-    frontend,
-    backend,
-    databases,
-    devops,
-    mlAi,
-    cloudTools,
-    iot,
-  ];
+  static List<SkillGroup> get all => <SkillGroup>[
+        languages,
+        frontend,
+        backend,
+        databases,
+        devops,
+        mlAi,
+        cloudTools,
+        iot,
+      ];
+
+  static List<Skill> get allSkills =>
+      all.expand((group) => group.skills).toList();
 }

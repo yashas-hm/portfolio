@@ -6,6 +6,13 @@ class ImageAssets {
   static const String darkGIFImage = 'assets/images/coding_dark.gif';
 
   static const String lightGIFImage = 'assets/images/coding_light.gif';
+
+  static const String displayImage = 'assets/images/display_image.png';
+
+  static const String displayImagePop = 'assets/images/display_image_pop.svg';
+
+  static const String displayImageAnnotation =
+      'assets/images/display_image_annotation.svg';
 }
 
 class LogoAssets {
@@ -88,7 +95,7 @@ class LogoAssets {
   static const String jiraLogo = 'assets/logo/jira.svg';
 
   static const String slackLogo = 'assets/logo/slack.svg';
-  
+
   static const String vectorDBLogo = 'assets/logo/pinecone.svg';
 
   static const String cSharpLogo = 'assets/logo/csharp.svg';
@@ -100,7 +107,7 @@ class LogoAssets {
   static const String kotlinLogo = 'assets/logo/kotlin.svg';
 
   static const String gitlabLogo = 'assets/logo/gitlab.svg';
-  
+
   static const String vertexAiLogo = 'assets/logo/vertexAi.svg';
 
   static const String mailLogo = 'assets/logo/mail.svg';

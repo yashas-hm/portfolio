@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/components/about/about_component.dart';
 import 'package:portfolio/components/base_page/base_page.dart';
 
 class AboutPage extends StatelessWidget {
@@ -7,7 +8,7 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BasePage(
-      content: Container(),
+      content: AboutComponent(),
     );
   }
 }

@@ -34,6 +34,17 @@ class Styles {
         fontWeight: FontWeight.w200,
       );
 
+  static TextStyle smallRegularText({Color? textColor}) => TextStyle(
+        fontSize: 13,
+        color: textColor,
+      );
+
+  static TextStyle smallRegularTextBold({Color? textColor}) => TextStyle(
+        fontSize: 13,
+        color: textColor,
+        fontWeight: FontWeight.bold,
+      );
+
   static TextStyle regularText({Color? textColor}) => TextStyle(
         fontSize: 14,
         color: textColor,
@@ -46,10 +57,10 @@ class Styles {
       );
 
   static TextStyle regularTextItalics({Color? textColor}) => TextStyle(
-    fontSize: 14,
-    color: textColor,
-    fontStyle: FontStyle.italic,
-  );
+        fontSize: 14,
+        color: textColor,
+        fontStyle: FontStyle.italic,
+      );
 
   static TextStyle mediumText({Color? textColor}) => TextStyle(
         fontSize: 16,
@@ -73,8 +84,20 @@ class Styles {
         fontWeight: FontWeight.bold,
       );
 
-  static TextStyle emphasisText({Color? textColor, bool isMobile = false}) => TextStyle(
-        fontSize: isMobile?35:50,
+  static TextStyle extraLargeText({Color? textColor}) => TextStyle(
+        fontSize: 20,
+        color: textColor,
+      );
+
+  static TextStyle extraLargeTextBold({Color? textColor}) => TextStyle(
+        fontSize: 20,
+        color: textColor,
+        fontWeight: FontWeight.bold,
+      );
+
+  static TextStyle emphasisText({Color? textColor, bool isMobile = false}) =>
+      TextStyle(
+        fontSize: isMobile ? 35 : 50,
         color: textColor,
         fontWeight: FontWeight.bold,
       );

@@ -28,6 +28,40 @@ extension StringUtils on String {
   bool get isEmail => RegExp(
           r'^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
       .hasMatch(this);
+
+  List<TextSpan> toMarkdownSpans({
+    required TextStyle normalStyle,
+    required TextStyle boldStyle,
+  }) {
+    final spans = <TextSpan>[];
+    final regex = RegExp(r'\*\*(.+?)\*\*');
+    var lastEnd = 0;
+
+    for (final match in regex.allMatches(this)) {
+      // Add normal text before the match
+      if (match.start > lastEnd) {
+        spans.add(TextSpan(
+          text: substring(lastEnd, match.start),
+          style: normalStyle,
+        ));
+      }
+      
+      spans.add(TextSpan(
+        text: match.group(1),
+        style: boldStyle,
+      ));
+      lastEnd = match.end;
+    }
+    
+    if (lastEnd < length) {
+      spans.add(TextSpan(
+        text: substring(lastEnd),
+        style: normalStyle,
+      ));
+    }
+
+    return spans;
+  }
 }
 
 extension ContextUtils on BuildContext {

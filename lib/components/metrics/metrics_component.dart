@@ -72,7 +72,7 @@ class MetricsComponent extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: Sizes.spacingLarge),
             child: Wrap(
               alignment: WrapAlignment.spaceEvenly,
-              runAlignment: WrapAlignment.spaceEvenly,
+              runAlignment: WrapAlignment.start,
               runSpacing: Sizes.spacingLarge,
               spacing: Sizes.spacingLarge,
               children: Metrics.all

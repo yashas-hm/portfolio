@@ -49,7 +49,7 @@ class ContactConnections extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(color: colors.borderColor),
                             borderRadius: Sizes.borderRadiusSmall,
-                            color: colors.primaryColor.withValues(alpha: 0.1),
+                            color: colors.primaryColor.backgroundColor,
                           ),
                           padding: Sizes.paddingRegular,
                           child: Icon(
