@@ -7,7 +7,7 @@
     },
     {
       "src": "/api",
-      "methods": ["Get", "OPTIONS"],
+      "methods": ["GET", "OPTIONS"],
       "dest": "/api/routes/default.js"
     },
     {
