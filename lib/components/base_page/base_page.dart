@@ -61,6 +61,7 @@ class BasePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
+                  spacing: Sizes.spacingXXL,
                   children: [
                     Flexible(
                       child: Container(
@@ -76,6 +77,7 @@ class BasePage extends StatelessWidget {
                         child: content,
                       ),
                     ),
+                    GlobalFooter(),
                   ],
                 ),
               ),

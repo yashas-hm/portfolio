@@ -20,6 +20,8 @@ class LogoAssets {
 
   static const String flutterLogo = 'assets/logo/flutter.svg';
 
+  static const String vercelLogo = 'assets/logo/vercel.svg';
+
   static const String cssLogo = 'assets/logo/css.svg';
 
   static const String reactLogo = 'assets/logo/react.svg';

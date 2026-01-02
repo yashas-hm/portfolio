@@ -210,8 +210,9 @@ class LinksBlock extends StatelessWidget {
                   ),
                   Text(
                     DataConstants.topContributions,
-                    style:
-                        Styles.extraSmallText(textColor: colors.textSecondary),
+                    style: Styles.extraSmallText(
+                      textColor: colors.textSecondary,
+                    ),
                   ),
                 ],
               ),

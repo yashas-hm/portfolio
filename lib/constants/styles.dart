@@ -89,11 +89,6 @@ class Styles {
         color: textColor,
       );
 
-  static TextStyle extraExtraLargeText({Color? textColor}) => TextStyle(
-        fontSize: 20,
-        color: textColor,
-      );
-
   static TextStyle extraLargeTextBold({Color? textColor}) => TextStyle(
         fontSize: 20,
         color: textColor,

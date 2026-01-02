@@ -49,6 +49,7 @@ class ImageBlock extends StatelessWidget {
                             'Hello 👋🏻, I\'m\nYashas H Majmudar',
                             style: Styles.headlineTextBold(
                               isMobile: context.isMobile,
+                              textColor: colors.onPrimary,
                             ),
                           ),
                         ),
@@ -60,7 +61,9 @@ class ImageBlock extends StatelessWidget {
                           children: [
                             Text(
                               'Architecting ',
-                              style: Styles.extraExtraLargeText(),
+                              style: Styles.extraLargeText(
+                                textColor: colors.onPrimary,
+                              ),
                             ),
                             ShaderMask(
                               shaderCallback: (bounds) => LinearGradient(
@@ -77,7 +80,7 @@ class ImageBlock extends StatelessWidget {
                                     .map(
                                       (text) => TypewriterAnimatedText(
                                         text,
-                                        textStyle: Styles.extraExtraLargeText(
+                                        textStyle: Styles.extraLargeTextBold(
                                           textColor: KnownColors.white,
                                         ),
                                       ),
@@ -93,7 +96,9 @@ class ImageBlock extends StatelessWidget {
                   ),
                   Text(
                     'Let\'s Connect 🤝🏻',
-                    style: Styles.regularText(),
+                    style: Styles.regularText(
+                      textColor: colors.onPrimary,
+                    ),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -112,7 +117,7 @@ class ImageBlock extends StatelessWidget {
                           child: Icon(
                             link.icon,
                             size: Sizes.iconXL,
-                            color: colors.textColor.withValues(alpha: 0.8),
+                            color: colors.onPrimary.withValues(alpha: 0.8),
                           ),
                         ),
                       );
