@@ -18,22 +18,12 @@ class NarrativeItem extends StatelessWidget {
         children: [
           SizedBox(
             width: context.width * 0.9,
-            child: Wrap(
-              alignment:
-                  isMobileView ? WrapAlignment.center : WrapAlignment.start,
-              runAlignment: WrapAlignment.center,
-              children: [
-                Text(
-                  'Engineering ',
-                  style: Styles.extraLargeTextBold(
-                    textColor: colors.textColor,
-                  ),
-                ),
-                GradientText(
-                  text: 'Philosophy',
-                  textStyle: Styles.extraLargeTextBold(),
-                ),
-              ],
+            child: GradientText(
+              text: 'Engineering *Philosophy*',
+              textStyle: Styles.extraLargeTextBold(
+                textColor: colors.textColor,
+              ),
+              textAlign: isMobileView ? TextAlign.center : TextAlign.start,
             ),
           ),
           SizedBox(

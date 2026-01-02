@@ -32,31 +32,13 @@ class SkillsComponent extends StatelessWidget {
       children: [
         SizedBox(
           width: context.width * 0.9,
-          child: Wrap(
-            alignment: WrapAlignment.center,
-            runAlignment: WrapAlignment.center,
-            children: [
-              Text(
-                'The ',
-                style: Styles.headlineTextBold(
-                  textColor: colors.textColor,
-                  isMobile: context.isMobile,
-                ),
-              ),
-              GradientText(
-                text: 'Tech Stack',
-                textStyle: Styles.headlineTextBold(
-                  isMobile: context.isMobile,
-                ),
-              ),
-              Text(
-                ' Terminal',
-                style: Styles.headlineTextBold(
-                  textColor: colors.textColor,
-                  isMobile: context.isMobile,
-                ),
-              ),
-            ],
+          child: GradientText(
+            text: 'The *Tech Stack* Terminal',
+            textStyle: Styles.headlineTextBold(
+              textColor: colors.textColor,
+              isMobile: context.isMobile,
+            ),
+            textAlign: TextAlign.center,
           ),
         ),
         Gap(Sizes.spacingMedium),

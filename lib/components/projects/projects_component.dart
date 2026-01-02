@@ -40,28 +40,13 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
       children: [
         SizedBox(
           width: context.width * 0.9,
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  'Selected ',
-                  style: Styles.headlineTextBold(
-                    textColor: colors.textColor,
-                    isMobile: context.isMobile,
-                  ),
-                ),
-                GradientText(
-                  text: 'Works',
-                  textStyle: Styles.headlineTextBold(
-                    isMobile: context.isMobile,
-                  ),
-                ),
-              ],
+          child: GradientText(
+            text: 'Selected *Works*',
+            textStyle: Styles.headlineTextBold(
+              textColor: colors.textColor,
+              isMobile: context.isMobile,
             ),
+            textAlign: TextAlign.center,
           ),
         ),
         Gap(Sizes.spacingMedium),

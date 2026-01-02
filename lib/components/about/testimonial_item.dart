@@ -40,27 +40,11 @@ class _TestimonialItemState extends State<TestimonialItem> {
             spacing: Sizes.spacingLarge,
             children: [
               Flexible(
-                child: Wrap(
-                  alignment: WrapAlignment.start,
-                  runAlignment: WrapAlignment.start,
-                  children: [
-                    GradientText(
-                      text: 'Professional',
-                      textStyle: Styles.extraLargeTextBold(),
-                    ),
-                    Text(
-                      ' ',
-                      style: Styles.extraLargeTextBold(
-                        textColor: context.colors.textColor,
-                      ),
-                    ),
-                    Text(
-                      'Trust',
-                      style: Styles.extraLargeTextBold(
-                        textColor: context.colors.textColor,
-                      ),
-                    ),
-                  ],
+                child: GradientText(
+                  text: '*Professional* Trust',
+                  textStyle: Styles.extraLargeTextBold(
+                    textColor: context.colors.textColor,
+                  ),
                 ),
               ),
               if (_controller.showArrows)

@@ -31,31 +31,13 @@ class ContactComponent extends StatelessWidget {
       children: [
         SizedBox(
           width: context.width * 0.9,
-          child: Wrap(
-            alignment: WrapAlignment.center,
-            runAlignment: WrapAlignment.center,
-            children: [
-              Text(
-                'Let\'s Build ',
-                style: Styles.headlineTextBold(
-                  textColor: colors.textColor,
-                  isMobile: context.isMobile,
-                ),
-              ),
-              GradientText(
-                text: 'Something',
-                textStyle: Styles.headlineTextBold(
-                  isMobile: context.isMobile,
-                ),
-              ),
-              Text(
-                ' Intelligent!',
-                style: Styles.headlineTextBold(
-                  textColor: colors.textColor,
-                  isMobile: context.isMobile,
-                ),
-              ),
-            ],
+          child: GradientText(
+            text: 'Let\'s Build *Something* Intelligent!',
+            textStyle: Styles.headlineTextBold(
+              textColor: colors.textColor,
+              isMobile: context.isMobile,
+            ),
+            textAlign: TextAlign.center,
           ),
         ),
         Gap(Sizes.spacingMedium),

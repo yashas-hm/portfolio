@@ -48,27 +48,11 @@ class _ResponsibilityItemState extends State<ResponsibilityItem> {
             spacing: Sizes.spacingLarge,
             children: [
               Flexible(
-                child: Wrap(
-                  alignment: WrapAlignment.start,
-                  runAlignment: WrapAlignment.start,
-                  children: [
-                    Text(
-                      'Collaborative',
-                      style: Styles.extraLargeTextBold(
-                        textColor: context.colors.textColor,
-                      ),
-                    ),
-                    Text(
-                      ' ',
-                      style: Styles.extraLargeTextBold(
-                        textColor: context.colors.textColor,
-                      ),
-                    ),
-                    GradientText(
-                      text: 'Leadership',
-                      textStyle: Styles.extraLargeTextBold(),
-                    ),
-                  ],
+                child: GradientText(
+                  text: 'Collaborative *Leadership*',
+                  textStyle: Styles.extraLargeTextBold(
+                    textColor: context.colors.textColor,
+                  ),
                 ),
               ),
               if (_controller.showArrows)

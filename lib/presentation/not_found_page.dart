@@ -25,7 +25,7 @@ class NotFoundPage extends StatelessWidget {
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: GradientText(
-                text: '404',
+                text: '*404*',
                 textStyle: Styles.regularTextBold().copyWith(
                   fontSize: 80,
                 ),

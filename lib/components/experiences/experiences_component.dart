@@ -32,28 +32,13 @@ class ExperiencesComponent extends StatelessWidget {
       children: [
         SizedBox(
           width: context.width * 0.9,
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                GradientText(
-                  text: 'Career ',
-                  textStyle: Styles.headlineTextBold(
-                    isMobile: context.isMobile,
-                  ),
-                ),
-                Text(
-                  'Path',
-                  style: Styles.headlineTextBold(
-                    textColor: colors.textColor,
-                    isMobile: context.isMobile,
-                  ),
-                ),
-              ],
+          child: GradientText(
+            text: '*Career* Path',
+            textStyle: Styles.headlineTextBold(
+              textColor: colors.textColor,
+              isMobile: context.isMobile,
             ),
+            textAlign: TextAlign.center,
           ),
         ),
         Gap(Sizes.spacingMedium),

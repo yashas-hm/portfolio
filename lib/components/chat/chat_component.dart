@@ -67,31 +67,13 @@ class _ChatComponentState extends State<ChatComponent> {
           if (!_hasStartedChat) ...[
             SizedBox(
               width: context.width * 0.9,
-              child: Wrap(
-                alignment: WrapAlignment.center,
-                runAlignment: WrapAlignment.center,
-                children: [
-                  Text(
-                    'How can I ',
-                    style: Styles.headlineTextBold(
-                      textColor: colors.textColor,
-                      isMobile: context.isMobile,
-                    ),
-                  ),
-                  GradientText(
-                    text: 'Help You',
-                    textStyle: Styles.headlineTextBold(
-                      isMobile: context.isMobile,
-                    ),
-                  ),
-                  Text(
-                    ' Today?',
-                    style: Styles.headlineTextBold(
-                      textColor: colors.textColor,
-                      isMobile: context.isMobile,
-                    ),
-                  ),
-                ],
+              child: GradientText(
+                text: 'How can I *Help You* Today?',
+                textStyle: Styles.headlineTextBold(
+                  textColor: colors.textColor,
+                  isMobile: context.isMobile,
+                ),
+                textAlign: TextAlign.center,
               ),
             ),
             Gap(Sizes.spacingMedium),
