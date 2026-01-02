@@ -2,6 +2,8 @@ part of 'chat_component.dart';
 
 class ChatView extends StatelessWidget {
   ChatView({super.key});
+  
+  static const Key heroTag = ValueKey('AskYashas');
 
   final ChatRepository _chatRepo = ChatRepository.instance;
 
@@ -59,9 +61,12 @@ class ChatView extends StatelessWidget {
               ),
             ),
           ),
-          ChatTextField(
-            onSend: _chatRepo.askQuestion,
-            disableSend: state.isLoading,
+          Hero(
+            tag: heroTag,
+            child: ChatTextField(
+              onSend: _chatRepo.askQuestion,
+              disableSend: state.isLoading,
+            ),
           ),
         ],
       ),

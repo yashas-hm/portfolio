@@ -3,6 +3,12 @@ part of 'skills_component.dart';
 class SkillChip extends StatelessWidget {
   const SkillChip({super.key, required this.skill, this.compact = false});
 
+  static SkillChip fromText(String text, SkillCategory category) => SkillChip(
+          skill: Skill(
+        name: text,
+        category: category,
+      ));
+
   final Skill skill;
   final bool compact;
 

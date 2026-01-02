@@ -86,7 +86,7 @@ class _ChatTextFieldState extends State<ChatTextField> {
         ),
         hint: AnimatedTextKit(
           pause: 800.milliseconds,
-          animatedTexts: ChatRecommendation.recommendations
+          animatedTexts: DataConstants.recommendations
               .map(
                 (text) => TypewriterAnimatedText(
                   text,
@@ -94,7 +94,10 @@ class _ChatTextFieldState extends State<ChatTextField> {
                   textStyle: (context.isMobile
                           ? Styles.smallText()
                           : Styles.regularText())
-                      .copyWith(color: colors.textSecondary),
+                      .copyWith(
+                    color: colors.textSecondary,
+                    decoration: TextDecoration.none,
+                  ),
                 ),
               )
               .toList(),

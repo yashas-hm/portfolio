@@ -291,20 +291,20 @@ class Skills {
     category: SkillCategory.iot,
   );
 
-  static const githubSkill = Skill(
+  static const github = Skill(
     name: 'GitHub',
     icon: LogoAssets.githubLogo,
     category: SkillCategory.cloudTools,
     overrideLogoColor: true,
   );
 
-  static const gitlabSkill = Skill(
+  static const gitlab = Skill(
     name: 'Gitlab',
     icon: LogoAssets.gitlabLogo,
     category: SkillCategory.cloudTools,
   );
 
-  static const vertexAISkill = Skill(
+  static const vertexAI = Skill(
     name: 'Vertex AI',
     icon: LogoAssets.vertexAiLogo,
     category: SkillCategory.mlAi,
@@ -324,6 +324,18 @@ class Skills {
     name: 'AR',
     category: SkillCategory.mlAi,
   );
+  
+  static List<Skill> get coreStack => [
+    Skills.flutter,      
+    Skills.typescript,
+    Skills.python,       
+    Skills.langchain,
+    Skills.fastapi,      
+    Skills.nodeJs,       
+    Skills.git,
+    Skills.docker,       
+    Skills.vectorDB,     
+  ]; 
 }
 
 class SkillGroups {
@@ -362,9 +374,9 @@ class SkillGroups {
       Skills.flutter,
       Skills.android,
       Skills.ios,
-      Skills.react,
       Skills.html,
       Skills.css,
+      Skills.react,
     ],
   );
 
@@ -402,9 +414,9 @@ class SkillGroups {
       Skills.docker,
       Skills.kubernetes,
       Skills.githubActions,
-      Skills.jenkins,
-      Skills.ansible,
-      Skills.prometheus,
+      // Skills.jenkins,
+      // Skills.ansible,
+      // Skills.prometheus,
     ],
   );
 
@@ -416,7 +428,7 @@ class SkillGroups {
       Skills.langGraph,
       Skills.ollama,
       Skills.llms,
-      Skills.vertexAISkill,
+      Skills.vertexAI,
       Skills.huggingface,
       Skills.opencv,
       Skills.tensorflow,
@@ -427,8 +439,8 @@ class SkillGroups {
     groupName: 'Cloud & Tools',
     groupIcon: FontAwesomeIcons.solidCloud,
     skills: [
-      Skills.githubSkill,
-      Skills.gitlabSkill,
+      Skills.github,
+      Skills.gitlab,
       Skills.gcp,
       Skills.aws,
       Skills.jira,

@@ -32,40 +32,21 @@ class Intro extends StatelessWidget {
               spacing: Sizes.spacingSmall,
               children: [
                 Text(
-                  About.role,
+                  DataConstants.role,
                   style: Styles.smallTextBold(
                     textColor: colors.primaryColor,
                   ),
                 ),
-                Wrap(
-                  alignment:
-                      isMobileView ? WrapAlignment.center : WrapAlignment.start,
-                  runAlignment: WrapAlignment.start,
-                  children: [
-                    Text(
-                      'Architecting ',
-                      style: Styles.headlineTextBold(
-                        textColor: colors.textColor,
-                        isMobile: context.isMobile,
-                      ),
-                    ),
-                    GradientText(
-                      text: 'Intelligent ',
-                      textStyle: Styles.headlineTextBold(
-                        isMobile: context.isMobile,
-                      ),
-                    ),
-                    Text(
-                      'Systems.',
-                      style: Styles.headlineTextBold(
-                        textColor: colors.textColor,
-                        isMobile: context.isMobile,
-                      ),
-                    ),
-                  ],
+                GradientText(
+                  text: 'Architecting *Intelligent* Systems.',
+                  textStyle: Styles.headlineTextBold(
+                    textColor: colors.textColor,
+                    isMobile: context.isMobile,
+                  ),
+                  textAlign: isMobileView ? TextAlign.center : TextAlign.start,
                 ),
                 Text(
-                  About.summary,
+                  DataConstants.summary,
                   style: Styles.subText(
                     textColor: colors.textSecondary,
                     isMobile: context.isMobile,

@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/components/about/responsibility_item.dart';
 import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/data/about.dart';
+import 'package:portfolio/data/data_constants.dart';
 import 'package:portfolio/data/narratives.dart';
 import 'package:portfolio/data/skills.dart';
 import 'package:portfolio/data/testimonials.dart';

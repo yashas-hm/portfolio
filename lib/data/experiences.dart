@@ -41,7 +41,7 @@ class Experiences {
       Skills.mysql,
       Skills.python,
       Skills.git,
-      Skills.gitlabSkill,
+      Skills.gitlab,
     ],
     icon: FontAwesomeIcons.laptopCode,
   );

@@ -8,7 +8,7 @@ class Metrics {
     impactIcon: FontAwesomeIcons.peopleGroup,
     metricSuffixIcon: FontAwesomeIcons.plus,
     details:
-        'Active users supported via scalable cloud infrastructure and efficient backend logic',
+        'Active users supported via scalable cloud infrastructure and efficient backend logic.',
     name: 'High Concurrency',
     metric: '10k',
   );
@@ -17,7 +17,7 @@ class Metrics {
     impactIcon: FontAwesomeIcons.bolt,
     metricSuffixIcon: FontAwesomeIcons.percent,
     details:
-        'Faster data retrieval across the stack, from database queries to frontend rendering',
+        'Faster data retrieval across the stack, from database queries to frontend rendering.',
     name: 'Latency Optimization',
     metric: '40',
     suffixIcon: FontAwesomeIcons.arrowDownLong,
@@ -26,7 +26,7 @@ class Metrics {
   static const globalDeployment = Metric(
     impactIcon: FontAwesomeIcons.earthAmericas,
     metricSuffixIcon: FontAwesomeIcons.plus,
-    details: 'Deploying robust applications serving a massive global audience',
+    details: 'Deploying robust & scalable software systems serving to massive global audiences.',
     name: 'Global Deployment',
     metric: '100k',
   );
@@ -35,7 +35,7 @@ class Metrics {
     impactIcon: FontAwesomeIcons.shieldHalved,
     metricSuffixIcon: FontAwesomeIcons.percent,
     details:
-        'Reduction in production errors via clean architecture and rigorous CI/CD',
+        'Reduction in production errors via clean architecture and rigorous CI/CD.',
     name: 'System Resilience',
     metric: '40',
     suffixIcon: FontAwesomeIcons.arrowDownLong,

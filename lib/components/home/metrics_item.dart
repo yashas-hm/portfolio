@@ -1,7 +1,54 @@
-part of 'metrics_component.dart';
+part of 'home_component.dart';
 
-class MetricItem extends StatelessWidget {
-  const MetricItem({super.key, required this.impact});
+class MetricsItem extends StatelessWidget {
+  const MetricsItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+
+    return SizedBox(
+      width: context.width * 0.9,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
+            width: context.width * 0.9,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: GradientText(
+                text: 'Engineering *Impact*.',
+                textStyle: Styles.headlineTextBold(
+                  textColor: colors.textColor,
+                  isMobile: context.isMobile,
+                ),
+              ),
+            ),
+          ),
+          Gap(Sizes.spacingMedium),
+          Subtext(
+            'Beyond clean code, I build scalable, efficient systems that drive measurable product growth with AI-native architectures.',
+          ),
+          Gap(Sizes.spacingXL),
+          Wrap(
+            alignment: WrapAlignment.spaceEvenly,
+            runAlignment: WrapAlignment.start,
+            runSpacing: Sizes.spacingLarge,
+            spacing: Sizes.spacingLarge,
+            children: Metrics.all
+                .map((impact) => _MetricCard(impact: impact))
+                .toList(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _MetricCard extends StatelessWidget {
+  const _MetricCard({required this.impact});
 
   final Metric impact;
 
@@ -10,10 +57,10 @@ class MetricItem extends StatelessWidget {
     final colors = context.colors;
 
     return Container(
-      height: 250,
-      width: context.isMobile ? context.width : context.width / 5,
+      height: 300,
+      width: context.isMobile ? context.width : context.width / 5.5,
       constraints: BoxConstraints(
-        minWidth: 300,
+        minWidth: 250,
       ),
       decoration: BoxDecoration(
         color: colors.surfaceColor,
@@ -77,10 +124,12 @@ class MetricItem extends StatelessWidget {
                 ],
               ),
               Flexible(
-                child: Container(),
-              ),
-              Divider(
-                color: colors.borderColor,
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Divider(
+                    color: colors.borderColor,
+                  ),
+                ),
               ),
               Gap(Sizes.spacingRegular),
               Text(

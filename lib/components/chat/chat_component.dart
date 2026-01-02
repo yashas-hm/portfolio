@@ -5,6 +5,7 @@ import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/data/data_constants.dart' show DataConstants;
 import 'package:portfolio/model/chat.dart';
 import 'package:portfolio/repositories/chat_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
