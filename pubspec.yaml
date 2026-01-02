@@ -29,33 +29,14 @@ dependencies:
   oktoast: ^3.4.0
   lava_lamp_effect: ^1.0.3
   animated_text_kit: ^4.3.0
-  #-------------------------------------------------------------
-
-
+  
 dev_dependencies:
   flutter_lints: ^6.0.0
 
 flutter:
-
   uses-material-design: true
-
-  fonts:
-    - family: space_grotesk
-      fonts:
-        - asset: assets/fonts/sg300.ttf
-          weight: 300
-        - asset: assets/fonts/sg400.ttf
-          weight: 400
-          style: normal
-        - asset: assets/fonts/sg500.ttf
-          weight: 500
-        - asset: assets/fonts/sg600.ttf
-          weight: 600
-        - asset: assets/fonts/sg700.ttf
-          weight: 700
 
   assets:
     - assets/
-    - assets/fonts/
     - assets/images/
     - assets/logo/

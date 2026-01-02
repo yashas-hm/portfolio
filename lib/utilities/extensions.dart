@@ -38,7 +38,6 @@ extension StringUtils on String {
     var lastEnd = 0;
 
     for (final match in regex.allMatches(this)) {
-      // Add normal text before the match
       if (match.start > lastEnd) {
         spans.add(TextSpan(
           text: substring(lastEnd, match.start),

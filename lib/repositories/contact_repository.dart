@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer' show log;
 
 import 'package:http/http.dart' as http show post;
 import 'package:portfolio/model/contact.dart';
@@ -19,7 +18,6 @@ class ContactRepository {
 
       return ContactResponse.fromJson(responseBody);
     } catch (err) {
-      log(err.toString());
       return ContactResponse(
         success: false,
         message: 'An unexpected anomaly interrupted the transmission.',

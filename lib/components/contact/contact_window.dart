@@ -190,7 +190,7 @@ class _ContactWindowState extends State<ContactWindow> {
                                     );
 
                                     if (context.mounted) {
-                                      Utils.showToast(
+                                      Toast.showToast(
                                         context,
                                         response.message,
                                         response.success,

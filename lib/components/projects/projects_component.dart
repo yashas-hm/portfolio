@@ -10,10 +10,10 @@ import 'package:portfolio/data/projects.dart' show Projects;
 import 'package:portfolio/model/project.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
-import 'package:portfolio/widgets/new_widgets/custom_cached_image.dart';
-import 'package:portfolio/widgets/new_widgets/sequential_animator.dart';
-import 'package:portfolio/widgets/new_widgets/text/gradient_text.dart';
-import 'package:portfolio/widgets/new_widgets/text/subtext.dart';
+import 'package:portfolio/widgets//custom_cached_image.dart';
+import 'package:portfolio/widgets//text/subtext.dart';
+import 'package:portfolio/widgets/sequential_animator.dart';
+import 'package:portfolio/widgets/text/gradient_text.dart';
 
 part 'project_item.dart';
 part 'project_tag_selector.dart';
