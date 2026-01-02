@@ -10,8 +10,8 @@ import 'package:portfolio/repositories/contact_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/toast.dart';
 import 'package:portfolio/utilities/utils.dart';
-import 'package:portfolio/widgets//text/subtext.dart';
 import 'package:portfolio/widgets/text/gradient_text.dart';
+import 'package:portfolio/widgets/text/subtext.dart';
 import 'package:portfolio/widgets/window_container.dart';
 
 part 'contact_connections.dart';

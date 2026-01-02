@@ -8,10 +8,10 @@ import 'package:portfolio/data/experiences.dart';
 import 'package:portfolio/model/experience.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
-import 'package:portfolio/widgets//bounce_animator.dart';
-import 'package:portfolio/widgets//text/subtext.dart';
+import 'package:portfolio/widgets/bounce_animator.dart';
 import 'package:portfolio/widgets/sequential_animator.dart';
 import 'package:portfolio/widgets/text/gradient_text.dart';
+import 'package:portfolio/widgets/text/subtext.dart';
 
 part 'experience_item.dart';
 

@@ -197,6 +197,10 @@ class _ContactWindowState extends State<ContactWindow> {
                                       );
                                     }
 
+                                    if (response.success) {
+                                      _request = ContactRequest.empty();
+                                    }
+
                                     setState(() {
                                       _loading = false;
                                       _message = response.success

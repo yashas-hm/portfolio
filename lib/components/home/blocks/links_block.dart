@@ -109,112 +109,126 @@ class LinksBlock extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           spacing: Sizes.spacingLarge,
           children: [
-            Container(
-              height: boxSize,
-              width: boxSize,
-              decoration: BoxDecoration(
-                color: colors.surfaceColor,
-                borderRadius: Sizes.borderRadiusRegular,
-                border: Border.all(color: colors.borderColor),
-              ),
-              padding: Sizes.paddingRegular,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: KnownColors.purple500),
-                            borderRadius: Sizes.borderRadiusSmall,
-                            color: KnownColors.purple500.backgroundColor,
-                          ),
-                          padding: Sizes.paddingSmall,
-                          child: Icon(
-                            FontAwesomeIcons.microphoneLines,
-                            size: Sizes.iconMedium,
-                            color: KnownColors.purple500,
-                          ),
+            MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: GestureDetector(
+                onTap: () => AppNavigator.push(Routes.talks),
+                child: Container(
+                  height: boxSize,
+                  width: boxSize,
+                  decoration: BoxDecoration(
+                    color: colors.surfaceColor,
+                    borderRadius: Sizes.borderRadiusRegular,
+                    border: Border.all(color: colors.borderColor),
+                  ),
+                  padding: Sizes.paddingRegular,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: KnownColors.purple500),
+                                borderRadius: Sizes.borderRadiusSmall,
+                                color: KnownColors.purple500.backgroundColor,
+                              ),
+                              padding: Sizes.paddingSmall,
+                              child: Icon(
+                                FontAwesomeIcons.microphoneLines,
+                                size: Sizes.iconMedium,
+                                color: KnownColors.purple500,
+                              ),
+                            ),
+                            Icon(
+                              FontAwesomeIcons.arrowUpRightFromSquare,
+                              size: Sizes.iconRegular,
+                            ),
+                          ],
                         ),
-                        Icon(
-                          FontAwesomeIcons.arrowUpRightFromSquare,
-                          size: Sizes.iconRegular,
-                        ),
-                      ],
-                    ),
+                      ),
+                      Text(
+                        'Talks',
+                        style: Styles.regularTextBold(),
+                      ),
+                      Text(
+                        DataConstants.latestTalk.name,
+                        style:
+                            Styles.smallText(textColor: colors.textSecondary),
+                      ),
+                      Text(
+                        DataConstants.latestTalk.host,
+                        style: Styles.extraSmallText(
+                            textColor: colors.textSecondary),
+                      ),
+                    ],
                   ),
-                  Text(
-                    'Talks',
-                    style: Styles.regularTextBold(),
-                  ),
-                  Text(
-                    DataConstants.latestTalk.name,
-                    style: Styles.smallText(textColor: colors.textSecondary),
-                  ),
-                  Text(
-                    DataConstants.latestTalk.host,
-                    style:
-                        Styles.extraSmallText(textColor: colors.textSecondary),
-                  ),
-                ],
+                ),
               ),
             ),
-            Container(
-              height: boxSize,
-              width: boxSize,
-              decoration: BoxDecoration(
-                color: colors.surfaceColor,
-                borderRadius: Sizes.borderRadiusRegular,
-                border: Border.all(color: colors.borderColor),
-              ),
-              padding: Sizes.paddingRegular,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: KnownColors.green600),
-                            borderRadius: Sizes.borderRadiusSmall,
-                            color: KnownColors.green600.backgroundColor,
-                          ),
-                          padding: Sizes.paddingSmall,
-                          child: Icon(
-                            FontAwesomeIcons.codeBranch,
-                            size: Sizes.iconMedium,
-                            color: KnownColors.green600,
-                          ),
+            MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: GestureDetector(
+                onTap: () => AppNavigator.push(Routes.contributions),
+                child: Container(
+                  height: boxSize,
+                  width: boxSize,
+                  decoration: BoxDecoration(
+                    color: colors.surfaceColor,
+                    borderRadius: Sizes.borderRadiusRegular,
+                    border: Border.all(color: colors.borderColor),
+                  ),
+                  padding: Sizes.paddingRegular,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(color: KnownColors.green600),
+                                borderRadius: Sizes.borderRadiusSmall,
+                                color: KnownColors.green600.backgroundColor,
+                              ),
+                              padding: Sizes.paddingSmall,
+                              child: Icon(
+                                FontAwesomeIcons.codeBranch,
+                                size: Sizes.iconMedium,
+                                color: KnownColors.green600,
+                              ),
+                            ),
+                            Icon(
+                              FontAwesomeIcons.arrowUpRightFromSquare,
+                              size: Sizes.iconRegular,
+                            ),
+                          ],
                         ),
-                        Icon(
-                          FontAwesomeIcons.arrowUpRightFromSquare,
-                          size: Sizes.iconRegular,
+                      ),
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          'Top Contributions',
+                          style: Styles.regularTextBold(),
                         ),
-                      ],
-                    ),
+                      ),
+                      Text(
+                        DataConstants.topContributions,
+                        style: Styles.extraSmallText(
+                          textColor: colors.textSecondary,
+                        ),
+                      ),
+                    ],
                   ),
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      'Top Contributions',
-                      style: Styles.regularTextBold(),
-                    ),
-                  ),
-                  Text(
-                    DataConstants.topContributions,
-                    style: Styles.extraSmallText(
-                      textColor: colors.textSecondary,
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
           ],

@@ -10,8 +10,8 @@ import 'package:portfolio/model/chat.dart';
 import 'package:portfolio/repositories/chat_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
-import 'package:portfolio/widgets//text/subtext.dart';
 import 'package:portfolio/widgets/text/gradient_text.dart';
+import 'package:portfolio/widgets/text/subtext.dart';
 
 part 'chat_bubble/ai_chat_bubble.dart';
 part 'chat_bubble/error_bubble.dart';

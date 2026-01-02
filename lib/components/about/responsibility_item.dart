@@ -4,8 +4,8 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/data/responsibilities.dart';
 import 'package:portfolio/model/responsibility.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:portfolio/widgets//sliding_carousel.dart';
 import 'package:portfolio/widgets/arrow_controller.dart';
+import 'package:portfolio/widgets/sliding_carousel.dart';
 import 'package:portfolio/widgets/text/gradient_text.dart';
 
 class ResponsibilityItem extends StatefulWidget {

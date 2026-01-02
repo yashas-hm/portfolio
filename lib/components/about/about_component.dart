@@ -16,9 +16,9 @@ import 'package:portfolio/model/skill.dart';
 import 'package:portfolio/model/testimonial.dart';
 import 'package:portfolio/repositories/theme_repository.dart';
 import 'package:portfolio/utilities/extensions.dart';
-import 'package:portfolio/widgets//sliding_carousel.dart';
 import 'package:portfolio/widgets/arrow_controller.dart';
 import 'package:portfolio/widgets/auto_scroll.dart';
+import 'package:portfolio/widgets/sliding_carousel.dart';
 import 'package:portfolio/widgets/text/gradient_text.dart';
 
 part 'intro/display_image.dart';

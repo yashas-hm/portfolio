@@ -112,15 +112,5 @@ class LogoAssets {
 
   static const String vertexAiLogo = 'assets/logo/vertexAi.svg';
 
-  static const String mailLogo = 'assets/logo/mail.svg';
-
-  static const String locationLogo = 'assets/logo/location.svg';
-
   static const String githubLogo = 'assets/logo/github.svg';
-
-  static const String githubAvatarLogo = 'assets/logo/github_avatar.svg';
-
-  static const String linkedinLogo = 'assets/logo/linkedin.svg';
-
-  static const String instagramLogo = 'assets/logo/instagram.svg';
 }
