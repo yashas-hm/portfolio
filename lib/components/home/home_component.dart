@@ -13,7 +13,6 @@ import 'package:portfolio/data/links.dart';
 import 'package:portfolio/data/metrics.dart';
 import 'package:portfolio/data/skills.dart';
 import 'package:portfolio/model/metric.dart';
-import 'package:portfolio/model/skill.dart';
 import 'package:portfolio/navigation/navigation.dart';
 import 'package:portfolio/repositories/chat_repository.dart';
 import 'package:portfolio/repositories/theme_repository.dart';

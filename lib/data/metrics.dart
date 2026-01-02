@@ -26,7 +26,8 @@ class Metrics {
   static const globalDeployment = Metric(
     impactIcon: FontAwesomeIcons.earthAmericas,
     metricSuffixIcon: FontAwesomeIcons.plus,
-    details: 'Deploying robust & scalable software systems serving to massive global audiences.',
+    details:
+        'Deploying robust & scalable software systems serving to massive global audiences.',
     name: 'Global Deployment',
     metric: '100k',
   );

@@ -1,12 +1,36 @@
 part of 'navigation.dart';
 
 enum Routes {
-  home('Home', '/'),
-  about('About', '/about'),
-  experience('Experience', '/experiences'),
-  projects('Projects', '/projects'),
-  skills('Skills', '/skills'),
-  contact('Contact', '/contact'),
+  home(
+    'Home',
+    '/',
+    icon: FontAwesomeIcons.solidHouse,
+  ),
+  about(
+    'About',
+    '/about',
+    icon: FontAwesomeIcons.solidUser,
+  ),
+  experience(
+    'Experience',
+    '/experiences',
+    icon: FontAwesomeIcons.briefcase,
+  ),
+  projects(
+    'Projects',
+    '/projects',
+    icon: FontAwesomeIcons.diagramProject,
+  ),
+  skills(
+    'Skills',
+    '/skills',
+    icon: FontAwesomeIcons.laptopCode,
+  ),
+  contact(
+    'Contact',
+    '/contact',
+    icon: FontAwesomeIcons.solidEnvelope,
+  ),
   chat(
     'AskYashas',
     '/chat',
@@ -20,7 +44,7 @@ enum Routes {
   contributions(
     'Contributions',
     '/contributions',
-    icon: FontAwesomeIcons.codeFork,
+    icon: FontAwesomeIcons.codeBranch,
   ),
   talks(
     'Tech Talks',

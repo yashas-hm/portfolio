@@ -21,7 +21,9 @@ class GlobalFooter extends StatelessWidget {
         children: [
           Text(
             '// Connect',
-            style: Styles.smallRegularTextBold(textColor: colors.primaryColor),
+            style: Styles.smallRegularTextBold(
+              textColor: colors.primaryColor,
+            ),
           ),
           Row(
             mainAxisSize: MainAxisSize.max,
@@ -48,6 +50,7 @@ class GlobalFooter extends StatelessWidget {
               );
             }).toList(),
           ),
+          Gap(Sizes.spacingSmall),
           SizedBox(
             width: double.infinity,
             child: Wrap(

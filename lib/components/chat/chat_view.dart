@@ -2,7 +2,7 @@ part of 'chat_component.dart';
 
 class ChatView extends StatelessWidget {
   ChatView({super.key});
-  
+
   static const Key heroTag = ValueKey('AskYashas');
 
   final ChatRepository _chatRepo = ChatRepository.instance;

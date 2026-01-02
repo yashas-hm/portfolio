@@ -2,6 +2,7 @@ import 'package:day_night_themed_switcher/day_night_themed_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gap/gap.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/data/links.dart';
 import 'package:portfolio/navigation/navigation.dart';

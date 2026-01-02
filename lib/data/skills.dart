@@ -324,18 +324,18 @@ class Skills {
     name: 'AR',
     category: SkillCategory.mlAi,
   );
-  
+
   static List<Skill> get coreStack => [
-    Skills.flutter,      
-    Skills.typescript,
-    Skills.python,       
-    Skills.langchain,
-    Skills.fastapi,      
-    Skills.nodeJs,       
-    Skills.git,
-    Skills.docker,       
-    Skills.vectorDB,     
-  ]; 
+        Skills.flutter,
+        Skills.typescript,
+        Skills.python,
+        Skills.langchain,
+        Skills.fastapi,
+        Skills.nodeJs,
+        Skills.git,
+        Skills.docker,
+        Skills.vectorDB,
+      ];
 }
 
 class SkillGroups {

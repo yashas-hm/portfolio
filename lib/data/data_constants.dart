@@ -35,5 +35,6 @@ class DataConstants {
     name: 'AI on Edge',
     host: 'GDG Chapel Hill',
   );
-  static const String topContributions = 'Serverpod | Very Good Ventures | Supabase CLI';
+  static const String topContributions =
+      'Serverpod | Very Good Ventures | Supabase CLI';
 }

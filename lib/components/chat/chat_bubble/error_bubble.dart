@@ -14,7 +14,7 @@ class ErrorBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     final isMobileView = context.isMobile || context.width < context.height;
-    
+
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
