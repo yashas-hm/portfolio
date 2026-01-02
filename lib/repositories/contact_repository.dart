@@ -10,7 +10,7 @@ class ContactRepository {
       ContactRequest request) async {
     try {
       final response = await http.post(
-        Uri.parse('https://staging.yashashm.dev/api/mail'),
+        Uri.parse('https://yashashm.dev/api/mail'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(request.toJson()),
       );
