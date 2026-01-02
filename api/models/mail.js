@@ -17,7 +17,7 @@
  * @returns {MailResponse}
  */
 function successResponse(message) {
-  return { success: true, message };
+    return {success: true, message};
 }
 
 /**
@@ -26,7 +26,7 @@ function successResponse(message) {
  * @returns {MailResponse}
  */
 function errorResponse(message) {
-  return { success: false, message };
+    return {success: false, message};
 }
 
-module.exports = { successResponse, errorResponse };
+module.exports = {successResponse, errorResponse};
