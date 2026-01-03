@@ -201,6 +201,7 @@ class _ContactWindowState extends State<ContactWindow> {
 
                                     if (response.success) {
                                       _request = ContactRequest.empty();
+                                      _formKey.currentState?.reset();
                                     }
 
                                     setState(() {
