@@ -1,4 +1,4 @@
-name: Build and Deploy Flutter Web to Vercel Repo
+name: Build and Deploy Flutter Web to Vercel
 
 on:
   push:
@@ -14,9 +14,12 @@ on:
   workflow_dispatch:
 
 jobs:
-
+  get-secrets:
+    uses: yashas-hm/shared-secrets/.github/workflows/vercel_secrets.yml@main
+    
   build:
     runs-on: ubuntu-latest
+    needs: get-secrets
 
     steps:
       - uses: actions/checkout@v4
@@ -31,57 +34,25 @@ jobs:
       - name: Enable Web
         run: flutter config --enable-web
 
-      - name: Get Flutter Dependencies
+      - name: Install Dependencies
         run: flutter pub get
 
       - name: Build Flutter Web
         run: flutter build web
 
-      - name: Prepare Build Artifact
+      - name: Prepare Build
         run: |
-          mkdir web_build
-          cp -rf build/web/. web_build
-          cp -rf api web_build
-          rm -f web_build/api/.env
-          cp -f .vercelignore web_build
-          cp -f vercel.json web_build
+          mkdir vercel_build
+          cp -rf build/web/. vercel_build
+          cp -rf api/. vercel_build
+          cp -f .vercelignore vercel_build
+          cp -f vercel.json vercel_build
 
-      - name: Create Build Artifact
-        uses: actions/upload-artifact@v4
+      - name: Deploy on Vercel
+        uses: amondnet/vercel-action@v41.1.4
         with:
-          name: flutter-web-build
-          path: web_build
-          retention-days: 1
-
-  deploy:
-    needs: build
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Git Setup
-        run: |
-          git config --global user.email yashashm.dev@gmail.com
-          git config --global user.name yashas-hm
-          git clone https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/yashas-hm/vercel-portfolio-website.git
-          cp -rf vercel-portfolio-website/. .
-          rm -r vercel-portfolio-website/
-          rm -rf assets/
-          git remote remove origin
-          git remote add origin https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/yashas-hm/vercel-portfolio-website.git
-          cd ..
-
-      - name: Get Build Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: flutter-web-build
-          path: build/
-
-      - name: Push to Server Branch
-        run: |
-          cp -rf build/. .
-          rm -r build/
-          cp index.html 404.html
-          git add .
-          git commit -m "Workflow Deploy"
-          git push --set-upstream origin main
+          vercel-token: ${{ needs.get-secrets.outputs.VERCEL_TOKEN }}
+          vercel-org-id: ${{ needs.get-secrets.outputs.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod' 
+          working-directory: vercel_build/
