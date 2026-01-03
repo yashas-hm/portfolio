@@ -1,4 +1,4 @@
-const mailjet = require('node-mailjet');
+const Mailjet = require('node-mailjet');
 const {getValidOrigin} = require('../middleware');
 const {successResponse, errorResponse} = require('../models/mail');
 require('dotenv/config');
@@ -21,10 +21,12 @@ module.exports = async (req, res) => {
 
     const {name, email, message} = req.body;
 
-    const mailer = mailjet.apiConnect(
-        process.env.MAILJET_USERNAME,
-        process.env.MAILJET_PASS
-    );
+    const mailer = new Mailjet({
+        apiKey: process.env.MAILJET_USERNAME,
+        apiSecret: process.env.MAILJET_PASS
+    });
+    
+    
 
     const body = {
         Globals: {
