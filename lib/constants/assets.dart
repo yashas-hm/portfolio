@@ -1,0 +1,116 @@
+part of 'constants.dart';
+
+class ImageAssets {
+  static const String avatarImage = 'assets/images/avatar.svg';
+
+  static const String darkGIFImage = 'assets/images/coding_dark.gif';
+
+  static const String lightGIFImage = 'assets/images/coding_light.gif';
+
+  static const String displayImage = 'assets/images/display_image.png';
+
+  static const String displayImagePop = 'assets/images/display_image_pop.svg';
+
+  static const String displayImageAnnotation =
+      'assets/images/display_image_annotation.svg';
+}
+
+class LogoAssets {
+  LogoAssets._();
+
+  static const String flutterLogo = 'assets/logo/flutter.svg';
+
+  static const String vercelLogo = 'assets/logo/vercel.svg';
+
+  static const String cssLogo = 'assets/logo/css.svg';
+
+  static const String reactLogo = 'assets/logo/react.svg';
+
+  static const String htmlLogo = 'assets/logo/html.svg';
+
+  static const String fastapiLogo = 'assets/logo/fastapi.svg';
+
+  static const String nodeJsLogo = 'assets/logo/node.svg';
+
+  static const String expressJsLogo = 'assets/logo/express.svg';
+
+  static const String nginxLogo = 'assets/logo/nginx.svg';
+
+  static const String graphQlLogo = 'assets/logo/graphql.svg';
+
+  static const String jenkinsLogo = 'assets/logo/jenkins.svg';
+
+  static const String kubernetesLogo = 'assets/logo/kubernetes.svg';
+
+  static const String dockerLogo = 'assets/logo/docker.svg';
+
+  static const String ansibleLogo = 'assets/logo/ansible.svg';
+
+  static const String githubActionsLogo = 'assets/logo/github_actions.svg';
+
+  static const String prometheusLogo = 'assets/logo/prometheus.svg';
+
+  static const String psqlLogo = 'assets/logo/postgresql.svg';
+
+  static const String firebaseLogo = 'assets/logo/firebase.svg';
+
+  static const String supabaseLogo = 'assets/logo/supabase.svg';
+
+  static const String mysqlLogo = 'assets/logo/mysql.svg';
+
+  static const String mongoDbLogo = 'assets/logo/mongodb.svg';
+
+  static const String gitLogo = 'assets/logo/git.svg';
+
+  static const String awsLogo = 'assets/logo/aws.svg';
+
+  static const String gcpLogo = 'assets/logo/gcp.svg';
+
+  static const String jsLogo = 'assets/logo/javascript.svg';
+
+  static const String javaLogo = 'assets/logo/java.svg';
+
+  static const String bashLogo = 'assets/logo/bash.svg';
+
+  static const String pythonLogo = 'assets/logo/python.svg';
+
+  static const String dartLogo = 'assets/logo/dart.svg';
+
+  static const String cppLogo = 'assets/logo/c.svg';
+
+  static const String typescriptLogo = 'assets/logo/typescript.svg';
+
+  static const String ollamaLogo = 'assets/logo/ollama.svg';
+
+  static const String huggingfaceLogo = 'assets/logo/huggingface.svg';
+
+  static const String langchainLogo = 'assets/logo/langchain.svg';
+
+  static const String opencvLogo = 'assets/logo/opencv.svg';
+
+  static const String tensorFlowLogo = 'assets/logo/tensorflow.svg';
+
+  static const String arduinoLogo = 'assets/logo/arduino.svg';
+
+  static const String raspberryPiLogo = 'assets/logo/raspberry.svg';
+
+  static const String jiraLogo = 'assets/logo/jira.svg';
+
+  static const String slackLogo = 'assets/logo/slack.svg';
+
+  static const String vectorDBLogo = 'assets/logo/pinecone.svg';
+
+  static const String cSharpLogo = 'assets/logo/csharp.svg';
+
+  static const String dotnetLogo = 'assets/logo/dotnet.svg';
+
+  static const String swiftLogo = 'assets/logo/swift.svg';
+
+  static const String kotlinLogo = 'assets/logo/kotlin.svg';
+
+  static const String gitlabLogo = 'assets/logo/gitlab.svg';
+
+  static const String vertexAiLogo = 'assets/logo/vertexAi.svg';
+
+  static const String githubLogo = 'assets/logo/github.svg';
+}

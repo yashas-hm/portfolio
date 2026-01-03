@@ -1,0 +1,92 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gap/gap.dart';
+import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/data/data_constants.dart' show DataConstants;
+import 'package:portfolio/model/chat.dart';
+import 'package:portfolio/repositories/chat_repository.dart';
+import 'package:portfolio/utilities/extensions.dart';
+import 'package:portfolio/utilities/utils.dart';
+import 'package:portfolio/widgets/text/gradient_text.dart';
+import 'package:portfolio/widgets/text/subtext.dart';
+
+part 'chat_bubble/ai_chat_bubble.dart';
+part 'chat_bubble/error_bubble.dart';
+part 'chat_bubble/human_chat_bubble.dart';
+part 'chat_bubble/thinking_bubble.dart';
+part 'chat_recommendation.dart';
+part 'chat_text_field.dart';
+part 'chat_view.dart';
+part 'chat_window.dart';
+
+class ChatComponent extends StatefulWidget {
+  const ChatComponent({super.key});
+
+  @override
+  State<ChatComponent> createState() => _ChatComponentState();
+}
+
+class _ChatComponentState extends State<ChatComponent> {
+  final ChatRepository _chatRepo = ChatRepository.instance;
+  bool _hasStartedChat = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _chatRepo.state.addListener(_onChatStateChanged);
+    if (_chatRepo.state.value.messages.isNotEmpty) {
+      _hasStartedChat = true;
+    }
+  }
+
+  @override
+  void dispose() {
+    _chatRepo.state.removeListener(_onChatStateChanged);
+    super.dispose();
+  }
+
+  void _onChatStateChanged() {
+    if (!_hasStartedChat && _chatRepo.state.value.messages.isNotEmpty) {
+      setState(() => _hasStartedChat = true);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+
+    return SizedBox(
+      height: context.height - Sizes.navBarHeight,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (!_hasStartedChat) ...[
+            SizedBox(
+              width: context.width * 0.9,
+              child: GradientText(
+                text: 'How can I *Help You* Today?',
+                textStyle: Styles.headlineTextBold(
+                  textColor: colors.textColor,
+                  isMobile: context.isMobile,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Gap(Sizes.spacingMedium),
+            Subtext(
+              'Ask me about Yashas\'s experience, specific projects, technical skills, or just say hello.',
+            ),
+            Gap(Sizes.spacingXXL),
+          ],
+          Flexible(child: ChatWindow()),
+          Gap(Sizes.spacingRegular)
+        ],
+      ),
+    );
+  }
+}

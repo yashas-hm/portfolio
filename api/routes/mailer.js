@@ -1,89 +1,86 @@
 const mailjet = require('node-mailjet');
-const check_origin = require("../middleware");
-require('dotenv').config({path: `${__dirname}/../.env`});
+const {getValidOrigin} = require('../middleware');
+const {successResponse, errorResponse} = require('../models/mail');
+require('dotenv/config');
 
 module.exports = async (req, res) => {
-    if (!check_origin(req)) {
-        return res.status(403).json({message: 'Forbidden'});
+    const origin = getValidOrigin(req);
+
+    if (!origin) {
+        return res.status(403).json(errorResponse('Forbidden'));
     }
+
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type');
 
     if (req.method === 'OPTIONS') {
-        res.status = 200;
-        res.send('ok');
-        res.end();
-        return;
+        return res.status(200).send('ok');
     }
 
-    const requestBody = req.body;
+    const {name, email, message} = req.body;
 
-    const mailer = mailjet.apiConnect(process.env.MAILJET_USERNAME, process.env.MAILJET_PASS);
+    const mailer = mailjet.apiConnect(
+        process.env.MAILJET_USERNAME,
+        process.env.MAILJET_PASS
+    );
 
     const body = {
-        'Globals': {
-            'From': {
-                'Email': 'no-reply@yashashm.dev',
-                'Name': 'Yashas H Majmudar',
-            }
+        Globals: {
+            From: {
+                Email: 'no-reply@yashashm.dev',
+                Name: 'Yashas H Majmudar',
+            },
         },
-        'Messages': [
+        Messages: [
             {
-                'To': [
+                To: [
                     {
-                        'Email': 'yashashm.dev@gmail.com',
-                    }
+                        Email: 'yashashm.dev@gmail.com',
+                        Name: 'Yashas H Majmudar',
+                    },
                 ],
-                'Variables': {
-                    'email': requestBody['email'],
-                    'text': requestBody['message'],
+                Variables: {
+                    email: email,
+                    message: message,
+                    name: name ?? 'Not Provided',
                 },
-                'Subject': 'New message from Website',
-                'TemplateID': parseInt(process.env.YHM_TEMPLATE),
-                'TemplateLanguage': true,
+                Subject: 'New message from Portfolio',
+                TemplateID: parseInt(process.env.YHM_TEMPLATE),
+                TemplateLanguage: true,
             },
             {
-                'To': [
+                To: [
                     {
-                        'Email': requestBody['email'],
-                    }
+                        Email: email,
+                        Name: name ?? '',
+                    },
                 ],
-                'Subject': 'Thank you for reaching out!',
-                'TemplateID': parseInt(process.env.SENDER_TEMPLATE),
-                'TemplateLanguage': true,
-            }
-        ]
+                Subject: 'Thank you for reaching out!',
+                TemplateID: parseInt(process.env.SENDER_TEMPLATE),
+                TemplateLanguage: true,
+            },
+        ],
     };
 
     try {
         const newResp = await mailer
-            .post("send", {'version': 'v3.1'})
+            .post('send', {version: 'v3.1'})
             .request(body);
 
         const responseBody = newResp.body;
+        const success = responseBody.Messages[0].Status === 'success';
 
-        const messageToMe = responseBody['Messages'][0]['Status'] === 'success';
+        const response = success
+            ? successResponse("Message sent! I'm on it, expect a speedy response.")
+            : errorResponse('An unexpected anomaly interrupted the transmission.');
 
-        if (!messageToMe) {
-            res.status = 503;
-            res.send(JSON.stringify({
-                success: false,
-                message: 'Communication hiccup! Unexpected error encountered. Retry later, please!'
-            }));
-            res.end();
-        } else {
-            res.status = 200;
-            res.send(JSON.stringify({
-                success: true,
-                message: 'Message sent! I\'m on it, expect a speedy response.'
-            }));
-            res.end();
-        }
+        return res.status(success ? 200 : 503).json(response);
     } catch (err) {
-        console.log(err);
-        res.status = 200;
-        res.send(JSON.stringify({
-            success: false,
-            message: 'Communication hiccup! Unexpected error encountered. Retry later, please!'
-        }));
-        res.end();
+        console.error(err);
+        return res.status(500).json(
+            errorResponse('An unexpected anomaly interrupted the transmission.')
+        );
     }
-}
+};

@@ -1,10 +1,7 @@
-const check_origin = require("../middleware");
 module.exports = async (req, res) => {
-    if (!check_origin(req)) {
-        return res.status(403).json({message: 'Forbidden'});
+    if (req.method === 'OPTIONS') {
+        return res.status(200).send('ok');
     }
 
-    res.status = 200;
-    res.send('Bad Request');
-    res.end();
-}
+    return res.status(418).send("I'm a Teapot.");
+};

@@ -1,58 +1,50 @@
-import 'package:flutter/gestures.dart';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:portfolio/core/constants/theme.dart';
-import 'package:portfolio/core/utilities/extensions.dart';
-import 'package:portfolio/core/utilities/utils.dart';
-import 'package:portfolio/providers/ui_provider.dart';
-import 'package:resize/resize.dart';
+import 'package:portfolio/navigation/navigation.dart';
+import 'package:portfolio/repositories/theme_repository.dart';
+import 'package:portfolio/theme/theme.dart';
+import 'package:portfolio/utilities/extensions.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   usePathUrlStrategy();
-  runApp(const ProviderScope(child: Portfolio()));
+  ThemeRepository.instance.init();
+  runApp(const Portfolio());
 }
 
-class Portfolio extends ConsumerWidget {
+class Portfolio extends StatelessWidget {
   const Portfolio({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeModeProvider);
-
-    checkTheme(ref);
-
-    Size size;
-
-    if (context.isMobile) {
-      size = const Size(410, 910);
-    } else {
-      size = const Size(1728, 1000);
-    }
-
-    return Resize(
-      builder: () => OKToast(
-        child: MaterialApp(
-          scrollBehavior: const MaterialScrollBehavior().copyWith(
-            dragDevices: {
-              PointerDeviceKind.mouse,
-              PointerDeviceKind.touch,
-              PointerDeviceKind.stylus,
-              PointerDeviceKind.unknown,
-            },
-          ),
-          theme: lightTheme(context),
-          darkTheme: darkTheme(context),
-          themeMode: themeMode,
-          debugShowCheckedModeBanner: false,
-          title: 'Yashas H Majmudar',
-          onGenerateRoute: routeBuilder,
-        ),
+  Widget build(BuildContext context) {
+    return OKToast(
+      child: ValueListenableBuilder<ThemeMode>(
+        valueListenable: ThemeRepository.instance.state,
+        builder: (context, themeMode, _) {
+          return MaterialApp(
+            navigatorKey: AppNavigator.navigatorKey,
+            scrollBehavior: const MaterialScrollBehavior().copyWith(
+              dragDevices: {
+                PointerDeviceKind.mouse,
+                PointerDeviceKind.touch,
+                PointerDeviceKind.stylus,
+                PointerDeviceKind.unknown,
+              },
+            ),
+            theme: AppTheme(context).lightTheme,
+            darkTheme: AppTheme(context).darkTheme,
+            themeMode: themeMode,
+            themeAnimationDuration: 200.milliseconds,
+            themeAnimationCurve: Curves.easeInOut,
+            debugShowCheckedModeBanner: false,
+            title: 'Yashas H Majmudar',
+            onGenerateRoute: routeGenerator,
+          );
+        },
       ),
-      allowtextScaling: false,
-      size: size,
     );
   }
 }

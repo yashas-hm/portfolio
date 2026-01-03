@@ -1,7 +1,9 @@
-function check_origin(req) {
-    const allowedOrigin = 'https://yashashm.dev';
+const ALLOWED_ORIGIN_PATTERN = /^https:\/\/([a-zA-Z0-9-]+\.){0,2}yashashm\.dev$/;
+
+function getValidOrigin(req) {
     const origin = req.headers.origin;
-    return (origin && origin === allowedOrigin);
+    if (!origin) return null;
+    return ALLOWED_ORIGIN_PATTERN.test(origin) ? origin : null;
 }
 
-module.exports = check_origin
+module.exports = {getValidOrigin};
