@@ -8,6 +8,7 @@ class ContactTextField extends StatefulWidget {
     this.validator,
     this.label,
     this.prefixIcon,
+    this.autofillHints,
     this.inputType = TextInputType.text,
     this.minLines = 1,
     this.maxLines = 1,
@@ -21,6 +22,7 @@ class ContactTextField extends StatefulWidget {
   final FormFieldValidator<String>? validator;
   final Widget? label;
   final IconData? prefixIcon;
+  final List<String>? autofillHints;
 
   @override
   State<ContactTextField> createState() => _ContactTextFieldState();
@@ -57,6 +59,7 @@ class _ContactTextFieldState extends State<ContactTextField> {
         if (widget.label != null) widget.label!,
         TextFormField(
           focusNode: _focusNode,
+          autofillHints: widget.autofillHints,
           style: Styles.regularText(),
           validator: widget.validator,
           onChanged: widget.onChanged,

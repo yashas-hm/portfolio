@@ -55,6 +55,7 @@ class _ContactWindowState extends State<ContactWindow> {
                             width: fieldWidth,
                             child: ContactTextField(
                               hintText: 'John Doe',
+                              autofillHints: [AutofillHints.name],
                               label: RichText(
                                 text: TextSpan(
                                   children: [
@@ -87,6 +88,7 @@ class _ContactWindowState extends State<ContactWindow> {
                             width: fieldWidth,
                             child: ContactTextField(
                               hintText: 'name@email.com',
+                              autofillHints: [AutofillHints.email],
                               label: RichText(
                                 text: TextSpan(
                                   children: [
