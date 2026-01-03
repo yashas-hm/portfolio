@@ -14,13 +14,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  get-secrets:
-    uses: yashas-hm/shared-secrets/.github/workflows/vercel_secrets.yml@main
-    
   build:
     runs-on: ubuntu-latest
-    needs: get-secrets
-
+    
     steps:
       - uses: actions/checkout@v4
       - name: Flutter Setup
@@ -51,8 +47,8 @@ jobs:
       - name: Deploy on Vercel
         uses: amondnet/vercel-action@v41.1.4
         with:
-          vercel-token: ${{ needs.get-secrets.outputs.VERCEL_TOKEN }}
-          vercel-org-id: ${{ needs.get-secrets.outputs.VERCEL_ORG_ID }}
+          vercel-token: ${{ VERCEL_TOKEN }}
+          vercel-org-id: ${{ VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod' 
+          vercel-args: '--prod'
           working-directory: vercel_build/
