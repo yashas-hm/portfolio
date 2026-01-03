@@ -40,7 +40,7 @@ jobs:
         run: |
           mkdir vercel_build
           cp -rf build/web/. vercel_build
-          cp -rf api/. vercel_build
+          cp -rf api vercel_build
           cp -f .vercelignore vercel_build
           cp -f vercel.json vercel_build
 
