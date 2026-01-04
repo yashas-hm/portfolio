@@ -1,5 +1,6 @@
 import 'package:day_night_themed_switcher/day_night_themed_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
@@ -51,38 +52,30 @@ class BasePage extends StatelessWidget {
               ),
             ),
             if (additionalBackground != null) additionalBackground!,
-            Align(
-              alignment: Alignment.topCenter,
-              child: SingleChildScrollView(
-                physics: BouncingScrollPhysics().applyTo(
-                  ClampingScrollPhysics(),
-                ),
-                clipBehavior: Clip.none,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  spacing: Sizes.spacingXXL,
-                  children: [
-                    Flexible(
-                      child: Container(
-                        alignment: singlePageContent
-                            ? Alignment.center
-                            : Alignment.topCenter,
-                        padding: EdgeInsets.only(
-                          top: Sizes.navBarHeight,
-                        ),
-                        constraints: BoxConstraints(
-                          minHeight: context.height,
-                        ),
-                        child: content,
-                      ),
+            CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Container(
+                    alignment: singlePageContent
+                        ? Alignment.center
+                        : Alignment.topCenter,
+                    padding: EdgeInsets.only(
+                      top: Sizes.navBarHeight,
                     ),
-                    GlobalFooter(),
-                  ],
+                    constraints: BoxConstraints(
+                      minHeight: context.height,
+                    ),
+                    child: content,
+                  ),
                 ),
-              ),
-            ),
+                SliverGap(Sizes.spacingXXL),
+                SliverStretchingFooter(
+                  stretchColor: colors.surfaceColor,
+                  child: GlobalFooter(),
+                ),
+              ],
+            )
           ],
         ),
       ),

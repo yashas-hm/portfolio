@@ -44,7 +44,7 @@ class GlobalFooter extends StatelessWidget {
                   child: Icon(
                     link.icon,
                     size: Sizes.iconLarge,
-                    color: colors.onPrimary.withValues(alpha: 0.8),
+                    color: colors.textColor.withValues(alpha: 0.8),
                   ),
                 ),
               );
@@ -141,5 +141,97 @@ class GlobalFooter extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class SliverStretchingFooter extends SingleChildRenderObjectWidget {
+  const SliverStretchingFooter({
+    super.key,
+    required Widget child,
+    required this.stretchColor,
+  }) : super(child: child);
+
+  final Color stretchColor;
+
+  @override
+  RenderObject createRenderObject(BuildContext context) {
+    return RenderSliverStretchingFooter(stretchColor: stretchColor);
+  }
+
+  @override
+  void updateRenderObject(
+    BuildContext context,
+    RenderSliverStretchingFooter renderObject,
+  ) {
+    renderObject.stretchColor = stretchColor;
+  }
+}
+
+class RenderSliverStretchingFooter extends RenderSliverSingleBoxAdapter {
+  RenderSliverStretchingFooter({required Color stretchColor})
+      : _stretchColor = stretchColor;
+
+  Color _stretchColor;
+
+  Color get stretchColor => _stretchColor;
+
+  set stretchColor(Color value) {
+    if (_stretchColor == value) return;
+    _stretchColor = value;
+    markNeedsPaint();
+  }
+
+  @override
+  void performLayout() {
+    if (child == null) {
+      geometry = SliverGeometry.zero;
+      return;
+    }
+
+    child!.layout(constraints.asBoxConstraints(), parentUsesSize: true);
+    final childHeight = child!.size.height;
+
+    final paintedChildHeight =
+        calculatePaintOffset(constraints, from: 0, to: childHeight);
+    final cacheExtent =
+        calculateCacheOffset(constraints, from: 0, to: childHeight);
+
+    // Calculate overscroll stretch at bottom
+    final overscroll = constraints.remainingPaintExtent > childHeight
+        ? constraints.remainingPaintExtent - childHeight
+        : 0.0;
+
+    geometry = SliverGeometry(
+      scrollExtent: childHeight,
+      paintExtent: paintedChildHeight + overscroll,
+      maxPaintExtent: childHeight + overscroll,
+      layoutExtent: paintedChildHeight,
+      cacheExtent: cacheExtent,
+      hasVisualOverflow: true,
+    );
+  }
+
+  @override
+  void paint(PaintingContext context, Offset offset) {
+    if (child == null || !geometry!.visible) return;
+
+    final childHeight = child!.size.height;
+    final overscroll = constraints.remainingPaintExtent > childHeight
+        ? constraints.remainingPaintExtent - childHeight
+        : 0.0;
+
+    // Paint stretch area at top first
+    if (overscroll > 0) {
+      final stretchRect = Rect.fromLTWH(
+        offset.dx,
+        offset.dy,
+        constraints.crossAxisExtent,
+        overscroll,
+      );
+      context.canvas.drawRect(stretchRect, Paint()..color = stretchColor);
+    }
+
+    // Paint child below the stretch area (footer stays at bottom)
+    context.paintChild(child!, offset + Offset(0, overscroll));
   }
 }
