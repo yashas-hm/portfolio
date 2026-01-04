@@ -17,7 +17,7 @@ class Links {
   );
 
   static const medium = (
-    url: 'https://medium.com/@yashashm',
+    url: 'https://yashashm.medium.com',
     urlText: 'Medium',
     icon: FontAwesomeIcons.medium,
   );
