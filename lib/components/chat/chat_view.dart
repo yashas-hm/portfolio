@@ -4,6 +4,8 @@ class ChatView extends StatelessWidget {
   ChatView({super.key});
 
   static const Key heroTag = ValueKey('AskYashas');
+  static final _scrollPhysics =
+      const BouncingScrollPhysics().applyTo(const ClampingScrollPhysics());
 
   final ChatRepository _chatRepo = ChatRepository.instance;
 
@@ -20,9 +22,7 @@ class ChatView extends StatelessWidget {
             child: Container(
               alignment: Alignment.topCenter,
               child: ListView.builder(
-                physics: BouncingScrollPhysics().applyTo(
-                  ClampingScrollPhysics(),
-                ),
+                physics: _scrollPhysics,
                 controller: _chatRepo.scrollController,
                 padding: EdgeInsets.zero,
                 itemCount: state.messages.length,
@@ -32,6 +32,7 @@ class ChatView extends StatelessWidget {
                       ? Alignment.centerLeft
                       : Alignment.centerRight;
                   final child = Container(
+                    key: ValueKey(message.id),
                     width: double.infinity,
                     alignment: bubbleAlignment,
                     child: message.role == Role.ai
@@ -41,6 +42,7 @@ class ChatView extends StatelessWidget {
                   final isLast = state.messages.length - 1 == index;
                   if (state.isStateError && isLast) {
                     return Column(
+                      key: ValueKey('${message.id}_state'),
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,9 +51,11 @@ class ChatView extends StatelessWidget {
                         if (state.errorMessage != null)
                           ErrorBubble(
                             text: state.errorMessage!,
-                            onRegenerate: _chatRepo.regenerateResponse,
+                            onRegenerate: state.isLoading
+                                ? () {}
+                                : _chatRepo.regenerateResponse,
                           ),
-                        if (state.isLoading) ThinkingBubble(),
+                        if (state.isLoading) const ThinkingBubble(),
                       ],
                     );
                   } else {

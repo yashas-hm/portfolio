@@ -1,5 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Element;
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -69,7 +69,7 @@ class _ChatComponentState extends State<ChatComponent> {
             SizedBox(
               width: context.width * 0.9,
               child: GradientText(
-                text: 'How can I *Help You* Today?',
+                text: 'How can I *Help* *You* Today?',
                 textStyle: Styles.headlineTextBold(
                   textColor: colors.textColor,
                   isMobile: context.isMobile,

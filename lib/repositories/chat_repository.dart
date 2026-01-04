@@ -16,15 +16,22 @@ class ChatRepository {
 
   final ScrollController scrollController = ScrollController();
 
-  List<Map<String, dynamic>> generateHistory() {
-    return state.value.messages
-        .where((m) => m.role == Role.human)
-        .toList()
-        .reversed
-        .take(3)
-        .map((m) => m.toJson())
-        .toList()
-        .reversed
+  List<Map<String, dynamic>> generateHistory({int topK = 2}) {
+    final topKPairs = topK * 2;
+
+    final messages = state.value.messages;
+    final pairs = <List<ChatMessage>>[];
+
+    for (var i = 0; i < messages.length - 1; i++) {
+      if (messages[i].role == Role.human && messages[i + 1].role == Role.ai) {
+        pairs.add([messages[i], messages[i + 1]]);
+      }
+    }
+
+    final start = pairs.length > topKPairs ? pairs.length - topKPairs : 0;
+    return pairs
+        .sublist(start)
+        .expand((pair) => pair.map((m) => m.toJson()))
         .toList();
   }
 
@@ -35,7 +42,7 @@ class ChatRepository {
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'query': query,
-          'history': [],
+          'history': generateHistory(),
         }),
       );
 
@@ -54,14 +61,14 @@ class ChatRepository {
       } else {
         state.value = state.value.copyWith(
           isLoading: false,
-          errorMessage:
+          errorMessage: () =>
               'Whoa, too many questions! My brain needs a quick breather. Try again later?\n(Rate Limit reached for free tier)',
         );
       }
     } catch (e) {
       state.value = state.value.copyWith(
         isLoading: false,
-        errorMessage: 'Oops! Unexpected error occurred.',
+        errorMessage: () => 'Oops! Unexpected error occurred.',
       );
     } finally {
       _scrollToTheEnd();
@@ -90,7 +97,7 @@ class ChatRepository {
     state.value = state.value.copyWith(
       messages: [...state.value.messages, humanMessage],
       isLoading: true,
-      errorMessage: null,
+      errorMessage: () => null,
     );
     _scrollToTheEnd();
     _callApi(query);
@@ -101,7 +108,7 @@ class ChatRepository {
     if (query.isEmpty) return;
     state.value = state.value.copyWith(
       isLoading: true,
-      errorMessage: null,
+      errorMessage: () => null,
     );
     _callApi(query);
   }

@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 enum Role { ai, human }
 
 class ChatMessage {
@@ -25,7 +27,7 @@ class ChatMessage {
   }
 
   Map<String, dynamic> toJson() => {
-        'role': role.name,
+        'role': role.name.toUpperCase(),
         'message': content,
       };
 
@@ -51,12 +53,13 @@ class ChatState {
   ChatState copyWith({
     List<ChatMessage>? messages,
     bool? isLoading,
-    String? errorMessage,
+    ValueGetter<String?>? errorMessage,
   }) =>
       ChatState(
         messages: messages ?? this.messages,
         isLoading: isLoading ?? this.isLoading,
-        errorMessage: errorMessage ?? this.errorMessage,
+        errorMessage:
+            errorMessage != null ? errorMessage.call() : this.errorMessage,
       );
 
   bool get isStateError => isLoading || errorMessage != null;

@@ -18,6 +18,7 @@ class ErrorBubble extends StatelessWidget {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
         onTap: onRegenerate,
         child: Container(
           constraints: BoxConstraints(

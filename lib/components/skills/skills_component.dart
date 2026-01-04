@@ -33,7 +33,7 @@ class SkillsComponent extends StatelessWidget {
         SizedBox(
           width: context.width * 0.9,
           child: GradientText(
-            text: 'The *Tech Stack* Terminal',
+            text: 'The *Tech* *Stack* Terminal',
             textStyle: Styles.headlineTextBold(
               textColor: colors.textColor,
               isMobile: context.isMobile,
