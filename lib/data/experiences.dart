@@ -14,23 +14,23 @@ class Experiences {
     descriptions: [
       (
         description:
-            'Migrated legacy app to modern Flutter & .NET endpoints, ensuring seamless cross-platform performance.',
+            'Migrated legacy app to Flutter & restructured .NET APIs, improving cross-platform stability.',
         icon: FontAwesomeIcons.code
       ),
       (
         description:
-            'Integrated 3rd-party SDKs, reducing overhead by 20% and improving stability.',
-        icon: FontAwesomeIcons.screwdriverWrench
-      ),
-      (
-        description:
-            'Resolved race conditions, cutting crash rates by 40% and improving data consistency.',
+            'Reduced crash rate from ~3% to <2% by fixing async UI state race conditions.',
         icon: FontAwesomeIcons.bug
       ),
       (
         description:
-            'Deployed custom UI & backend features, boosting engagement by 20%.',
+            'Shipped frontend & backend features, boosting weekly active engagement by 22%.',
         icon: FontAwesomeIcons.penRuler
+      ),
+      (
+        description:
+            'Integrated 3rd-party SDKs via trade-off analysis, reducing rework by 29%.',
+        icon: FontAwesomeIcons.screwdriverWrench
       ),
     ],
     skills: [
@@ -85,26 +85,27 @@ class Experiences {
     descriptions: [
       (
         description:
-            'Built cross-platform apps with Flutter, increasing client base by 30%.',
+            'Built Flutter apps, boosting active client usage by ~30% over six months.',
         icon: FontAwesomeIcons.mobileScreenButton
       ),
       (
         description:
-            'Engineered AI-powered dental analysis for automated diagnostics.',
+            'Integrated CV models for automated dental feature detection, optimizing inference.',
         icon: FontAwesomeIcons.brain
       ),
       (
         description:
-            'Developed Node.js/Express APIs and SQL databases, improving efficiency by 40%.',
+            'Designed Node.js/Express/PostgreSQL APIs, improving response time by ~40% with 99.8% uptime.',
         icon: FontAwesomeIcons.server
       ),
       (
         description:
-            'Built CMS & payment integration, cutting update time by 50% and boosting sales by 15%.',
+            'Built CMS tools & payment integrations, cutting update time by ~50% and boosting transactions by ~15%.',
         icon: FontAwesomeIcons.moneyBill
       ),
       (
-        description: 'Led projects and achieved promotion within 8 months.',
+        description:
+            'Promoted within 8 months for consistent delivery across mobile and backend.',
         icon: FontAwesomeIcons.trophy
       ),
     ],
