@@ -127,7 +127,7 @@ class Experiences {
   static final freelance = Experience(
     role: 'Software Engineer',
     company: 'Individual Contributor',
-    startDate: DateTime(2019, DateTime.august),
+    startDate: DateTime(2020, DateTime.may),
     endDate: DateTime(2023, DateTime.may),
     type: ExperienceType.freelance,
     descriptions: [
