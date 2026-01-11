@@ -14,22 +14,22 @@ class Experiences {
     descriptions: [
       (
         description:
-            'Migrated legacy app to Flutter & restructured .NET APIs, improving cross-platform stability.',
+            'Migrated a legacy mobile application to Flutter, while restructuring backend APIs in .NET, improving cross-platform stability and maintainability.',
         icon: FontAwesomeIcons.code
       ),
       (
         description:
-            'Reduced crash rate from ~3% to <2% by fixing async UI state race conditions.',
+            'Reduced mobile application crash rate from 3% to 1.5% by identifying and fixing race conditions between asynchronous Flutter and backend API responses.',
         icon: FontAwesomeIcons.bug
       ),
       (
         description:
-            'Shipped frontend & backend features, boosting weekly active engagement by 22%.',
+            'Designed and shipped multiple end-to-end product features across frontend and backend, contributing to a 22% increase in weekly active user engagement measured via product analytics.',
         icon: FontAwesomeIcons.penRuler
       ),
       (
         description:
-            'Integrated 3rd-party SDKs via trade-off analysis, reducing rework by 29%.',
+            'Evaluated and integrated third-party SDKs by performing trade-off analysis across cost, reliability and performance, significantly reducing integration rework and downstream maintenance overhead.',
         icon: FontAwesomeIcons.screwdriverWrench
       ),
     ],
@@ -85,27 +85,27 @@ class Experiences {
     descriptions: [
       (
         description:
-            'Built Flutter apps, boosting active client usage by ~30% over six months.',
+            'Developed cross-platform mobile applications using Flutter, contributing to a 30% increase in active client usage over six months.',
         icon: FontAwesomeIcons.mobileScreenButton
       ),
       (
         description:
-            'Integrated CV models for automated dental feature detection, optimizing inference.',
+            'Integrated pretrained CNN models into a clinical application to enable automated detection of dental features from images, focusing on inference optimization and product integration.',
         icon: FontAwesomeIcons.brain
       ),
       (
         description:
-            'Designed Node.js/Express/PostgreSQL APIs, improving response time by ~40% with 99.8% uptime.',
+            'Designed and implemented backend REST APIs using Node.js, Express.js, and PostgreSQL, improving average request processing time by 47% and maintaining 99.8% uptime.',
         icon: FontAwesomeIcons.server
       ),
       (
         description:
-            'Built CMS tools & payment integrations, cutting update time by ~50% and boosting transactions by ~15%.',
+            'Built internal CMS tools and payment integrations, reducing content update turnaround time by 50% and increasing online transactions by ~15%.',
         icon: FontAwesomeIcons.moneyBill
       ),
       (
         description:
-            'Promoted within 8 months for consistent delivery across mobile and backend.',
+            'Promoted within 8 months based on consistent delivery and ownership across mobile and backend features.',
         icon: FontAwesomeIcons.trophy
       ),
     ],
@@ -133,18 +133,23 @@ class Experiences {
     descriptions: [
       (
         description:
-            'Delivered Flutter apps for 7 companies, achieving 10K+ downloads and 95% client satisfaction.',
-        icon: FontAwesomeIcons.users
+            'Delivered MVP and full-stack mobile solutions for over 7 startups across EdTech and HealthTech spaces.',
+        icon: FontAwesomeIcons.rocket
       ),
       (
         description:
-            'Integrated Firebase & Cloud services, speeding up data retrieval by 40% and boosting engagement by 30%.',
-        icon: FontAwesomeIcons.cloud
+            'Optimized legacy codebases for 2 clients, reducing data retrieval times by 43% via improved indexing and query optimization.',
+        icon: FontAwesomeIcons.database
       ),
       (
         description:
-            'Deployed ML models and games, increasing retention by 25% and improving app ratings by 20%.',
-        icon: FontAwesomeIcons.robot
+            'Spearheaded greenfield Flutter/Firebase apps for 3 clients, handling auth, payments, and real-time databases for 10K+ combined users.',
+        icon: FontAwesomeIcons.fire
+      ),
+      (
+        description:
+            'Operated in high-velocity environments, shipping production features on bi-weekly sprint cycles across Flutter, Node.js and Python based systems.',
+        icon: FontAwesomeIcons.gaugeHigh
       ),
     ],
     skills: [
