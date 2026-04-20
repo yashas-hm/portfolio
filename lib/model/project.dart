@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' show IconData, Color;
+import 'package:flutter/painting.dart';
 import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/model/skill.dart' show Skill;
 
@@ -34,6 +35,7 @@ class Project {
   final List<Skill> skills;
   final List<Link> links;
   final DateTime? endDate;
+  final BoxFit? imageFit;
 
   const Project({
     required this.name,
@@ -43,5 +45,6 @@ class Project {
     required this.skills,
     required this.links,
     this.endDate,
+    this.imageFit,
   });
 }

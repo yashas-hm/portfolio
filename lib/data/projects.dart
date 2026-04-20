@@ -1,9 +1,34 @@
+import 'package:flutter/painting.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/data/skills.dart';
 import 'package:portfolio/model/project.dart';
 
 class Projects {
   Projects._();
+
+  static final dashability = Project(
+    name: 'Dashability',
+    imageUrl:
+        'https://raw.githubusercontent.com/yashas-hm/dashability/refs/heads/main/assets/dashability_avatar.png',
+    description:
+        'Runtime Observability Layer for Flutter Apps. Connects to running Flutter apps via VM Service, monitors performance and errors in real-time, detects anomalies, and exposes observation and action tools via MCP.',
+    tag: ProjectTag.package,
+    skills: [Skills.flutter, Skills.llms],
+    links: [
+      (
+        url: 'https://github.com/yashas-hm/dashability',
+        urlText: 'Code',
+        icon: FontAwesomeIcons.code,
+      ),
+      (
+        url: 'https://pub.dev/packages/dashability',
+        urlText: 'Pub.dev',
+        icon: FontAwesomeIcons.cube,
+      ),
+    ],
+    endDate: DateTime(2026, 4),
+    imageFit: BoxFit.fitHeight,
+  );
 
   static final angioNet = Project(
     name: 'AngioNET',
@@ -362,18 +387,9 @@ class Projects {
     endDate: DateTime(2022, 12),
   );
 
-  static final dummy = Project(
-    name: '',
-    imageUrl: '',
-    description: '',
-    tag: ProjectTag.aiMl,
-    skills: [],
-    links: [],
-    endDate: DateTime(2025, 4),
-  );
-
   /// All projects (unsorted)
   static final List<Project> _all = [
+    dashability,
     echoFrame,
     countryCallingCodeKit,
     dayNightSwitcher,
@@ -402,9 +418,6 @@ class Projects {
   static List<Project> sorted(List<Project> projects) {
     final list = List<Project>.from(projects);
     list.sort((a, b) {
-      final tagCompare = a.tag.order.compareTo(b.tag.order);
-      if (tagCompare != 0) return tagCompare;
-
       if (a.endDate == null && b.endDate == null) return 0;
       if (a.endDate == null) return -1;
       if (b.endDate == null) return 1;

@@ -34,6 +34,7 @@ class ProjectItem extends StatelessWidget {
           children: [
             CustomCachedImage(
               height: minHeight / 2.5,
+              fit: project.imageFit,
               width: double.infinity,
               imageUrl: project.imageUrl,
             ),

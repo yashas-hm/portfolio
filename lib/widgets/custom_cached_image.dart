@@ -8,6 +8,7 @@ class CustomCachedImage extends StatelessWidget {
     super.key,
     required this.height,
     required this.imageUrl,
+    this.fit,
     this.width,
   });
 
@@ -16,6 +17,8 @@ class CustomCachedImage extends StatelessWidget {
   final double? width;
 
   final String imageUrl;
+
+  final BoxFit? fit;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +38,7 @@ class CustomCachedImage extends StatelessWidget {
           image: image,
           height: height,
           width: height,
-          fit: BoxFit.fill,
+          fit: fit ?? BoxFit.fill,
           alignment: Alignment.topCenter,
         );
       },
