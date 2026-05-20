@@ -53,7 +53,7 @@ class ContactConnections extends StatelessWidget {
                             color: colors.primaryColor.backgroundColor,
                           ),
                           padding: Sizes.paddingRegular,
-                          child: Icon(
+                          child: FaIcon(
                             link.icon,
                             size: Sizes.iconRegularMedium,
                             color: colors.primaryColor,
@@ -102,7 +102,7 @@ class ContactConnections extends StatelessWidget {
                     bottom: 0,
                     right: 0,
                     top: 0,
-                    child: Icon(
+                    child: FaIcon(
                       FontAwesomeIcons.comments,
                       size: Sizes.iconHuge * 1.5,
                       color: colors.textSecondary.withValues(alpha: 0.5),
@@ -133,7 +133,7 @@ class ContactConnections extends StatelessWidget {
                             child: GestureDetector(
                               onTap: () =>
                                   Utils.safelyLaunchUrl(link.url, context),
-                              child: Icon(
+                              child: FaIcon(
                                 link.icon,
                                 size: Sizes.iconXL,
                                 color: colors.textColor.withValues(alpha: 0.8),

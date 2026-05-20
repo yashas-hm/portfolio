@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' show IconData, Color;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Narrative {
   Narrative({
@@ -9,8 +10,8 @@ class Narrative {
     required this.description,
   });
 
-  final IconData icon;
-  final IconData baseIcon;
+  final FaIconData icon;
+  final FaIconData baseIcon;
   final Color color;
   final String headline;
   final String description;

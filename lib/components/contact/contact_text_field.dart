@@ -21,7 +21,7 @@ class ContactTextField extends StatefulWidget {
   final Function(String? value) onChanged;
   final FormFieldValidator<String>? validator;
   final Widget? label;
-  final IconData? prefixIcon;
+  final FaIconData? prefixIcon;
   final List<String>? autofillHints;
 
   @override
@@ -66,7 +66,7 @@ class _ContactTextFieldState extends State<ContactTextField> {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           decoration: InputDecoration(
             prefixIcon: widget.prefixIcon != null
-                ? Icon(
+                ? FaIcon(
                     widget.prefixIcon ?? FontAwesomeIcons.keyboard,
                     size: Sizes.iconRegular,
                     color: _focusNode.hasFocus

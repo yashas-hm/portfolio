@@ -52,7 +52,7 @@ class ChatBlock extends StatelessWidget {
                               color: colors.primaryColor.backgroundColor,
                             ),
                             padding: Sizes.paddingSmall,
-                            child: Icon(
+                            child: FaIcon(
                               FontAwesomeIcons.satellite,
                               size: Sizes.iconRegularMedium,
                               color: colors.primaryColor,
@@ -64,7 +64,7 @@ class ChatBlock extends StatelessWidget {
                               style: Styles.smallTextBold(),
                             ),
                           ),
-                          Icon(
+                          FaIcon(
                             FontAwesomeIcons.arrowUpRightFromSquare,
                             size: Sizes.iconRegular,
                             color: colors.textColor,
@@ -197,7 +197,7 @@ class ChatBlock extends StatelessWidget {
                                 style: Styles.extraSmallTextBold(),
                               ),
                             ),
-                            Icon(
+                            FaIcon(
                               FontAwesomeIcons.arrowRight,
                               size: Sizes.iconRegular,
                             ),
@@ -227,7 +227,7 @@ class ChatBlock extends StatelessWidget {
                                 style: Styles.extraSmallTextBold(),
                               ),
                             ),
-                            Icon(
+                            FaIcon(
                               FontAwesomeIcons.arrowRight,
                               size: Sizes.iconRegular,
                             ),

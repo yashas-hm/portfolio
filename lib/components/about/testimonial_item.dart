@@ -95,7 +95,7 @@ class _TestimonialCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         spacing: Sizes.spacingRegular,
         children: [
-          Icon(
+          FaIcon(
             FontAwesomeIcons.quoteLeft,
             size: Sizes.iconLarge,
             color: KnownColors.purple500,

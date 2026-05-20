@@ -68,7 +68,7 @@ class ErrorBubble extends StatelessWidget {
                         ? Styles.extraSmallText(textColor: colors.textSecondary)
                         : Styles.smallText(textColor: colors.textSecondary),
                   ),
-                  Icon(
+                  FaIcon(
                     FontAwesomeIcons.arrowRotateRight,
                     color: colors.textSecondary,
                     size: context.isMobile ? Sizes.iconXXS : Sizes.iconXS,

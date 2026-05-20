@@ -134,7 +134,7 @@ class ProjectItem extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   spacing: Sizes.spacingSmallRegular,
                                   children: [
-                                    Icon(
+                                    FaIcon(
                                       link.icon,
                                       size: Sizes.iconXS,
                                     ),

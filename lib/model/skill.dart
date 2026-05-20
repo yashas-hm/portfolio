@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart' show IconData, Color;
+import 'package:flutter/material.dart' show Color;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constants/constants.dart';
 
 enum SkillCategory {
@@ -36,7 +37,7 @@ class Skill {
 
 class SkillGroup {
   final String groupName;
-  final IconData groupIcon;
+  final FaIconData groupIcon;
   final List<Skill> skills;
 
   const SkillGroup({

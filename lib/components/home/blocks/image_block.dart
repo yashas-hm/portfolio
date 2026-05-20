@@ -114,7 +114,7 @@ class ImageBlock extends StatelessWidget {
                         cursor: SystemMouseCursors.click,
                         child: GestureDetector(
                           onTap: () => Utils.safelyLaunchUrl(link.url, context),
-                          child: Icon(
+                          child: FaIcon(
                             link.icon,
                             size: Sizes.iconXL,
                             color: colors.onPrimary.withValues(alpha: 0.8),

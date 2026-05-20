@@ -48,7 +48,7 @@ class ChatWindow extends StatelessWidget {
                       cursor: SystemMouseCursors.click,
                       child: GestureDetector(
                         onTap: ChatRepository.instance.clearChat,
-                        child: Icon(
+                        child: FaIcon(
                           FontAwesomeIcons.solidTrashCan,
                           color: KnownColors.red400,
                           size: Sizes.iconSmall,
@@ -75,7 +75,7 @@ class ChatWindow extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   spacing: Sizes.spacingRegular,
                   children: [
-                    Icon(
+                    FaIcon(
                       FontAwesomeIcons.circleInfo,
                       color: colors.textColor.withValues(alpha: 0.7),
                       size: context.isMobile

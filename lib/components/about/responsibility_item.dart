@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/data/responsibilities.dart';
 import 'package:portfolio/model/responsibility.dart';
@@ -126,7 +127,7 @@ class _ResponsibilityCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Icon(
+              FaIcon(
                 responsibility.icon,
                 size: Sizes.iconLarge,
                 color: responsibility.color,

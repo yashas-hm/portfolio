@@ -94,7 +94,7 @@ class _NavbarState extends State<Navbar> {
       ],
       AnimatedSwitcher(
         duration: 400.milliseconds,
-        child: Icon(
+        child: FaIcon(
           _menuOpen ? FontAwesomeIcons.xmark : FontAwesomeIcons.bars,
           key: ValueKey(_menuOpen),
           size: Sizes.iconMedium,
@@ -138,7 +138,7 @@ class _NavbarState extends State<Navbar> {
                     Links.resume.urlText,
                     style: Styles.regularText(textColor: colors.onPrimary),
                   ),
-                  Icon(
+                  FaIcon(
                     Links.resume.icon,
                     size: Sizes.iconSmall,
                     color: colors.onPrimary,
@@ -161,7 +161,7 @@ class _NavbarState extends State<Navbar> {
             alignment: Alignment.center,
             child: AnimatedSwitcher(
               duration: 200.milliseconds,
-              child: Icon(
+              child: FaIcon(
                 _menuOpen
                     ? FontAwesomeIcons.caretUp
                     : FontAwesomeIcons.caretDown,
@@ -206,7 +206,7 @@ class _NavbarState extends State<Navbar> {
                 spacing: Sizes.spacingRegular,
                 children: [
                   if (route.icon != null)
-                    Icon(
+                    FaIcon(
                       route.icon,
                       size: Sizes.iconSmall,
                       color: popupColors.primaryColor,

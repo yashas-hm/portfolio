@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart' show IconData, Color;
 import 'package:flutter/painting.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/model/skill.dart' show Skill;
 
 typedef Link = ({
   String urlText,
   String url,
-  IconData icon,
+  FaIconData icon,
 });
 
 enum ProjectTag {

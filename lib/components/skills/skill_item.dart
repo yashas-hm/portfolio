@@ -36,7 +36,7 @@ class SkillItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 spacing: Sizes.spacingMedium,
                 children: [
-                  Icon(
+                  FaIcon(
                     skillGroup.groupIcon,
                     color: colors.primaryColor,
                     size: Sizes.iconMedium,
@@ -91,7 +91,7 @@ class SkillItem extends StatelessWidget {
       top: useTop ? v() : null,
       bottom: useTop ? null : v(),
       right: v(),
-      child: Icon(
+      child: FaIcon(
         skillGroup.groupIcon,
         size: Sizes.iconHuge,
         color: colors.primaryColor.withValues(alpha: 0.3),

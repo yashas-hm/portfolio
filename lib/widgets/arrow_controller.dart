@@ -41,7 +41,7 @@ class NavButton extends StatelessWidget {
     required this.onPressed,
   });
 
-  final IconData icon;
+  final FaIconData icon;
   final VoidCallback? onPressed;
 
   @override
@@ -63,7 +63,7 @@ class NavButton extends StatelessWidget {
             color: isDisabled ? KnownColors.transparent : colors.surfaceColor,
           ),
           padding: EdgeInsets.all(Sizes.spacingSmallRegular),
-          child: Icon(
+          child: FaIcon(
             icon,
             size: Sizes.iconSmall,
             color: isDisabled

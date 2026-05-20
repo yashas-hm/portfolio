@@ -69,7 +69,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                                 ? null
                                 : Border.all(color: colors.borderColor),
                           ),
-                          child: Icon(
+                          child: FaIcon(
                             _collapsed
                                 ? FontAwesomeIcons.chevronRight
                                 : widget.experience.icon,
@@ -167,7 +167,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                             Baseline(
                               baseline: Styles.regularText().fontSize!,
                               baselineType: TextBaseline.alphabetic,
-                              child: Icon(
+                              child: FaIcon(
                                 description.icon,
                                 size: Sizes.iconSmall,
                                 color: colors.primaryColor,
@@ -223,7 +223,7 @@ class _ExperienceItemState extends State<ExperienceItem> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(
+                            FaIcon(
                               FontAwesomeIcons.chevronUp,
                               size: Sizes.iconSmall,
                               color: colors.textSecondary,

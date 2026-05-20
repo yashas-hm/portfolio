@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart' show IconData, Color;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Responsibility {
   final Color color;
-  final IconData icon;
+  final FaIconData icon;
   final String role;
   final String destination;
   final String description;

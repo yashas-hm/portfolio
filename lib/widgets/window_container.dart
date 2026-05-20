@@ -14,7 +14,7 @@ class WindowContainer extends StatelessWidget {
 
   final Widget content;
   final String headline;
-  final IconData headlineIcon;
+  final FaIconData headlineIcon;
   final String bottomText;
 
   @override
@@ -92,7 +92,7 @@ class WindowContainer extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             spacing: Sizes.spacingRegular,
                             children: [
-                              Icon(
+                              FaIcon(
                                 headlineIcon,
                                 size: Sizes.iconRegular,
                                 color: colors.textSecondary,
@@ -128,7 +128,7 @@ class WindowContainer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   spacing: Sizes.spacingSmall,
                   children: [
-                    Icon(
+                    FaIcon(
                       FontAwesomeIcons.arrowRight,
                       color: KnownColors.green500,
                       size: Sizes.spacingRegular,

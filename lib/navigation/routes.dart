@@ -59,7 +59,7 @@ enum Routes {
 
   final String name;
   final String route;
-  final IconData? icon;
+  final FaIconData? icon;
 
   const Routes(this.name, this.route, {this.icon});
 

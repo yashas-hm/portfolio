@@ -76,7 +76,7 @@ class _ChatTextFieldState extends State<ChatTextField> {
           onPressed: _sendMessage,
           iconSize: context.isMobile ? Sizes.iconSmall : Sizes.iconRegular,
           padding: EdgeInsets.zero,
-          icon: Icon(
+          icon: FaIcon(
             FontAwesomeIcons.solidPaperPlane,
             size: context.isMobile ? Sizes.iconSmall : Sizes.iconRegular,
             color: _focusNode.hasFocus

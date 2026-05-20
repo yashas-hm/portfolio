@@ -139,13 +139,13 @@ class LinksBlock extends StatelessWidget {
                                 color: KnownColors.purple500.backgroundColor,
                               ),
                               padding: Sizes.paddingSmall,
-                              child: Icon(
+                              child: FaIcon(
                                 FontAwesomeIcons.microphoneLines,
                                 size: Sizes.iconMedium,
                                 color: KnownColors.purple500,
                               ),
                             ),
-                            Icon(
+                            FaIcon(
                               FontAwesomeIcons.arrowUpRightFromSquare,
                               size: Sizes.iconRegular,
                             ),
@@ -200,13 +200,13 @@ class LinksBlock extends StatelessWidget {
                                 color: KnownColors.green600.backgroundColor,
                               ),
                               padding: Sizes.paddingSmall,
-                              child: Icon(
+                              child: FaIcon(
                                 FontAwesomeIcons.codeBranch,
                                 size: Sizes.iconMedium,
                                 color: KnownColors.green600,
                               ),
                             ),
-                            Icon(
+                            FaIcon(
                               FontAwesomeIcons.arrowUpRightFromSquare,
                               size: Sizes.iconRegular,
                             ),

@@ -73,7 +73,7 @@ class _NarrativeCard extends StatelessWidget {
           children: [
             Align(
               alignment: Alignment.bottomRight,
-              child: Icon(
+              child: FaIcon(
                 narrative.baseIcon,
                 size: Sizes.iconHuge * 1.5,
                 color: colors.textColor.withValues(alpha: 0.1),
@@ -93,7 +93,7 @@ class _NarrativeCard extends StatelessWidget {
                       color: narrative.color.backgroundColor,
                     ),
                     padding: Sizes.paddingRegular,
-                    child: Icon(
+                    child: FaIcon(
                       narrative.icon,
                       size: Sizes.iconRegularMedium,
                       color: narrative.color,

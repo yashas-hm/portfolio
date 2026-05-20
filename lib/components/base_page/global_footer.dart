@@ -41,7 +41,7 @@ class GlobalFooter extends StatelessWidget {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () => Utils.safelyLaunchUrl(link.url, context),
-                  child: Icon(
+                  child: FaIcon(
                     link.icon,
                     size: Sizes.iconLarge,
                     color: colors.textColor.withValues(alpha: 0.8),
@@ -123,7 +123,7 @@ class GlobalFooter extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     spacing: Sizes.spacingSmall,
                     children: [
-                      Icon(
+                      FaIcon(
                         FontAwesomeIcons.copyright,
                         color: colors.textColor,
                         size: Sizes.iconXS,

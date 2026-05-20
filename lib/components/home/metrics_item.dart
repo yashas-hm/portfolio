@@ -72,7 +72,7 @@ class _MetricCard extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.topRight,
-            child: Icon(
+            child: FaIcon(
               impact.impactIcon,
               size: Sizes.iconHuge,
               color: colors.textSecondary.withValues(alpha: 0.1),
@@ -107,7 +107,7 @@ class _MetricCard extends StatelessWidget {
                             Styles.emphasisText(isMobile: context.isMobile)
                                 .fontSize!,
                         baselineType: TextBaseline.alphabetic,
-                        child: Icon(
+                        child: FaIcon(
                           impact.metricSuffixIcon,
                           size: Sizes.iconMedium,
                           color: colors.primaryColor,
@@ -116,7 +116,7 @@ class _MetricCard extends StatelessWidget {
                     ],
                   ),
                   Gap(Sizes.spacingLarge),
-                  Icon(
+                  FaIcon(
                     impact.suffixIcon,
                     size: Sizes.iconLarge,
                     color: KnownColors.green500,

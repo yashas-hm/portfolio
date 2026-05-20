@@ -15,7 +15,7 @@ enum ExperienceType {
   const ExperienceType(this.value, this.color);
 }
 
-typedef ExperienceDescription = ({String description, IconData? icon});
+typedef ExperienceDescription = ({String description, FaIconData? icon});
 
 class Experience {
   final String role;
@@ -25,7 +25,7 @@ class Experience {
   final ExperienceType type;
   final List<ExperienceDescription> descriptions;
   final List<Skill> skills;
-  final IconData icon;
+  final FaIconData icon;
 
   const Experience({
     required this.role,

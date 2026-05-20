@@ -232,7 +232,7 @@ class _ContactWindowState extends State<ContactWindow> {
                                     textColor: colors.onPrimary,
                                   ),
                                 ),
-                                Icon(
+                                FaIcon(
                                   FontAwesomeIcons.solidPaperPlane,
                                   size: Sizes.iconSmall,
                                   color: colors.onPrimary,
