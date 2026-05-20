@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' show IconData, Color;
+import 'package:flutter/material.dart' show Color;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Narrative {
