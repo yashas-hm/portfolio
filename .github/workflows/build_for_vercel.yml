@@ -34,7 +34,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Flutter Web
-        run: flutter build web
+        run: flutter build web --release --no-tree-shake-icons
 
       - name: Prepare Build
         run: |
