@@ -66,8 +66,8 @@ class _ContactTextFieldState extends State<ContactTextField> {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           decoration: InputDecoration(
             prefixIcon: widget.prefixIcon != null
-                ? FaIcon(
-                    widget.prefixIcon ?? FontAwesomeIcons.keyboard,
+                ? Icon(
+                    widget.prefixIcon?.data ?? FontAwesomeIcons.keyboard.data,
                     size: Sizes.iconRegular,
                     color: _focusNode.hasFocus
                         ? colors.primaryColor
