@@ -37,5 +37,3 @@ test.*
 .env
 .vercel
 api/node_modules/
-*pubspec.lock
-*package-lock.json
