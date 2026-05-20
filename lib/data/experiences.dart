@@ -9,7 +9,7 @@ class Experiences {
     role: 'Software Engineer',
     company: 'Albiware LLC',
     startDate: DateTime(2025, DateTime.may),
-    endDate: null,
+    endDate: DateTime(2026, DateTime.may),
     type: ExperienceType.partTime,
     descriptions: [
       (
