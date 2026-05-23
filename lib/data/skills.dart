@@ -35,6 +35,13 @@ class Skills {
     category: SkillCategory.languages,
   );
 
+  static const rust = Skill(
+    name: 'Rust',
+    icon: LogoAssets.rustLogo,
+    category: SkillCategory.languages,
+    overrideLogoColor: true,
+  );
+
   static const bash = Skill(
     name: 'Bash',
     icon: LogoAssets.bashLogo,
@@ -361,6 +368,7 @@ class SkillGroups {
       Skills.javascript,
       Skills.typescript,
       Skills.bash,
+      Skills.rust,
       Skills.cSharp,
       Skills.cpp,
       Skills.java,

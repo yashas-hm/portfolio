@@ -113,4 +113,6 @@ class LogoAssets {
   static const String vertexAiLogo = 'assets/logo/vertexAi.svg';
 
   static const String githubLogo = 'assets/logo/github.svg';
+
+  static const String rustLogo = 'assets/logo/rust.svg';
 }

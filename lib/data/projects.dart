@@ -27,7 +27,31 @@ class Projects {
       ),
     ],
     endDate: DateTime(2026, 4),
-    imageFit: BoxFit.fitHeight,
+    imageFit: BoxFit.contain,
+  );
+
+  static final mediaMetadataPlus = Project(
+    name: 'Media Metadata Plus',
+    imageUrl:
+        'https://raw.githubusercontent.com/yashas-hm/media-metadata-plus/refs/heads/main/image_asset.png',
+    description:
+        'Cross-platform Flutter plugin for reading media metadata; EXIF, GPS, camera info, and video duration from images, RAW files, and videos using pure Rust via flutter_rust_bridge.',
+    tag: ProjectTag.package,
+    skills: [Skills.flutter, Skills.rust],
+    links: [
+      (
+        url: 'https://github.com/yashas-hm/media-metadata-plus',
+        urlText: 'Code',
+        icon: FontAwesomeIcons.code,
+      ),
+      (
+        url: 'https://pub.dev/packages/media_metadata_plus',
+        urlText: 'Pub.dev',
+        icon: FontAwesomeIcons.cube,
+      ),
+    ],
+    endDate: DateTime(2026, 5),
+    imageFit: BoxFit.contain,
   );
 
   static final angioNet = Project(
@@ -390,6 +414,7 @@ class Projects {
   /// All projects (unsorted)
   static final List<Project> _all = [
     dashability,
+    mediaMetadataPlus,
     echoFrame,
     countryCallingCodeKit,
     dayNightSwitcher,
