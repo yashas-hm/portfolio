@@ -28,7 +28,7 @@ Route<dynamic>? routeGenerator(RouteSettings settings) {
       page = const ChatPage();
       break;
     case Routes.contributions:
-      Utils.safelyLaunchUrl(Links.contributions.url, AppNavigator.context);
+      page = const ContributionsPage();
       break;
     case Routes.resume:
       Utils.safelyLaunchUrl(Links.resume.url, AppNavigator.context);

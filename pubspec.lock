@@ -295,10 +295,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: "23f08335362185a5ea2ad3a4e597f1375e78bce8a040df5c600c8d3552ef2394"
+      sha256: df0c643f44ad098eb37988027a8e2b2b5a031fd3977f06bbfd3a76637e8df739
       url: "https://pub.dev"
     source: hosted
-    version: "1.17.0"
+    version: "1.18.2"
   objective_c:
     dependency: transitive
     description:
@@ -684,10 +684,10 @@ packages:
     dependency: transitive
     description:
       name: vector_math
-      sha256: d530bd74fea330e6e364cda7a85019c434070188383e1cd8d9777ee586914c5b
+      sha256: "1d774bbdf6b72a0b12122fc1560c9c2d2a67db5a4a4cc2bd8a5c990ab20e3188"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "2.4.0"
   web:
     dependency: transitive
     description:
