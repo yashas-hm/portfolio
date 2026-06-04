@@ -9,7 +9,7 @@ class Testimonials {
     name: 'Deepak Datta',
     designation: 'CEO @ PracticeBuzz',
     message:
-        'Yashas\'s contributions as a Senior Software Engineer at PracticeBuzz '
+        'Yashas\'s contributions as a Software Engineer at PracticeBuzz '
         'are outstanding. His role in developing the DentaVacation app '
         'showcased technical prowess, innovative design, and a commitment to '
         'security. His adaptability, collaboration, and pursuit of '
