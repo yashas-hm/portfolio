@@ -5,6 +5,40 @@ class ContributionsData {
 
   static const List<Contributions> all = [
     Contributions(
+      orgName: 'Flutter',
+      repoName: 'flutter/flutter',
+      repoUrl: 'https://github.com/flutter/flutter',
+      entries: [
+        ContributionEntry(
+          issueStatus: ContributionStatus.issueResolved,
+          issueTitle:
+              '"flutter emulators" won\'t find iOS simulator with Xcode 27',
+          issueUrl: 'https://github.com/flutter/flutter/issues/187759',
+          prStatus: ContributionStatus.prMerged,
+          prTitle:
+              '[flutter_tools] Use DeviceHub.app for iOS simulator path on Xcode 27+',
+          prUrl: 'https://github.com/flutter/flutter/pull/187910',
+        ),
+      ],
+    ),
+    Contributions(
+      orgName: 'Flutter',
+      repoName: 'flutter/packages',
+      repoUrl: 'https://github.com/flutter/packages',
+      entries: [
+        ContributionEntry(
+          issueStatus: ContributionStatus.issueResolved,
+          issueTitle:
+              '[image_picker] Do not error if a limit of 1 is passed to pickMultiImage',
+          issueUrl: 'https://github.com/flutter/flutter/issues/187347',
+          prStatus: ContributionStatus.prMerged,
+          prTitle:
+              '[image_picker] Handle limit: 1 in pickMultiImage and pickMultipleMedia gracefully',
+          prUrl: 'https://github.com/flutter/packages/pull/11825',
+        ),
+      ],
+    ),
+    Contributions(
       orgName: 'Very Good Ventures',
       repoName: 'VeryGoodOpenSource/very_good_templates',
       repoUrl: 'https://github.com/VeryGoodOpenSource/very_good_templates',
@@ -21,8 +55,7 @@ class ContributionsData {
         ),
         ContributionEntry(
           issueStatus: ContributionStatus.issueResolved,
-          issueTitle:
-              'feat: Add linux platform support to flame game template',
+          issueTitle: 'feat: Add linux platform support to flame game template',
           issueUrl:
               'https://github.com/VeryGoodOpenSource/very_good_templates/issues/343',
           prStatus: ContributionStatus.prMerged,
@@ -148,8 +181,7 @@ class ContributionsData {
           issueStatus: ContributionStatus.issueResolved,
           issueTitle:
               'Is it possible to choose whether or not to skew the non-foreground cards?',
-          issueUrl:
-              'https://github.com/delwar36/overlapped_carousel/issues/2',
+          issueUrl: 'https://github.com/delwar36/overlapped_carousel/issues/2',
           prStatus: ContributionStatus.prMerged,
           prTitle:
               'Solved Issue #2: Is it possible to choose whether or not to skew the non-foreground cards?',
@@ -159,8 +191,7 @@ class ContributionsData {
           issueStatus: ContributionStatus.issueResolved,
           issueTitle:
               'Is it possible to obscure (in a progressive way) the cards that are not in the foreground?',
-          issueUrl:
-              'https://github.com/delwar36/overlapped_carousel/issues/3',
+          issueUrl: 'https://github.com/delwar36/overlapped_carousel/issues/3',
           prStatus: ContributionStatus.prMerged,
           prTitle: 'Solved Issue #3: Obscuring images not in foreground',
           prUrl: 'https://github.com/delwar36/overlapped_carousel/pull/4',
@@ -256,8 +287,7 @@ class ContributionsData {
               'https://github.com/BruckCode/chips_input_autocomplete/issues/4',
           prStatus: ContributionStatus.prMerged,
           prTitle: 'Fix FormFieldKey Initialization Error',
-          prUrl:
-              'https://github.com/BruckCode/chips_input_autocomplete/pull/5',
+          prUrl: 'https://github.com/BruckCode/chips_input_autocomplete/pull/5',
         ),
       ],
     ),
