@@ -12,19 +12,19 @@ class Experiences {
     type: ExperienceType.fullTime,
     descriptions: [
       (
-      description:
-      'Built a client-facing Flutter app used by 1K+ users, streamlining core workflows, by shipping the full client experience end-to-end.',
-      icon: FontAwesomeIcons.windowMaximize
+        description:
+            'Built a client-facing Flutter app used by 1K+ users, streamlining core workflows, by shipping the full client experience end-to-end.',
+        icon: FontAwesomeIcons.windowMaximize
       ),
       (
-      description:
-      'Eliminated stored secrets for identity provider integration, achieving fully automated credential rotation, by building a key rotation job with Workload Identity Federation and GCP Secret Manager (5-month rotation cycle).',
-      icon: FontAwesomeIcons.key
+        description:
+            'Eliminated stored secrets for identity provider integration, achieving fully automated credential rotation, by building a key rotation job with Workload Identity Federation and GCP Secret Manager (5-month rotation cycle).',
+        icon: FontAwesomeIcons.key
       ),
       (
-      description:
-      'Reduced CI pipeline complexity and maintenance overhead, across 15+ CI jobs by refactoring shared workflows into reusable configs.',
-      icon: FontAwesomeIcons.gears
+        description:
+            'Reduced CI pipeline complexity and maintenance overhead, across 15+ CI jobs by refactoring shared workflows into reusable configs.',
+        icon: FontAwesomeIcons.gears
       ),
     ],
     skills: [
@@ -420,7 +420,7 @@ class Experiences {
   static List<Experience> byType(ExperienceType type) {
     List<Experience> experiences = _all;
 
-    if (type!=ExperienceType.all) {
+    if (type != ExperienceType.all) {
       experiences = experiences.where((e) => e.type == type).toList();
     }
 

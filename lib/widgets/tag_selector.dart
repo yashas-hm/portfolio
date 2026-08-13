@@ -30,37 +30,37 @@ class TagSelector<T extends TagItem> extends StatelessWidget {
         children: items
             .map(
               (tag) => MouseRegion(
-            cursor: SystemMouseCursors.click,
-            child: GestureDetector(
-              onTap: () => onChanged(tag),
-              child: AnimatedContainer(
-                duration: 400.milliseconds,
-                decoration: BoxDecoration(
-                  borderRadius: selectedTag == tag
-                      ? Sizes.borderRadiusRegular
-                      : Sizes.borderRadiusSmall,
-                  border: selectedTag == tag
-                      ? null
-                      : Border.all(color: colors.borderColor),
-                  color: selectedTag == tag
-                      ? colors.primaryColor
-                      : colors.secondarySurface,
-                ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: Sizes.spacingRegular,
-                  vertical: Sizes.spacingSmall,
-                ),
-                child: Text(
-                  tag.value,
-                  style: selectedTag == tag
-                      ? Styles.smallTextBold(textColor: colors.onPrimary)
-                      : Styles.smallText(),
-                  textAlign: TextAlign.center,
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () => onChanged(tag),
+                  child: AnimatedContainer(
+                    duration: 400.milliseconds,
+                    decoration: BoxDecoration(
+                      borderRadius: selectedTag == tag
+                          ? Sizes.borderRadiusRegular
+                          : Sizes.borderRadiusSmall,
+                      border: selectedTag == tag
+                          ? null
+                          : Border.all(color: colors.borderColor),
+                      color: selectedTag == tag
+                          ? colors.primaryColor
+                          : colors.secondarySurface,
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Sizes.spacingRegular,
+                      vertical: Sizes.spacingSmall,
+                    ),
+                    child: Text(
+                      tag.value,
+                      style: selectedTag == tag
+                          ? Styles.smallTextBold(textColor: colors.onPrimary)
+                          : Styles.smallText(),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-        )
+            )
             .toList(),
       ),
     );
