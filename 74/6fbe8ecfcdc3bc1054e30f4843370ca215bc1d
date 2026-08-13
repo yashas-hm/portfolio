@@ -1,0 +1,21 @@
+lib/navigation/navigation.dart
+  h_489c0496f9f57d 7
+lib/widgets/tag_selector.dart
+  h_489c0496f9f57d 48,60,63
+  h_489c0496f9f57d 33-47,49-59
+lib/data/experiences.dart
+  h_489c0496f9f57d 15-17,20-22,25-27,423
+lib/data/testimonials.dart
+  h_489c0496f9f57d 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "746fbe8ecfcdc3bc1054e30f4843370ca215bc1d",
+  "prompts": {},
+  "humans": {
+    "h_489c0496f9f57d": {
+      "author": "Yashas H Majmudar <yashashm.dev@gmail.com>"
+    }
+  }
+}
