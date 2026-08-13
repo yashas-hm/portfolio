@@ -1,0 +1,42 @@
+lib/components/contributions/contribution_item.dart
+  h_489c0496f9f57d 6,224
+lib/components/projects/projects_component.dart
+  h_489c0496f9f57d 16,59-60
+lib/components/experiences/experiences_component.dart
+  h_489c0496f9f57d 13,19,22-27,29,34,56-60,73,75,84
+  h_489c0496f9f57d 28,61
+lib/data/experiences.dart
+  h_489c0496f9f57d 8,10-12,15-42,81,159,405-406,420-426,436
+  h_489c0496f9f57d 9,13-14
+lib/data/metrics.dart
+  h_489c0496f9f57d 23,42
+lib/components/contributions/contributions_component.dart
+  h_489c0496f9f57d 6,22,24,80
+lib/widgets/tag_selector.dart
+  h_489c0496f9f57d 1-68
+lib/model/experience.dart
+  h_489c0496f9f57d 5,7-8,14
+lib/data/contributions.dart
+  h_489c0496f9f57d 1,3-4,6-7,24,41,68,112,128,175,201,262,278
+lib/model/contribution.dart
+  h_489c0496f9f57d 6-12,14-17,28,50,56
+lib/data/projects.dart
+  h_489c0496f9f57d 436-441,450
+lib/model/project.dart
+  h_489c0496f9f57d 5,13,21
+lib/model/tag_item.dart
+  h_489c0496f9f57d 1-3
+pubspec.lock
+  h_489c0496f9f57d 298,301,687,690
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "917ea28654b2c042203f33c25b131255c7f54268",
+  "prompts": {},
+  "humans": {
+    "h_489c0496f9f57d": {
+      "author": "Yashas H Majmudar <yashashm.dev@gmail.com>"
+    }
+  }
+}
