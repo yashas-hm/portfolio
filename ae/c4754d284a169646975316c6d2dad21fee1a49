@@ -1,0 +1,14 @@
+.github/dependabot.yml
+  h_489c0496f9f57d 8-9,19-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "aec4754d284a169646975316c6d2dad21fee1a49",
+  "prompts": {},
+  "humans": {
+    "h_489c0496f9f57d": {
+      "author": "Yashas H Majmudar <yashashm.dev@gmail.com>"
+    }
+  }
+}
