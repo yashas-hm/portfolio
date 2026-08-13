@@ -10,20 +10,28 @@ import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/bounce_animator.dart';
 import 'package:portfolio/widgets/sequential_animator.dart';
+import 'package:portfolio/widgets/tag_selector.dart';
 import 'package:portfolio/widgets/text/gradient_text.dart';
 import 'package:portfolio/widgets/text/subtext.dart';
 
 part 'experience_item.dart';
 
-class ExperiencesComponent extends StatelessWidget {
+class ExperiencesComponent extends StatefulWidget {
   const ExperiencesComponent({super.key});
 
-  static const int topK = 3;
+  @override
+  State<ExperiencesComponent> createState() => _ExperiencesComponentState();
+}
+
+class _ExperiencesComponentState extends State<ExperiencesComponent> {
+  final int _topK = 4;
+
+  ExperienceType _selectedTag = ExperienceType.all;
 
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final experiences = Experiences.sortedExperiences;
+    final experiences = Experiences.byType(_selectedTag);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -45,6 +53,12 @@ class ExperiencesComponent extends StatelessWidget {
         Subtext(
           'A timeline of my professional journey in software engineering, focusing on scalable architecture, mobile development, and full-stack solutions.',
         ),
+        Gap(Sizes.spacingXL),
+        TagSelector(
+          items: ExperienceType.values,
+          selectedTag: _selectedTag,
+          onChanged: (tag) => setState(() => _selectedTag = tag),
+        ),
         Gap(Sizes.spacingXXL),
         SizedBox(
           width: context.width * (context.isMobile ? 0.9 : 0.6),
@@ -56,9 +70,9 @@ class ExperiencesComponent extends StatelessWidget {
             itemBuilder: (_, index) {
               final experience = ExperienceItem(
                 experience: experiences[index],
-                collapsed: index >= topK,
+                collapsed: index >= _topK,
               );
-              if (index == topK) {
+              if (index == _topK) {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +81,7 @@ class ExperiencesComponent extends StatelessWidget {
                     TimelineContainer(
                       showContainer: false,
                       child: Text(
-                        'Previous Work',
+                        'More Experiences',
                         style: Styles.largeTextBold(
                           textColor: colors.textSecondary,
                         ),

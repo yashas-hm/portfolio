@@ -20,7 +20,7 @@ class Metrics {
         'Faster data retrieval across the stack, from database queries to frontend rendering.',
     name: 'Latency Optimization',
     metric: '40',
-    suffixIcon: FontAwesomeIcons.arrowDownLong,
+    suffixIcon: FontAwesomeIcons.arrowUpLong,
   );
 
   static const globalDeployment = Metric(
@@ -39,7 +39,7 @@ class Metrics {
         'Reduction in production errors via clean architecture and rigorous CI/CD.',
     name: 'System Resilience',
     metric: '40',
-    suffixIcon: FontAwesomeIcons.arrowDownLong,
+    suffixIcon: FontAwesomeIcons.arrowUpLong,
   );
 
   static const List<Metric> all = [

@@ -1,10 +1,10 @@
-import 'package:portfolio/model/contributions.dart';
+import 'package:portfolio/model/contribution.dart';
 
-class ContributionsData {
-  ContributionsData._();
+class Contributions {
+  Contributions._();
 
-  static const List<Contributions> all = [
-    Contributions(
+  static const List<Contribution> all = [
+    Contribution(
       orgName: 'Flutter',
       repoName: 'flutter/flutter',
       repoUrl: 'https://github.com/flutter/flutter',
@@ -21,7 +21,7 @@ class ContributionsData {
         ),
       ],
     ),
-    Contributions(
+    Contribution(
       orgName: 'Flutter',
       repoName: 'flutter/packages',
       repoUrl: 'https://github.com/flutter/packages',
@@ -38,7 +38,7 @@ class ContributionsData {
         ),
       ],
     ),
-    Contributions(
+    Contribution(
       orgName: 'Very Good Ventures',
       repoName: 'VeryGoodOpenSource/very_good_templates',
       repoUrl: 'https://github.com/VeryGoodOpenSource/very_good_templates',
@@ -65,7 +65,7 @@ class ContributionsData {
         ),
       ],
     ),
-    Contributions(
+    Contribution(
       orgName: 'Serverpod',
       repoName: 'serverpod/serverpod',
       repoUrl: 'https://github.com/serverpod/serverpod',
@@ -109,7 +109,7 @@ class ContributionsData {
         ),
       ],
     ),
-    Contributions(
+    Contribution(
       orgName: 'Supabase CLI',
       repoName: 'supabase/cli',
       repoUrl: 'https://github.com/supabase/cli',
@@ -125,7 +125,7 @@ class ContributionsData {
         ),
       ],
     ),
-    Contributions(
+    Contribution(
       orgName: 'Wger Project',
       repoName: 'wger-project/flutter',
       repoUrl: 'https://github.com/wger-project/flutter',
@@ -172,7 +172,7 @@ class ContributionsData {
         ),
       ],
     ),
-    Contributions(
+    Contribution(
       orgName: 'Overlapped Carousel',
       repoName: 'delwar36/overlapped_carousel',
       repoUrl: 'https://github.com/delwar36/overlapped_carousel',
@@ -198,7 +198,7 @@ class ContributionsData {
         ),
       ],
     ),
-    Contributions(
+    Contribution(
       orgName: 'APIDash',
       repoName: 'foss42/apidash',
       repoUrl: 'https://github.com/foss42/apidash',
@@ -259,7 +259,7 @@ class ContributionsData {
         ),
       ],
     ),
-    Contributions(
+    Contribution(
       orgName: 'CSXL.UNC.EDU',
       repoName: 'unc-csxl/csxl.unc.edu',
       repoUrl: 'https://github.com/unc-csxl/csxl.unc.edu',
@@ -275,7 +275,7 @@ class ContributionsData {
         ),
       ],
     ),
-    Contributions(
+    Contribution(
       orgName: 'Chips Input AutoComplete',
       repoName: 'BruckCode/chips_input_autocomplete',
       repoUrl: 'https://github.com/BruckCode/chips_input_autocomplete',

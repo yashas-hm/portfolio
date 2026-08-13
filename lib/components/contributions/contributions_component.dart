@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/data/contributions.dart';
-import 'package:portfolio/model/contributions.dart';
+import 'package:portfolio/model/contribution.dart';
 import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/sequential_animator.dart';
@@ -19,9 +19,9 @@ class ContributionsComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     final totalIssues =
-        ContributionsData.all.fold(0, (sum, c) => sum + c.entries.length);
+        Contributions.all.fold(0, (sum, c) => sum + c.entries.length);
     final totalMerged =
-        ContributionsData.all.fold(0, (sum, c) => sum + c.mergedCount);
+        Contributions.all.fold(0, (sum, c) => sum + c.mergedCount);
 
     return Padding(
       padding: EdgeInsets.symmetric(vertical: Sizes.spacingXXL),
@@ -77,7 +77,7 @@ class ContributionsComponent extends StatelessWidget {
                 runSpacing: Sizes.spacingLarge,
                 children: children,
               ),
-              children: ContributionsData.all
+              children: Contributions.all
                   .map((c) => ContributionCard(contribution: c))
                   .toList(),
             ),

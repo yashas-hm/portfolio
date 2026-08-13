@@ -13,6 +13,7 @@ import 'package:portfolio/utilities/extensions.dart';
 import 'package:portfolio/utilities/utils.dart';
 import 'package:portfolio/widgets/custom_cached_image.dart';
 import 'package:portfolio/widgets/sequential_animator.dart';
+import 'package:portfolio/widgets/tag_selector.dart';
 import 'package:portfolio/widgets/text/gradient_text.dart';
 import 'package:portfolio/widgets/text/subtext.dart';
 
@@ -55,7 +56,8 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
           'A multidisciplinary portfolio spanning AI Systems, research, open-source Flutter libraries, and full-stack production systems.',
         ),
         Gap(Sizes.spacingXL),
-        ProjectTagSelector(
+        TagSelector(
+          items: ProjectTag.values,
           selectedTag: _selectedTag,
           onChanged: (tag) => setState(() => _selectedTag = tag),
         ),

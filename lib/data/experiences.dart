@@ -5,6 +5,41 @@ import 'package:portfolio/model/experience.dart';
 class Experiences {
   Experiences._();
 
+  static final nest = Experience(
+    role: 'Software Engineer',
+    company: 'Nest Veterinary',
+    startDate: DateTime(2026, DateTime.july),
+    type: ExperienceType.fullTime,
+    descriptions: [
+      (
+      description:
+      'Built a client-facing Flutter app used by 1K+ users, streamlining core workflows, by shipping the full client experience end-to-end.',
+      icon: FontAwesomeIcons.windowMaximize
+      ),
+      (
+      description:
+      'Eliminated stored secrets for identity provider integration, achieving fully automated credential rotation, by building a key rotation job with Workload Identity Federation and GCP Secret Manager (5-month rotation cycle).',
+      icon: FontAwesomeIcons.key
+      ),
+      (
+      description:
+      'Reduced CI pipeline complexity and maintenance overhead, across 15+ CI jobs by refactoring shared workflows into reusable configs.',
+      icon: FontAwesomeIcons.gears
+      ),
+    ],
+    skills: [
+      Skills.flutter,
+      Skills.dart,
+      Skills.gcp,
+      Skills.fastapi,
+      Skills.mysql,
+      Skills.python,
+      Skills.git,
+      Skills.githubActions,
+    ],
+    icon: FontAwesomeIcons.shieldDog,
+  );
+
   static final albi = Experience(
     role: 'Software Engineer',
     company: 'Albiware LLC',
@@ -43,7 +78,7 @@ class Experiences {
       Skills.git,
       Skills.gitlab,
     ],
-    icon: FontAwesomeIcons.laptopCode,
+    icon: FontAwesomeIcons.roadBarrier,
   );
 
   static final uncE = Experience(
@@ -121,7 +156,7 @@ class Experiences {
       Skills.python,
       Skills.githubActions,
     ],
-    icon: FontAwesomeIcons.briefcase,
+    icon: FontAwesomeIcons.kitMedical,
   );
 
   static final freelance = Experience(
@@ -367,7 +402,8 @@ class Experiences {
     icon: FontAwesomeIcons.solidHeart,
   );
 
-  static final List<Experience> all = [
+  static final List<Experience> _all = [
+    nest,
     albi,
     uncE,
     pb,
@@ -381,8 +417,13 @@ class Experiences {
     ngo,
   ];
 
-  static List<Experience> get sortedExperiences {
-    final experiences = [...all];
+  static List<Experience> byType(ExperienceType type) {
+    List<Experience> experiences = _all;
+
+    if (type!=ExperienceType.all) {
+      experiences = experiences.where((e) => e.type == type).toList();
+    }
+
     experiences.sort((a, b) {
       final aEnd = a.endDate ?? DateTime(9999);
       final bEnd = b.endDate ?? DateTime(9999);
@@ -392,6 +433,7 @@ class Experiences {
 
       return b.startDate.compareTo(a.startDate);
     });
+
     return experiences;
   }
 }

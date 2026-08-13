@@ -3,21 +3,18 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constants/constants.dart';
 
 enum ContributionStatus {
-  issueOpen,
-  issueClosed,
-  issueResolved,
-  prOpen,
-  prClosed,
-  prMerged;
+  all('All', FontAwesomeIcons.a),
+  issueOpen('Issue Open', FontAwesomeIcons.circleExclamation),
+  issueClosed('Issue Closed', FontAwesomeIcons.circleMinus),
+  issueResolved('Issue Resolved', FontAwesomeIcons.circleCheck),
+  prOpen('PR Open', FontAwesomeIcons.codePullRequest),
+  prClosed('PR Closed', FontAwesomeIcons.codePullRequest),
+  prMerged('PR Merged', FontAwesomeIcons.codeMerge);
 
-  String get label => switch (this) {
-        ContributionStatus.issueOpen => 'Issue Open',
-        ContributionStatus.issueClosed => 'Issue Closed',
-        ContributionStatus.issueResolved => 'Issue Resolved',
-        ContributionStatus.prOpen => 'PR Open',
-        ContributionStatus.prClosed => 'PR Closed',
-        ContributionStatus.prMerged => 'PR Merged',
-      };
+  final String value;
+  final FaIconData icon;
+
+  const ContributionStatus(this.value, this.icon);
 
   Color get color => switch (this) {
         ContributionStatus.issueResolved => KnownColors.green500,
@@ -28,15 +25,7 @@ enum ContributionStatus {
         ContributionStatus.issueClosed ||
         ContributionStatus.prClosed =>
           KnownColors.red500,
-      };
-
-  FaIconData get icon => switch (this) {
-        ContributionStatus.issueOpen => FontAwesomeIcons.circleExclamation,
-        ContributionStatus.issueClosed => FontAwesomeIcons.circleMinus,
-        ContributionStatus.issueResolved => FontAwesomeIcons.circleCheck,
-        ContributionStatus.prOpen => FontAwesomeIcons.codePullRequest,
-        ContributionStatus.prClosed => FontAwesomeIcons.codePullRequest,
-        ContributionStatus.prMerged => FontAwesomeIcons.codeMerge,
+        _ => KnownColors.transparent,
       };
 }
 
@@ -58,13 +47,13 @@ class ContributionEntry {
   });
 }
 
-class Contributions {
+class Contribution {
   final String orgName;
   final String repoName;
   final String repoUrl;
   final List<ContributionEntry> entries;
 
-  const Contributions({
+  const Contribution({
     required this.orgName,
     required this.repoName,
     required this.repoUrl,

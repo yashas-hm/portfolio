@@ -411,7 +411,6 @@ class Projects {
     endDate: DateTime(2022, 12),
   );
 
-  /// All projects (unsorted)
   static final List<Project> _all = [
     dashability,
     mediaMetadataPlus,
@@ -434,23 +433,6 @@ class Projects {
     arduinoMidiDrums,
   ];
 
-  static List<Project> get all => sorted(_all);
-
-  /// Sorts projects:
-  /// 1. Groups by tag (all packages together, all AI/ML together, etc.)
-  /// 2. Within each tag group, sorts by endDate (newest first, null for in-progress)
-  /// 3. Tag groups ordered by tag.order (In Progress → AI/ML → Production → Project → Package)
-  static List<Project> sorted(List<Project> projects) {
-    final list = List<Project>.from(projects);
-    list.sort((a, b) {
-      if (a.endDate == null && b.endDate == null) return 0;
-      if (a.endDate == null) return -1;
-      if (b.endDate == null) return 1;
-      return b.endDate!.compareTo(a.endDate!);
-    });
-    return list;
-  }
-
   static List<Project> byTag(ProjectTag tag) {
     List<Project> list = _all;
 
@@ -458,7 +440,14 @@ class Projects {
       list = _all.where((p) => p.tag == tag).toList();
     }
 
-    return sorted(list);
+    list.sort((a, b) {
+      if (a.endDate == null && b.endDate == null) return 0;
+      if (a.endDate == null) return -1;
+      if (b.endDate == null) return 1;
+      return b.endDate!.compareTo(a.endDate!);
+    });
+
+    return list;
   }
 
   static final List<Project> highlights = [

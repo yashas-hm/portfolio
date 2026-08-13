@@ -3,7 +3,7 @@ part of 'contributions_component.dart';
 class ContributionCard extends StatefulWidget {
   const ContributionCard({super.key, required this.contribution});
 
-  final Contributions contribution;
+  final Contribution contribution;
 
   @override
   State<ContributionCard> createState() => _ContributionCardState();
@@ -221,7 +221,7 @@ class _StatusBadge extends StatelessWidget {
         children: [
           FaIcon(status.icon, size: Sizes.iconXXS, color: status.color),
           Text(
-            status.label,
+            status.value,
             style: Styles.extraSmallText(textColor: status.color),
           ),
         ],

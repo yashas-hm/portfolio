@@ -2,6 +2,7 @@ import 'package:flutter/painting.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constants/constants.dart' show KnownColors;
 import 'package:portfolio/model/skill.dart' show Skill;
+import 'package:portfolio/model/tag_item.dart';
 
 typedef Link = ({
   String urlText,
@@ -9,7 +10,7 @@ typedef Link = ({
   FaIconData icon,
 });
 
-enum ProjectTag {
+enum ProjectTag implements TagItem {
   all('All', -1, KnownColors.transparent),
   inProgress('In Progress', 1, KnownColors.amber500),
   aiMl('AI/ML', 2, KnownColors.purple500),
@@ -17,6 +18,7 @@ enum ProjectTag {
   project('Project', 4, KnownColors.blue500),
   package('Package', 5, KnownColors.cyan500);
 
+  @override
   final String value;
   final int order;
   final Color color;

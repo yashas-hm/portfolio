@@ -2,13 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/model/skill.dart' show Skill;
+import 'package:portfolio/model/tag_item.dart';
 
-enum ExperienceType {
+enum ExperienceType implements TagItem {
+  all('All', KnownColors.teal500),
   partTime('Part Time', KnownColors.amber500),
   fullTime('Full Time', KnownColors.green500),
   internship('Internship', KnownColors.blue600),
   freelance('Freelance', KnownColors.purple500);
 
+  @override
   final String value;
   final Color color;
 
