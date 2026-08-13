@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Flutter Setup
         uses: subosito/flutter-action@v2
         with:
@@ -45,7 +45,7 @@ jobs:
           cp -f vercel.json vercel_build
 
       - name: Deploy on Vercel
-        uses: amondnet/vercel-action@v42.2.0
+        uses: amondnet/vercel-action@v42.3.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
