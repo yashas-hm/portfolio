@@ -5,8 +5,6 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
-    reviewers:
-      - "yashas-hm"
     groups:
       pub-dependencies:
         patterns:
@@ -16,8 +14,6 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    reviewers:
-      - "yashas-hm"
     groups:
       github-actions:
         patterns:
