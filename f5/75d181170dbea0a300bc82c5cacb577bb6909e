@@ -1,0 +1,14 @@
+CODEOWNERS
+  h_489c0496f9f57d 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "f575d181170dbea0a300bc82c5cacb577bb6909e",
+  "prompts": {},
+  "humans": {
+    "h_489c0496f9f57d": {
+      "author": "Yashas H Majmudar <yashashm.dev@gmail.com>"
+    }
+  }
+}
