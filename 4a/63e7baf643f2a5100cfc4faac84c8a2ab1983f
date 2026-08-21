@@ -1,0 +1,15 @@
+lib/components/base_page/navbar.dart
+  h_489c0496f9f57d 45-47
+  h_489c0496f9f57d 48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "4a63e7baf643f2a5100cfc4faac84c8a2ab1983f",
+  "prompts": {},
+  "humans": {
+    "h_489c0496f9f57d": {
+      "author": "Yashas H Majmudar <yashashm.dev@gmail.com>"
+    }
+  }
+}
