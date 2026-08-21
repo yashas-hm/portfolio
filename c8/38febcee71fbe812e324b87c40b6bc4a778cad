@@ -1,0 +1,31 @@
+.gitattributes
+  h_489c0496f9f57d 1-6
+lib/constants/assets.dart
+  h_489c0496f9f57d 4
+analysis_options.yaml
+  h_489c0496f9f57d 5-6,8-10
+web/index.html
+  h_489c0496f9f57d 21,30
+  h_489c0496f9f57d 10,12,18,20,27,29,45,55-60,71,73-74,77,127-128,131-136,140-145,148-157,162-171,175,178-179,182-183,186-187,191
+lib/constants/constants.dart
+  h_489c0496f9f57d 1
+.github/workflows/build_for_vercel.yml
+  h_489c0496f9f57d 6
+lib/components/base_page/global_footer.dart
+  h_489c0496f9f57d 27,53
+.githooks/pre-commit
+  h_489c0496f9f57d 1-13
+web/sitemap.xml
+  h_489c0496f9f57d 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "c838febcee71fbe812e324b87c40b6bc4a778cad",
+  "prompts": {},
+  "humans": {
+    "h_489c0496f9f57d": {
+      "author": "Yashas H Majmudar <yashashm.dev@gmail.com>"
+    }
+  }
+}
