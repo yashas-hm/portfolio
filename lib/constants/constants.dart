@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart'
-    show
-        BorderRadius,
-        EdgeInsets,
-        Color,
-        TextStyle,
-        FontWeight,
-        OutlineInputBorder,
-        InputBorder,
-        BorderSide,
-        FontStyle;
+import 'package:flutter/material.dart';
 
 part 'assets.dart';
 part 'colors.dart';

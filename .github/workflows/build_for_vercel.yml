@@ -3,7 +3,7 @@ name: Build and Deploy Flutter Web to Vercel
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'lib/**'
       - 'api/**'

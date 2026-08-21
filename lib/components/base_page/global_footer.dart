@@ -17,7 +17,6 @@ class GlobalFooter extends StatelessWidget {
             ? CrossAxisAlignment.center
             : CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        spacing: Sizes.spacingRegular,
         children: [
           Text(
             '// Connect',
@@ -25,6 +24,7 @@ class GlobalFooter extends StatelessWidget {
               textColor: colors.primaryColor,
             ),
           ),
+          const Gap(Sizes.spacingRegular),
           Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: context.isMobile
@@ -50,7 +50,7 @@ class GlobalFooter extends StatelessWidget {
               );
             }).toList(),
           ),
-          Gap(Sizes.spacingSmall),
+          Gap(Sizes.spacingMedium),
           SizedBox(
             width: double.infinity,
             child: Wrap(
