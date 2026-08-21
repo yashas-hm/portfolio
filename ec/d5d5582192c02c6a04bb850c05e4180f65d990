@@ -1,0 +1,18 @@
+lib/constants/assets.dart
+  h_489c0496f9f57d 4
+lib/components/base_page/navbar.dart
+  h_489c0496f9f57d 45
+assets/images/avatar.svg
+  h_489c0496f9f57d 1-163
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "ecd5d5582192c02c6a04bb850c05e4180f65d990",
+  "prompts": {},
+  "humans": {
+    "h_489c0496f9f57d": {
+      "author": "Yashas H Majmudar <yashashm.dev@gmail.com>"
+    }
+  }
+}
