@@ -19,8 +19,8 @@ dependencies:
   flutter_svg: ^2.3.0
   auto_size_text: ^3.0.0
   day_night_themed_switcher: ^2.0.2
-  cached_network_image: ^3.4.1
-  cached_network_image_platform_interface: ^4.1.1
+  cached_network_image: ^4.0.0
+  cached_network_image_platform_interface: ^5.0.0
   flutter_markdown_plus: ^1.0.12
   shared_preferences: ^2.5.5
   intl: ^0.20.3
